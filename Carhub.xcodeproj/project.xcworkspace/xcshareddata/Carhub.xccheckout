@@ -10,6 +10,8 @@
 	<string>Carhub</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>69DF78EF076DF4498A59ADB7C6AB8B9A20ECEF40</key>
+		<string>https://github.com/HamApps/AutohubRepo.git</string>
 		<key>A32F77C6E8756A7B8B93DC303FEE801C479FF7B4</key>
 		<string>https://github.com/HamApps/Autohub.git</string>
 		<key>EBB681873E540D080E79A9A519E8ACEFBDE54F30</key>
@@ -19,25 +21,25 @@
 	<string>Carhub.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>69DF78EF076DF4498A59ADB7C6AB8B9A20ECEF40</key>
+		<string>../..</string>
 		<key>A32F77C6E8756A7B8B93DC303FEE801C479FF7B4</key>
 		<string>../../..</string>
 		<key>EBB681873E540D080E79A9A519E8ACEFBDE54F30</key>
-		<string>../..</string>
+		<string>../../../App</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/HamApps/App.git</string>
+	<string>https://github.com/HamApps/AutohubRepo.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>EBB681873E540D080E79A9A519E8ACEFBDE54F30</string>
+	<string>69DF78EF076DF4498A59ADB7C6AB8B9A20ECEF40</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>A32F77C6E8756A7B8B93DC303FEE801C479FF7B4</string>
-			<key>IDESourceControlWCCName</key>
+			
+			
+			
 			<string></string>
 		</dict>
 		<dict>
@@ -55,6 +57,14 @@
 			<string>EBB681873E540D080E79A9A519E8ACEFBDE54F30</string>
 			<key>IDESourceControlWCCName</key>
 			<string>App</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>69DF78EF076DF4498A59ADB7C6AB8B9A20ECEF40</string>
+			<key>IDESourceControlWCCName</key>
+			<string>AutohubRepo</string>
 		</dict>
 	</array>
 </dict>
