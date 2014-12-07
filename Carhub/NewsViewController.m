@@ -36,6 +36,7 @@
 }
 
 - (void)viewDidLoad
+
 {
     [super viewDidLoad];
     
@@ -234,6 +235,7 @@
     NSLog(@"appdelarray3: %@", newsArray);
     
 }
+
 
 
 
