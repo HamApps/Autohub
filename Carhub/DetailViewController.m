@@ -59,7 +59,7 @@
     
     
     [scroller setScrollEnabled:YES];
-    [scroller setContentSize:CGSizeMake(320, 568)];
+    [scroller setContentSize:CGSizeMake(320, 780)];
     
     self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"Metal Background.jpg"]];
     

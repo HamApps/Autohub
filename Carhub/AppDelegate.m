@@ -72,6 +72,16 @@
     
     // detect the height of our screen
     int height = [UIScreen mainScreen].bounds.size.height;
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"WhiteTexture.jpg"] forBarMetrics:UIBarMetricsDefault];
+    NSShadow *shadow = [[NSShadow alloc] init];
+    shadow.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8];
+    shadow.shadowOffset = CGSizeMake(0, 1);
+    [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                           [UIColor colorWithRed:0 green:0 blue:0 alpha:1.0], NSForegroundColorAttributeName,
+                                                           shadow, NSShadowAttributeName,
+                                                           [UIFont fontWithName:@"eurostile" size:21.0], NSFontAttributeName, nil]];
+    
+
     
     if (height == 480) {
         storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard4" bundle:nil];
