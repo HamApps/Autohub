@@ -46,7 +46,7 @@
     [scroller setScrollEnabled:YES];
     [scroller setContentSize:CGSizeMake(320, 1450)];
     
-    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"Metal Background.jpg"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"whiteback.jpg"]];
     
     self.title = @"Find Cars";
     

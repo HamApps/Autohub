@@ -47,7 +47,7 @@
     //[self retrieveMakeImageData];
     //[self retrieveModelData];
     [self makeAppDelModelArray];
-    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"Metal Background.jpg"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"whiteback.jpg"]];
 }
 
 - (void)didReceiveMemoryWarning

@@ -42,7 +42,7 @@
     //Set the title of the VC: will be make name
     self.title = @"Results";
     
-    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"Metal Background.jpg"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"whiteback.jpg"]];
     
     //Load Model Data
     
