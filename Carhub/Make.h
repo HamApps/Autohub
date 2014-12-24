@@ -18,6 +18,4 @@
 
 - (id)initWithMakeName: (NSString *)mName andMakeImageURL: (NSString *)mImageURL;
 
-
-
 @end

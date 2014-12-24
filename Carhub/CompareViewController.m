@@ -45,8 +45,26 @@
     
     [self setLabels];
     
-    //firstimageview.image = [UIImage imageWithData: [NSData dataWithContentsOfURL:[NSURL URLWithString:firstCar.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]]];
-    //secondimageview.image = [UIImage imageWithData: [NSData dataWithContentsOfURL:[NSURL URLWithString:secondCar.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]]];
+    if(firstCar != nil){
+        NSString *identifier = [[NSString stringWithFormat:@"%@", firstCar.CarMake]stringByAppendingString:firstCar.CarModel];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSData *imagedata = [defaults objectForKey:identifier];
+        firstimageview.image = [UIImage imageWithData:imagedata];
+        [UIImageView beginAnimations:nil context:NULL];
+        [UIImageView setAnimationDuration:.01];
+        [firstimageview setAlpha:1.0];
+        [UIImageView commitAnimations];
+    }
+    if(secondCar != nil){
+        NSString *identifier2 = [[NSString stringWithFormat:@"%@", secondCar.CarMake]stringByAppendingString:secondCar.CarModel];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSData *imagedata = [defaults objectForKey:identifier2];
+        secondimageview.image = [UIImage imageWithData:imagedata];
+        [UIImageView beginAnimations:nil context:NULL];
+        [UIImageView setAnimationDuration:.01];
+        [secondimageview setAlpha:1.0];
+        [UIImageView commitAnimations];
+    }
     
     if (firstimageview.image ==nil) {
         

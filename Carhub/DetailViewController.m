@@ -68,7 +68,14 @@
     NSString * detailtitle = [makewithspace stringByAppendingString:_currentCar.CarModel];
     self.title = detailtitle;
     
-    //NSLog(@"%@", _);
+    NSString *identifier = [[NSString stringWithFormat:@"%@", _currentCar.CarMake]stringByAppendingString:_currentCar.CarModel];
+    NSData *imagedata = [defaults objectForKey:identifier];
+    imageview.image = [UIImage imageWithData:imagedata];
+    [UIImageView beginAnimations:nil context:NULL];
+    [UIImageView setAnimationDuration:.01];
+    [imageview setAlpha:1.0];
+    [UIImageView commitAnimations];
+    
     if (!currentCararray){
     self.currentCararray = [[NSMutableArray alloc]init];
     [self.currentCararray addObject:_currentCar];

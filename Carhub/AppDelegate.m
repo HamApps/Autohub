@@ -170,8 +170,7 @@
     NSData * modeldata = [NSData dataWithContentsOfURL:modelurl];
     
     modeljsonArray = [NSJSONSerialization JSONObjectWithData:modeldata options:kNilOptions error:nil];
-    
-    //Set up our cities arrray
+
     modelArray = [[NSMutableArray alloc] init];
     
     //Loop through ourjsonArray
@@ -194,7 +193,7 @@
         NSString * cWebsite = [[modeljsonArray objectAtIndex:i]objectForKey:@"Make Link"];
         
         
-        //Add the city object to our cities array
+        //Add object to array
         [modelArray addObject:[[Model alloc]initWithCarMake:cMake andCarModel:cModel andCarYearsMade:cYearsMade andCarPrice:cPrice andCarEngine:cEngine andCarTransmission:cTransmission andCarDriveType:cDriveType andCarHorsepower:cHorsepower andCarZeroToSixty:cZeroToSixty andCarTopSpeed:cTopSpeed andCarWeight:cWeight andCarFuelEconomy:cFuelEconomy andCarImageURL:cURL andCarWebsite:cWebsite]];
         
     }
@@ -218,7 +217,7 @@
     //Loop through our makejsonArray
     for (int i = 0; i < AlphabeticalArray.count; i++)
     {
-        //Create the MakeImage object
+        //Create the MakeName object
         NSString * mName = [[AlphabeticalArray objectAtIndex:i] objectForKey:@"Make"];
         
         //Add the MakeImage object to the MakeImage array
