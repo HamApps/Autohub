@@ -42,6 +42,7 @@
 		38D2B8CA19A58EBA004D0687 /* MakeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D2B8C919A58EBA004D0687 /* MakeViewController.m */; };
 		38D2B8CD19A58F56004D0687 /* MakeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D2B8CC19A58F56004D0687 /* MakeCell.m */; };
 		38D2B8D319A58FB5004D0687 /* ModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D2B8D219A58FB5004D0687 /* ModelViewController.m */; };
+		38E980071A47B97300D5784B /* WhiteTexture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 38E980061A47B97300D5784B /* WhiteTexture.jpg */; };
 		AA3E760619F0A32A00C1F870 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA3E760519F0A32A00C1F870 /* AdSupport.framework */; };
 		AA3E760819F0A33000C1F870 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA3E760719F0A33000C1F870 /* AudioToolbox.framework */; };
 		AA3E760A19F0A33900C1F870 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA3E760919F0A33900C1F870 /* AVFoundation.framework */; };
@@ -64,11 +65,6 @@
 		AAB744E3198318BF00A8545A /* MainStoryboard4.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAB744E1198318BF00A8545A /* MainStoryboard4.storyboard */; };
 		AAD406C819B137BB001D5192 /* Metal Background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AAD406C719B137BB001D5192 /* Metal Background.jpg */; };
 		AAD406CA19B13B7B001D5192 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = AAD406C919B13B7B001D5192 /* iTunesArtwork.png */; };
-		AAD72F781A45151C00077574 /* Zoomed in Ferrari.png in Resources */ = {isa = PBXBuildFile; fileRef = AAD72F771A45151C00077574 /* Zoomed in Ferrari.png */; };
-		AAD72F7E1A45233D00077574 /* WhiteTexture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AAD72F7D1A45233D00077574 /* WhiteTexture.jpg */; };
-		AAD72F801A45293E00077574 /* eurostile.TTF in Resources */ = {isa = PBXBuildFile; fileRef = AAD72F7F1A4528FE00077574 /* eurostile.TTF */; };
-		AAD72F821A452D3700077574 /* carbontexture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AAD72F811A452D3700077574 /* carbontexture.jpg */; };
-		AAD72F841A452EFF00077574 /* Carbontab.png in Resources */ = {isa = PBXBuildFile; fileRef = AAD72F831A452EFF00077574 /* Carbontab.png */; };
 		AAED753E19EF6EA900FCE06F /* iRate.m in Sources */ = {isa = PBXBuildFile; fileRef = AAED753D19EF6EA900FCE06F /* iRate.m */; };
 		AAED754719EF6ED500FCE06F /* horse_PNG2553@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAED754119EF6ED500FCE06F /* horse_PNG2553@2x.png */; };
 		AAED754819EF6ED500FCE06F /* moneystack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAED754219EF6ED500FCE06F /* moneystack@2x.png */; };
@@ -189,6 +185,8 @@
 		38D2B8CC19A58F56004D0687 /* MakeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MakeCell.m; sourceTree = "<group>"; };
 		38D2B8D119A58FB5004D0687 /* ModelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelViewController.h; sourceTree = "<group>"; };
 		38D2B8D219A58FB5004D0687 /* ModelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelViewController.m; sourceTree = "<group>"; };
+		38E980031A47B90C00D5784B /* eurostile.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = eurostile.TTF; path = ../../../Downloads/eurostile.TTF; sourceTree = "<group>"; };
+		38E980061A47B97300D5784B /* WhiteTexture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = WhiteTexture.jpg; path = ../../../Downloads/WhiteTexture.jpg; sourceTree = "<group>"; };
 		AA3E760519F0A32A00C1F870 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		AA3E760719F0A33000C1F870 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		AA3E760919F0A33900C1F870 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -216,11 +214,6 @@
 		AAB744E1198318BF00A8545A /* MainStoryboard4.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard4.storyboard; sourceTree = "<group>"; };
 		AAD406C719B137BB001D5192 /* Metal Background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Metal Background.jpg"; sourceTree = "<group>"; };
 		AAD406C919B13B7B001D5192 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
-		AAD72F771A45151C00077574 /* Zoomed in Ferrari.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Zoomed in Ferrari.png"; path = "../../Magnified Ferrari/Zoomed in Ferrari.png"; sourceTree = "<group>"; };
-		AAD72F7D1A45233D00077574 /* WhiteTexture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = WhiteTexture.jpg; path = ../../WhiteTexture.jpg; sourceTree = "<group>"; };
-		AAD72F7F1A4528FE00077574 /* eurostile.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = eurostile.TTF; path = ../../Eurostile/eurostile.TTF; sourceTree = "<group>"; };
-		AAD72F811A452D3700077574 /* carbontexture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = carbontexture.jpg; path = "../../Autohub Material/Random Images/carbontexture.jpg"; sourceTree = "<group>"; };
-		AAD72F831A452EFF00077574 /* Carbontab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Carbontab.png; path = "../../Autohub Material/Random Images/Carbontab.png"; sourceTree = "<group>"; };
 		AAED753C19EF6EA900FCE06F /* iRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRate.h; sourceTree = "<group>"; };
 		AAED753D19EF6EA900FCE06F /* iRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRate.m; sourceTree = "<group>"; };
 		AAED754119EF6ED500FCE06F /* horse_PNG2553@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "horse_PNG2553@2x.png"; sourceTree = "<group>"; };
@@ -435,11 +428,8 @@
 		AA5546911979F2CE00E7CF12 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				AAD72F831A452EFF00077574 /* Carbontab.png */,
-				AAD72F7F1A4528FE00077574 /* eurostile.TTF */,
-				AAD72F811A452D3700077574 /* carbontexture.jpg */,
-				AAD72F7D1A45233D00077574 /* WhiteTexture.jpg */,
-				AAD72F771A45151C00077574 /* Zoomed in Ferrari.png */,
+				38E980031A47B90C00D5784B /* eurostile.TTF */,
+				38E980061A47B97300D5784B /* WhiteTexture.jpg */,
 				AAED754119EF6ED500FCE06F /* horse_PNG2553@2x.png */,
 				AAED754219EF6ED500FCE06F /* moneystack@2x.png */,
 				AAED754319EF6ED500FCE06F /* Nurburgring@2x.png */,
@@ -657,7 +647,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAD72F801A45293E00077574 /* eurostile.TTF in Resources */,
 				AAED757919EF6EED00FCE06F /* weight Icon@2x.png in Resources */,
 				AAED756E19EF6EED00FCE06F /* Engine Icon@2x.png in Resources */,
 				AAED75AC19EF717700FCE06F /* README.txt in Resources */,
@@ -674,13 +663,10 @@
 				AAED757519EF6EED00FCE06F /* speedometer 2@2x.png in Resources */,
 				AAED754B19EF6ED500FCE06F /* RcA6RKnAi@2x.png in Resources */,
 				AAED757419EF6EED00FCE06F /* Radical Logo@2x.png in Resources */,
-				AAD72F841A452EFF00077574 /* Carbontab.png in Resources */,
 				AAED758419EF6F0100FCE06F /* Green Buy Button@2x.png in Resources */,
 				AAED757119EF6EED00FCE06F /* Horsepower Icon@2x.png in Resources */,
 				AA5546A31979F2CE00E7CF12 /* Images.xcassets in Resources */,
 				AAED758819EF6F0100FCE06F /* SpecsDisputePage4@2x.png in Resources */,
-				AAD72F7E1A45233D00077574 /* WhiteTexture.jpg in Resources */,
-				AAD72F821A452D3700077574 /* carbontexture.jpg in Resources */,
 				AAED755619EF6EE400FCE06F /* garage-50@2x.png in Resources */,
 				381DDFF119C7AF460055DB4E /* PurchaseViewController.xib in Resources */,
 				AAED757019EF6EED00FCE06F /* fuel pump icon@2x.png in Resources */,
@@ -693,6 +679,7 @@
 				AAED757619EF6EED00FCE06F /* SSC Logo@2x.png in Resources */,
 				AAED754819EF6ED500FCE06F /* moneystack@2x.png in Resources */,
 				AAED754719EF6ED500FCE06F /* horse_PNG2553@2x.png in Resources */,
+				38E980071A47B97300D5784B /* WhiteTexture.jpg in Resources */,
 				AA5546951979F2CE00E7CF12 /* InfoPlist.strings in Resources */,
 				AAED756F19EF6EED00FCE06F /* ferrari logo@2x.png in Resources */,
 				AAED757819EF6EED00FCE06F /* Transmission Icon@2x.png in Resources */,
@@ -700,7 +687,6 @@
 				AAED755A19EF6EE400FCE06F /* Top tens tab bar icon@2x.png in Resources */,
 				AAED758219EF6F0100FCE06F /* blue button 2@2x.png in Resources */,
 				AAED755819EF6EE400FCE06F /* News icon@2x.png in Resources */,
-				AAD72F781A45151C00077574 /* Zoomed in Ferrari.png in Resources */,
 				AAED758619EF6F0100FCE06F /* In-AppPurchasePage4@2x.png in Resources */,
 				AAED754C19EF6ED500FCE06F /* Sport-Activities-Stopwatch-icon@2x.png in Resources */,
 				AAD406C819B137BB001D5192 /* Metal Background.jpg in Resources */,

@@ -25,7 +25,7 @@
 @end
 
 @implementation MakeViewController
-@synthesize makejsonArray, makeimageArray, currentMake, modelArray, modeljsonArray, filteredArray, AlphabeticalArray, cachedImages, appdelmodelArray;
+@synthesize makeimageArray, currentMake, modelArray, appdelmodelArray;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,13 +39,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.cachedImages = [[NSMutableDictionary alloc]init];
-    // Set a title for the view controller
     self.title = @"Makes";
-    
-    //Load the MakeImage Data
-    //[self retrieveMakeImageData];
-    //[self retrieveModelData];
     [self makeAppDelModelArray];
     self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"Metal Background.jpg"]];
 }
@@ -75,6 +69,7 @@
     makeObject = [makeimageArray objectAtIndex:indexPath.item];
     
     NSString *identifier = [NSString stringWithFormat:@"MakeReuseID%ld" , (long)indexPath.row];
+    NSString *urlIdentifier = [NSString stringWithFormat:@"imageurl%@", makeObject.MakeName];
     
     
     cell.layer.borderWidth=0.7f;
@@ -83,16 +78,22 @@
     
     cell.MakeNameLabel.text =makeObject.MakeName;
 
-
-    //NSString *identifier = [NSString stringWithFormat:@"MakeReuseID%d", indexPath.row];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *imagedata = [defaults objectForKey:identifier];
+    [defaults setObject:[NSString stringWithFormat:@"%i", makeimageArray.count] forKey:@"count"];
     
-    cell.MakeImageView.image = [self.cachedImages valueForKey:identifier];
+    //NSLog([defaults objectForKey:urlIdentifier]);
     
-    if([self.cachedImages objectForKey:identifier] !=nil){
-        cell.MakeImageView.image = [self.cachedImages valueForKey:identifier];
-
-    }else{
+    if([[defaults objectForKey:@"count"] integerValue] == [[NSString stringWithFormat:@"%i", makeimageArray.count] integerValue])
+    {
+    cell.MakeImageView.image = [UIImage imageWithData:imagedata];
+    [UIImageView beginAnimations:nil context:NULL];
+    [UIImageView setAnimationDuration:.01];
+    [cell.MakeImageView setAlpha:1.0];
+    [UIImageView commitAnimations];
+    }
     
+    if(!([[defaults objectForKey:urlIdentifier] isEqualToString:makeObject.MakeImageURL]) || cell.MakeImageView.image == nil){
         char const*s = [identifier UTF8String];
             dispatch_queue_t queue = dispatch_queue_create(s, 0);
         
@@ -105,33 +106,24 @@
                             MakeCell *updateCell = (id)[collectionView cellForItemAtIndexPath:indexPath];
                             if (updateCell)
                             {
-                                
-                                updateCell.MakeImageView.image = image;
-
-                                [self.cachedImages setValue:image forKey:identifier];
-                                updateCell.MakeImageView.image = [self.cachedImages valueForKey:identifier];
+                                [defaults setObject:UIImagePNGRepresentation(image) forKey:identifier];
+                                [defaults setObject:makeObject.MakeImageURL forKey:urlIdentifier];
+                                NSData *imgdata = [defaults objectForKey:identifier];
+                                updateCell.MakeImageView.image = [UIImage imageWithData:imgdata];
+                                [updateCell.MakeImageView setAlpha:0.0];
                                 [UIImageView beginAnimations:nil context:NULL];
                                 [UIImageView setAnimationDuration:.75];
                                 [updateCell.MakeImageView setAlpha:1.0];
                                 [UIImageView commitAnimations];
                                 
-                        
-                                
-                                NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-                                //[defaults setObject:UIImagePNGRepresentation(image) forKey:@"cacheimagedata"];
-                                //[defaults setObject:UIImageJPEGRepresentation(image, 1) forKey:@"cacheimagedata"];
-                                //NSData *imgData = [NSKeyedArchiver archivedDataWithRootObject:image];
-                                //NSData *imagedata = [[NSUserDefaults standardUserDefaults] objectForKey:@"cacheimagedata"];
-                                //cell.MakeImageView.image = [UIImage imageWithData:imgData];
-                                
-                                
-                                [defaults synchronize];
+                                //[defaults synchronize];
                             }
                         });
                     }
                 }
             });
     }
+    
     
     return cell;
 }
@@ -149,7 +141,6 @@
 
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     //Get the new view controller using [seguedestinationviewcontroller]
@@ -169,9 +160,6 @@
     }
 }
 
-// Pass the selected object to the new view controller.
-
-
 - (void) makeAppDelModelArray;
 {
     appdelmodelArray = [[NSMutableArray alloc]init];
@@ -183,90 +171,6 @@
     
     makeimageArray = [[NSMutableArray alloc]init];
     [makeimageArray addObjectsFromArray:appdel.makeimageArray2];
-}
-
-#pragma mark -
-#pragma mark Class Methods
-
-/*- (void) retrieveModelData;
-{
-    NSURL * modelurl = [NSURL URLWithString:getModelDataURL];
-    NSData * modeldata = [NSData dataWithContentsOfURL:modelurl];
-    
-    modeljsonArray = [NSJSONSerialization JSONObjectWithData:modeldata options:kNilOptions error:nil];
-    
-    
-    NSLog(@"contents of firstcar: %@", _firstCar1);
-    
-    //Set up our cities arrray
-    modelArray = [[NSMutableArray alloc] init];
-    
-    //Loop through ourjsonArray
-    for (int i=0; i < modeljsonArray.count; i++)
-    {
-        //Create our city object
-        NSString * cMake = [[modeljsonArray objectAtIndex:i] objectForKey:@"Make"];
-        NSString * cModel = [[modeljsonArray objectAtIndex:i] objectForKey:@"Model"];
-        NSString * cYearsMade = [[modeljsonArray objectAtIndex:i] objectForKey:@"Years Made"];
-        NSString * cPrice = [[modeljsonArray objectAtIndex:i] objectForKey:@"Price"];
-        NSString * cEngine = [[modeljsonArray objectAtIndex:i] objectForKey:@"Engine"];
-        NSString * cTransmission = [[modeljsonArray objectAtIndex:i] objectForKey:@"Transmission"];
-        NSString * cDriveType = [[modeljsonArray objectAtIndex:i] objectForKey:@"Drive Type"];
-        NSString * cHorsepower = [[modeljsonArray objectAtIndex:i] objectForKey:@"Horsepower"];
-        NSString * cZeroToSixty = [[modeljsonArray objectAtIndex:i] objectForKey:@"0-60"];
-        NSString * cTopSpeed = [[modeljsonArray objectAtIndex:i] objectForKey:@"Top Speed (mph)"];
-        NSString * cWeight = [[modeljsonArray objectAtIndex:i] objectForKey:@"Weight (lbs)"];
-        NSString * cFuelEconomy = [[modeljsonArray objectAtIndex:i] objectForKey:@"Fuel Economy (mpg)"];
-        NSString * cURL = [[modeljsonArray objectAtIndex:i] objectForKey:@"Image URL"];
-        NSString * cWebsite = [[modeljsonArray objectAtIndex:i]objectForKey:@"Make Link"];
-        
-        
-        
-        
-        
-        //Add the object to the array
-        [modelArray addObject:[[Model alloc]initWithCarMake:cMake andCarModel:cModel andCarYearsMade:cYearsMade andCarPrice:cPrice andCarEngine:cEngine andCarTransmission:cTransmission andCarDriveType:cDriveType andCarHorsepower:cHorsepower andCarZeroToSixty:cZeroToSixty andCarTopSpeed:cTopSpeed andCarWeight:cWeight andCarFuelEconomy:cFuelEconomy andCarImageURL:cURL andCarWebsite:cWebsite]];
-        
-        
-        
-        
-    }
-    
-    
-    [self.collectionView reloadData];
-}*/
-
-
-- (void) retrieveMakeImageData;
-{
-    NSURL * makeurl = [NSURL URLWithString:getMakeDataURL];
-    NSData * makedata = [NSData dataWithContentsOfURL:makeurl];
-    
-    makejsonArray = [NSJSONSerialization JSONObjectWithData:makedata options:kNilOptions error:nil];
-    
-    NSLog(@"contents of firstcar: %@", _firstCar1);
-    
-    //set up the makes array
-    makeimageArray = [[NSMutableArray alloc]init];
-    
-    NSSortDescriptor * alphasort = [NSSortDescriptor sortDescriptorWithKey:@"Make" ascending:YES];
-    AlphabeticalArray = [makejsonArray sortedArrayUsingDescriptors:[NSArray arrayWithObject:alphasort]];
-    
-    //Loop through our makejsonArray
-    for (int i = 0; i < makejsonArray.count; i++)
-    {
-        //Create the MakeImage object
-        NSString * mName = [[AlphabeticalArray objectAtIndex:i] objectForKey:@"Make"];
-        NSString * mImageURL = [[AlphabeticalArray objectAtIndex:i] objectForKey:@"ImageURL"];
-        
-        //Add the MakeImage object to the MakeImage array
-        
-        [makeimageArray addObject:[[Make alloc]initWithMakeName:mName andMakeImageURL:mImageURL]];
-        
-    }
-    
-    //Reload the Collection View
-    [self.collectionView reloadData];
 }
 
 @end

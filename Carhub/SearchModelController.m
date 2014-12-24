@@ -85,7 +85,6 @@
     // Configure the cell...
     Model * modelObject;
     modelObject = [carArray objectAtIndex:indexPath.row];
-    //cell.CarImage.image = nil;
     
     cell.CarName.text = modelObject.CarModel;
     //Accessory stuff89
@@ -97,46 +96,49 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"Metal Background.jpg"]];
     cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Metal Background.jpg"]];
     
-    NSString *identifier = [NSString stringWithFormat:@"ModelCell%ld" , (long)indexPath.row];
-    cell.CarImage.image = [self.cachedImages valueForKey:identifier];
+    NSString *identifier = [[NSString stringWithFormat:@"%@", modelObject.CarMake]stringByAppendingString:modelObject.CarModel];
+    NSString *urlIdentifier = [NSString stringWithFormat:@"imageurl%@%@",modelObject.CarMake, modelObject.CarModel];
     
-    if([self.cachedImages objectForKey:identifier] !=nil){
-        cell.CarImage.image = [self.cachedImages valueForKey:identifier];
-    }else{
-        
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *imagedata = [defaults objectForKey:identifier];
+    cell.CarImage.image = [UIImage imageWithData:imagedata];
+    [UIImageView beginAnimations:nil context:NULL];
+    [UIImageView setAnimationDuration:.01];
+    [cell.CarImage setAlpha:1.0];
+    [UIImageView commitAnimations];
+    
+    if(!([[defaults objectForKey:urlIdentifier] isEqualToString:modelObject.CarImageURL]) || cell.CarImage.image == nil){
         char const*s = [identifier UTF8String];
         dispatch_queue_t queue = dispatch_queue_create(s, 0);
-        
         
         dispatch_async(queue, ^{
             NSData *imgData = [NSData dataWithContentsOfURL:[NSURL URLWithString:modelObject.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]];
             if (imgData) {
                 UIImage *image = [UIImage imageWithData:imgData];
                 if (image) {
-
                     dispatch_async(dispatch_get_main_queue(), ^{
                         CarViewCell *updateCell = (id)[tableView cellForRowAtIndexPath:indexPath];
-                        
                         if (updateCell)
-                            [self.cachedImages setValue:image forKey:identifier];
-                        updateCell.CarImage.image = [self.cachedImages valueForKey:identifier];
-                        updateCell.CarImage.image = image;
-                        //UIImage *cachedimage = image;
-                        [UIImageView beginAnimations:nil context:NULL];
-                        [UIImageView setAnimationDuration:.75];
-                        [updateCell.CarImage setAlpha:1.0];
-                        [UIImageView commitAnimations];
-                        
+                        {
+                            [defaults setObject:UIImagePNGRepresentation(image) forKey:identifier];
+                            [defaults setObject:modelObject.CarImageURL forKey:urlIdentifier];
+                            NSData *imgdata = [defaults objectForKey:identifier];
+                            updateCell.CarImage.image = [UIImage imageWithData:imgdata];
+                            [updateCell.CarImage setAlpha:0.0];
+                            [UIImageView beginAnimations:nil context:NULL];
+                            [UIImageView setAnimationDuration:.75];
+                            [updateCell.CarImage setAlpha:1.0];
+                            [UIImageView commitAnimations];
+                            
+                            //[defaults synchronize];
+                        }
                     });
                 }
             }
         });
-        
-        
     }
     return cell;
 }
-
 
 
 
