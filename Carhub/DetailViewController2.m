@@ -42,6 +42,8 @@
     [scroller setScrollEnabled:YES];
     [scroller setContentSize:CGSizeMake(320, 800)];
     
+
+    
     self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"Metal Background.jpg"]];
     
     NSString * makewithspace = [_currentCar.CarMake stringByAppendingString:@" "];

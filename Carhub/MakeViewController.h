@@ -12,6 +12,7 @@
 
 @interface MakeViewController : UICollectionViewController
 
+@property (nonatomic, strong) NSMutableArray * makejsonArray;
 @property (nonatomic, strong) NSMutableArray * makeimageArray;
 @property (nonatomic, strong) NSMutableArray * modelArray;
 @property (nonatomic, strong) NSMutableArray * appdelmodelArray;
