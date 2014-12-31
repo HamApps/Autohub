@@ -87,9 +87,8 @@
      
     [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
     [[UITabBar appearance] setBarTintColor:[UIColor whiteColor]];
-     
     
-
+    
     
     if (height == 480) {
         storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard4" bundle:nil];

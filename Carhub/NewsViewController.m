@@ -52,7 +52,7 @@
     NSLog(@"%@", newsArray);
     self.cachedImages = [[NSMutableDictionary alloc]init];
     
-    //self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"Metal Background.jpg"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"whiteback.jpg"]];
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
@@ -100,12 +100,13 @@
     //cell.CarImage.image = nil;
     cell.NewsDescription.text = newsObject.NewsDescription;
     //Accessory
+    /*
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.layer.borderWidth=1.0f;
     cell.layer.borderColor=[UIColor blackColor].CGColor;
     cell.CarName.layer.borderWidth=1.0f;
     cell.CarName.layer.borderColor=[UIColor whiteColor].CGColor;
-    
+    */
     NSString *identifier = [NSString stringWithFormat:@"ModelCell%ld" , (long)indexPath.row];
     cell.CarImage.image = [self.cachedImages valueForKey:identifier];
     
