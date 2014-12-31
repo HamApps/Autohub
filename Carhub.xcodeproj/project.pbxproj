@@ -65,7 +65,6 @@
 		AAB744D61983167800A8545A /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 385C1404197B3FDA003BBB09 /* MainStoryboard.storyboard */; };
 		AAB744E2198318BF00A8545A /* MainStoryboard4.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAB744E1198318BF00A8545A /* MainStoryboard4.storyboard */; };
 		AAB744E3198318BF00A8545A /* MainStoryboard4.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAB744E1198318BF00A8545A /* MainStoryboard4.storyboard */; };
-		AAD406C819B137BB001D5192 /* Metal Background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AAD406C719B137BB001D5192 /* Metal Background.jpg */; };
 		AAD406CA19B13B7B001D5192 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = AAD406C919B13B7B001D5192 /* iTunesArtwork.png */; };
 		AAED753E19EF6EA900FCE06F /* iRate.m in Sources */ = {isa = PBXBuildFile; fileRef = AAED753D19EF6EA900FCE06F /* iRate.m */; };
 		AAED754719EF6ED500FCE06F /* horse_PNG2553@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAED754119EF6ED500FCE06F /* horse_PNG2553@2x.png */; };
@@ -214,7 +213,6 @@
 		AA8D9E5A1980B3AE00AAB3E2 /* TopTensViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopTensViewController.h; sourceTree = "<group>"; };
 		AA8D9E5B1980B3AE00AAB3E2 /* TopTensViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopTensViewController.m; sourceTree = "<group>"; };
 		AAB744E1198318BF00A8545A /* MainStoryboard4.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard4.storyboard; sourceTree = "<group>"; };
-		AAD406C719B137BB001D5192 /* Metal Background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Metal Background.jpg"; sourceTree = "<group>"; };
 		AAD406C919B13B7B001D5192 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
 		AAED753C19EF6EA900FCE06F /* iRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRate.h; sourceTree = "<group>"; };
 		AAED753D19EF6EA900FCE06F /* iRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRate.m; sourceTree = "<group>"; };
@@ -316,6 +314,7 @@
 		AA55467E1979F2CD00E7CF12 = {
 			isa = PBXGroup;
 			children = (
+				AA58F31C1A50BC6C00FB908F /* eurostile.TTF */,
 				AAED758919EF717700FCE06F /* GoogleMobileAdsSdkiOS-6.12.0 */,
 				AA5546901979F2CE00E7CF12 /* Carhub */,
 				AA5546AF1979F2CE00E7CF12 /* CarhubTests */,
@@ -468,7 +467,6 @@
 				AAED758019EF6F0100FCE06F /* SpecsDisputePage@2x.png */,
 				AAED758119EF6F0100FCE06F /* SpecsDisputePage4@2x.png */,
 				AAD406C919B13B7B001D5192 /* iTunesArtwork.png */,
-				AAD406C719B137BB001D5192 /* Metal Background.jpg */,
 				AA5546921979F2CE00E7CF12 /* Carhub-Info.plist */,
 				AA5546931979F2CE00E7CF12 /* InfoPlist.strings */,
 				AA5546961979F2CE00E7CF12 /* main.m */,
@@ -687,13 +685,15 @@
 				AAED757819EF6EED00FCE06F /* Transmission Icon@2x.png in Resources */,
 				AAED754919EF6ED500FCE06F /* Nurburgring@2x.png in Resources */,
 				AAED755A19EF6EE400FCE06F /* Top tens tab bar icon@2x.png in Resources */,
+				AA58F31D1A50BC6C00FB908F /* eurostile.TTF in Resources */,
 				AAED758219EF6F0100FCE06F /* blue button 2@2x.png in Resources */,
 				AAED755819EF6EE400FCE06F /* News icon@2x.png in Resources */,
 				AAED758619EF6F0100FCE06F /* In-AppPurchasePage4@2x.png in Resources */,
 				AAED754C19EF6ED500FCE06F /* Sport-Activities-Stopwatch-icon@2x.png in Resources */,
-				AAD406C819B137BB001D5192 /* Metal Background.jpg in Resources */,
 				AAED757219EF6EED00FCE06F /* Koenigsegg logo@2x.png in Resources */,
+				AA58F3151A50B83200FB908F /* whiteback.jpg in Resources */,
 				AAED758519EF6F0100FCE06F /* In-AppPurchasePage@2x.png in Resources */,
+				AA58F3171A50B83800FB908F /* darkishgrey.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -702,6 +702,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAB744D61983167800A8545A /* MainStoryboard.storyboard in Resources */,
+				AA58F31E1A50BC6C00FB908F /* eurostile.TTF in Resources */,
 				AA5546B41979F2CE00E7CF12 /* InfoPlist.strings in Resources */,
 				AAB744E3198318BF00A8545A /* MainStoryboard4.storyboard in Resources */,
 			);

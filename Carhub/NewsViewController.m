@@ -93,12 +93,13 @@
     //cell.CarImage.image = nil;
     cell.NewsDescription.text = newsObject.NewsDescription;
     //Accessory
+    /*
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.layer.borderWidth=1.0f;
     cell.layer.borderColor=[UIColor blackColor].CGColor;
     cell.CarName.layer.borderWidth=1.0f;
     cell.CarName.layer.borderColor=[UIColor whiteColor].CGColor;
-    
+    */
     NSString *identifier = [NSString stringWithFormat:@"ModelCell%ld" , (long)indexPath.row];
     cell.CarImage.image = [self.cachedImages valueForKey:identifier];
     

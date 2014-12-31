@@ -38,7 +38,7 @@
     [scroller setScrollEnabled:YES];
     [scroller setContentSize:CGSizeMake(320, 2560)];
     self.title = @"Makes";
-    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"Metal Background.jpg"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"whiteback.jpg"]];
     
     AlfaRomeoImage.image = nil;
     AcuraImage.image = nil;

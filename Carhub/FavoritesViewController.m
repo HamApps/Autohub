@@ -69,6 +69,8 @@
     static NSString *CellIdentifier = @"FavoritesCell";
     [self.tableView registerClass:[CarViewCell class] forCellReuseIdentifier:CellIdentifier];
     
+    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"whiteback.jpg"]];
+    
     favoritesarray = [[NSMutableArray alloc]init];
     [self loadcars];
     

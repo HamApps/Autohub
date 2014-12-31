@@ -79,7 +79,7 @@
     [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
                                                            [UIColor colorWithRed:255 green:255 blue:255 alpha:1.0], NSForegroundColorAttributeName,
                                                            shadow, NSShadowAttributeName,
-                                                           [UIFont fontWithName:@"eurostile" size:21.0], NSFontAttributeName, nil]];
+                                                           [UIFont fontWithName:@"Eurostile" size:21.0], NSFontAttributeName, nil]];
     
     UIImage* tabBarBackground = [UIImage imageNamed:@"Tabbarcolor.png"];
     [[UITabBar appearance] setBackgroundImage:tabBarBackground];
@@ -87,9 +87,8 @@
      
     [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
     [[UITabBar appearance] setBarTintColor:[UIColor whiteColor]];
-     
     
-
+    
     
     if (height == 480) {
         storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard4" bundle:nil];

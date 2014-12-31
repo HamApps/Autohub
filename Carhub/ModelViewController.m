@@ -104,9 +104,9 @@
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSData *imagedata = [defaults objectForKey:identifier];
-    [defaults setObject:[NSString stringWithFormat:@"%i", ModelArray.count] forKey:@"count"];
+    [defaults setObject:[NSString stringWithFormat:@"%lu", (unsigned long)ModelArray.count] forKey:@"count"];
     
-    if([[defaults objectForKey:@"count"] integerValue] == [[NSString stringWithFormat:@"%i", ModelArray.count] integerValue])
+    if([[defaults objectForKey:@"count"] integerValue] == [[NSString stringWithFormat:@"%lu", (unsigned long)ModelArray.count] integerValue])
     {
         cell.CarImage.image = [UIImage imageWithData:imagedata];
         [UIImageView beginAnimations:nil context:NULL];
