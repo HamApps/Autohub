@@ -1210,7 +1210,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="XNx-b7-Qla">
-                                            <rect key="frame" x="27" y="8" width="51" height="72"/>
+                                            <rect key="frame" x="26" y="7" width="50" height="72"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
                                     </subviews>
@@ -2766,10 +2766,10 @@ EEZ1ZWwxA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Qv0-Va-ne1"/>
-        <segue reference="imD-vs-7C4"/>
         <segue reference="0tH-TB-qVt"/>
+        <segue reference="ard-DS-f2E"/>
+        <segue reference="imD-vs-7C4"/>
+        <segue reference="Qv0-Va-ne1"/>
         <segue reference="oNS-Qo-D1h"/>
-        <segue reference="4l5-TJ-NEk"/>
     </inferredMetricsTieBreakers>
 </document>

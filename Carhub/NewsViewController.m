@@ -46,16 +46,9 @@
     // self.clearsSelectionOnViewWillAppear = NO;
     
     //Load Data
-    
-    //[self retrieveData];
     [self makeAppDelNewsArray];
-    NSLog(@"%@", newsArray);
+    //NSLog(@"%@", newsArray);
     self.cachedImages = [[NSMutableDictionary alloc]init];
-    
-    //self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"Metal Background.jpg"]];
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
 }
 
@@ -230,13 +223,8 @@
 {
     newsArray = [[NSMutableArray alloc]init];
     AppDelegate *appdel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    //NSLog(@"appdelarray2: %@", appdel.newsArray);
     [newsArray addObjectsFromArray:appdel.newsArray];
-    NSLog(@"appdelarray3: %@", newsArray);
-    
+    //NSLog(@"appdelarray3: %@", newsArray);
 }
-
-
-
 
 @end
