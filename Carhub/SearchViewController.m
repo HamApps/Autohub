@@ -44,7 +44,7 @@
     
     //Set Scroller for View
     [scroller setScrollEnabled:YES];
-    [scroller setContentSize:CGSizeMake(320, 1450)];
+    [scroller setContentSize:CGSizeMake(320, 1415)];
     
     self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"whiteback.jpg"]];
     

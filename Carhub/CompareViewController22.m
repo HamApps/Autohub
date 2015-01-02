@@ -39,7 +39,7 @@
     [super viewDidLoad];
     
     [scroller setScrollEnabled:YES];
-    [scroller setContentSize:CGSizeMake(320, 580)];
+    [scroller setContentSize:CGSizeMake(320, 640)];
     
     [self setLabels];
     

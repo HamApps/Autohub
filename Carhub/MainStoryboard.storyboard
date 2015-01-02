@@ -1342,7 +1342,7 @@
             <objects>
                 <viewController id="dyO-Xs-Ifc" customClass="DisputeInfoViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5K0-9c-PuS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SpecsDisputePage.png" id="fMk-nG-cIj">
@@ -1409,7 +1409,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="XNx-b7-Qla">
-                                            <rect key="frame" x="16" y="8" width="72" height="71"/>
+                                            <rect key="frame" x="18" y="13" width="70" height="72"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
                                     </subviews>
@@ -2966,10 +2966,10 @@ EEZ1ZWwxA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="oNS-Qo-D1h"/>
-        <segue reference="7E6-DI-R05"/>
         <segue reference="iB0-TH-YJq"/>
         <segue reference="imD-vs-7C4"/>
         <segue reference="Qv0-Va-ne1"/>
+        <segue reference="ard-DS-f2E"/>
+        <segue reference="oNS-Qo-D1h"/>
     </inferredMetricsTieBreakers>
 </document>
