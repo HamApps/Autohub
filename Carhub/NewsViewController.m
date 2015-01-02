@@ -46,16 +46,9 @@
     // self.clearsSelectionOnViewWillAppear = NO;
     
     //Load Data
-    
-    //[self retrieveData];
     [self makeAppDelNewsArray];
-    NSLog(@"%@", newsArray);
+    //NSLog(@"%@", newsArray);
     self.cachedImages = [[NSMutableDictionary alloc]init];
-    
-    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"whiteback.jpg"]];
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
 }
 
@@ -99,6 +92,7 @@
     cell.CarName.text = newsObject.NewsTitle;
     //cell.CarImage.image = nil;
     cell.NewsDescription.text = newsObject.NewsDescription;
+    
     //Accessory
     /*
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -126,16 +120,16 @@
                     dispatch_async(dispatch_get_main_queue(), ^{
                         CarViewCell *updateCell = (id)[tableView cellForRowAtIndexPath:indexPath];
                         
-                        if (updateCell)
+                        if (updateCell){
                             [self.cachedImages setValue:image forKey:identifier];
                         updateCell.CarImage.image = [self.cachedImages valueForKey:identifier];
-                        updateCell.CarImage.image = image;
-                        //UIImage *cachedimage = image;
+                        //updateCell.CarImage.image = image;
+                            [updateCell.CarImage setAlpha:0.0];
                         [UIImageView beginAnimations:nil context:NULL];
                         [UIImageView setAnimationDuration:.75];
                         [updateCell.CarImage setAlpha:1.0];
                         [UIImageView commitAnimations];
-                        
+                        }
                     });
                 }
             }
@@ -221,9 +215,10 @@
         NSString * nImageURL = [[jsonArray objectAtIndex:i] objectForKey:@"ImageURL"];
         NSString * nDescription = [[jsonArray objectAtIndex:i] objectForKey:@"Description"];
         NSString * nArticle = [[jsonArray objectAtIndex:i] objectForKey:@"Article"];
+        NSString * nDate = [[jsonArray objectAtIndex:i] objectForKey:@"Date/Name"];
     
         //Add the city object to our cities array
-        [newsArray addObject:[[News alloc]initWithNewsTitle:nTitle andNewsImageURL:nImageURL andNewsDescription:nDescription andNewsArticle:nArticle]];
+        [newsArray addObject:[[News alloc]initWithNewsTitle:nTitle andNewsImageURL:nImageURL andNewsDescription:nDescription andNewsArticle:nArticle andNewsDate:nDate]];
     }
 }
 
@@ -231,13 +226,8 @@
 {
     newsArray = [[NSMutableArray alloc]init];
     AppDelegate *appdel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    //NSLog(@"appdelarray2: %@", appdel.newsArray);
     [newsArray addObjectsFromArray:appdel.newsArray];
-    NSLog(@"appdelarray3: %@", newsArray);
-    
+    //NSLog(@"appdelarray3: %@", newsArray);
 }
-
-
-
 
 @end

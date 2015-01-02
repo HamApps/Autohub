@@ -93,8 +93,8 @@
     cell.layer.borderColor=[UIColor blackColor].CGColor;
     cell.CarName.layer.borderWidth=1.0f;
     cell.CarName.layer.borderColor=[UIColor whiteColor].CGColor;
-    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"Metal Background.jpg"]];
-    cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Metal Background.jpg"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"whiteback.jpg"]];
+    cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"whiteback.jpg"]];
     
     NSString *identifier = [[NSString stringWithFormat:@"%@", modelObject.CarMake]stringByAppendingString:modelObject.CarModel];
     NSString *urlIdentifier = [NSString stringWithFormat:@"imageurl%@%@",modelObject.CarMake, modelObject.CarModel];
