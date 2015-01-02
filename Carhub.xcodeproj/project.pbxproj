@@ -26,9 +26,6 @@
 		386948E919F20F0E00EB04F7 /* CompareViewController11.m in Sources */ = {isa = PBXBuildFile; fileRef = 386948E819F20F0E00EB04F7 /* CompareViewController11.m */; };
 		386948EC19F2105400EB04F7 /* CompareViewController22.m in Sources */ = {isa = PBXBuildFile; fileRef = 386948EB19F2105400EB04F7 /* CompareViewController22.m */; };
 		38774D3319C5E5F300C22A70 /* NewsLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38774D3219C5E5F300C22A70 /* NewsLabel.m */; };
-		38874B1F1A4B2A56004C7B90 /* whiteback.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 38874B1E1A4B2A56004C7B90 /* whiteback.jpg */; };
-		38874B211A4B2A61004C7B90 /* darkishgrey.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 38874B201A4B2A61004C7B90 /* darkishgrey.jpg */; };
-		38874B231A4B2A65004C7B90 /* Tabbarcolor.png in Resources */ = {isa = PBXBuildFile; fileRef = 38874B221A4B2A65004C7B90 /* Tabbarcolor.png */; };
 		38A09C20197F62C700254457 /* CompareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A09C1F197F62C700254457 /* CompareViewController.m */; };
 		38A667D919858E69008B2A69 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A667D819858E69008B2A69 /* ImageViewController.m */; };
 		38A667DC198594C0008B2A69 /* CompareImageViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A667DB198594C0008B2A69 /* CompareImageViewController1.m */; };
@@ -61,6 +58,9 @@
 		AA5546A31979F2CE00E7CF12 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA5546A21979F2CE00E7CF12 /* Images.xcassets */; };
 		AA5546B41979F2CE00E7CF12 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA5546B21979F2CE00E7CF12 /* InfoPlist.strings */; };
 		AA5546B61979F2CE00E7CF12 /* CarhubTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA5546B51979F2CE00E7CF12 /* CarhubTests.m */; };
+		AA88E5BF1A565072005B1E43 /* whiteback.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA88E5BE1A565072005B1E43 /* whiteback.jpg */; };
+		AA88E5C11A56507E005B1E43 /* darkishgrey.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA88E5C01A56507E005B1E43 /* darkishgrey.jpg */; };
+		AA88E5C31A56508A005B1E43 /* Tabbarcolor.png in Resources */ = {isa = PBXBuildFile; fileRef = AA88E5C21A56508A005B1E43 /* Tabbarcolor.png */; };
 		AA8D9E5C1980B3AE00AAB3E2 /* TopTensViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA8D9E5B1980B3AE00AAB3E2 /* TopTensViewController.m */; };
 		AAB744D61983167800A8545A /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 385C1404197B3FDA003BBB09 /* MainStoryboard.storyboard */; };
 		AAB744E2198318BF00A8545A /* MainStoryboard4.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAB744E1198318BF00A8545A /* MainStoryboard4.storyboard */; };
@@ -153,9 +153,6 @@
 		386948EB19F2105400EB04F7 /* CompareViewController22.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompareViewController22.m; sourceTree = "<group>"; };
 		38774D3119C5E5F300C22A70 /* NewsLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsLabel.h; sourceTree = "<group>"; };
 		38774D3219C5E5F300C22A70 /* NewsLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsLabel.m; sourceTree = "<group>"; };
-		38874B1E1A4B2A56004C7B90 /* whiteback.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = whiteback.jpg; path = ../../../Downloads/whiteback.jpg; sourceTree = "<group>"; };
-		38874B201A4B2A61004C7B90 /* darkishgrey.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = darkishgrey.jpg; path = ../../../Downloads/darkishgrey.jpg; sourceTree = "<group>"; };
-		38874B221A4B2A65004C7B90 /* Tabbarcolor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Tabbarcolor.png; path = ../../../Downloads/Tabbarcolor.png; sourceTree = "<group>"; };
 		38A09C1E197F62C700254457 /* CompareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompareViewController.h; sourceTree = "<group>"; };
 		38A09C1F197F62C700254457 /* CompareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompareViewController.m; sourceTree = "<group>"; };
 		38A667D719858E69008B2A69 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
@@ -210,6 +207,9 @@
 		AA5546B11979F2CE00E7CF12 /* CarhubTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CarhubTests-Info.plist"; sourceTree = "<group>"; };
 		AA5546B31979F2CE00E7CF12 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AA5546B51979F2CE00E7CF12 /* CarhubTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CarhubTests.m; sourceTree = "<group>"; };
+		AA88E5BE1A565072005B1E43 /* whiteback.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = whiteback.jpg; sourceTree = "<group>"; };
+		AA88E5C01A56507E005B1E43 /* darkishgrey.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = darkishgrey.jpg; sourceTree = "<group>"; };
+		AA88E5C21A56508A005B1E43 /* Tabbarcolor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tabbarcolor.png; sourceTree = "<group>"; };
 		AA8D9E5A1980B3AE00AAB3E2 /* TopTensViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopTensViewController.h; sourceTree = "<group>"; };
 		AA8D9E5B1980B3AE00AAB3E2 /* TopTensViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopTensViewController.m; sourceTree = "<group>"; };
 		AAB744E1198318BF00A8545A /* MainStoryboard4.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard4.storyboard; sourceTree = "<group>"; };
@@ -314,7 +314,6 @@
 		AA55467E1979F2CD00E7CF12 = {
 			isa = PBXGroup;
 			children = (
-				AA58F31C1A50BC6C00FB908F /* eurostile.TTF */,
 				AAED758919EF717700FCE06F /* GoogleMobileAdsSdkiOS-6.12.0 */,
 				AA5546901979F2CE00E7CF12 /* Carhub */,
 				AA5546AF1979F2CE00E7CF12 /* CarhubTests */,
@@ -428,9 +427,9 @@
 		AA5546911979F2CE00E7CF12 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				38874B221A4B2A65004C7B90 /* Tabbarcolor.png */,
-				38874B201A4B2A61004C7B90 /* darkishgrey.jpg */,
-				38874B1E1A4B2A56004C7B90 /* whiteback.jpg */,
+				AA88E5C21A56508A005B1E43 /* Tabbarcolor.png */,
+				AA88E5BE1A565072005B1E43 /* whiteback.jpg */,
+				AA88E5C01A56507E005B1E43 /* darkishgrey.jpg */,
 				AAED754119EF6ED500FCE06F /* horse_PNG2553@2x.png */,
 				AAED754219EF6ED500FCE06F /* moneystack@2x.png */,
 				AAED754319EF6ED500FCE06F /* Nurburgring@2x.png */,
@@ -648,10 +647,8 @@
 			files = (
 				AAED757919EF6EED00FCE06F /* weight Icon@2x.png in Resources */,
 				AAED756E19EF6EED00FCE06F /* Engine Icon@2x.png in Resources */,
-				38874B1F1A4B2A56004C7B90 /* whiteback.jpg in Resources */,
 				AAED75AC19EF717700FCE06F /* README.txt in Resources */,
 				AAED758719EF6F0100FCE06F /* SpecsDisputePage@2x.png in Resources */,
-				38874B231A4B2A65004C7B90 /* Tabbarcolor.png in Resources */,
 				AAED756D19EF6EED00FCE06F /* Drive Type Icon@2x.png in Resources */,
 				AAED756B19EF6EED00FCE06F /* Ariel Logo@2x.png in Resources */,
 				AAB744E2198318BF00A8545A /* MainStoryboard4.storyboard in Resources */,
@@ -659,13 +656,14 @@
 				AAED755719EF6EE400FCE06F /* magnifier_64@2x.png in Resources */,
 				AAED755519EF6EE400FCE06F /* garage-32@2x.png in Resources */,
 				AAD406CA19B13B7B001D5192 /* iTunesArtwork.png in Resources */,
+				AA88E5C31A56508A005B1E43 /* Tabbarcolor.png in Resources */,
 				385C1405197B3FDA003BBB09 /* MainStoryboard.storyboard in Resources */,
 				AAED757519EF6EED00FCE06F /* speedometer 2@2x.png in Resources */,
 				AAED754B19EF6ED500FCE06F /* RcA6RKnAi@2x.png in Resources */,
 				AAED757419EF6EED00FCE06F /* Radical Logo@2x.png in Resources */,
 				AAED758419EF6F0100FCE06F /* Green Buy Button@2x.png in Resources */,
 				AAED757119EF6EED00FCE06F /* Horsepower Icon@2x.png in Resources */,
-				38874B211A4B2A61004C7B90 /* darkishgrey.jpg in Resources */,
+				AA88E5BF1A565072005B1E43 /* whiteback.jpg in Resources */,
 				AA5546A31979F2CE00E7CF12 /* Images.xcassets in Resources */,
 				AAED758819EF6F0100FCE06F /* SpecsDisputePage4@2x.png in Resources */,
 				AAED755619EF6EE400FCE06F /* garage-50@2x.png in Resources */,
@@ -684,16 +682,14 @@
 				AAED756F19EF6EED00FCE06F /* ferrari logo@2x.png in Resources */,
 				AAED757819EF6EED00FCE06F /* Transmission Icon@2x.png in Resources */,
 				AAED754919EF6ED500FCE06F /* Nurburgring@2x.png in Resources */,
+				AA88E5C11A56507E005B1E43 /* darkishgrey.jpg in Resources */,
 				AAED755A19EF6EE400FCE06F /* Top tens tab bar icon@2x.png in Resources */,
-				AA58F31D1A50BC6C00FB908F /* eurostile.TTF in Resources */,
 				AAED758219EF6F0100FCE06F /* blue button 2@2x.png in Resources */,
 				AAED755819EF6EE400FCE06F /* News icon@2x.png in Resources */,
 				AAED758619EF6F0100FCE06F /* In-AppPurchasePage4@2x.png in Resources */,
 				AAED754C19EF6ED500FCE06F /* Sport-Activities-Stopwatch-icon@2x.png in Resources */,
 				AAED757219EF6EED00FCE06F /* Koenigsegg logo@2x.png in Resources */,
-				AA58F3151A50B83200FB908F /* whiteback.jpg in Resources */,
 				AAED758519EF6F0100FCE06F /* In-AppPurchasePage@2x.png in Resources */,
-				AA58F3171A50B83800FB908F /* darkishgrey.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -702,7 +698,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAB744D61983167800A8545A /* MainStoryboard.storyboard in Resources */,
-				AA58F31E1A50BC6C00FB908F /* eurostile.TTF in Resources */,
 				AA5546B41979F2CE00E7CF12 /* InfoPlist.strings in Resources */,
 				AAB744E3198318BF00A8545A /* MainStoryboard4.storyboard in Resources */,
 			);
