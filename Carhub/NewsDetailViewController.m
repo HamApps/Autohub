@@ -16,7 +16,7 @@
 
 @implementation NewsDetailViewController
 
-@synthesize NewsArticleLabel, NewsTitleLabel;
+@synthesize NewsArticleLabel, NewsTitleLabel, NewsDateLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -80,6 +80,7 @@
 {
     NewsTitleLabel.text = _currentnews.NewsTitle;
     NewsArticleLabel.text = _currentnews.NewsArticle;
+    NewsDateLabel.text = _currentnews.NewsDate;
 }
 /*
 #pragma mark - Navigation

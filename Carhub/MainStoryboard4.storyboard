@@ -2078,7 +2078,7 @@ EEZ1ZWwxA
             <objects>
                 <viewController id="wEG-mh-v4Y" customClass="DisputeInfoViewController2" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Fa-7L-6D0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="551"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SpecsDisputePage4.png" id="glX-MP-UQY">
@@ -2119,7 +2119,7 @@ EEZ1ZWwxA
         <scene sceneID="MaG-XJ-CP1">
             <objects>
                 <tabBarController restorationIdentifier="IAP" storyboardIdentifier="IAP" id="AhO-EY-ply" sceneMemberID="viewController">
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="6QU-Jw-IbK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2636,6 +2636,7 @@ EEZ1ZWwxA
                     <navigationItem key="navigationItem" id="RHY-Xd-f99"/>
                     <connections>
                         <outlet property="NewsArticleLabel" destination="jm4-s1-Tr5" id="uSs-6E-3sK"/>
+                        <outlet property="NewsDateLabel" destination="0eL-rP-Hh0" id="o3E-c6-KYD"/>
                         <outlet property="NewsTitleLabel" destination="796-gd-t5D" id="AZ3-Zd-Cw6"/>
                         <outlet property="imageview" destination="YCC-D6-0OZ" id="dlq-OE-Trg"/>
                     </connections>
@@ -2914,10 +2915,9 @@ EEZ1ZWwxA
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="9QX-2Z-LbH"/>
-        <segue reference="2BF-Ye-9yJ"/>
+        <segue reference="ob0-RJ-n8v"/>
         <segue reference="B34-lZ-zbJ"/>
         <segue reference="W65-ah-7q4"/>
-        <segue reference="ob0-RJ-n8v"/>
         <segue reference="uuZ-XV-fDM"/>
     </inferredMetricsTieBreakers>
 </document>

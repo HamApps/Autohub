@@ -9,9 +9,9 @@
 #import "News.h"
 
 @implementation News
-@synthesize NewsImageURL, NewsTitle, NewsDescription, NewsArticle;
+@synthesize NewsImageURL, NewsTitle, NewsDescription, NewsArticle, NewsDate;
 
-- (id)initWithNewsTitle:(NSString *)nTitle andNewsImageURL:(NSString *)nImageURL andNewsDescription:(NSString *)nDescription andNewsArticle:(NSString *)nArticle;
+- (id)initWithNewsTitle:(NSString *)nTitle andNewsImageURL:(NSString *)nImageURL andNewsDescription:(NSString *)nDescription andNewsArticle:(NSString *)nArticle andNewsDate:(NSString *)nDate;
 {
     self = [super init];
     if (self)
@@ -20,6 +20,7 @@
         NewsImageURL = nImageURL;
         NewsDescription = nDescription;
         NewsArticle = nArticle;
+        NewsDate = nDate;
     }
     
     return self;

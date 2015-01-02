@@ -17,6 +17,7 @@
 
 @property(nonatomic, strong) IBOutlet UILabel * NewsTitleLabel;
 @property(nonatomic, strong) IBOutlet UITextView * NewsArticleLabel;
+@property(nonatomic, strong) IBOutlet UILabel * NewsDateLabel;
 
 @property(nonatomic, strong) News * currentnews;
 
