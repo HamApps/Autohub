@@ -218,6 +218,7 @@
             <string>EurostileRegular</string>
             <string>EurostileRegular</string>
             <string>EurostileRegular</string>
+            <string>EurostileRegular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -1345,14 +1346,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SpecsDisputePage.png" id="fMk-nG-cIj">
-                                <rect key="frame" x="0.0" y="-2" width="320" height="568"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SpecsDisputePageNew.jpg" id="fMk-nG-cIj">
+                                <rect key="frame" x="0.0" y="6" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="AfZ-T4-ZOI">
-                                <rect key="frame" x="119" y="401" width="82" height="30"/>
+                                <rect key="frame" x="115" y="400" width="91" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="16"/>
                                 <state key="normal" title="Send Email" backgroundImage="blue button 2.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1362,7 +1363,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="4iu-fI-YEB">
-                                <rect key="frame" x="43" y="247" width="235" height="130"/>
+                                <rect key="frame" x="61" y="282" width="199" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1409,7 +1410,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="XNx-b7-Qla">
-                                            <rect key="frame" x="18" y="13" width="70" height="72"/>
+                                            <rect key="frame" x="18" y="13" width="69" height="72"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
                                     </subviews>
@@ -2896,7 +2897,7 @@ EEZ1ZWwxA
         <image name="Radical Logo.png" width="64" height="82"/>
         <image name="RcA6RKnAi.png" width="400" height="400"/>
         <image name="SSC Logo.png" width="89" height="118"/>
-        <image name="SpecsDisputePage.png" width="320" height="568"/>
+        <image name="SpecsDisputePageNew.jpg" width="320" height="568"/>
         <image name="Sport-Activities-Stopwatch-icon.png" width="256" height="256"/>
         <image name="Top tens tab bar icon.png" width="25" height="25"/>
         <image name="Transmission Icon.png" width="256" height="256"/>

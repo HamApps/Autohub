@@ -227,6 +227,7 @@
             <string>EurostileRegular</string>
             <string>EurostileRegular</string>
             <string>EurostileRegular</string>
+            <string>EurostileRegular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -2085,21 +2086,21 @@ EEZ1ZWwxA
                         <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SpecsDisputePage4.png" id="glX-MP-UQY">
-                                <rect key="frame" x="0.0" y="-4" width="320" height="486"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NewSpecsDisputePage4.png" id="glX-MP-UQY">
+                                <rect key="frame" x="0.0" y="7" width="320" height="486"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="rrJ-X3-1La">
-                                <rect key="frame" x="69" y="242" width="183" height="82"/>
+                                <rect key="frame" x="67" y="233" width="186" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GOS-VV-thk">
-                                <rect key="frame" x="110" y="327" width="100" height="30"/>
+                                <rect key="frame" x="114" y="321" width="92" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
                                 <state key="normal" title="Send Email" backgroundImage="blue button 2.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -2117,7 +2118,7 @@ EEZ1ZWwxA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nwN-dg-tiv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3092" y="812"/>
+            <point key="canvasLocation" x="2641" y="853"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="MaG-XJ-CP1">
@@ -2892,10 +2893,10 @@ EEZ1ZWwxA
         <image name="Drive Type Icon.png" width="256" height="256"/>
         <image name="Engine Icon.png" width="256" height="256"/>
         <image name="Horsepower Icon.png" width="150" height="133"/>
+        <image name="NewSpecsDisputePage4.png" width="640" height="960"/>
         <image name="News icon.png" width="40" height="40"/>
         <image name="Nurburgring.png" width="180" height="170"/>
         <image name="RcA6RKnAi.png" width="400" height="400"/>
-        <image name="SpecsDisputePage4.png" width="320" height="480"/>
         <image name="Sport-Activities-Stopwatch-icon.png" width="256" height="256"/>
         <image name="Top tens tab bar icon.png" width="25" height="25"/>
         <image name="Transmission Icon.png" width="256" height="256"/>
