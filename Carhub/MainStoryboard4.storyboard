@@ -1674,7 +1674,7 @@
             <objects>
                 <viewController id="aE8-7L-n4s" customClass="CompareImageViewController1" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="shR-pe-Z7P">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="551"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="2fv-p2-tGs">
@@ -2083,7 +2083,7 @@ EEZ1ZWwxA
             <objects>
                 <viewController id="wEG-mh-v4Y" customClass="DisputeInfoViewController2" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Fa-7L-6D0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="551"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NewSpecsDisputePage4.png" id="glX-MP-UQY">
@@ -2146,7 +2146,7 @@ EEZ1ZWwxA
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="KM7-UJ-bLX" customClass="MakeViewController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="CMt-uc-zv9">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="551"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="a6z-gt-OWl">
@@ -2919,8 +2919,8 @@ EEZ1ZWwxA
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="9QX-2Z-LbH"/>
+        <segue reference="xiJ-Ok-Dsp"/>
         <segue reference="B34-lZ-zbJ"/>
-        <segue reference="W65-ah-7q4"/>
         <segue reference="ob0-RJ-n8v"/>
         <segue reference="vIQ-NU-fi2"/>
     </inferredMetricsTieBreakers>

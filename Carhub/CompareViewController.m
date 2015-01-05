@@ -122,28 +122,22 @@
     
 
     // Do any additional setup after loading the view.
-    
     [super viewDidLoad];
     self.interstitial = [[GADInterstitial alloc] init];
-    self.interstitial.adUnitID = @"ca-app-pub-3476863246932104/7317472476";
     self.interstitial.delegate = self;
-    [self.interstitial loadRequest:[GADRequest request]];
+    self.interstitial.adUnitID = @"ca-app-pub-3476863246932104/7317472476";
     
     GADRequest *request = [GADRequest request];
     // Requests test ads on simulators.
     //request.testDevices = @[ GAD_SIMULATOR_ID ];
-    request.testDevices = @[ @"00a7c23d2dbe1cd601f20ffb38a73348" ];
+    //request.testDevices = @[ @"00a7c23d2dbe1cd601f20ffb38a73348" ];
     [self.interstitial loadRequest:request];
 }
 
-- (void)interstitialDidReceiveAd:(GADInterstitial *)interstitial {
-    [self.interstitial presentFromRootViewController:self];
-}
-
 /// Called when an interstitial ad request succeeded.
-//- (void)interstitialDidReceiveAd:(GADInterstitial *)ad {
-//NSLog(@"interstitialDidReceiveAd");
-//}
+- (void)interstitialDidReceiveAd:(GADInterstitial *)ad {
+    NSLog(@"interstitialDidReceiveAd");
+}
 
 /// Called when an interstitial ad request failed.
 - (void)interstitial:(GADInterstitial *)ad didFailToReceiveAdWithError:(GADRequestError *)error {
@@ -169,6 +163,7 @@
 /// ad that will launch another application (such as the App Store).
 - (void)interstitialWillLeaveApplication:(GADInterstitial *)ad {
     NSLog(@"interstitialWillLeaveApplication");
+
 }
 
 

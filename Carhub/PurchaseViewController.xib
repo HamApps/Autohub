@@ -58,7 +58,7 @@
         </button>
     </objects>
     <resources>
-        <image name="AdfreePage.jpg" width="640" height="1136"/>
+        <image name="AdfreePage.jpg" width="320" height="568"/>
         <image name="Green Buy Button.png" width="154" height="46"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

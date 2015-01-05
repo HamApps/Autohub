@@ -108,10 +108,4 @@
     return (AppDelegate *)[[UIApplication sharedApplication]delegate];
 }
 
--(void)disableAds
-{
-    // Turn the ads off.
-    self.interstitial.delegate = nil;
-}
-
 @end
