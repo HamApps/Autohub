@@ -73,7 +73,9 @@
     
     // detect the height of our screen
     int height = [UIScreen mainScreen].bounds.size.height;
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"darkishgrey.jpg"] forBarMetrics:UIBarMetricsDefault];
+    UIImage* tabBarBackground = [UIImage imageNamed:@"Tabbarcolor.png"];
+    [[UINavigationBar appearance] setBackgroundImage:tabBarBackground forBarMetrics:UIBarMetricsDefault];
+    //[[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"darkishgrey.jpg"] forBarMetrics:UIBarMetricsDefault];
     NSShadow *shadow = [[NSShadow alloc] init];
     shadow.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8];
     shadow.shadowOffset = CGSizeMake(0, 1);
@@ -82,7 +84,6 @@
                                                            shadow, NSShadowAttributeName,
                                                            [UIFont fontWithName:@"Eurostile" size:21.0], NSFontAttributeName, nil]];
     
-    UIImage* tabBarBackground = [UIImage imageNamed:@"Tabbarcolor.png"];
     [[UITabBar appearance] setBackgroundImage:tabBarBackground];
     [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"tabbar_selected.png"]];
      
@@ -133,10 +134,10 @@
     
     int height = [UIScreen mainScreen].bounds.size.height;
     
-    TopTensViewController * toptens1 = [[TopTensViewController alloc]init];
-    [toptens1 disableAds];
-    TopTensViewController2 * toptens2 = [[TopTensViewController2 alloc]init];
-    [toptens2 disableAds];
+    //TopTensViewController * toptens1 = [[TopTensViewController alloc]init];
+    //[toptens1 disableAds];
+    //TopTensViewController2 * toptens2 = [[TopTensViewController2 alloc]init];
+    //[toptens2 disableAds];
     
     if (height == 480) {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard4" bundle:nil];

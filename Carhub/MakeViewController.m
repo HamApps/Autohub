@@ -39,8 +39,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"Makes";
     [self makeAppDelModelArray];
+    self.title = @"Makes";
     self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"whiteback.jpg"]];
 }
 
@@ -76,7 +76,7 @@
     cell.layer.borderColor=[UIColor whiteColor].CGColor;
     //cell.layer.cornerRadius = 10;
     
-    cell.MakeNameLabel.text =makeObject.MakeName;
+    cell.MakeNameLabel.text=makeObject.MakeName;
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSData *imagedata = [defaults objectForKey:identifier];
@@ -87,13 +87,14 @@
     if([[defaults objectForKey:@"count"] integerValue] == [[NSString stringWithFormat:@"%i", makeimageArray.count] integerValue])
     {
     cell.MakeImageView.image = [UIImage imageWithData:imagedata];
-    [UIImageView beginAnimations:nil context:NULL];
-    [UIImageView setAnimationDuration:.01];
+    //[UIImageView beginAnimations:nil context:NULL];
+    //[UIImageView setAnimationDuration:.75];
     [cell.MakeImageView setAlpha:1.0];
-    [UIImageView commitAnimations];
+    //[UIImageView commitAnimations];
+    NSLog(@"first loop");
     }
     
-    if(!([[defaults objectForKey:urlIdentifier] isEqualToString:makeObject.MakeImageURL]) || cell.MakeImageView.image == nil){
+    if(!([[defaults objectForKey:urlIdentifier] isEqualToString:makeObject.MakeImageURL])||cell.MakeImageView.image == nil){
         char const*s = [identifier UTF8String];
             dispatch_queue_t queue = dispatch_queue_create(s, 0);
         
@@ -115,8 +116,8 @@
                                 [UIImageView setAnimationDuration:.75];
                                 [updateCell.MakeImageView setAlpha:1.0];
                                 [UIImageView commitAnimations];
+                                NSLog(@"second loop");
                                 
-                                //[defaults synchronize];
                             }
                         });
                     }
@@ -127,6 +128,8 @@
     
     return cell;
 }
+
+
 
 - (void)getfirstModel:(id)firstcarObject1;
 {

@@ -11,7 +11,6 @@
 @interface TopTensViewController : UIViewController
 @property (nonatomic, retain) NSMutableArray * toptensarray;
 
--(void)disableAds;
 
 @end
 
