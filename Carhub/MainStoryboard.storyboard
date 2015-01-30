@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="cDA-tu-9pC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="cDA-tu-9pC">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="eurostile.TTF">
@@ -1403,7 +1403,7 @@
             <objects>
                 <viewController id="dyO-Xs-Ifc" customClass="DisputeInfoViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5K0-9c-PuS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="1451"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SpecsDisputePageNew.jpg" id="fMk-nG-cIj">
@@ -1470,7 +1470,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="XNx-b7-Qla">
-                                            <rect key="frame" x="18" y="11" width="64" height="74"/>
+                                            <rect key="frame" x="18" y="11" width="58" height="74"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
                                     </subviews>
@@ -1508,7 +1508,7 @@
             <objects>
                 <viewController id="6kx-mZ-18w" customClass="ImageViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uEv-Mx-ANm">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="6YB-dk-eEi">
@@ -2118,7 +2118,7 @@ EEZ1ZWwxA
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N6h-ht-ZM7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="275" y="1062"/>
+            <point key="canvasLocation" x="189" y="1116"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="x6x-ZN-wNh">
@@ -2330,7 +2330,7 @@ EEZ1ZWwxA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v1h-IL-nX2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-63" y="2439"/>
+            <point key="canvasLocation" x="-695" y="2493"/>
         </scene>
         <!--Search Model Controller-->
         <scene sceneID="emu-Um-FrX">
@@ -2403,7 +2403,7 @@ EEZ1ZWwxA
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NUL-ox-2cP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-177" y="1168"/>
+            <point key="canvasLocation" x="-271" y="1874"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="g0h-qx-TDQ">
@@ -3156,7 +3156,7 @@ EEZ1ZWwxA
                                 <rect key="frame" x="0.0" y="0.0" width="107" height="105"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="107" height="105"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="106.66" height="105"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5iO-RK-T6h">
@@ -3167,7 +3167,7 @@ EEZ1ZWwxA
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="8pC-Po-6hc">
-                                            <rect key="frame" x="16" y="11" width="64" height="72"/>
+                                            <rect key="frame" x="16" y="11" width="62" height="72"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
                                     </subviews>
@@ -3974,7 +3974,7 @@ EEZ1ZWwxA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gfA-zO-2Zk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1027" y="1848"/>
+            <point key="canvasLocation" x="1083" y="1856"/>
         </scene>
         <!--News View Controller-->
         <scene sceneID="lja-bM-FRz">
@@ -4017,7 +4017,7 @@ EEZ1ZWwxA
                                     <outlet property="CarImage" destination="Ehi-HI-9bU" id="Pqq-X2-Dtk"/>
                                     <outlet property="CarName" destination="Wng-f5-YcD" id="SLg-Xx-MhZ"/>
                                     <outlet property="NewsDescription" destination="RRL-ua-z7j" id="ozT-RW-P0O"/>
-                                    <segue destination="GbG-bE-srY" kind="push" identifier="pushNewsDetailView" id="Zvo-d7-y2G"/>
+                                    <segue destination="GbG-bE-srY" kind="push" identifier="pushNewsDetailView" id="NwG-q8-62h"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -4051,7 +4051,7 @@ EEZ1ZWwxA
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ee7-47-n4k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="275" y="1836"/>
+            <point key="canvasLocation" x="177" y="1808"/>
         </scene>
     </scenes>
     <resources>
@@ -4093,20 +4093,20 @@ EEZ1ZWwxA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="bU0-Yy-HXs"/>
-        <segue reference="HW8-OO-WfJ"/>
-        <segue reference="VxT-b5-4y4"/>
-        <segue reference="42H-ee-N4I"/>
-        <segue reference="pHq-6B-CjY"/>
-        <segue reference="KO6-u2-jNQ"/>
-        <segue reference="KPf-ON-0nm"/>
-        <segue reference="0tH-TB-qVt"/>
-        <segue reference="30L-8O-aJ4"/>
-        <segue reference="Qdr-UW-Q4c"/>
         <segue reference="oNS-Qo-D1h"/>
-        <segue reference="ftA-3B-9XR"/>
+        <segue reference="1mk-Ee-vDk"/>
+        <segue reference="sE8-VE-5YO"/>
+        <segue reference="30L-8O-aJ4"/>
+        <segue reference="iB0-TH-YJq"/>
+        <segue reference="Qdr-UW-Q4c"/>
+        <segue reference="C6b-Pf-jq5"/>
+        <segue reference="1xX-lX-k72"/>
+        <segue reference="JwW-hT-aA1"/>
+        <segue reference="h6x-yG-Lyy"/>
+        <segue reference="Mmf-mU-rqp"/>
+        <segue reference="IuD-83-x7k"/>
+        <segue reference="471-D2-cbL"/>
         <segue reference="gMz-OK-N9a"/>
         <segue reference="VKl-wa-Bb9"/>
-        <segue reference="JgQ-qN-qS5"/>
     </inferredMetricsTieBreakers>
 </document>

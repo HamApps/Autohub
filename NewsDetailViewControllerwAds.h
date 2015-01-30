@@ -7,7 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NewsViewController.h"
+#import "News.h"
 
-@interface NewsDetailViewControllerwAds : UIViewController
+@interface NewsDetailViewControllerwAds : UIViewController{
+    IBOutlet UIImageView *imageview;
+    IBOutlet UIScrollView * scroller;
+}
+
+@property(nonatomic, strong) IBOutlet UILabel * NewsTitleLabel;
+@property(nonatomic, strong) IBOutlet UITextView * NewsArticleLabel;
+@property(nonatomic, strong) IBOutlet UILabel * NewsDateLabel;
+
+@property(nonatomic, strong) News * currentnews;
+
+- (void)getNews:(id)newsObject;
+- (void)setLabels;
 
 @end

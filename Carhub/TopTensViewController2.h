@@ -11,6 +11,5 @@
 
 @interface TopTensViewController2 : UIViewController
 
--(void)disableAds;
 
 @end

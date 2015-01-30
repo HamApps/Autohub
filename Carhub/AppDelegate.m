@@ -198,7 +198,6 @@
         [modelArray addObject:[[Model alloc]initWithCarMake:cMake andCarModel:cModel andCarYearsMade:cYearsMade andCarPrice:cPrice andCarEngine:cEngine andCarTransmission:cTransmission andCarDriveType:cDriveType andCarHorsepower:cHorsepower andCarZeroToSixty:cZeroToSixty andCarTopSpeed:cTopSpeed andCarWeight:cWeight andCarFuelEconomy:cFuelEconomy andCarImageURL:cURL andCarWebsite:cWebsite]];
         
     }
-    NSLog(@"appdelarray: %@", modelArray);
     
 }
 
@@ -222,14 +221,11 @@
         NSString * mName = [[AlphabeticalArray objectAtIndex:i] objectForKey:@"Make"];
         
         //Add the MakeImage object to the MakeImage array
-        NSLog(@"mname %@", mName);
         
         [makeimageArray addObject:mName];
     }
     NSString * defaultrow = @"Select a Make";
     [makeimageArray insertObject:defaultrow atIndex:0];
-    
-    NSLog(@"makeimagearrayappdel: %@", makeimageArray);
 }
 
 - (void) retrieveMakeImageData2;

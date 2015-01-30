@@ -91,7 +91,6 @@
     //[UIImageView setAnimationDuration:.75];
     [cell.MakeImageView setAlpha:1.0];
     //[UIImageView commitAnimations];
-    NSLog(@"first loop");
     }
     
     if(!([[defaults objectForKey:urlIdentifier] isEqualToString:makeObject.MakeImageURL])||cell.MakeImageView.image == nil){
@@ -116,7 +115,6 @@
                                 [UIImageView setAnimationDuration:.75];
                                 [updateCell.MakeImageView setAlpha:1.0];
                                 [UIImageView commitAnimations];
-                                NSLog(@"second loop");
                                 
                             }
                         });
@@ -168,9 +166,7 @@
     appdelmodelArray = [[NSMutableArray alloc]init];
     makeimageArray = [[NSMutableArray alloc]init];
     AppDelegate *appdel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSLog(@"appdelarray2: %@", appdel.modelArray);
     [appdelmodelArray addObjectsFromArray:appdel.modelArray];
-    NSLog(@"appdelarray3: %@", appdelmodelArray);
     
     makeimageArray = [[NSMutableArray alloc]init];
     [makeimageArray addObjectsFromArray:appdel.makeimageArray2];

@@ -38,15 +38,33 @@
 {
     [super viewDidLoad];
     
+    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"whiteback.jpg"]];
+    
     [scroller setScrollEnabled:YES];
     [scroller setContentSize:CGSizeMake(320, 640)];
     
     [self setLabels];
     
-    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"whiteback.jpg"]];
-    
-    //firstimageview.image = [UIImage imageWithData: [NSData dataWithContentsOfURL:[NSURL URLWithString:firstCar.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]]];
-    //secondimageview.image = [UIImage imageWithData: [NSData dataWithContentsOfURL:[NSURL URLWithString:secondCar.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]]];
+    if(firstCar != nil){
+        NSString *identifier = [[NSString stringWithFormat:@"%@", firstCar.CarMake]stringByAppendingString:firstCar.CarModel];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSData *imagedata = [defaults objectForKey:identifier];
+        firstimageview.image = [UIImage imageWithData:imagedata];
+        [UIImageView beginAnimations:nil context:NULL];
+        [UIImageView setAnimationDuration:.01];
+        [firstimageview setAlpha:1.0];
+        [UIImageView commitAnimations];
+    }
+    if(secondCar != nil){
+        NSString *identifier2 = [[NSString stringWithFormat:@"%@", secondCar.CarMake]stringByAppendingString:secondCar.CarModel];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSData *imagedata = [defaults objectForKey:identifier2];
+        secondimageview.image = [UIImage imageWithData:imagedata];
+        [UIImageView beginAnimations:nil context:NULL];
+        [UIImageView setAnimationDuration:.01];
+        [secondimageview setAlpha:1.0];
+        [UIImageView commitAnimations];
+    }
     
     if (firstimageview.image ==nil) {
         
@@ -100,6 +118,7 @@
     
     
     // Do any additional setup after loading the view.
+    
     [super viewDidLoad];
 }
 
@@ -108,6 +127,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 #pragma mark -
 #pragma mark Methods
@@ -164,10 +184,8 @@
         Model * firstcarobject1 = firstCar;
         [[segue destinationViewController] getfirstModel:firstcarobject1];
     }
-    
     if ([[segue identifier] isEqualToString:@"pushMakesView2"])
     {
-        //Get the object for the selected row
         Model * secondcarobject1 = secondCar;
         [[segue destinationViewController] getsecondModel:secondcarobject1];
     }
@@ -183,7 +201,6 @@
         Model * secondcarobject1 = secondCar;
         [[segue destinationViewController] getsecondModel:secondcarobject1];
     }
-    
     
 }
 

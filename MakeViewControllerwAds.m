@@ -14,13 +14,18 @@
 #import "Model.h"
 #import "ModelViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "GADInterstitial.h"
+#import "GADInterstitialDelegate.h"
 
 #define getMakeDataURL @"http://pl0x.net/CarMakesJSON.php"
 #define getModelDataURL @"http://pl0x.net/CarHubJSON2.php"
+#define DELEGATE ((AppDelegate*)[[UIApplication sharedApplication]delegate])
 
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
-@interface MakeViewControllerwAds ()
+@interface MakeViewControllerwAds ()<GADInterstitialDelegate>
+
+@property(nonatomic, strong) GADInterstitial *interstitial;
 
 @end
 
@@ -38,10 +43,60 @@
 
 - (void)viewDidLoad
 {
+    
+    //Ad stuff first
+    self.interstitial = [[GADInterstitial alloc] init];
+    self.interstitial.adUnitID = @"ca-app-pub-3476863246932104/7317472476";
+    self.interstitial.delegate = self;
+    [self.interstitial loadRequest:[GADRequest request]];
+    
+    GADRequest *request = [GADRequest request];
+    // Requests test ads on simulators.
+    //request.testDevices = @[ GAD_SIMULATOR_ID ];
+    request.testDevices = @[ @"00a7c23d2dbe1cd601f20ffb38a73348" ];
+    [self.interstitial loadRequest:request];
+    
     [super viewDidLoad];
+
+    //Other loading stuff
     [self makeAppDelModelArray];
     self.title = @"Makes";
     self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"whiteback.jpg"]];
+}
+
+- (void)interstitialDidReceiveAd:(GADInterstitial *)interstitial {
+    [self.interstitial presentFromRootViewController:self];
+    NSLog(@"interstitialDidReceiveAd");
+}
+
+/// Called when an interstitial ad request failed.
+- (void)interstitial:(GADInterstitial *)ad didFailToReceiveAdWithError:(GADRequestError *)error {
+    NSLog(@"interstitialDidFailToReceiveAdWithError: %@", [error localizedDescription]);
+}
+
+/// Called just before presenting an interstitial.
+- (void)interstitialWillPresentScreen:(GADInterstitial *)ad {
+    NSLog(@"interstitialWillPresentScreen");
+}
+
+/// Called before the interstitial is to be animated off the screen.
+- (void)interstitialWillDismissScreen:(GADInterstitial *)ad {
+    NSLog(@"interstitialWillDismissScreen");
+}
+
+/// Called just after dismissing an interstitial and it has animated off the screen.
+- (void)interstitialDidDismissScreen:(GADInterstitial *)ad {
+    NSLog(@"interstitialDidDismissScreen");
+}
+
+/// Called just before the application will background or terminate because the user clicked on an
+/// ad that will launch another application (such as the App Store).
+- (void)interstitialWillLeaveApplication:(GADInterstitial *)ad {
+    NSLog(@"interstitialWillLeaveApplication");
+}
+
+- (AppDelegate *) appdelegate {
+    return (AppDelegate *)[[UIApplication sharedApplication]delegate];
 }
 
 - (void)didReceiveMemoryWarning
@@ -87,11 +142,7 @@
     if([[defaults objectForKey:@"count"] integerValue] == [[NSString stringWithFormat:@"%i", makeimageArray.count] integerValue])
     {
         cell.MakeImageView.image = [UIImage imageWithData:imagedata];
-        //[UIImageView beginAnimations:nil context:NULL];
-        //[UIImageView setAnimationDuration:.75];
         [cell.MakeImageView setAlpha:1.0];
-        //[UIImageView commitAnimations];
-        NSLog(@"first loop");
     }
     
     if(!([[defaults objectForKey:urlIdentifier] isEqualToString:makeObject.MakeImageURL])||cell.MakeImageView.image == nil){
@@ -116,7 +167,6 @@
                             [UIImageView setAnimationDuration:.75];
                             [updateCell.MakeImageView setAlpha:1.0];
                             [UIImageView commitAnimations];
-                            NSLog(@"second loop");
                             
                         }
                     });

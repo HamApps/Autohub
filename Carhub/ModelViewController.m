@@ -45,9 +45,6 @@
     //Load Model Data
     [self makeAppDelModelArray];
     [self getnumber];
-    
-    NSLog(@"CarArraycount: %lu", (unsigned long)carArray.count);
-    NSLog(@"FirstCar: %@", _firstCar2);
 }
 
 - (void)didReceiveMemoryWarning
@@ -194,8 +191,6 @@
 - (void)getmodelarray:(id)modeljsonarray;
 {
     carArray = modeljsonarray;
-    NSLog(@"jsonarray%lu", (unsigned long)carArray.count);
-    NSLog(@"fulljsonarray%@", carArray);
 }
 
 - (void)getnumber
@@ -203,16 +198,13 @@
     NSPredicate *MakePredicate = [NSPredicate predicateWithFormat:@"CarMake == %@", currentMake.MakeName];
     //ModelArray = [carArray filteredArrayUsingPredicate:MakePredicate];
     ModelArray = [appdelmodelArray filteredArrayUsingPredicate:MakePredicate];
-    NSLog(@"ModelArray%lu", (unsigned long)ModelArray.count);
 }
 
 - (void) makeAppDelModelArray;
 {
     appdelmodelArray = [[NSMutableArray alloc]init];
     AppDelegate *appdel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSLog(@"appdelarray2: %@", appdel.modelArray);
     [appdelmodelArray addObjectsFromArray:appdel.modelArray];
-    NSLog(@"appdelarray3: %@", appdelmodelArray);
 }
 
 @end

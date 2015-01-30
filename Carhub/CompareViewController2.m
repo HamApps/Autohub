@@ -8,14 +8,10 @@
 
 #import "CompareViewController2.h"
 #import "AppDelegate.h"
-#import "GADInterstitial.h"
-#import "GADInterstitialDelegate.h"
 
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
-@interface CompareViewController2 ()<GADInterstitialDelegate>
-
-@property(nonatomic, strong) GADInterstitial *interstitial;
+@interface CompareViewController2 ()
 
 @end
 
@@ -40,15 +36,33 @@
 {
     [super viewDidLoad];
     
-    [scroller setScrollEnabled:YES];
-    [scroller setContentSize:CGSizeMake(320, 580)];
-
-    [self setLabels];
-    
     self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"whiteback.jpg"]];
     
-    //firstimageview.image = [UIImage imageWithData: [NSData dataWithContentsOfURL:[NSURL URLWithString:firstCar.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]]];
-    //secondimageview.image = [UIImage imageWithData: [NSData dataWithContentsOfURL:[NSURL URLWithString:secondCar.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]]];
+    [scroller setScrollEnabled:YES];
+    [scroller setContentSize:CGSizeMake(320, 640)];
+    
+    [self setLabels];
+    
+    if(firstCar != nil){
+        NSString *identifier = [[NSString stringWithFormat:@"%@", firstCar.CarMake]stringByAppendingString:firstCar.CarModel];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSData *imagedata = [defaults objectForKey:identifier];
+        firstimageview.image = [UIImage imageWithData:imagedata];
+        [UIImageView beginAnimations:nil context:NULL];
+        [UIImageView setAnimationDuration:.01];
+        [firstimageview setAlpha:1.0];
+        [UIImageView commitAnimations];
+    }
+    if(secondCar != nil){
+        NSString *identifier2 = [[NSString stringWithFormat:@"%@", secondCar.CarMake]stringByAppendingString:secondCar.CarModel];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSData *imagedata = [defaults objectForKey:identifier2];
+        secondimageview.image = [UIImage imageWithData:imagedata];
+        [UIImageView beginAnimations:nil context:NULL];
+        [UIImageView setAnimationDuration:.01];
+        [secondimageview setAlpha:1.0];
+        [UIImageView commitAnimations];
+    }
     
     if (firstimageview.image ==nil) {
         
@@ -96,66 +110,23 @@
     NSString * makewithspace2 = [secondCar.CarMake stringByAppendingString:@" "];
     NSString * detailtitle2 = [makewithspace2 stringByAppendingString:secondCar.CarModel];
     
+    
     self.title = @"Model Comparison";
     CarTitleLabel.text = detailtitle;
     CarTitleLabel2.text = detailtitle2;
     
     
     // Do any additional setup after loading the view.
-    [super viewDidLoad];
-    self.interstitial = [[GADInterstitial alloc] init];
-    self.interstitial.adUnitID = @"ca-app-pub-3476863246932104/7317472476";
-    self.interstitial.delegate = self;
-    [self.interstitial loadRequest:[GADRequest request]];
     
-    GADRequest *request = [GADRequest request];
-    // Requests test ads on simulators.
-    //request.testDevices = @[ GAD_SIMULATOR_ID ];
-    request.testDevices = @[ @"00a7c23d2dbe1cd601f20ffb38a73348" ];
-    [self.interstitial loadRequest:request];
+    [super viewDidLoad];
 }
-
-- (void)interstitialDidReceiveAd:(GADInterstitial *)interstitial {
-    [self.interstitial presentFromRootViewController:self];
-}
-
-/// Called when an interstitial ad request succeeded.
-//- (void)interstitialDidReceiveAd:(GADInterstitial *)ad {
-//NSLog(@"interstitialDidReceiveAd");
-//}
-
-/// Called when an interstitial ad request failed.
-- (void)interstitial:(GADInterstitial *)ad didFailToReceiveAdWithError:(GADRequestError *)error {
-    NSLog(@"interstitialDidFailToReceiveAdWithError: %@", [error localizedDescription]);
-}
-
-/// Called just before presenting an interstitial.
-- (void)interstitialWillPresentScreen:(GADInterstitial *)ad {
-    NSLog(@"interstitialWillPresentScreen");
-}
-
-/// Called before the interstitial is to be animated off the screen.
-- (void)interstitialWillDismissScreen:(GADInterstitial *)ad {
-    NSLog(@"interstitialWillDismissScreen");
-}
-
-/// Called just after dismissing an interstitial and it has animated off the screen.
-- (void)interstitialDidDismissScreen:(GADInterstitial *)ad {
-    NSLog(@"interstitialDidDismissScreen");
-}
-
-/// Called just before the application will background or terminate because the user clicked on an
-/// ad that will launch another application (such as the App Store).
-- (void)interstitialWillLeaveApplication:(GADInterstitial *)ad {
-    NSLog(@"interstitialWillLeaveApplication");
-}
-
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 #pragma mark -
 #pragma mark Methods
@@ -212,10 +183,8 @@
         Model * firstcarobject1 = firstCar;
         [[segue destinationViewController] getfirstModel:firstcarobject1];
     }
-    
     if ([[segue identifier] isEqualToString:@"pushMakesView2"])
     {
-            //Get the object for the selected row
         Model * secondcarobject1 = secondCar;
         [[segue destinationViewController] getsecondModel:secondcarobject1];
     }
@@ -231,8 +200,7 @@
         Model * secondcarobject1 = secondCar;
         [[segue destinationViewController] getsecondModel:secondcarobject1];
     }
-
-
+    
 }
 
 
