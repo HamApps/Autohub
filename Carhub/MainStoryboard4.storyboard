@@ -3224,7 +3224,7 @@ EEZ1ZWwxA
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="fpq-Qp-R7y">
-                                            <rect key="frame" x="13" y="4" width="67" height="71"/>
+                                            <rect key="frame" x="13" y="3" width="64" height="72"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
                                     </subviews>
@@ -4638,15 +4638,15 @@ EEZ1ZWwxA
         <segue reference="W65-ah-7q4"/>
         <segue reference="B34-lZ-zbJ"/>
         <segue reference="ob0-RJ-n8v"/>
+        <segue reference="1xX-lX-k72"/>
+        <segue reference="YHL-Yl-wsN"/>
+        <segue reference="h6x-yG-Lyy"/>
+        <segue reference="IuD-83-x7k"/>
+        <segue reference="Mmf-mU-rqp"/>
+        <segue reference="JwW-hT-aA1"/>
+        <segue reference="471-D2-cbL"/>
         <segue reference="9QX-2Z-LbH"/>
-        <segue reference="5xK-g9-Yju"/>
-        <segue reference="cIB-FY-kE3"/>
-        <segue reference="xM1-4l-8WV"/>
-        <segue reference="4me-L2-fp2"/>
-        <segue reference="Zf0-3G-Yzg"/>
-        <segue reference="9GG-zD-pjc"/>
         <segue reference="F1f-DU-AYH"/>
-        <segue reference="Ncv-id-VCE"/>
         <segue reference="Hh3-Pn-m1m"/>
         <segue reference="cSR-Jg-rrd"/>
         <segue reference="mqh-HO-RY6"/>
