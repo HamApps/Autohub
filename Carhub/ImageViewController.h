@@ -13,7 +13,7 @@
     IBOutlet UIScrollView *scrollView;
     IBOutlet UIImageView* imageview;
 }
-@property(nonatomic, strong) Model * firstCar4;
+@property(nonatomic, strong) Model * currentCar;
 
 - (void)getfirstModel:(id)firstcarObject;
 

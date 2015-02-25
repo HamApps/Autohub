@@ -14,6 +14,7 @@
 #import "FavoritesClass.h"
 #import "TopTensViewController.h"
 #import "Model.h"
+#import "STKAudioPlayer.h"
 
 #define kNSUSERDEFAULTSCAR @"nsuserdefaultscar"
 
@@ -24,6 +25,7 @@
 @interface DetailViewController ()
 
 @end
+STKAudioPlayer * audioPlayer;
 
 @implementation DetailViewController
 
@@ -49,13 +51,14 @@
 {
     [super viewDidLoad];
     
+    audioPlayer = [[STKAudioPlayer alloc]init];
+    
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSLog (@"usercars: %@", [defaults objectForKey:@"savedcar"]);
     
     optionsSingle = [FavoritesClass favoritecars];
     NSLog (@"favoritesclassarray%@", optionsSingle.favoritearray);
-    
-    
     
     
     [scroller setScrollEnabled:YES];
@@ -71,10 +74,7 @@
     NSString *identifier = [[NSString stringWithFormat:@"%@", _currentCar.CarMake]stringByAppendingString:_currentCar.CarModel];
     NSData *imagedata = [defaults objectForKey:identifier];
     imageview.image = [UIImage imageWithData:imagedata];
-    [UIImageView beginAnimations:nil context:NULL];
-    [UIImageView setAnimationDuration:.01];
     [imageview setAlpha:1.0];
-    [UIImageView commitAnimations];
     
     if (!currentCararray){
     self.currentCararray = [[NSMutableArray alloc]init];
@@ -108,10 +108,10 @@
     //Load up the UI
     [self setLabels];
 }
-                               
-                               
 
-
+- (void)viewWillDisappear:(BOOL)animated {
+    [audioPlayer stop];
+}
 
 
 - (void)didReceiveMemoryWarning
@@ -181,8 +181,14 @@
     }
 }
 
-
-
+-(IBAction)Sound{
+    [audioPlayer resume];
+    NSString * soundurl = [[[@"http://www.pl0x.net/CarSounds/" stringByAppendingString:_currentCar.CarMake] stringByAppendingString:_currentCar.CarModel]stringByAppendingString:@".mp3"];
+    
+    [audioPlayer play:soundurl];
+    
+    NSLog(@"button was pressed");
+}
 
 - (void)setLabels
 {

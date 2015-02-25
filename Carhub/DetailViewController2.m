@@ -11,12 +11,14 @@
 #import "CompareViewController.h"
 #import "AppDelegate.h"
 #import <QuartzCore/QuartzCore.h>
+#import "STKAudioPlayer.h"
 
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
 @interface DetailViewController2 ()
 
 @end
+STKAudioPlayer * audioPlayer;
 
 @implementation DetailViewController2
 
@@ -38,6 +40,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    audioPlayer = [[STKAudioPlayer alloc]init];
     
     [scroller setScrollEnabled:YES];
     [scroller setContentSize:CGSizeMake(320, 1061)];
@@ -82,6 +86,19 @@
     
     //Load up the UI
     [self setLabels];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [audioPlayer stop];
+}
+
+-(IBAction)Sound{
+    [audioPlayer resume];
+    NSString * soundurl = [[[@"http://www.pl0x.net/CarSounds/" stringByAppendingString:_currentCar.CarMake] stringByAppendingString:_currentCar.CarModel]stringByAppendingString:@".mp3"];
+    
+    [audioPlayer play:soundurl];
+    
+    NSLog(@"button was pressed");
 }
 
 - (void)didReceiveMemoryWarning

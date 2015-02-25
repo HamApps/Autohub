@@ -218,9 +218,9 @@
     appdelmodelArray = [[NSMutableArray alloc]init];
     makeimageArray = [[NSMutableArray alloc]init];
     AppDelegate *appdel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSLog(@"appdelarray2: %@", appdel.modelArray);
+    //NSLog(@"appdelarray2: %@", appdel.modelArray);
     [appdelmodelArray addObjectsFromArray:appdel.modelArray];
-    NSLog(@"appdelarray3: %@", appdelmodelArray);
+    //NSLog(@"appdelarray3: %@", appdelmodelArray);
     
     makeimageArray = [[NSMutableArray alloc]init];
     [makeimageArray addObjectsFromArray:appdel.makeimageArray2];

@@ -28,6 +28,7 @@
     IBOutlet UIScrollView * scroller;
     NSMutableArray * currentCararray;
 }
+
 @property (nonatomic, weak) id <DetailViewControllerDelegate> delegate;
 
 @property (nonatomic, strong) NSMutableArray * favoritesArray;
@@ -58,4 +59,5 @@
 - (void)getModel:(id)modelObject;
 - (void)setLabels;
 -(IBAction)Website;
+-(IBAction)Sound;
 @end

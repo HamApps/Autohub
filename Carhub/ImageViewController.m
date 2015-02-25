@@ -29,11 +29,15 @@
 {
     [super viewDidLoad];
 
-
     scrollView.maximumZoomScale = 3.0; scrollView.minimumZoomScale = 0.6; scrollView.clipsToBounds = YES; scrollView.delegate = self; [scrollView addSubview:imageview];
     
-    imageview.image = [UIImage imageWithData: [NSData dataWithContentsOfURL:[NSURL URLWithString:_firstCar4.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]]];
-    NSLog(@"firstcar4,%@", _firstCar4);
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *identifier = [[NSString stringWithFormat:@"%@", _currentCar.CarMake]stringByAppendingString:_currentCar.CarModel];
+    NSData *imagedata = [defaults objectForKey:identifier];
+    imageview.image = [UIImage imageWithData:imagedata];
+    
+    
+    //imageview.image = [UIImage imageWithData: [NSData dataWithContentsOfURL:[NSURL URLWithString:_firstCar4.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]]];
 
     // Do any additional setup after loading the view.
 }
@@ -43,18 +47,24 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 - (void)getfirstModel:(id)firstcarObject;
 {
-    _firstCar4 = firstcarObject;
+    _currentCar = firstcarObject;
 }
+- (void)getsecondModel:(id)secondcarObject1;
+{
+    _currentCar = secondcarObject1;
+}
+
+
 /*
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    No Navigation on this page right now.
 }
 */
 
