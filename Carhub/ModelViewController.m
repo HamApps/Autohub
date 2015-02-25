@@ -84,12 +84,6 @@
                                     reuseIdentifier:CellIdentifier];
     }
     
-    //NSString *identifier = [[NSString stringWithFormat:@"ModelCell%ld" , (long)indexPath.row] stringByAppendingString:currentMake.MakeName];
-    NSString *identifier = [[NSString stringWithFormat:@"%@", modelObject.CarMake]stringByAppendingString:modelObject.CarModel];
-    NSString *urlIdentifier = [NSString stringWithFormat:@"imageurl%@%@",modelObject.CarMake, modelObject.CarModel];
-    
-    // Configure the cell...
-    
     cell.CarName.text = modelObject.CarModel;
     //Accessory stuff
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -98,6 +92,10 @@
     //cell.layer.cornerRadius = 20;
     cell.CarName.layer.borderWidth=1.0f;
     cell.CarName.layer.borderColor=[UIColor whiteColor].CGColor;
+    
+    
+    NSString *identifier = [[[NSString stringWithFormat:@"%@", modelObject.CarMake]stringByAppendingString:@" "]stringByAppendingString:modelObject.CarModel];
+    NSString *urlIdentifier = [NSString stringWithFormat:@"imageurl%@%@%@",modelObject.CarMake,@" ", modelObject.CarModel];
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSData *imagedata = [defaults objectForKey:identifier];

@@ -44,7 +44,7 @@
     [self setLabels];
     
     if(firstCar != nil){
-        NSString *identifier = [[NSString stringWithFormat:@"%@", firstCar.CarMake]stringByAppendingString:firstCar.CarModel];
+        NSString *identifier = [[[NSString stringWithFormat:@"%@", firstCar.CarMake]stringByAppendingString:@" "]stringByAppendingString:firstCar.CarModel];
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSData *imagedata = [defaults objectForKey:identifier];
         firstimageview.image = [UIImage imageWithData:imagedata];
@@ -54,7 +54,7 @@
         [UIImageView commitAnimations];
     }
     if(secondCar != nil){
-        NSString *identifier2 = [[NSString stringWithFormat:@"%@", secondCar.CarMake]stringByAppendingString:secondCar.CarModel];
+        NSString *identifier2 = [[[NSString stringWithFormat:@"%@", secondCar.CarMake]stringByAppendingString:@" "]stringByAppendingString:secondCar.CarModel];
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSData *imagedata = [defaults objectForKey:identifier2];
         secondimageview.image = [UIImage imageWithData:imagedata];

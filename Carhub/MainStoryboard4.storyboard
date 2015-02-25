@@ -602,7 +602,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w5k-oe-Up0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="593" y="-1546"/>
+            <point key="canvasLocation" x="505" y="-1546"/>
         </scene>
         <!--N-->
         <scene sceneID="VLB-Fy-aGu">
@@ -2982,7 +2982,7 @@ EEZ1ZWwxA
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KqZ-Zt-ADa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-19" y="-528"/>
+            <point key="canvasLocation" x="-221" y="-572"/>
         </scene>
         <!--Home-->
         <scene sceneID="e2t-d6-q8d">
@@ -3020,12 +3020,12 @@ EEZ1ZWwxA
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i1v-GG-wuU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1070" y="-1590"/>
+            <point key="canvasLocation" x="988" y="-1464"/>
         </scene>
         <!--Top Tens-->
         <scene sceneID="mpK-55-LC2">
             <objects>
-                <viewController title="Top Tens" id="U39-yf-B5u" customClass="TopTensViewController2" sceneMemberID="viewController">
+                <viewController title="Top Tens" id="U39-yf-B5u" customClass="TopTensViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dnK-AF-87h">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -3039,19 +3039,7 @@ EEZ1ZWwxA
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="RRb-5x-zME" kind="push" id="4me-L2-fp2"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="J5l-qS-7hF">
-                                <rect key="frame" x="20" y="83" width="280" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="22"/>
-                                <state key="normal" title="Fastest 0-60's" backgroundImage="blue button 2.png">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="tV4-qL-F6G" kind="push" id="xM1-4l-8WV"/>
+                                    <segue destination="liv-Cl-lWN" kind="push" identifier="pushNurb" id="0HM-Yj-3eY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="AEb-eS-mRA">
@@ -3063,7 +3051,7 @@ EEZ1ZWwxA
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="dhv-sw-ADZ" kind="push" id="5xK-g9-Yju"/>
+                                    <segue destination="liv-Cl-lWN" kind="push" identifier="pushtopspeed" id="u8d-Nh-Fbr"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="YFD-4G-ayd">
@@ -3075,7 +3063,7 @@ EEZ1ZWwxA
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="G38-Bi-qOs" kind="push" id="9GG-zD-pjc"/>
+                                    <segue destination="liv-Cl-lWN" kind="push" identifier="pushexpensive" id="U55-Bs-jxO"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="DJU-fv-A7r">
@@ -3087,7 +3075,7 @@ EEZ1ZWwxA
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="uBX-sU-20M" kind="push" id="cIB-FY-kE3"/>
+                                    <segue destination="liv-Cl-lWN" kind="push" identifier="pushfuel" id="YHs-2K-SsS"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="czh-tr-RPb">
@@ -3099,7 +3087,19 @@ EEZ1ZWwxA
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="h9m-Dc-raB" kind="push" id="Zf0-3G-Yzg"/>
+                                    <segue destination="liv-Cl-lWN" kind="push" identifier="pushhorsepower" id="dF7-WB-K3G"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="J5l-qS-7hF">
+                                <rect key="frame" x="20" y="83" width="280" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="22"/>
+                                <state key="normal" title="Fastest 0-60's" backgroundImage="blue button 2.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="liv-Cl-lWN" kind="push" identifier="push0-60" id="FLd-SU-bfb"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -3112,10 +3112,18 @@ EEZ1ZWwxA
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="568"/>
+                    <connections>
+                        <outlet property="fuelEconomyButton" destination="DJU-fv-A7r" id="3GE-oS-XgW"/>
+                        <outlet property="horsepowerButton" destination="czh-tr-RPb" id="J4L-0U-mhI"/>
+                        <outlet property="mostExpensiveButton" destination="YFD-4G-ayd" id="Fw5-C3-lFX"/>
+                        <outlet property="nurburgringButton" destination="6Cc-LA-YE8" id="QTc-pE-jG9"/>
+                        <outlet property="topSpeedButton" destination="AEb-eS-mRA" id="WUe-nl-cOC"/>
+                        <outlet property="zeroToSixtyButton" destination="J5l-qS-7hF" id="H86-yS-jwf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jDF-Qb-kRu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1497" y="-1584"/>
+            <point key="canvasLocation" x="1408" y="-1546"/>
         </scene>
         <!--Upgrade-->
         <scene sceneID="BfF-DH-cLf">
@@ -3196,7 +3204,7 @@ EEZ1ZWwxA
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="fpq-Qp-R7y">
-                                            <rect key="frame" x="14" y="3" width="76" height="80"/>
+                                            <rect key="frame" x="12" y="3" width="76" height="80"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
                                     </subviews>
@@ -4587,6 +4595,66 @@ EEZ1ZWwxA
             </objects>
             <point key="canvasLocation" x="1549" y="2663"/>
         </scene>
+        <!--New Top Tens View Controller-->
+        <scene sceneID="DnW-pn-TQF">
+            <objects>
+                <tableViewController id="liv-Cl-lWN" customClass="NewTopTensViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="140" sectionHeaderHeight="22" sectionFooterHeight="22" id="u0Y-BI-CV5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="toptens" rowHeight="140" id="ere-P6-81h" customClass="TopTensCell">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ere-P6-81h" id="OzI-eG-woe">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mgb-Iu-9Lw">
+                                            <rect key="frame" x="214" y="66" width="98" height="62"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Car Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="t8I-L6-aas">
+                                            <rect key="frame" x="32" y="0.0" width="263" height="47"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="W0F-wo-0t3">
+                                            <rect key="frame" x="3" y="55" width="199" height="83"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="x5t-fr-e84">
+                                            <rect key="frame" x="3" y="4" width="47" height="39"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="CarImage" destination="W0F-wo-0t3" id="QX2-IE-Ztw"/>
+                                    <outlet property="CarName" destination="t8I-L6-aas" id="yTf-G0-m4r"/>
+                                    <outlet property="CarRank" destination="x5t-fr-e84" id="rLx-bi-w7M"/>
+                                    <outlet property="CarValue" destination="Mgb-Iu-9Lw" id="AEf-Tg-OXq"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="liv-Cl-lWN" id="KfA-WM-zMc"/>
+                            <outlet property="delegate" destination="liv-Cl-lWN" id="uH7-xI-Wpz"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="7aJ-Dn-l1V"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BTw-wU-CPo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1995" y="-1563"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Drive Type Icon.png" width="256" height="256"/>
@@ -4620,19 +4688,14 @@ EEZ1ZWwxA
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="JwW-hT-aA1"/>
-        <segue reference="9QX-2Z-LbH"/>
-        <segue reference="471-D2-cbL"/>
-        <segue reference="h6x-yG-Lyy"/>
-        <segue reference="1xX-lX-k72"/>
-        <segue reference="IuD-83-x7k"/>
-        <segue reference="Mmf-mU-rqp"/>
-        <segue reference="W65-ah-7q4"/>
-        <segue reference="B34-lZ-zbJ"/>
         <segue reference="F1f-DU-AYH"/>
+        <segue reference="dF7-WB-K3G"/>
         <segue reference="yrY-F8-n0u"/>
         <segue reference="mqh-HO-RY6"/>
-        <segue reference="6iO-po-NGs"/>
         <segue reference="Hh3-Pn-m1m"/>
+        <segue reference="W65-ah-7q4"/>
+        <segue reference="B34-lZ-zbJ"/>
+        <segue reference="9QX-2Z-LbH"/>
+        <segue reference="YHL-Yl-wsN"/>
     </inferredMetricsTieBreakers>
 </document>

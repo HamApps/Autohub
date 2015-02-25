@@ -11,12 +11,23 @@
 #import "TopTens.h"
 #import "TopTensCell.h"
 
+#define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+
 @interface NewTopTensViewController ()
 
 @end
 
 @implementation NewTopTensViewController
 @synthesize jsonArray, topTensArray, currentTopTen, urlExtention;
+
+- (id)initWithStyle:(UITableViewStyle)style
+{
+    self = [super initWithStyle:style];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -66,17 +77,62 @@
     TopTensCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     TopTens * toptensObject = [topTensArray objectAtIndex:indexPath.row];
     
+    if (cell == nil) {
+        cell = [[TopTensCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                  reuseIdentifier:CellIdentifier];
+    }
+    
     cell.CarRank.text = toptensObject.CarRank;
     cell.CarName.text = toptensObject.CarName;
     cell.CarValue.text = toptensObject.CarValue;
     NSLog(@"CarName %@",toptensObject.CarName);
     
+    //cell.CarImage.image=[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:toptensObject.CarURL relativeToURL:[NSURL URLWithString: @"http://pl0x.net/image.php"]]]];
     
+    NSString *identifier = [NSString stringWithFormat:@"%@", toptensObject.CarName];
+    NSString *urlIdentifier = [NSString stringWithFormat:@"imageurl%@", toptensObject.CarName];
     
-    cell.CarImage.image=[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:toptensObject.CarURL relativeToURL:[NSURL URLWithString: @"http://pl0x.net/image.php"]]]];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *imagedata = [defaults objectForKey:identifier];
+    [defaults setObject:[NSString stringWithFormat:@"%lu", (unsigned long)topTensArray.count] forKey:@"count"];
     
-    // Configure the cell...
-    
+    if([[defaults objectForKey:@"count"] integerValue] == [[NSString stringWithFormat:@"%lu", (unsigned long)topTensArray.count] integerValue])
+    {
+        cell.CarImage.image = [UIImage imageWithData:imagedata];
+        [UIImageView beginAnimations:nil context:NULL];
+        [UIImageView setAnimationDuration:.01];
+        [cell.CarImage setAlpha:1.0];
+        [UIImageView commitAnimations];
+    }
+    if(!([[defaults objectForKey:urlIdentifier] isEqualToString:toptensObject.CarURL]) || cell.CarImage.image == nil){
+        char const*s = [identifier UTF8String];
+        dispatch_queue_t queue = dispatch_queue_create(s, 0);
+        
+        dispatch_async(queue, ^{
+            
+            NSData *imgData = [NSData dataWithContentsOfURL:[NSURL URLWithString:toptensObject.CarURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]];
+            if (imgData) {
+                UIImage *image = [UIImage imageWithData:imgData];
+                if (image) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        TopTensCell *updateCell = (id)[tableView cellForRowAtIndexPath:indexPath];
+                        if (updateCell)
+                        {
+                            [defaults setObject:UIImagePNGRepresentation(image) forKey:identifier];
+                            [defaults setObject:toptensObject.CarURL forKey:urlIdentifier];
+                            NSData *imgdata = [defaults objectForKey:identifier];
+                            updateCell.CarImage.image = [UIImage imageWithData:imgdata];
+                            [updateCell.CarImage setAlpha:0.0];
+                            [UIImageView beginAnimations:nil context:NULL];
+                            [UIImageView setAnimationDuration:.75];
+                            [updateCell.CarImage setAlpha:1.0];
+                            [UIImageView commitAnimations];
+                        }
+                    });
+                }
+            }
+        });
+    }
     return cell;
 }
 

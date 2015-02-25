@@ -54,7 +54,7 @@ STKAudioPlayer * audioPlayer;
     NSString * detailtitle = [makewithspace stringByAppendingString:_currentCar.CarModel];
     self.title = detailtitle;
 
-    NSString *identifier = [[NSString stringWithFormat:@"%@", _currentCar.CarMake]stringByAppendingString:_currentCar.CarModel];
+    NSString *identifier = [[[NSString stringWithFormat:@"%@", _currentCar.CarMake]stringByAppendingString:@" "]stringByAppendingString:_currentCar.CarModel];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSData *imagedata = [defaults objectForKey:identifier];
     imageview.image = [UIImage imageWithData:imagedata];

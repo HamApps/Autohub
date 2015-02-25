@@ -815,7 +815,7 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="e4u-XF-OS9">
+                                        <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="e4u-XF-OS9">
                                             <rect key="frame" x="3" y="55" width="199" height="83"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -845,7 +845,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cQA-hW-9vG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1223" y="-758"/>
+            <point key="canvasLocation" x="1268" y="-758"/>
         </scene>
         <!--Most Exspensive (Based on Cars We Have)-->
         <scene sceneID="sWZ-aX-8dE">
@@ -4692,8 +4692,8 @@ EEZ1ZWwxA
         <segue reference="30L-8O-aJ4"/>
         <segue reference="iB0-TH-YJq"/>
         <segue reference="oNS-Qo-D1h"/>
-        <segue reference="PfH-59-FcA"/>
         <segue reference="0uS-kB-Eqf"/>
+        <segue reference="sba-Ic-o6S"/>
         <segue reference="VKl-wa-Bb9"/>
         <segue reference="gMz-OK-N9a"/>
     </inferredMetricsTieBreakers>

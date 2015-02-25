@@ -96,7 +96,7 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"whiteback.jpg"]];
     cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"whiteback.jpg"]];
     
-    NSString *identifier = [[NSString stringWithFormat:@"%@", modelObject.CarMake]stringByAppendingString:modelObject.CarModel];
+    NSString *identifier = [[[NSString stringWithFormat:@"%@", modelObject.CarMake]stringByAppendingString:@" "]stringByAppendingString:modelObject.CarModel];
     NSString *urlIdentifier = [NSString stringWithFormat:@"imageurl%@%@",modelObject.CarMake, modelObject.CarModel];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
