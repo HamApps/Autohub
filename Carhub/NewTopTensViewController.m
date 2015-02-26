@@ -10,6 +10,8 @@
 #import "AppDelegate.h"
 #import "TopTens.h"
 #import "TopTensCell.h"
+#import "Model.h"
+#import "DetailViewController.h"
 
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
@@ -18,7 +20,7 @@
 @end
 
 @implementation NewTopTensViewController
-@synthesize jsonArray, topTensArray, currentTopTen, urlExtention;
+@synthesize jsonArray, topTensArray, currentTopTen, urlExtention, appdelmodelArray, objectToSend;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -31,11 +33,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     //Set which Top Ten was picked
     AppDelegate *appdel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     topTensArray = [[NSMutableArray alloc]init];
     self.title = currentTopTen;
+    [self makeAppDelModelArray];
 
     if([currentTopTen isEqualToString:@"Fastest 0-60's"])
         [topTensArray addObjectsFromArray:appdel.zt60Array];
@@ -49,8 +51,6 @@
         [topTensArray addObjectsFromArray:appdel.fuelArray];
     if([currentTopTen isEqualToString:@"Highest Horsepower"])
         [topTensArray addObjectsFromArray:appdel.horsepowerArray];
-    
-    NSLog(@"current top ten %@", currentTopTen);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -85,9 +85,6 @@
     cell.CarRank.text = toptensObject.CarRank;
     cell.CarName.text = toptensObject.CarName;
     cell.CarValue.text = toptensObject.CarValue;
-    NSLog(@"CarName %@",toptensObject.CarName);
-    
-    //cell.CarImage.image=[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:toptensObject.CarURL relativeToURL:[NSURL URLWithString: @"http://pl0x.net/image.php"]]]];
     
     NSString *identifier = [NSString stringWithFormat:@"%@", toptensObject.CarName];
     NSString *urlIdentifier = [NSString stringWithFormat:@"imageurl%@", toptensObject.CarName];
@@ -173,17 +170,35 @@
 -(void)getTopTenID:(id)TopTenID;
 {
     currentTopTen = TopTenID;
-    NSLog(@"currentTopTen %@",currentTopTen);
+}
+
+- (void) makeAppDelModelArray;
+{
+    appdelmodelArray = [[NSMutableArray alloc]init];
+    AppDelegate *appdel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appdelmodelArray addObjectsFromArray:appdel.modelArray];
 }
 
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"pushDetailView"])
+    {
+        NSIndexPath * indexPath = [self.tableView indexPathForSelectedRow];
+        TopTens * toptensObject = [topTensArray objectAtIndex:indexPath.row];
+        
+        for(int i=0;i<appdelmodelArray.count;i++){
+            Model * currentObj = [appdelmodelArray objectAtIndex:i];
+            NSString * cURL = currentObj.CarImageURL;
+            if([toptensObject.CarURL isEqualToString:cURL]){
+                objectToSend = currentObj;
+                break;
+            }
+        }
+        Model * object = objectToSend;
+        [[segue destinationViewController] getModel:object];
+    }
 }
-
-
 
 @end

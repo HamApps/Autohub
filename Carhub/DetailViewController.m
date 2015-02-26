@@ -127,6 +127,7 @@ STKAudioPlayer * audioPlayer;
 - (void)getModel:(id)modelObject;
 {
     _currentCar = modelObject;
+    NSLog (@"currentCar%@", _currentCar);
 }
 
 - (void)getfirstModel:(id)firstcarObject3;

@@ -167,6 +167,7 @@
         
         //Get the object for the selected row
         Model * object = [ModelArray objectAtIndex:indexPath.row];
+        NSLog (@"object.Carmodel%@", object.CarModel);
         Model * firstcarobject3 = _firstCar2;
         Model * secondcarobject3 = _secondCar2;
         [[segue destinationViewController] getfirstModel:firstcarobject3];

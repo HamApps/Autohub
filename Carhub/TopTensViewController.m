@@ -23,7 +23,7 @@
 @end
 
 @implementation TopTensViewController
-@synthesize toptensarray, zeroToSixtyButton, topSpeedButton, nurburgringButton, mostExpensiveButton, fuelEconomyButton, horsepowerButton;
+@synthesize zeroToSixtyButton, topSpeedButton, nurburgringButton, mostExpensiveButton, fuelEconomyButton, horsepowerButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,15 +39,6 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"whiteback.jpg"]];
-    
-    DetailViewController * detailview = [[DetailViewController alloc]init];
-    detailview.currentCararray = [[NSMutableArray alloc]init];
-    //detailview.currentCararray = [NSMutableArray arrayWithObject:detailview.currentCararray];
-    AppDelegate *appdel = DELEGATE;
-    appdel.favoritesarray = [[NSMutableArray alloc]init];
-    toptensarray = [[NSMutableArray alloc]init];
-    
-    NSLog(@"currentCararray%@", toptensarray);
     
     // Do any additional setup after loading the view.
     
@@ -103,10 +94,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (AppDelegate *) appdelegate {
-    return (AppDelegate *)[[UIApplication sharedApplication]delegate];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

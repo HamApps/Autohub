@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface TopTensViewController : UIViewController
-@property (nonatomic, retain) NSMutableArray * toptensarray;
 
 @property (strong, nonatomic) IBOutlet UIButton * zeroToSixtyButton;
 @property (strong, nonatomic) IBOutlet UIButton * topSpeedButton;
