@@ -398,7 +398,7 @@
             <objects>
                 <viewController id="dyO-Xs-Ifc" customClass="DisputeInfoViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5K0-9c-PuS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SpecsDisputePageNew.jpg" id="fMk-nG-cIj">
@@ -465,7 +465,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="XNx-b7-Qla">
-                                            <rect key="frame" x="14" y="5" width="66" height="80"/>
+                                            <rect key="frame" x="13" y="5" width="66" height="80"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
                                     </subviews>
@@ -503,7 +503,7 @@
             <objects>
                 <viewController id="6kx-mZ-18w" customClass="ImageViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uEv-Mx-ANm">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="6YB-dk-eEi">
@@ -3586,15 +3586,15 @@ EEZ1ZWwxA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="0uS-kB-Eqf"/>
+        <segue reference="r54-US-OFB"/>
+        <segue reference="RxO-oc-qbF"/>
         <segue reference="oNS-Qo-D1h"/>
+        <segue reference="gMz-OK-N9a"/>
+        <segue reference="VKl-wa-Bb9"/>
+        <segue reference="iRx-7O-jn3"/>
+        <segue reference="5GO-FT-vHI"/>
         <segue reference="iB0-TH-YJq"/>
         <segue reference="30L-8O-aJ4"/>
-        <segue reference="jXW-4w-wyY"/>
-        <segue reference="RxO-oc-qbF"/>
-        <segue reference="r54-US-OFB"/>
-        <segue reference="VKl-wa-Bb9"/>
-        <segue reference="5GO-FT-vHI"/>
-        <segue reference="gMz-OK-N9a"/>
+        <segue reference="adk-x1-Vyi"/>
     </inferredMetricsTieBreakers>
 </document>

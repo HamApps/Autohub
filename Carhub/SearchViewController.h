@@ -73,7 +73,6 @@
 @property (nonatomic, strong) NSArray * AlphabeticalArray;
 
 - (void) retrieveMakeImageData;
-- (void) retrieveData;
 - (void) setModels;
 - (void) UsePredicates;
 

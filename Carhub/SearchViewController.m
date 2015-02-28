@@ -79,8 +79,6 @@
     //Contents of 0-60 picker
     NSArray * zerotosixtyarray = [[NSArray alloc] initWithObjects:@"Any", @"2-3.0 secs", @"3.1-4.0 secs", @"4.1-5.0 secs", @"5.1-5.5 secs", @"5.6-6.0 secs", @"6.1-6.5 secs", @"6.6-7.0 secs", @"7.1-8.0 secs", @"8.1-9.0 secs", @"9.1-10.0 secs", @"10.1+ secs", nil];
     self.ZeroToSixtyData = zerotosixtyarray;
-
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -677,42 +675,6 @@
     }//Model PickerView Actions End
 
 
-}
-
-- (void) retrieveData;
-{
-    NSURL * url = [NSURL URLWithString:getDataURL];
-    NSData * data = [NSData dataWithContentsOfURL:url];
-    
-    jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-
-    carArray = [[NSMutableArray alloc] init];
-    
-    //Loop through jsonarray
-    for (int i=0; i < jsonArray.count; i++)
-    {
-        //Create our city object
-        NSString * cMake = [[jsonArray objectAtIndex:i] objectForKey:@"Make"];
-        NSString * dModel = [[jsonArray objectAtIndex:i] objectForKey:@"Model"];
-        NSString * cYearsMade = [[jsonArray objectAtIndex:i] objectForKey:@"Years Made"];
-        NSString * cPrice = [[jsonArray objectAtIndex:i] objectForKey:@"Price"];
-        NSString * cEngine = [[jsonArray objectAtIndex:i] objectForKey:@"Engine"];
-        NSString * cTransmission = [[jsonArray objectAtIndex:i] objectForKey:@"Transmission"];
-        NSString * cDriveType = [[jsonArray objectAtIndex:i] objectForKey:@"Drive Type"];
-        NSString * cHorsepower = [[jsonArray objectAtIndex:i] objectForKey:@"Horsepower"];
-        NSString * cZeroToSixty = [[jsonArray objectAtIndex:i] objectForKey:@"0-60"];
-        NSString * cTopSpeed = [[jsonArray objectAtIndex:i] objectForKey:@"Top Speed (mph)"];
-        NSString * cWeight = [[jsonArray objectAtIndex:i] objectForKey:@"Weight (lbs)"];
-        NSString * cFuelEconomy = [[jsonArray objectAtIndex:i] objectForKey:@"Fuel Economy (mpg)"];
-        NSString * cURL = [[jsonArray objectAtIndex:i] objectForKey:@"Image URL"];
-        NSString * cWebsite = [[jsonArray objectAtIndex:i]objectForKey:@"Make Link"];
-        
-        //Add the city object to our cities array
-        [carArray addObject:[[Model alloc]initWithCarMake:cMake andCarModel:dModel andCarYearsMade:cYearsMade andCarPrice:cPrice andCarEngine:cEngine andCarTransmission:cTransmission andCarDriveType:cDriveType andCarHorsepower:cHorsepower andCarZeroToSixty:cZeroToSixty andCarTopSpeed:cTopSpeed andCarWeight:cWeight andCarFuelEconomy:cFuelEconomy andCarImageURL:cURL andCarWebsite:cWebsite]];
-        
-        
-        
-    }
 }
 
 - (void) makeAppDelModelArray;

@@ -152,7 +152,7 @@
         Model * secondcarobject2 = _secondCar1;
         [[segue destinationViewController] getfirstModel:firstcarobject2];
         [[segue destinationViewController] getsecondModel:secondcarobject2];
-        [[segue destinationViewController] getmodelarray:modelArray];
+        //[[segue destinationViewController] getmodelarray:modelArray];
 
         NSIndexPath * indexPath = [self.collectionView indexPathForCell:sender];
         Make * makeobject = [makeimageArray objectAtIndex:indexPath.row];

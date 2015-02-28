@@ -209,6 +209,7 @@
             <string>EurostileRegular</string>
             <string>EurostileRegular</string>
             <string>EurostileRegular</string>
+            <string>EurostileRegular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -326,6 +327,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="4Vy-7z-dMU">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="Ph2-Hk-w9n" id="iCF-zu-V26"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleAspectFit" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ModelCell" rowHeight="183" id="JHC-RW-NUV" customClass="CarViewCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="183"/>
@@ -372,8 +381,29 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="568"/>
+                    <connections>
+                        <outlet property="searchBar" destination="4Vy-7z-dMU" id="dcc-nK-saB"/>
+                        <outlet property="searchDisplayController" destination="xNA-AZ-FnQ" id="3aB-ci-0Gp"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SaI-al-dos" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="cjn-PN-9vT">
+                    <connections>
+                        <outlet property="delegate" destination="Ph2-Hk-w9n" id="62M-6h-3Gh"/>
+                        <outlet property="searchContentsController" destination="Ph2-Hk-w9n" id="kEr-7z-QKR"/>
+                        <outlet property="searchResultsDataSource" destination="Ph2-Hk-w9n" id="1F5-ju-Usc"/>
+                        <outlet property="searchResultsDelegate" destination="Ph2-Hk-w9n" id="cVJ-u9-IAj"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="xNA-AZ-FnQ">
+                    <connections>
+                        <outlet property="delegate" destination="Ph2-Hk-w9n" id="Gec-2L-spd"/>
+                        <outlet property="searchBar" destination="4Vy-7z-dMU" id="PjX-xI-koB"/>
+                        <outlet property="searchContentsController" destination="Ph2-Hk-w9n" id="lGq-Iq-d6C"/>
+                        <outlet property="searchResultsDataSource" destination="Ph2-Hk-w9n" id="1xc-uF-B0w"/>
+                        <outlet property="searchResultsDelegate" destination="Ph2-Hk-w9n" id="u44-Iy-iP9"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1203" y="150"/>
         </scene>
@@ -1055,7 +1085,7 @@ EEZ1ZWwxA
             <objects>
                 <viewController id="wEG-mh-v4Y" customClass="DisputeInfoViewController2" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Fa-7L-6D0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="551"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NewSpecsDisputePage4.png" id="glX-MP-UQY">
@@ -1143,7 +1173,7 @@ EEZ1ZWwxA
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="9m3-nL-qGF">
-                                            <rect key="frame" x="14" y="3" width="74" height="78"/>
+                                            <rect key="frame" x="14" y="0.0" width="71" height="81"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
                                     </subviews>
@@ -1172,8 +1202,19 @@ EEZ1ZWwxA
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="n4Y-ml-bcm" id="Sz7-1b-IP0"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MUJ-ax-Ict" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="n4Y-ml-bcm">
+                    <connections>
+                        <outlet property="delegate" destination="KM7-UJ-bLX" id="vMT-0c-zqy"/>
+                        <outlet property="searchContentsController" destination="KM7-UJ-bLX" id="fda-Ux-zvX"/>
+                        <outlet property="searchResultsDataSource" destination="KM7-UJ-bLX" id="tDh-lf-N4e"/>
+                        <outlet property="searchResultsDelegate" destination="KM7-UJ-bLX" id="HYo-9Q-qdi"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="755" y="90"/>
         </scene>
@@ -1371,6 +1412,16 @@ EEZ1ZWwxA
                                         <rect key="frame" x="-1" y="1248" width="26" height="26"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Sz2-hd-gM6">
+                                        <rect key="frame" x="259" y="236" width="48" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Search">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="UCs-nO-vGD" kind="push" id="wxV-eq-EqL"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -2095,7 +2146,7 @@ EEZ1ZWwxA
                                 <rect key="frame" x="0.0" y="64" width="104" height="105"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="107" height="105"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="106.66" height="105"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="S9I-Vw-z5h">
@@ -2106,7 +2157,7 @@ EEZ1ZWwxA
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="fpq-Qp-R7y">
-                                            <rect key="frame" x="11" y="3" width="76" height="80"/>
+                                            <rect key="frame" x="10" y="2" width="76" height="80"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
                                     </subviews>
@@ -3200,7 +3251,7 @@ EEZ1ZWwxA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5W-n2-lTZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="748" y="3163"/>
+            <point key="canvasLocation" x="976" y="3137"/>
         </scene>
         <!--Search Model Controller-->
         <scene sceneID="v5t-VX-hMe">
@@ -3253,7 +3304,7 @@ EEZ1ZWwxA
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oRP-Pe-Na9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1162" y="2697"/>
+            <point key="canvasLocation" x="1296" y="2695"/>
         </scene>
         <!--Detail View Controller2-->
         <scene sceneID="dym-h8-VA3">
@@ -3558,6 +3609,79 @@ EEZ1ZWwxA
             </objects>
             <point key="canvasLocation" x="2068" y="-1863"/>
         </scene>
+        <!--Search Tab View Controller-->
+        <scene sceneID="hA3-7m-fFO">
+            <objects>
+                <tableViewController id="UCs-nO-vGD" customClass="SearchTabViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="183" sectionHeaderHeight="22" sectionFooterHeight="22" id="C7y-MO-s3c">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="wnM-lx-x3n">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="UCs-nO-vGD" id="Ua6-0N-cgn"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ModelCell" rowHeight="183" id="gvy-u6-QhX" customClass="CarViewCell">
+                                <rect key="frame" x="0.0" y="86" width="320" height="183"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gvy-u6-QhX" id="jub-Xs-RYr">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="182"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="zvy-fA-VxL">
+                                            <rect key="frame" x="60" y="42" width="207" height="128"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="403-jp-RBJ">
+                                            <rect key="frame" x="43" y="13" width="240" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="17"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="CarImage" destination="zvy-fA-VxL" id="6gx-il-DqX"/>
+                                    <outlet property="CarName" destination="403-jp-RBJ" id="za9-mn-5ma"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="UCs-nO-vGD" id="PbP-fr-8AC"/>
+                            <outlet property="delegate" destination="UCs-nO-vGD" id="75O-eQ-1Y5"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="h6c-F6-xVi">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="compose" id="gEu-hq-Plh">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="568"/>
+                    <connections>
+                        <outlet property="searchBar" destination="wnM-lx-x3n" id="zPB-ph-YxB"/>
+                        <outlet property="searchDisplayController" destination="cFp-QF-26l" id="b14-ei-YrT"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0TK-h6-2wp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="cFp-QF-26l">
+                    <connections>
+                        <outlet property="delegate" destination="UCs-nO-vGD" id="SLN-kH-OXK"/>
+                        <outlet property="searchBar" destination="wnM-lx-x3n" id="HLc-g1-hog"/>
+                        <outlet property="searchContentsController" destination="UCs-nO-vGD" id="ppr-j3-FIJ"/>
+                        <outlet property="searchResultsDataSource" destination="UCs-nO-vGD" id="mSd-1x-iCm"/>
+                        <outlet property="searchResultsDelegate" destination="UCs-nO-vGD" id="ESo-TW-3r3"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="633" y="2663"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Drive Type Icon.png" width="256" height="256"/>
@@ -3589,7 +3713,6 @@ EEZ1ZWwxA
     <inferredMetricsTieBreakers>
         <segue reference="F1f-DU-AYH"/>
         <segue reference="wDf-De-1Iu"/>
-        <segue reference="YHL-Yl-wsN"/>
         <segue reference="Z57-Yg-yC8"/>
         <segue reference="mqh-HO-RY6"/>
         <segue reference="Hh3-Pn-m1m"/>
@@ -3597,5 +3720,6 @@ EEZ1ZWwxA
         <segue reference="9QX-2Z-LbH"/>
         <segue reference="B34-lZ-zbJ"/>
         <segue reference="W65-ah-7q4"/>
+        <segue reference="uuZ-XV-fDM"/>
     </inferredMetricsTieBreakers>
 </document>

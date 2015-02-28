@@ -10,11 +10,14 @@
 #import "Model.h"
 #import "MakeViewController.h"
 
-@interface ModelViewController : UITableViewController
+@interface ModelViewController : UITableViewController <UISearchDisplayDelegate>
+
+@property (nonatomic, strong) IBOutlet UISearchBar *searchBar;
 @property (nonatomic, strong) NSMutableArray * jsonArray;
 @property (nonatomic, strong) NSMutableArray * carArray;
 @property (nonatomic, strong) NSMutableArray * appdelmodelArray;
-@property (nonatomic, retain) NSArray * ModelArray;
+@property (nonatomic, strong) NSArray * ModelArray;
+@property (nonatomic, strong) NSArray * searchArray;
 @property (nonatomic, strong) NSMutableDictionary *cachedImages;
 @property (nonatomic, strong) NSArray * AlphabeticalArray;
 

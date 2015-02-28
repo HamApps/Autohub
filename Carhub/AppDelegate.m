@@ -197,9 +197,11 @@
         NSString * cFuelEconomy = [[modeljsonArray objectAtIndex:i] objectForKey:@"Fuel Economy (mpg)"];
         NSString * cURL = [[modeljsonArray objectAtIndex:i] objectForKey:@"Image URL"];
         NSString * cWebsite = [[modeljsonArray objectAtIndex:i]objectForKey:@"Make Link"];
+        //NSString *urlIdentifier = [NSString stringWithFormat:@"imageurl%@%@%@",modelObject.CarMake,@" ", modelObject.CarModel];
+        NSString * cFullName = [NSString stringWithFormat:@"%@%@%@",cMake,@" ",cModel];
         
         //Add object to array
-        [modelArray addObject:[[Model alloc]initWithCarMake:cMake andCarModel:cModel andCarYearsMade:cYearsMade andCarPrice:cPrice andCarEngine:cEngine andCarTransmission:cTransmission andCarDriveType:cDriveType andCarHorsepower:cHorsepower andCarZeroToSixty:cZeroToSixty andCarTopSpeed:cTopSpeed andCarWeight:cWeight andCarFuelEconomy:cFuelEconomy andCarImageURL:cURL andCarWebsite:cWebsite]];
+        [modelArray addObject:[[Model alloc]initWithCarMake:cMake andCarModel:cModel andCarYearsMade:cYearsMade andCarPrice:cPrice andCarEngine:cEngine andCarTransmission:cTransmission andCarDriveType:cDriveType andCarHorsepower:cHorsepower andCarZeroToSixty:cZeroToSixty andCarTopSpeed:cTopSpeed andCarWeight:cWeight andCarFuelEconomy:cFuelEconomy andCarImageURL:cURL andCarWebsite:cWebsite andCarFullName:cFullName]];
     }
 }
 
