@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "Model.h"
-#import "FavoritesClass.h"
 
 #define kNSUSERDEFAULTSCAR @"nsuserdefaultscar"
 
@@ -18,20 +17,14 @@
 - (void)addItemViewController:(DetailViewController *)controller didFinishEnteringItem:(Model *)currentcar;
 @end
 
-#import "FavoritesViewController.h"
-
 @interface DetailViewController : UIViewController<UIGestureRecognizerDelegate>
 {
-    FavoritesClass *optionsSingle;
-    
     IBOutlet UIImageView *imageview;
     IBOutlet UIScrollView * scroller;
     NSMutableArray * currentCararray;
 }
 
 @property (nonatomic, weak) id <DetailViewControllerDelegate> delegate;
-
-@property (nonatomic, strong) NSMutableArray * favoritesArray;
 
 @property (nonatomic, retain) NSMutableArray * currentCararray;
 

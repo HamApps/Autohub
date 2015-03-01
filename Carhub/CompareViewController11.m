@@ -8,7 +8,6 @@
 
 #import "CompareViewController11.h"
 #import "AppDelegate.h"
-#import "FavoritesClass.h"
 #import "GADInterstitial.h"
 #import "GADInterstitialDelegate.h"
 
@@ -110,10 +109,6 @@
     NSString * detailtitle = [makewithspace stringByAppendingString:firstCar.CarModel];
     NSString * makewithspace2 = [secondCar.CarMake stringByAppendingString:@" "];
     NSString * detailtitle2 = [makewithspace2 stringByAppendingString:secondCar.CarModel];
-    
-    FavoritesClass *favoriteclass = [[FavoritesClass alloc]init];
-    
-    NSLog(@"FavoriteClassCar%@",favoriteclass.favoritearray);
     
     self.title = @"Model Comparison";
     CarTitleLabel.text = detailtitle;

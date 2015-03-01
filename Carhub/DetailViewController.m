@@ -11,7 +11,6 @@
 #import "CompareViewController.h"
 #import "AppDelegate.h"
 #import "FavoritesViewController.h"
-#import "FavoritesClass.h"
 #import "TopTensViewController.h"
 #import "Model.h"
 #import "STKAudioPlayer.h"
@@ -29,7 +28,7 @@ STKAudioPlayer * audioPlayer;
 
 @implementation DetailViewController
 
-@synthesize currentCararray, delegate, favoritesArray;
+@synthesize currentCararray, delegate;
 
 - (AppDelegate *) appdelegate
 {
@@ -56,10 +55,6 @@ STKAudioPlayer * audioPlayer;
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSLog (@"usercars: %@", [defaults objectForKey:@"savedcar"]);
-    
-    optionsSingle = [FavoritesClass favoritecars];
-    NSLog (@"favoritesclassarray%@", optionsSingle.favoritearray);
-    
     
     [scroller setScrollEnabled:YES];
     [scroller setContentSize:CGSizeMake(320, 825)];
@@ -140,48 +135,6 @@ STKAudioPlayer * audioPlayer;
     _secondCar3 = secondcarObject3;
 }
 
-- (void)writeFavoriteObject:(Model *)favorite
-{
-    NSData *favoriteObject = [NSKeyedArchiver archivedDataWithRootObject:favorite];
-    [[NSUserDefaults standardUserDefaults] setObject:favoriteObject forKey:kNSUSERDEFAULTSCAR];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
-- (Model *)readFavoriteObjectWithKey:(NSString *)key
-{
-    NSData *favoriteobject = [[NSUserDefaults standardUserDefaults]objectForKey:key];
-    Model *favorite = [NSKeyedUnarchiver unarchiveObjectWithData:favoriteobject];
-    return favorite;
-}
-
-- (IBAction)_sendtoFavorites {
-    Model *favorite = [[Model alloc]init];
-    favorite = _currentCar;
-    NSLog (@"favorite%@", favorite);
-
-    [self writeFavoriteObject:favorite];
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSLog (@"keyedcar: %@", [defaults objectForKey:kNSUSERDEFAULTSCAR]);
-    
-    //NSData *favoritedata = [defaults objectForKey:kNSUSERDEFAULTSCAR];
-    
-    favoritesArray = [[NSMutableArray alloc]init];
-    favoritesArray = [defaults objectForKey:@"favoritesarray"];
-    if (favoritesArray != nil){
-        [favoritesArray addObject:[defaults objectForKey:kNSUSERDEFAULTSCAR]];
-        NSLog (@"favoritesarraybefore: %@", favoritesArray);
-        [defaults setObject:favoritesArray forKey:@"favoritesarray"];
-        NSLog (@"defaultsarray: %@", [defaults objectForKey:@"favoritesarray"]);
-    }else{
-    favoritesArray = [defaults objectForKey:@"favoritesarray"];
-    [favoritesArray addObject:[defaults objectForKey:kNSUSERDEFAULTSCAR]];
-    NSLog (@"favoritesarraymeow: %@", favoritesArray);
-    [defaults setObject:favoritesArray forKey:@"favoritesarray"];
-        NSLog (@"defaultsarray: %@", [defaults objectForKey:@"favoritesarray"]);
-    }
-}
-
 -(IBAction)Sound{
     [audioPlayer resume];
     NSString * soundurl = [[[@"http://www.pl0x.net/CarSounds/" stringByAppendingString:_currentCar.CarMake] stringByAppendingString:_currentCar.CarModel]stringByAppendingString:@".mp3"];
@@ -237,13 +190,6 @@ STKAudioPlayer * audioPlayer;
         Model * firstcarobject = _currentCar;
         [[segue destinationViewController] getfirstModel:firstcarobject];
     }
-    if ([[segue identifier] isEqualToString:@"pushfavorites"])
-    {
-        //Get the object
-        Model * firstcarobject = _currentCar;
-        [[segue destinationViewController] getfirstModel:firstcarobject];
-    }
-
     
 }
 

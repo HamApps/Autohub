@@ -9,15 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "Model.h"
 #import "DetailViewController.h"
-#import "FavoritesClass.h"
 
-@interface FavoritesViewController : UITableViewController
 
-@property (strong, nonatomic) IBOutlet UILabel * TestLabel;
-@property(nonatomic, strong) Model * FavoriteCar;
-@property(nonatomic, strong) NSMutableArray * favoritesarray;
-@property(nonatomic, strong) NSMutableArray * defaultsarray;
+@interface FavoritesViewController : UITableViewController<UISearchDisplayDelegate>
 
-- (void)loadcars;
+//@property (nonatomic, strong) IBOutlet UISearchBar *searchBar;
+
+@property (nonatomic, strong) NSMutableArray * ModelArray;
+@property (nonatomic, strong) NSArray * searchArray;
+
+- (void)loadSavedCars;
 
 @end

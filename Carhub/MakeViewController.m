@@ -80,11 +80,11 @@
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSData *imagedata = [defaults objectForKey:identifier];
-    [defaults setObject:[NSString stringWithFormat:@"%i", makeimageArray.count] forKey:@"count"];
+    [defaults setObject:[NSString stringWithFormat:@"%lu", (unsigned long)makeimageArray.count] forKey:@"count"];
     
     //NSLog([defaults objectForKey:urlIdentifier]);
     
-    if([[defaults objectForKey:@"count"] integerValue] == [[NSString stringWithFormat:@"%i", makeimageArray.count] integerValue])
+    if([[defaults objectForKey:@"count"] integerValue] == [[NSString stringWithFormat:@"%lu", (unsigned long)makeimageArray.count] integerValue])
     {
     cell.MakeImageView.image = [UIImage imageWithData:imagedata];
     //[UIImageView beginAnimations:nil context:NULL];

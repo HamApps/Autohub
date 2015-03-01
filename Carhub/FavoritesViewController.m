@@ -11,10 +11,14 @@
 #import "CarViewCell.h"
 #import "Model.h"
 #import "AppDelegate.h"
-#import "FavoritesClass.h"
+#import <QuartzCore/QuartzCore.h>
 #import "Model.h"
 
-#define kNSUSERDEFAULTSCAR @"nsuserdefaultscar"
+#define getDataURL @"http://pl0x.net/CarHubJSON2.php"
+
+#define getImageURL @"http://pl0x.net/image.php"
+
+#define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
 @interface FavoritesViewController ()
 
@@ -22,7 +26,7 @@
 
 @implementation FavoritesViewController
 
-@synthesize FavoriteCar, favoritesarray, defaultsarray, TestLabel;
+@synthesize searchArray, ModelArray;
 
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -34,64 +38,15 @@
     return self;
 }
 
-- (void) viewDidAppear:(BOOL)animated{
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSLog (@"favoritecar%@", [defaults objectForKey:kNSUSERDEFAULTSCAR]);
-    Model *favorite = [[Model alloc]init];
-    favorite = [self readFavoriteObjectWithKey:kNSUSERDEFAULTSCAR];
-    self.title = favorite.CarModel;
-    
-    favoritesarray = [[NSMutableArray alloc]init];
-    [favoritesarray addObject:favorite];
-    
-    defaultsarray = [[NSMutableArray alloc]init];
-    defaultsarray = [defaults objectForKey:@"favoritesarray"];
-    
-    self.TestLabel.text = FavoriteCar.CarModel;
-    
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:defaultsarray];
-    [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"defaultsarray"];
-    
-    NSLog (@"defaultsfavoritesarray: %@", [defaults objectForKey:@"favoritesarray"]);
-    NSLog (@"defaultsarray: %@", defaultsarray);
-    NSLog (@"favoritesarray: %@", favoritesarray);
-    NSLog(@"favorite%@", favorite);
-    NSLog(@"defaultsarraycount%lu", (unsigned long)defaultsarray.count);
-    NSLog(@"favoritecar%@", FavoriteCar);
-    NSLog (@"defaultsarray: %@", defaultsarray);
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self loadSavedCars];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTableViewData) name:@"ReloadRootViewControllerTable" object:nil];
     
-    
-    static NSString *CellIdentifier = @"FavoritesCell";
-    [self.tableView registerClass:[CarViewCell class] forCellReuseIdentifier:CellIdentifier];
-    
+    self.title = @"Favorite Cars";
     self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"whiteback.jpg"]];
-    
-    favoritesarray = [[NSMutableArray alloc]init];
-    [self loadcars];
-    
-    //NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    Model *favorite = [[Model alloc]init];
-    favorite = [self readFavoriteObjectWithKey:kNSUSERDEFAULTSCAR];
-    
-    
-    favoritesarray = [[NSMutableArray alloc]init];
-    [favoritesarray addObject:favorite];
-
 }
-
-- (Model *)readFavoriteObjectWithKey:(NSString *)key
-{
-    NSData *favoriteobject = [[NSUserDefaults standardUserDefaults]objectForKey:key];
-    Model *favorite = [NSKeyedUnarchiver unarchiveObjectWithData:favoriteobject];
-    return favorite;
-}
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -103,113 +58,138 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    //return defaultsarray.count;
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    defaultsarray = [[NSMutableArray alloc]init];
-    defaultsarray = [defaults objectForKey:@"favoritesarray"];
-    return defaultsarray.count;
+    return ModelArray.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"NewsCell";
+    static NSString *CellIdentifier = @"ModelCell";
     CarViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    defaultsarray = [[NSMutableArray alloc]init];
-    defaultsarray = [defaults objectForKey:@"favoritesarray"];
+    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"whiteback.jpg"]];
+    cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"whiteback.jpg"]];
     
-    //NSData *defaultarray = [defaults objectForKey:@"favoritesarray"];
-    //Model *favorite = [NSKeyedUnarchiver unarchiveObjectWithData:[defaults objectForKey:@"favoritesarray"]];
+    if (cell==nil) {
+        cell = [[CarViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
     
+    UIButton * button = cell.deleteButton;
+    [button addTarget:self action:@selector(removeFavorite:) forControlEvents:UIControlEventTouchUpInside];
     
-    FavoriteCar = [defaultsarray objectAtIndex:indexPath.row];
+    Model * modelObject = [ModelArray objectAtIndex:indexPath.row];
 
-    FavoriteCar = [self readFavoriteObjectWithKey:kNSUSERDEFAULTSCAR];
     
-
-    
-    //cell.CarName.text  = FavoriteCar.CarModel;
-    //cell.CarName.text = favorite.CarModel;
-    cell.CarImage.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:FavoriteCar.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]]];
-    
-    //Accessory
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    cell.CarName.text = modelObject.CarFullName;
+    //Accessory stuff
     cell.layer.borderWidth=1.0f;
     cell.layer.borderColor=[UIColor blackColor].CGColor;
+    //cell.layer.cornerRadius = 20;
     cell.CarName.layer.borderWidth=1.0f;
     cell.CarName.layer.borderColor=[UIColor whiteColor].CGColor;
+    NSLog(@"fullname: %@", modelObject.CarFullName);
     
+    
+    NSString *identifier = [[[NSString stringWithFormat:@"%@", modelObject.CarMake]stringByAppendingString:@" "]stringByAppendingString:modelObject.CarModel];
+    NSString *urlIdentifier = [NSString stringWithFormat:@"imageurl%@%@%@",modelObject.CarMake,@" ", modelObject.CarModel];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *imagedata = [defaults objectForKey:identifier];
+    [defaults setObject:[NSString stringWithFormat:@"%lu", (unsigned long)ModelArray.count] forKey:@"count"];
+    
+    if([[defaults objectForKey:@"count"] integerValue] == [[NSString stringWithFormat:@"%lu", (unsigned long)ModelArray.count] integerValue])
+    {
+        cell.CarImage.image = [UIImage imageWithData:imagedata];
+        [UIImageView beginAnimations:nil context:NULL];
+        [UIImageView setAnimationDuration:.01];
+        [cell.CarImage setAlpha:1.0];
+        [UIImageView commitAnimations];
+    }
+    if(!([[defaults objectForKey:urlIdentifier] isEqualToString:modelObject.CarImageURL]) || cell.CarImage.image == nil){
+        char const*s = [identifier UTF8String];
+        dispatch_queue_t queue = dispatch_queue_create(s, 0);
+        
+        dispatch_async(queue, ^{
+            
+            NSData *imgData = [NSData dataWithContentsOfURL:[NSURL URLWithString:modelObject.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]];
+            if (imgData) {
+                UIImage *image = [UIImage imageWithData:imgData];
+                if (image) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        CarViewCell *updateCell = (id)[tableView cellForRowAtIndexPath:indexPath];
+                        if (updateCell)
+                        {
+                            [defaults setObject:UIImagePNGRepresentation(image) forKey:identifier];
+                            [defaults setObject:modelObject.CarImageURL forKey:urlIdentifier];
+                            NSData *imgdata = [defaults objectForKey:identifier];
+                            updateCell.CarImage.image = [UIImage imageWithData:imgdata];
+                            [updateCell.CarImage setAlpha:0.0];
+                            [UIImageView beginAnimations:nil context:NULL];
+                            [UIImageView setAnimationDuration:.75];
+                            [updateCell.CarImage setAlpha:1.0];
+                            [UIImageView commitAnimations];
+                            
+                        }
+                    });
+                }
+            }
+        });
+    }
     return cell;
 }
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+-(void)loadSavedCars;
 {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    //Get from defaults
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    ModelArray = [[NSMutableArray alloc]init];
+    NSData *retrievedData = [defaults objectForKey:@"savedArray"];
+    ModelArray = [NSKeyedUnarchiver unarchiveObjectWithData:retrievedData];
+    [defaults synchronize];
+    NSLog(@"retrievedArray: %@", ModelArray);
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-
--(void)loadcars;
-{
-    //[favoritesarray addObject:FavoriteCar];
-    NSLog (@"favoritesarray%@", favoritesarray);
-    NSArray *savedarray2 = [[NSArray alloc]initWithArray:favoritesarray];
-    NSLog (@"savedarray2%@", savedarray2);
-    NSLog (@"savedarray%@", favoritesarray);
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults synchronize];
+-(NSIndexPath*)GetIndexPathFromSender:(id)sender{
     
+    if(!sender) { return nil; }
     
+    if([sender isKindOfClass:[UITableViewCell class]])
+    {
+        UITableViewCell *cell = sender;
+        return [self.tableView indexPathForCell:cell];
+    }
     
-    //FavoritesViewController *favorites = [[FavoritesViewController alloc]init];
-    //favorites.favoritesarray = [[NSMutableArray alloc]init];
-    //[favorites.favoritesarray addObject:_currentCararray];
-    //NSLog(@"Favoritesarray%@", favorites.favoritesarray);
-
+    return [self GetIndexPathFromSender:((UIView*)[sender superview])];
 }
 
+-(void)removeFavorite:(id)sender{
+    NSLog(@"meow");
+    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+    
+    NSLog(@"sender %ld",(long)sender);
+    NSLog(@"indexpath.row %ld",(long)indexPath.row);
+    [ModelArray removeObjectAtIndex:indexPath.row];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:ModelArray];
+    [defaults setObject:arrayData forKey:@"savedArray"];
+    [defaults synchronize];
+    NSLog(@"newArray.count %lu", (unsigned long)ModelArray.count);
+    [self loadSavedCars];
+    [self.tableView reloadData];
+}
+
+-(void) reloadTableViewData{
+    NSLog(@"meow");
+    [self loadSavedCars];
+    [self.tableView reloadData];
+}
 /*
 #pragma mark - Navigation
 

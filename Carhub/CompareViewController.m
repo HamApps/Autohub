@@ -8,7 +8,6 @@
 
 #import "CompareViewController.h"
 #import "AppDelegate.h"
-#import "FavoritesClass.h"
 
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
@@ -109,10 +108,6 @@
     NSString * detailtitle = [makewithspace stringByAppendingString:firstCar.CarModel];
     NSString * makewithspace2 = [secondCar.CarMake stringByAppendingString:@" "];
     NSString * detailtitle2 = [makewithspace2 stringByAppendingString:secondCar.CarModel];
-    
-    FavoritesClass *favoriteclass = [[FavoritesClass alloc]init];
-    
-    NSLog(@"FavoriteClassCar%@",favoriteclass.favoritearray);
     
     self.title = @"Model Comparison";
     CarTitleLabel.text = detailtitle;

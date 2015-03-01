@@ -42,6 +42,8 @@
 @property(nonatomic, strong) IBOutlet UILabel * fueleconomyLabels;
 @property(nonatomic, strong) IBOutlet UILabel * transmissionLabels;
 
+@property (nonatomic, strong) NSMutableArray * savedArray;
+
 @property(nonatomic, strong) Model * currentCar;
 
 #pragma mark -

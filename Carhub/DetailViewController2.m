@@ -12,6 +12,7 @@
 #import "AppDelegate.h"
 #import <QuartzCore/QuartzCore.h>
 #import "STKAudioPlayer.h"
+#import "FavoritesViewController.h"
 
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
@@ -26,7 +27,7 @@ STKAudioPlayer * audioPlayer;
     return (AppDelegate *)[[UIApplication sharedApplication]delegate];
 }
 
-@synthesize CarMakeLabel, CarModelLabel, CarYearsMadeLabel, CarPriceLabel, CarEngineLabel, CarTransmissionLabel, CarDriveTypeLabel, CarHorsepowerLabel, CarZeroToSixtyLabel, CarTopSpeedLabel, CarWeightLabel, CarFuelEconomyLabel, YearsMade, allLabels;
+@synthesize CarMakeLabel, CarModelLabel, CarYearsMadeLabel, CarPriceLabel, CarEngineLabel, CarTransmissionLabel, CarDriveTypeLabel, CarHorsepowerLabel, CarZeroToSixtyLabel, CarTopSpeedLabel, CarWeightLabel, CarFuelEconomyLabel, YearsMade, allLabels, savedArray;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,7 +41,6 @@ STKAudioPlayer * audioPlayer;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     audioPlayer = [[STKAudioPlayer alloc]init];
     
     [scroller setScrollEnabled:YES];
@@ -107,6 +107,31 @@ STKAudioPlayer * audioPlayer;
     // Dispose of any resources that can be recreated.
 }
 
+-(IBAction)Save{
+    //Save to defaults
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    savedArray = [[NSMutableArray alloc]init];
+    NSData *retrievedData = [defaults objectForKey:@"savedArray"];
+    NSArray *testArray = [NSKeyedUnarchiver unarchiveObjectWithData:retrievedData];
+    if(testArray.count!=0){
+        savedArray = [NSKeyedUnarchiver unarchiveObjectWithData:retrievedData];
+        NSLog(@"not nil");
+    }else{NSLog(@"nil");}
+    [savedArray addObject:_currentCar];
+    NSLog(@"afteraddingobject %@",savedArray);
+    NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:savedArray];
+    [defaults setObject:arrayData forKey:@"savedArray"];
+    [defaults synchronize];
+    
+    //Get from defaults
+    NSArray *retrievedArray = [NSKeyedUnarchiver unarchiveObjectWithData:retrievedData];
+    [defaults synchronize];
+    NSLog(@"retrievedArray: %@", retrievedArray);
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadRootViewControllerTable" object:nil];
+}
+
 
 #pragma mark -
 #pragma mark Methods
@@ -128,38 +153,6 @@ STKAudioPlayer * audioPlayer;
 
 - (void)setLabels
 {
-    /*allLabels.layer.borderWidth=1.0f;
-    allLabels.layer.borderColor=[UIColor blackColor].CGColor;
-    allLabels.layer.cornerRadius = 7;
-    _priceLabels.layer.borderWidth=1.0f;
-    _priceLabels.layer.borderColor=[UIColor blackColor].CGColor;
-    _priceLabels.layer.cornerRadius = 7;
-    _engineLabels.layer.borderWidth=1.0f;
-    _engineLabels.layer.borderColor=[UIColor blackColor].CGColor;
-    _engineLabels.layer.cornerRadius = 7;
-    _transmissionLabels.layer.borderWidth=1.0f;
-    _transmissionLabels.layer.borderColor=[UIColor blackColor].CGColor;
-    _transmissionLabels.layer.cornerRadius = 7;
-    _drivetypeLabels.layer.borderWidth=1.0f;
-    _drivetypeLabels.layer.borderColor=[UIColor blackColor].CGColor;
-    _drivetypeLabels.layer.cornerRadius = 7;
-    _horsepowerLabels.layer.borderWidth=1.0f;
-    _horsepowerLabels.layer.borderColor=[UIColor blackColor].CGColor;
-    _horsepowerLabels.layer.cornerRadius = 7;
-    _zerotosixtyLabels.layer.borderWidth=1.0f;
-    _zerotosixtyLabels.layer.borderColor=[UIColor blackColor].CGColor;
-    _zerotosixtyLabels.layer.cornerRadius = 7;
-    _topspeedLabels.layer.borderWidth=1.0f;
-    _topspeedLabels.layer.borderColor=[UIColor blackColor].CGColor;
-    _topspeedLabels.layer.cornerRadius = 7;
-    _weightLabels.layer.borderWidth=1.0f;
-    _weightLabels.layer.borderColor=[UIColor blackColor].CGColor;
-    _weightLabels.layer.cornerRadius = 7;
-    _fueleconomyLabels.layer.borderWidth=1.0f;
-    _fueleconomyLabels.layer.borderColor=[UIColor blackColor].CGColor;
-    _fueleconomyLabels.layer.cornerRadius = 7;*/
-    
-    
     CarMakeLabel.text = _currentCar.CarMake;
     CarModelLabel.text = _currentCar.CarModel;
     
@@ -181,7 +174,6 @@ STKAudioPlayer * audioPlayer;
     CarFuelEconomyLabel.text = _currentCar.CarFuelEconomy;
     
     YearsMade.text = _currentCar.CarYearsMade;
-    
 }
 
 
