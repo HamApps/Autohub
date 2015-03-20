@@ -23,7 +23,7 @@
 
 @implementation AppDelegate
 
-@synthesize favoritesarray, modelArray, modeljsonArray, makeimageArray, makejsonArray, AlphabeticalArray, newsArray, newsjsonArray, makeimageArray2, makejsonArray2, AlphabeticalArray2, zt60Array, topspeedArray, nurbArray, expensiveArray, fuelArray, horsepowerArray, toptensArray, topTensjson;
+@synthesize favoritesarray, modelArray, modeljsonArray, makeimageArray, makejsonArray, AlphabeticalArray, newsArray, newsjsonArray, makeimageArray2, makejsonArray2, AlphabeticalArray2, zt60Array, topspeedArray, nurbArray, expensiveArray, fuelArray, horsepowerArray, toptensArray, topTensjson, ads;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -48,6 +48,7 @@
     
      NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     bool saved = [defaults boolForKey:k_Save];
+    ads = true;
     
     if (!saved){
         //not saved code here
@@ -58,6 +59,7 @@
         int height = [UIScreen mainScreen].bounds.size.height;
         
         if (height == 480) {
+            ads = false;
         
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard4" bundle:nil];
         
@@ -66,6 +68,7 @@
             self.window.rootViewController = viewController;
             [self.window makeKeyAndVisible];
         } else {
+            ads = false;
             
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
             UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"IAP2"];
@@ -197,7 +200,6 @@
         NSString * cFuelEconomy = [[modeljsonArray objectAtIndex:i] objectForKey:@"Fuel Economy (mpg)"];
         NSString * cURL = [[modeljsonArray objectAtIndex:i] objectForKey:@"Image URL"];
         NSString * cWebsite = [[modeljsonArray objectAtIndex:i]objectForKey:@"Make Link"];
-        //NSString *urlIdentifier = [NSString stringWithFormat:@"imageurl%@%@%@",modelObject.CarMake,@" ", modelObject.CarModel];
         NSString * cFullName = [NSString stringWithFormat:@"%@%@%@",cMake,@" ",cModel];
         
         //Add object to array

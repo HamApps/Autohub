@@ -183,6 +183,8 @@
     NSLog(@"newArray.count %lu", (unsigned long)ModelArray.count);
     [self loadSavedCars];
     [self.tableView reloadData];
+    UIAlertView *removedAlert = [[UIAlertView alloc]initWithTitle:@"Car Removed" message:@"The car was removed." delegate:self cancelButtonTitle:@"Done" otherButtonTitles:nil];
+    [removedAlert show];
 }
 
 -(void) reloadTableViewData{
@@ -190,15 +192,27 @@
     [self loadSavedCars];
     [self.tableView reloadData];
 }
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"pushDetailView"])
+    {
+        NSIndexPath * indexPath;
+        Model * object;
+        
+        if (self.searchDisplayController.active) {
+            indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
+            object = [searchArray objectAtIndex:indexPath.row];
+        } else {
+            indexPath = [self.tableView indexPathForSelectedRow];
+            object = [ModelArray objectAtIndex:indexPath.row];
+        }
+        NSLog (@"object.Carmodel%@", object.CarModel);
+        [[segue destinationViewController] getModel:object];
+    }
 }
-*/
+
 
 @end

@@ -108,7 +108,9 @@ STKAudioPlayer * audioPlayer;
 }
 
 -(IBAction)Save{
-    //Save to defaults
+    UIAlertView *savedAlert = [[UIAlertView alloc]initWithTitle:@"Car Saved" message:@"Your car was successfully saved." delegate:self cancelButtonTitle:@"Done" otherButtonTitles:nil];
+    UIAlertView *notsavedAlert = [[UIAlertView alloc]initWithTitle:@"Car Not Saved" message:@"You have already saved this car." delegate:self cancelButtonTitle:@"Done" otherButtonTitles:nil];
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     savedArray = [[NSMutableArray alloc]init];
@@ -118,7 +120,18 @@ STKAudioPlayer * audioPlayer;
         savedArray = [NSKeyedUnarchiver unarchiveObjectWithData:retrievedData];
         NSLog(@"not nil");
     }else{NSLog(@"nil");}
-    [savedArray addObject:_currentCar];
+    bool isThere = false;
+    for(int i=0; i<savedArray.count; i++){
+        Model * savedObject = [savedArray objectAtIndex:i];
+        if([savedObject.CarFullName isEqualToString:_currentCar.CarFullName]){
+            isThere = true;
+            [notsavedAlert show];
+        }
+    }
+    if(isThere == false){
+        [savedArray addObject:_currentCar];
+        [savedAlert show];
+    }
     NSLog(@"afteraddingobject %@",savedArray);
     NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:savedArray];
     [defaults setObject:arrayData forKey:@"savedArray"];
@@ -213,9 +226,5 @@ STKAudioPlayer * audioPlayer;
     [[UIApplication sharedApplication] openURL: [NSURL URLWithString:_currentCar.CarWebsite]];
     NSLog(@"website: %@", _currentCar.CarWebsite);
 }
-
-
-#pragma mark iAd Delegate Methods
-
 
 @end

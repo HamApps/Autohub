@@ -68,7 +68,7 @@
     Make * makeObject;
     makeObject = [makeimageArray objectAtIndex:indexPath.item];
     
-    NSString *identifier = [NSString stringWithFormat:@"MakeReuseID%ld" , (long)indexPath.row];
+    NSString *identifier = [NSString stringWithFormat:@"MakeReuseID%@" , makeObject.MakeName];
     NSString *urlIdentifier = [NSString stringWithFormat:@"imageurl%@", makeObject.MakeName];
     
     
@@ -81,19 +81,16 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSData *imagedata = [defaults objectForKey:identifier];
     [defaults setObject:[NSString stringWithFormat:@"%lu", (unsigned long)makeimageArray.count] forKey:@"count"];
+    cell.MakeImageView.image = nil;
     
-    //NSLog([defaults objectForKey:urlIdentifier]);
     
-    if([[defaults objectForKey:@"count"] integerValue] == [[NSString stringWithFormat:@"%lu", (unsigned long)makeimageArray.count] integerValue])
+    if([defaults objectForKey:identifier] != nil)
     {
-    cell.MakeImageView.image = [UIImage imageWithData:imagedata];
-    //[UIImageView beginAnimations:nil context:NULL];
-    //[UIImageView setAnimationDuration:.75];
     [cell.MakeImageView setAlpha:1.0];
-    //[UIImageView commitAnimations];
+    cell.MakeImageView.image = [UIImage imageWithData:imagedata];
     }
     
-    if(!([[defaults objectForKey:urlIdentifier] isEqualToString:makeObject.MakeImageURL])||cell.MakeImageView.image == nil){
+    if(cell.MakeImageView.image == nil){
         char const*s = [identifier UTF8String];
             dispatch_queue_t queue = dispatch_queue_create(s, 0);
         
@@ -115,15 +112,12 @@
                                 [UIImageView setAnimationDuration:.75];
                                 [updateCell.MakeImageView setAlpha:1.0];
                                 [UIImageView commitAnimations];
-                                
                             }
                         });
                     }
                 }
             });
     }
-    
-    
     return cell;
 }
 

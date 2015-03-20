@@ -55,7 +55,7 @@
 
 - (void)filterContentForSearchText:(NSString *)searchText scope:(NSString *)scope
 {
-    NSPredicate *resultsPredicate = [NSPredicate predicateWithFormat:@"SELF.CarFullName contains [search] %@", searchText];
+    NSPredicate *resultsPredicate = [NSPredicate predicateWithFormat:@"SELF.CarModel contains [search] %@", searchText];
     self.searchArray = [[self.ModelArray filteredArrayUsingPredicate:resultsPredicate]mutableCopy];
     NSLog(@"searchArray %@", searchArray);
 }
@@ -176,8 +176,6 @@
     currentMake = makeObject;
 }
 
-
-
  #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -201,11 +199,6 @@
         [[segue destinationViewController] getsecondModel:secondcarobject3];
         [[segue destinationViewController] getModel:object];
     }
-}
-
-- (void)getmodelarray:(id)modelArray;
-{
-    
 }
 
 - (void)getfirstModel:(id)firstcarObject2;
