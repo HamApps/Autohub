@@ -2,16 +2,20 @@
 //  CompareViewController.m
 //  Carhub
 //
-//  Created by Christopher Clark on 7/22/14.
+//  Created by Christopher Clark on 10/17/14.
 //  Copyright (c) 2014 Ham Applications. All rights reserved.
 //
 
 #import "CompareViewController.h"
 #import "AppDelegate.h"
+#import "GADInterstitial.h"
+#import "GADInterstitialDelegate.h"
+#import "ImageViewController.h"
 
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
 @interface CompareViewController ()
+
 
 @end
 
@@ -36,13 +40,13 @@
 {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"whiteback.jpg"]];
-    
+    [self getCars];
     [self setLabels];
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"whiteback.jpg"]];
     
     if(firstCar != nil){
         NSString *identifier = [[[NSString stringWithFormat:@"%@", firstCar.CarMake]stringByAppendingString:@" "]stringByAppendingString:firstCar.CarModel];
-        //NSString *identifier = [[NSString stringWithFormat:@"%@", firstCar.CarMake]stringByAppendingString:firstCar.CarModel];
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSData *imagedata = [defaults objectForKey:identifier];
         firstimageview.image = [UIImage imageWithData:imagedata];
@@ -53,7 +57,6 @@
     }
     if(secondCar != nil){
         NSString *identifier2 = [[[NSString stringWithFormat:@"%@", secondCar.CarMake]stringByAppendingString:@" "]stringByAppendingString:secondCar.CarModel];
-        //NSString *identifier2 = [[NSString stringWithFormat:@"%@", secondCar.CarMake]stringByAppendingString:secondCar.CarModel];
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSData *imagedata = [defaults objectForKey:identifier2];
         secondimageview.image = [UIImage imageWithData:imagedata];
@@ -100,9 +103,6 @@
             }
         });
     }
-
-
-    
     
     NSString * makewithspace = [firstCar.CarMake stringByAppendingString:@" "];
     NSString * detailtitle = [makewithspace stringByAppendingString:firstCar.CarModel];
@@ -113,8 +113,8 @@
     CarTitleLabel.text = detailtitle;
     CarTitleLabel2.text = detailtitle2;
     
-
     // Do any additional setup after loading the view.
+    
     [super viewDidLoad];
 }
 
@@ -128,13 +128,16 @@
 #pragma mark -
 #pragma mark Methods
 
-- (void)getfirstModel:(id)firstcarObject;
+-(void)getCars
 {
-    firstCar = firstcarObject;
-}
-- (void)getsecondModel:(id)secondcarObject;
-{
-    secondCar = secondcarObject;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *firstCarData = [defaults objectForKey:@"firstcar"];
+    firstCar = [NSKeyedUnarchiver unarchiveObjectWithData:firstCarData];
+    NSLog(@"firstCar %@", firstCar.CarFullName);
+    
+    NSData *secondCarData = [defaults objectForKey:@"secondcar"];
+    secondCar = [NSKeyedUnarchiver unarchiveObjectWithData:secondCarData];
+    NSLog(@"secondCar %@", secondCar.CarFullName);
 }
 
 - (void)setLabels
@@ -164,41 +167,24 @@
     CarTopSpeedLabel2.text = secondCar.CarTopSpeed;
     CarWeightLabel2.text = secondCar.CarWeight;
     CarFuelEconomyLabel2.text = secondCar.CarFuelEconomy;
-    
-    NSLog(@"%@", firstCar);
 }
 
 
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
-     if ([[segue identifier] isEqualToString:@"pushMakesView"])
-     {
-         //Get the object for the selected row
-         Model * firstcarobject1 = firstCar;
-         [[segue destinationViewController] getfirstModel:firstcarobject1];
- }
-     if ([[segue identifier] isEqualToString:@"pushMakesView2"])
-     {
-         Model * secondcarobject1 = secondCar;
-         [[segue destinationViewController] getsecondModel:secondcarobject1];
-     }
-     if ([[segue identifier] isEqualToString:@"compareimage1"])
-     {
-         //Get the object for the selected row
-         Model * firstcarobject1 = firstCar;
-         [[segue destinationViewController] getfirstModel:firstcarobject1];
-     }
-     if ([[segue identifier] isEqualToString:@"compareimage2"])
-     {
-         //Get the object for the selected row
-         Model * secondcarobject1 = secondCar;
-         [[segue destinationViewController] getsecondModel:secondcarobject1];
-     }
+#pragma mark - Navigation
 
- }
-
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"compareimage1"])
+    {
+        //Get the object for the selected row
+        [[segue destinationViewController] getfirstModel:firstCar];
+    }
+    if ([[segue identifier] isEqualToString:@"compareimage2"])
+    {
+        //Get the object for the selected row
+        [[segue destinationViewController] getsecondModel:secondCar];
+    }
+}
 
 @end

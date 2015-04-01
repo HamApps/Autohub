@@ -9,7 +9,6 @@
 #import "MakeViewControllerwAds.h"
 #import "AppDelegate.h"
 #import "MakeCell.h"
-#import "BackgroundLayer.h"
 #import "Make.h"
 #import "Model.h"
 #import "ModelViewController.h"
@@ -43,16 +42,13 @@
 
 - (void)viewDidLoad
 {
-    
-    //Ad stuff first
+    //Ad stuff
     self.interstitial = [[GADInterstitial alloc] init];
     self.interstitial.adUnitID = @"ca-app-pub-3476863246932104/7317472476";
     self.interstitial.delegate = self;
     [self.interstitial loadRequest:[GADRequest request]];
     
     GADRequest *request = [GADRequest request];
-    // Requests test ads on simulators.
-    //request.testDevices = @[ GAD_SIMULATOR_ID ];
     request.testDevices = @[ @"00a7c23d2dbe1cd601f20ffb38a73348" ];
     [self.interstitial loadRequest:request];
     
@@ -65,10 +61,7 @@
 }
 
 - (void)interstitialDidReceiveAd:(GADInterstitial *)interstitial {
-    AppDelegate *appdel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    appdel.ads=false;
-    if(appdel.ads==true)
-        [self.interstitial presentFromRootViewController:self];
+    [self.interstitial presentFromRootViewController:self];
     NSLog(@"interstitialDidReceiveAd");
 }
 

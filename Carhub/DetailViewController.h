@@ -9,24 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "Model.h"
 
-#define kNSUSERDEFAULTSCAR @"nsuserdefaultscar"
-
-@class DetailViewController;
-
-@protocol DetailViewControllerDelegate <NSObject>
-- (void)addItemViewController:(DetailViewController *)controller didFinishEnteringItem:(Model *)currentcar;
-@end
-
-@interface DetailViewController : UIViewController<UIGestureRecognizerDelegate>
+@interface DetailViewController : UIViewController
 {
     IBOutlet UIImageView *imageview;
     IBOutlet UIScrollView * scroller;
-    NSMutableArray * currentCararray;
 }
-
-@property (nonatomic, weak) id <DetailViewControllerDelegate> delegate;
-
-@property (nonatomic, retain) NSMutableArray * currentCararray;
 
 @property(nonatomic, strong) IBOutlet UILabel * CarMakeLabel;
 @property(nonatomic, strong) IBOutlet UILabel * CarModelLabel;
@@ -41,16 +28,14 @@
 @property(nonatomic, strong) IBOutlet UILabel * CarWeightLabel;
 @property(nonatomic, strong) IBOutlet UILabel * CarFuelEconomyLabel;
 
+@property (nonatomic, strong) NSMutableArray * savedArray;
+
 @property(nonatomic, strong) Model * currentCar;
 
 #pragma mark -
 #pragma mark Methods
 
-- (void)getfirstModel:(id)firstcarObject3;
-@property(nonatomic, strong) Model * firstCar3;
-@property(nonatomic, strong) Model * secondCar3;
 - (void)getModel:(id)modelObject;
 - (void)setLabels;
 -(IBAction)Website;
--(IBAction)Sound;
 @end

@@ -17,8 +17,6 @@
 @property (strong, nonatomic) IBOutlet UIButton * fuelEconomyButton;
 @property (strong, nonatomic) IBOutlet UIButton * horsepowerButton;
 
-
-
 @end
 
 

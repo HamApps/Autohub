@@ -16,5 +16,6 @@
 @property(nonatomic, strong) Model * currentCar;
 
 - (void)getfirstModel:(id)firstcarObject;
+- (void)getsecondModel:(id)secondcarObject;
 
 @end

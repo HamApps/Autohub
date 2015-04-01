@@ -2,12 +2,15 @@
 //  CompareViewController2.m
 //  Carhub
 //
-//  Created by Christopher Clark on 7/26/14.
+//  Created by Christopher Clark on 10/17/14.
 //  Copyright (c) 2014 Ham Applications. All rights reserved.
 //
 
 #import "CompareViewController2.h"
 #import "AppDelegate.h"
+#import "GADInterstitial.h"
+#import "GADInterstitialDelegate.h"
+#import "ImageViewController.h"
 
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
@@ -35,13 +38,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self getCars];
+    [self setLabels];
     
     self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"whiteback.jpg"]];
     
     [scroller setScrollEnabled:YES];
     [scroller setContentSize:CGSizeMake(320, 640)];
-    
-    [self setLabels];
     
     if(firstCar != nil){
         NSString *identifier = [[[NSString stringWithFormat:@"%@", firstCar.CarMake]stringByAppendingString:@" "]stringByAppendingString:firstCar.CarModel];
@@ -101,20 +104,15 @@
             }
         });
     }
-    
-    
-    
-    
+
     NSString * makewithspace = [firstCar.CarMake stringByAppendingString:@" "];
     NSString * detailtitle = [makewithspace stringByAppendingString:firstCar.CarModel];
     NSString * makewithspace2 = [secondCar.CarMake stringByAppendingString:@" "];
     NSString * detailtitle2 = [makewithspace2 stringByAppendingString:secondCar.CarModel];
     
-    
     self.title = @"Model Comparison";
     CarTitleLabel.text = detailtitle;
     CarTitleLabel2.text = detailtitle2;
-    
     
     // Do any additional setup after loading the view.
     
@@ -127,17 +125,19 @@
     // Dispose of any resources that can be recreated.
 }
 
-
 #pragma mark -
 #pragma mark Methods
 
-- (void)getfirstModel:(id)firstcarObject;
+-(void)getCars
 {
-    firstCar = firstcarObject;
-}
-- (void)getsecondModel:(id)secondcarObject;
-{
-    secondCar = secondcarObject;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *firstCarData = [defaults objectForKey:@"firstcar"];
+    firstCar = [NSKeyedUnarchiver unarchiveObjectWithData:firstCarData];
+    NSLog(@"firstCar %@", firstCar.CarFullName);
+    
+    NSData *secondCarData = [defaults objectForKey:@"secondcar"];
+    secondCar = [NSKeyedUnarchiver unarchiveObjectWithData:secondCarData];
+    NSLog(@"secondCar %@", secondCar.CarFullName);
 }
 
 - (void)setLabels
@@ -167,10 +167,7 @@
     CarTopSpeedLabel2.text = secondCar.CarTopSpeed;
     CarWeightLabel2.text = secondCar.CarWeight;
     CarFuelEconomyLabel2.text = secondCar.CarFuelEconomy;
-    
-    NSLog(@"%@", firstCar);
 }
-
 
 #pragma mark - Navigation
 
@@ -200,8 +197,6 @@
         Model * secondcarobject1 = secondCar;
         [[segue destinationViewController] getsecondModel:secondcarobject1];
     }
-    
 }
-
 
 @end

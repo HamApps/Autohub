@@ -19,10 +19,4 @@
 
 @property (nonatomic, strong) Make * currentMake;
 
-- (void)getfirstModel:(id)firstcarObject1;
-- (void)getsecondModel:(id)secondcarObject1;
-
-@property(nonatomic, strong) Model * firstCar1;
-@property(nonatomic, strong) Model * secondCar1;
-
 @end

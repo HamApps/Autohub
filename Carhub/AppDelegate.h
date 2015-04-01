@@ -37,9 +37,6 @@
 @property (nonatomic, strong) NSMutableArray * horsepowerArray;
 @property (nonatomic, strong) NSMutableArray * topTensjson;
 @property (nonatomic, strong) NSMutableArray * toptensArray;
-@property bool ads;
-
-
 
 //+ (void)initialize;
 - (void)enablepurchase;

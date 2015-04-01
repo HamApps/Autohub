@@ -46,9 +46,4 @@
 @property(nonatomic, strong) Model * firstCar;
 @property(nonatomic, strong) Model * secondCar;
 
-#pragma mark -
-#pragma mark Methods
-- (void)getfirstModel:(id)firstcarObject;
-- (void)getsecondModel:(id)secondcarObject;
-- (void)setLabels;
 @end

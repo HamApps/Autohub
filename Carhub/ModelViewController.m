@@ -193,22 +193,8 @@
             object = [ModelArray objectAtIndex:indexPath.row];
         }
         NSLog (@"object.Carmodel%@", object.CarModel);
-        Model * firstcarobject3 = _firstCar2;
-        Model * secondcarobject3 = _secondCar2;
-        [[segue destinationViewController] getfirstModel:firstcarobject3];
-        [[segue destinationViewController] getsecondModel:secondcarobject3];
         [[segue destinationViewController] getModel:object];
     }
-}
-
-- (void)getfirstModel:(id)firstcarObject2;
-{
-    _firstCar2 = firstcarObject2;
-}
-
-- (void)getsecondModel:(id)secondcarObject2;
-{
-    _secondCar2 = secondcarObject2;
 }
 
 - (void)getnumber

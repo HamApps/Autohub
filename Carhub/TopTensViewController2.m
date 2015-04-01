@@ -56,13 +56,15 @@
 }
 
 - (void)interstitialDidReceiveAd:(GADInterstitial *)interstitial {
-    [self.interstitial presentFromRootViewController:self];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if([[defaults objectForKey:@"showads"] isEqualToString:@"yes"]){
+        NSLog(@"Will show ad");
+        //[self.interstitial presentFromRootViewController:self];
+    }
+    if([[defaults objectForKey:@"showads"] isEqualToString:@"no"])
+        NSLog(@"Will not show ad");
+    NSLog(@"interstitialDidReceiveAd");
 }
-
-/// Called when an interstitial ad request succeeded.
-//- (void)interstitialDidReceiveAd:(GADInterstitial *)ad {
-//NSLog(@"interstitialDidReceiveAd");
-//}
 
 /// Called when an interstitial ad request failed.
 - (void)interstitial:(GADInterstitial *)ad didFailToReceiveAdWithError:(GADRequestError *)error {
@@ -140,9 +142,4 @@
     }
 }
 
-
 @end
-
-
-
-

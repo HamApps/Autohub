@@ -49,9 +49,9 @@
 {
     _currentCar = firstcarObject;
 }
-- (void)getsecondModel:(id)secondcarObject1;
+- (void)getsecondModel:(id)secondcarObject;
 {
-    _currentCar = secondcarObject1;
+    _currentCar = secondcarObject;
 }
 
 /*

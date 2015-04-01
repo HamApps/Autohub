@@ -23,7 +23,7 @@
 
 @implementation AppDelegate
 
-@synthesize favoritesarray, modelArray, modeljsonArray, makeimageArray, makejsonArray, AlphabeticalArray, newsArray, newsjsonArray, makeimageArray2, makejsonArray2, AlphabeticalArray2, zt60Array, topspeedArray, nurbArray, expensiveArray, fuelArray, horsepowerArray, toptensArray, topTensjson, ads;
+@synthesize favoritesarray, modelArray, modeljsonArray, makeimageArray, makejsonArray, AlphabeticalArray, newsArray, newsjsonArray, makeimageArray2, makejsonArray2, AlphabeticalArray2, zt60Array, topspeedArray, nurbArray, expensiveArray, fuelArray, horsepowerArray, toptensArray, topTensjson;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -46,12 +46,11 @@
     self.window.rootViewController = [storyboard instantiateInitialViewController];
     [self.window makeKeyAndVisible];
     
-     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     bool saved = [defaults boolForKey:k_Save];
-    ads = true;
     
     if (!saved){
-        //not saved code here
+        [defaults setObject:@"yes" forKey:@"showads"];
     } else {
         //saved code here
         self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
@@ -59,7 +58,7 @@
         int height = [UIScreen mainScreen].bounds.size.height;
         
         if (height == 480) {
-            ads = false;
+            [defaults setObject:@"no" forKey:@"showads"];
         
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard4" bundle:nil];
         
@@ -68,7 +67,7 @@
             self.window.rootViewController = viewController;
             [self.window makeKeyAndVisible];
         } else {
-            ads = false;
+            [defaults setObject:@"no" forKey:@"showads"];
             
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
             UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"IAP2"];
@@ -157,6 +156,7 @@
     [self.window makeKeyAndVisible];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:@"no" forKey:@"showads"];
     [defaults setBool:TRUE forKey:k_Save];
     [defaults synchronize];
     } else {
@@ -168,6 +168,7 @@
             [self.window makeKeyAndVisible];
             
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setObject:@"no" forKey:@"showads"];
             [defaults setBool:TRUE forKey:k_Save];
             [defaults synchronize];
     }

@@ -5,14 +5,14 @@
       "idiom" : "iphone",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
-      "filename" : "New Launch Image iPhone 4.png",
+      "filename" : "New Launch Image iPhone 4-1.png",
       "scale" : "2x"
     },
     {
       "extent" : "full-screen",
       "idiom" : "iphone",
       "subtype" : "retina4",
-      "filename" : "New Launch Image.png",
+      "filename" : "New Launch Image-2.png",
       "minimum-system-version" : "7.0",
       "orientation" : "portrait",
       "scale" : "2x"
@@ -56,7 +56,7 @@
       "orientation" : "portrait",
       "idiom" : "iphone",
       "extent" : "full-screen",
-      "filename" : "New Launch Image iPhone 4-1.png",
+      "filename" : "New Launch Image iPhone 4-1-1.png",
       "scale" : "2x"
     },
     {

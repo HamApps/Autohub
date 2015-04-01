@@ -14,10 +14,7 @@
 #import "TopTensViewController.h"
 #import "Model.h"
 #import "STKAudioPlayer.h"
-
-#define kNSUSERDEFAULTSCAR @"nsuserdefaultscar"
-
-#define DELEGATE ((AppDelegate*)[[UIApplication sharedApplication]delegate])
+#import "ImageViewController.h"
 
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
@@ -28,14 +25,7 @@ STKAudioPlayer * audioPlayer;
 
 @implementation DetailViewController
 
-@synthesize currentCararray, delegate;
-
-- (AppDelegate *) appdelegate
-{
-    return (AppDelegate *)[[UIApplication sharedApplication]delegate];
-}
-
-@synthesize CarMakeLabel, CarModelLabel, CarYearsMadeLabel, CarPriceLabel, CarEngineLabel, CarTransmissionLabel, CarDriveTypeLabel, CarHorsepowerLabel, CarZeroToSixtyLabel, CarTopSpeedLabel, CarWeightLabel, CarFuelEconomyLabel;
+@synthesize CarMakeLabel, CarModelLabel, CarYearsMadeLabel, CarPriceLabel, CarEngineLabel, CarTransmissionLabel, CarDriveTypeLabel, CarHorsepowerLabel, CarZeroToSixtyLabel, CarTopSpeedLabel, CarWeightLabel, CarFuelEconomyLabel, savedArray;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -49,90 +39,50 @@ STKAudioPlayer * audioPlayer;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     audioPlayer = [[STKAudioPlayer alloc]init];
-    
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSLog (@"usercars: %@", [defaults objectForKey:@"savedcar"]);
     
     [scroller setScrollEnabled:YES];
     [scroller setContentSize:CGSizeMake(320, 825)];
     
     self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"whiteback.jpg"]];
     
-    
     NSString * makewithspace = [_currentCar.CarMake stringByAppendingString:@" "];
     NSString * detailtitle = [makewithspace stringByAppendingString:_currentCar.CarModel];
     self.title = detailtitle;
     
     NSString *identifier = [[[NSString stringWithFormat:@"%@", _currentCar.CarMake]stringByAppendingString:@" "]stringByAppendingString:_currentCar.CarModel];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSData *imagedata = [defaults objectForKey:identifier];
     imageview.image = [UIImage imageWithData:imagedata];
+    [UIImageView beginAnimations:nil context:NULL];
+    [UIImageView setAnimationDuration:.01];
     [imageview setAlpha:1.0];
-    
-    if (!currentCararray){
-    self.currentCararray = [[NSMutableArray alloc]init];
-    [self.currentCararray addObject:_currentCar];
-    }
-    
+    [UIImageView commitAnimations];
+
     if (imageview.image ==nil) {
 
-    dispatch_async(kBgQueue, ^{
-        NSData *imgData = [NSData dataWithContentsOfURL:[NSURL URLWithString:_currentCar.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]];
-        if (imgData) {
-            UIImage *image = [UIImage imageWithData:imgData];
-            if (image) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    imageview.image = image;
-                    [UIImageView beginAnimations:nil context:NULL];
-                    [UIImageView setAnimationDuration:.75];
-                    [imageview setAlpha:1.0];
-                    [UIImageView commitAnimations];
-                });
+        dispatch_async(kBgQueue, ^{
+            NSData *imgData = [NSData dataWithContentsOfURL:[NSURL URLWithString:_currentCar.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]];
+            if (imgData) {
+                UIImage *image = [UIImage imageWithData:imgData];
+                if (image) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        imageview.image = image;
+                        [UIImageView beginAnimations:nil context:NULL];
+                        [UIImageView setAnimationDuration:.75];
+                        [imageview setAlpha:1.0];
+                        [UIImageView commitAnimations];
+                    });
+                }
             }
-        }
-    });
+        });
     }
-
-    
-    NSLog(@"currentcararray%@", currentCararray);
-    
-    // Do any additional setup after loading the view.
-                
     //Load up the UI
     [self setLabels];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [audioPlayer stop];
-}
-
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
-#pragma mark -
-#pragma mark Methods
-
-- (void)getModel:(id)modelObject;
-{
-    _currentCar = modelObject;
-    NSLog (@"currentCar%@", _currentCar);
-}
-
-- (void)getfirstModel:(id)firstcarObject3;
-{
-    _firstCar3 = firstcarObject3;
-}
-
-- (void)getsecondModel:(id)secondcarObject3;
-{
-    _secondCar3 = secondcarObject3;
 }
 
 -(IBAction)Sound{
@@ -142,6 +92,58 @@ STKAudioPlayer * audioPlayer;
     [audioPlayer play:soundurl];
     
     NSLog(@"button was pressed");
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+-(IBAction)Save{
+    UIAlertView *savedAlert = [[UIAlertView alloc]initWithTitle:@"Car Saved" message:@"Your car was successfully saved." delegate:self cancelButtonTitle:@"Done" otherButtonTitles:nil];
+    UIAlertView *notsavedAlert = [[UIAlertView alloc]initWithTitle:@"Car Not Saved" message:@"You have already saved this car." delegate:self cancelButtonTitle:@"Done" otherButtonTitles:nil];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    savedArray = [[NSMutableArray alloc]init];
+    NSData *retrievedData = [defaults objectForKey:@"savedArray"];
+    NSArray *testArray = [NSKeyedUnarchiver unarchiveObjectWithData:retrievedData];
+    if(testArray.count!=0){
+        savedArray = [NSKeyedUnarchiver unarchiveObjectWithData:retrievedData];
+        NSLog(@"not nil");
+    }else{NSLog(@"nil");}
+    bool isThere = false;
+    for(int i=0; i<savedArray.count; i++){
+        Model * savedObject = [savedArray objectAtIndex:i];
+        if([savedObject.CarFullName isEqualToString:_currentCar.CarFullName]){
+            isThere = true;
+            [notsavedAlert show];
+        }
+    }
+    if(isThere == false){
+        [savedArray addObject:_currentCar];
+        [savedAlert show];
+    }
+    NSLog(@"afteraddingobject %@",savedArray);
+    NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:savedArray];
+    [defaults setObject:arrayData forKey:@"savedArray"];
+    [defaults synchronize];
+    
+    //Get from defaults
+    NSArray *retrievedArray = [NSKeyedUnarchiver unarchiveObjectWithData:retrievedData];
+    [defaults synchronize];
+    NSLog(@"retrievedArray: %@", retrievedArray);
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadRootViewControllerTable" object:nil];
+}
+
+#pragma mark -
+#pragma mark Methods
+
+- (void)getModel:(id)modelObject;
+{
+    _currentCar = modelObject;
 }
 
 - (void)setLabels
@@ -158,7 +160,6 @@ STKAudioPlayer * audioPlayer;
     CarTopSpeedLabel.text = _currentCar.CarTopSpeed;
     CarWeightLabel.text = _currentCar.CarWeight;
     CarFuelEconomyLabel.text = _currentCar.CarFuelEconomy;
-    
 }
 
 
@@ -170,27 +171,21 @@ STKAudioPlayer * audioPlayer;
     
     if ([[segue identifier] isEqualToString:@"pushCompareView"])
     {
-        //Get the object for the selected row
-        Model * firstcarobject = _currentCar;
-        [[segue destinationViewController] getfirstModel:firstcarobject];
-        Model * secondcarobject = _secondCar3;
-        [[segue destinationViewController] getsecondModel:secondcarobject];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSData *firstCarData = [NSKeyedArchiver archivedDataWithRootObject:_currentCar];
+        [defaults setObject:firstCarData forKey:@"firstcar"];
     }
     if ([[segue identifier] isEqualToString:@"pushCompareView2"])
     {
-        //Get the object
-        Model * secondcarobject = _currentCar;
-        [[segue destinationViewController] getsecondModel:secondcarobject];
-        Model * firstcarobject = _firstCar3;
-        [[segue destinationViewController] getfirstModel:firstcarobject];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSData *secondCarData = [NSKeyedArchiver archivedDataWithRootObject:_currentCar];
+        [defaults setObject:secondCarData forKey:@"secondcar"];
     }
     if ([[segue identifier] isEqualToString:@"pushimageview"])
     {
         //Get the object
-        Model * firstcarobject = _currentCar;
-        [[segue destinationViewController] getfirstModel:firstcarobject];
+        [[segue destinationViewController] getfirstModel:_currentCar];
     }
-    
 }
 
 -(IBAction)Website
@@ -198,7 +193,5 @@ STKAudioPlayer * audioPlayer;
     [[UIApplication sharedApplication] openURL: [NSURL URLWithString:_currentCar.CarWebsite]];
     NSLog(@"website: %@", _currentCar.CarWebsite);
 }
-
-#pragma mark iAd Delegate Methods
 
 @end

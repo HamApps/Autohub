@@ -13,6 +13,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "STKAudioPlayer.h"
 #import "FavoritesViewController.h"
+#import "ImageViewController.h"
 
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
@@ -23,11 +24,7 @@ STKAudioPlayer * audioPlayer;
 
 @implementation DetailViewController2
 
-- (AppDelegate *) appdelegate {
-    return (AppDelegate *)[[UIApplication sharedApplication]delegate];
-}
-
-@synthesize CarMakeLabel, CarModelLabel, CarYearsMadeLabel, CarPriceLabel, CarEngineLabel, CarTransmissionLabel, CarDriveTypeLabel, CarHorsepowerLabel, CarZeroToSixtyLabel, CarTopSpeedLabel, CarWeightLabel, CarFuelEconomyLabel, YearsMade, allLabels, savedArray;
+@synthesize CarMakeLabel, CarModelLabel, CarYearsMadeLabel, CarPriceLabel, CarEngineLabel, CarTransmissionLabel, CarDriveTypeLabel, CarHorsepowerLabel, CarZeroToSixtyLabel, CarTopSpeedLabel, CarWeightLabel, CarFuelEconomyLabel, savedArray;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -45,8 +42,6 @@ STKAudioPlayer * audioPlayer;
     
     [scroller setScrollEnabled:YES];
     [scroller setContentSize:CGSizeMake(320, 1061)];
-    
-
     
     self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"whiteback.jpg"]];
     
@@ -81,9 +76,6 @@ STKAudioPlayer * audioPlayer;
             }
         });
     }
-    
-    // Do any additional setup after loading the view.
-    
     //Load up the UI
     [self setLabels];
 }
@@ -154,39 +146,20 @@ STKAudioPlayer * audioPlayer;
     _currentCar = modelObject;
 }
 
-- (void)getfirstModel:(id)firstcarObject3;
-{
-    _firstCar3 = firstcarObject3;
-}
-
-- (void)getsecondModel:(id)secondcarObject3;
-{
-    _secondCar3 = secondcarObject3;
-}
-
 - (void)setLabels
 {
     CarMakeLabel.text = _currentCar.CarMake;
     CarModelLabel.text = _currentCar.CarModel;
-    
     CarYearsMadeLabel.text = _currentCar.CarYearsMade;
-    
     CarPriceLabel.text = _currentCar.CarPrice;
-    
     CarEngineLabel.text = _currentCar.CarEngine;
-    
     CarTransmissionLabel.text= _currentCar.CarTransmission;
-    
     CarDriveTypeLabel.text = _currentCar.CarDriveType;
-    
     CarHorsepowerLabel.text = _currentCar.CarHorsepower;
-    
     CarZeroToSixtyLabel.text = _currentCar.CarZeroToSixty;
     CarTopSpeedLabel.text = _currentCar.CarTopSpeed;
     CarWeightLabel.text = _currentCar.CarWeight;
     CarFuelEconomyLabel.text = _currentCar.CarFuelEconomy;
-    
-    YearsMade.text = _currentCar.CarYearsMade;
 }
 
 
@@ -198,26 +171,20 @@ STKAudioPlayer * audioPlayer;
     
     if ([[segue identifier] isEqualToString:@"pushCompareView"])
     {
-        //Get the object for the selected row
-        Model * firstcarobject = _currentCar;
-        [[segue destinationViewController] getfirstModel:firstcarobject];
-        Model * secondcarobject = _secondCar3;
-        [[segue destinationViewController] getsecondModel:secondcarobject];
-
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSData *firstCarData = [NSKeyedArchiver archivedDataWithRootObject:_currentCar];
+        [defaults setObject:firstCarData forKey:@"firstcar"];
     }
     if ([[segue identifier] isEqualToString:@"pushCompareView2"])
     {
-        //Get the object
-        Model * secondcarobject = _currentCar;
-        [[segue destinationViewController] getsecondModel:secondcarobject];
-        Model * firstcarobject = _firstCar3;
-        [[segue destinationViewController] getfirstModel:firstcarobject];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSData *secondCarData = [NSKeyedArchiver archivedDataWithRootObject:_currentCar];
+        [defaults setObject:secondCarData forKey:@"secondcar"];
     }
     if ([[segue identifier] isEqualToString:@"pushimageview"])
     {
         //Get the object
-        Model * firstcarobject = _currentCar;
-        [[segue destinationViewController] getfirstModel:firstcarobject];
+        [[segue destinationViewController] getfirstModel:_currentCar];
     }
 }
 

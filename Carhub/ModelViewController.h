@@ -21,13 +21,7 @@
 @property (nonatomic, strong) NSMutableDictionary *cachedImages;
 @property (nonatomic, strong) NSArray * AlphabeticalArray;
 
-- (void)getfirstModel:(id)firstcarObject2;
-- (void)getsecondModel:(id)secondcarObject2;
-
 @property (nonatomic, strong) Make * currentMake;
-
-@property(nonatomic, strong) Model * firstCar2;
-@property(nonatomic, strong) Model * secondCar2;
 
 #pragma mark-
 #pragma mark Class Methods
