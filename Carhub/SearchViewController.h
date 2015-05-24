@@ -15,7 +15,7 @@
 }
 
 
-@property (nonatomic, strong) NSMutableArray * jsonArray;
+@property (nonatomic, strong) NSMutableArray * specsArray;
 @property (nonatomic, strong) NSMutableArray * carArray;
 @property (nonatomic, strong) NSMutableArray * finalArray;
 @property (nonatomic, strong) NSArray * testArray;
@@ -72,7 +72,6 @@
 @property (nonatomic, strong) NSMutableArray * makeimageArray;
 @property (nonatomic, strong) NSArray * AlphabeticalArray;
 
-- (void) retrieveMakeImageData;
 - (void) setModels;
 - (void) UsePredicates;
 

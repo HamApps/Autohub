@@ -14,7 +14,7 @@
 #define k_Save @"Saveitem"
 #import "TopTensViewController.h"
 #import "TopTensViewController2.h"
-#define getModelDataURL @"http://pl0x.net/CarHubJSON2.php"
+#define getModelDataURL @"http://pl0x.net/CarHubJSON3.php"
 #define getMakeDataURL @"http://pl0x.net/CarMakesJSON.php"
 #define getNewsDataURL @"http://pl0x.net/CarNewsJSON.php"
 
@@ -103,8 +103,6 @@
     [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
     [[UITabBar appearance] setBarTintColor:[UIColor whiteColor]];
     
-    
-    
     if (height == 480) {
         storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard4" bundle:nil];
         // NSLog(@"Device has a 3.5inch Display.");
@@ -191,11 +189,17 @@
         NSString * cModel = [[modeljsonArray objectAtIndex:i] objectForKey:@"Model"];
         NSString * cYearsMade = [[modeljsonArray objectAtIndex:i] objectForKey:@"Years Made"];
         NSString * cPrice = [[modeljsonArray objectAtIndex:i] objectForKey:@"Price"];
+        NSNumber * cPriceLow = [NSNumber numberWithInt:[[[modeljsonArray objectAtIndex:i]objectForKey:@"Price Low"]integerValue]];
+        NSNumber * cPriceHigh = [NSNumber numberWithInt:[[[modeljsonArray objectAtIndex:i]objectForKey:@"Price High"]integerValue]];
         NSString * cEngine = [[modeljsonArray objectAtIndex:i] objectForKey:@"Engine"];
         NSString * cTransmission = [[modeljsonArray objectAtIndex:i] objectForKey:@"Transmission"];
         NSString * cDriveType = [[modeljsonArray objectAtIndex:i] objectForKey:@"Drive Type"];
         NSString * cHorsepower = [[modeljsonArray objectAtIndex:i] objectForKey:@"Horsepower"];
+        NSNumber * cHorsepowerLow = [NSNumber numberWithInt:[[[modeljsonArray objectAtIndex:i]objectForKey:@"Horsepower Low"]integerValue]];
+        NSNumber * cHorsepowerHigh = [NSNumber numberWithInt:[[[modeljsonArray objectAtIndex:i]objectForKey:@"Horsepower High"]integerValue]];
         NSString * cZeroToSixty = [[modeljsonArray objectAtIndex:i] objectForKey:@"0-60"];
+        NSNumber * cZeroToSixtyLow = [NSNumber numberWithDouble:[[[modeljsonArray objectAtIndex:i]objectForKey:@"0-60 Low"]doubleValue]];
+        NSNumber * cZeroToSixtyHigh = [NSNumber numberWithDouble:[[[modeljsonArray objectAtIndex:i]objectForKey:@"0-60 High"]doubleValue]];
         NSString * cTopSpeed = [[modeljsonArray objectAtIndex:i] objectForKey:@"Top Speed (mph)"];
         NSString * cWeight = [[modeljsonArray objectAtIndex:i] objectForKey:@"Weight (lbs)"];
         NSString * cFuelEconomy = [[modeljsonArray objectAtIndex:i] objectForKey:@"Fuel Economy (mpg)"];
@@ -204,7 +208,7 @@
         NSString * cFullName = [NSString stringWithFormat:@"%@%@%@",cMake,@" ",cModel];
         
         //Add object to array
-        [modelArray addObject:[[Model alloc]initWithCarMake:cMake andCarModel:cModel andCarYearsMade:cYearsMade andCarPrice:cPrice andCarEngine:cEngine andCarTransmission:cTransmission andCarDriveType:cDriveType andCarHorsepower:cHorsepower andCarZeroToSixty:cZeroToSixty andCarTopSpeed:cTopSpeed andCarWeight:cWeight andCarFuelEconomy:cFuelEconomy andCarImageURL:cURL andCarWebsite:cWebsite andCarFullName:cFullName]];
+        [modelArray addObject:[[Model alloc]initWithCarMake:cMake andCarModel:cModel andCarYearsMade:cYearsMade andCarPrice:cPrice andCarPriceLow:cPriceLow andCarPriceHigh:cPriceHigh andCarEngine:cEngine andCarTransmission:cTransmission andCarDriveType:cDriveType andCarHorsepower:cHorsepower andCarHorsepowerLow:cHorsepowerLow andCarHorsepowerHigh:cHorsepowerHigh andCarZeroToSixty:cZeroToSixty andCarZeroToSixtyLow:cZeroToSixtyLow andCarZeroToSixtyHigh:cZeroToSixtyHigh andCarTopSpeed:cTopSpeed andCarWeight:cWeight andCarFuelEconomy:cFuelEconomy andCarImageURL:cURL andCarWebsite:cWebsite andCarFullName:cFullName]];
     }
 }
 
@@ -214,20 +218,14 @@
     NSData * makedata = [NSData dataWithContentsOfURL:makeurl];
     
     makejsonArray = [NSJSONSerialization JSONObjectWithData:makedata options:kNilOptions error:nil];
-    
-    //set up the makes array
     makeimageArray = [[NSMutableArray alloc]init];
     
     NSSortDescriptor * alphasort = [NSSortDescriptor sortDescriptorWithKey:@"Make" ascending:YES];
     AlphabeticalArray = [makejsonArray sortedArrayUsingDescriptors:[NSArray arrayWithObject:alphasort]];
     
-    //Loop through our makejsonArray
     for (int i = 0; i < AlphabeticalArray.count; i++)
     {
-        //Create the MakeName object
         NSString * mName = [[AlphabeticalArray objectAtIndex:i] objectForKey:@"Make"];
-        
-        //Add the MakeImage object to the MakeImage array
         
         [makeimageArray addObject:mName];
     }
@@ -248,20 +246,14 @@
     NSSortDescriptor * alphasort = [NSSortDescriptor sortDescriptorWithKey:@"Make" ascending:YES];
     AlphabeticalArray2 = [makejsonArray2 sortedArrayUsingDescriptors:[NSArray arrayWithObject:alphasort]];
     
-    //Loop through our makejsonArray
     for (int i = 0; i < makejsonArray2.count; i++)
     {
         //Create the MakeImage object
         NSString * mName = [[AlphabeticalArray2 objectAtIndex:i] objectForKey:@"Make"];
         NSString * mImageURL = [[AlphabeticalArray2 objectAtIndex:i] objectForKey:@"ImageURL"];
-        
-        //Add the MakeImage object to the MakeImage array
-        
         [makeimageArray2 addObject:[[Make alloc]initWithMakeName:mName andMakeImageURL:mImageURL]];
-        
     }
 }
-
 
 - (void) retrievenewsData;
 {

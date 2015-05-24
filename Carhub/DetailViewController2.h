@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "Model.h"
 
-
 @interface DetailViewController2 : UIViewController
 {
+    IBOutlet UIButton *saveButton;
     IBOutlet UIImageView *imageview;
     IBOutlet UIScrollView * scroller;
 }
@@ -29,7 +29,6 @@
 @property(nonatomic, strong) IBOutlet UILabel * CarWeightLabel;
 @property(nonatomic, strong) IBOutlet UILabel * CarFuelEconomyLabel;
 
-
 @property (nonatomic, strong) NSMutableArray * savedArray;
 
 @property(nonatomic, strong) Model * currentCar;
@@ -37,6 +36,8 @@
 #pragma mark -
 #pragma mark Methods
 
+- (bool)isSaved:(Model *)currentModel;
+- (void)checkStar;
 - (void)getModel:(id)modelObject;
 - (void)setLabels;
 -(IBAction)Website;

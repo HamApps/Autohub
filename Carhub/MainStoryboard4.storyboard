@@ -108,6 +108,7 @@
             <string>EurostileRegular</string>
             <string>EurostileRegular</string>
             <string>EurostileRegular</string>
+            <string>EurostileRegular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -527,9 +528,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="EDL-vr-UGM">
-                                        <rect key="frame" x="142" y="134" width="34" height="30"/>
+                                        <rect key="frame" x="139" y="129" width="40" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Save">
+                                        <state key="normal">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -572,6 +573,7 @@
                         <outlet property="CarYearsMadeLabel" destination="1Vd-Rn-5Rt" id="jny-1h-9WK"/>
                         <outlet property="CarZeroToSixtyLabel" destination="GLD-IJ-nDa" id="fpR-o5-Dyh"/>
                         <outlet property="imageview" destination="FsU-Df-glK" id="QVd-uK-Zfr"/>
+                        <outlet property="saveButton" destination="EDL-vr-UGM" id="xnp-G0-4i5"/>
                         <outlet property="scroller" destination="vcM-KJ-qF2" id="tf1-Kf-vaz"/>
                     </connections>
                 </viewController>
@@ -584,7 +586,7 @@
             <objects>
                 <viewController id="jMX-vW-yfd" customClass="ImageViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A0o-ni-HhA">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="551"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="MJN-Sy-Mn4">
@@ -993,7 +995,7 @@ EEZ1ZWwxA
             <objects>
                 <viewController id="wEG-mh-v4Y" customClass="DisputeInfoViewController2" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Fa-7L-6D0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="551"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NewSpecsDisputePage4.png" id="glX-MP-UQY">
@@ -1072,7 +1074,7 @@ EEZ1ZWwxA
                                 <rect key="frame" x="0.0" y="64" width="104" height="105"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="107" height="105"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="106.66" height="105"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0J4-uy-wFj">
@@ -1083,7 +1085,7 @@ EEZ1ZWwxA
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="9m3-nL-qGF">
-                                            <rect key="frame" x="13" y="1" width="80" height="80"/>
+                                            <rect key="frame" x="12" y="0.0" width="80" height="80"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
                                     </subviews>
@@ -1592,6 +1594,7 @@ EEZ1ZWwxA
                         <segue destination="fsb-ug-aSh" kind="relationship" relationship="viewControllers" id="2ce-IT-Fb3"/>
                         <segue destination="l0e-x3-FGP" kind="relationship" relationship="viewControllers" id="8mg-4I-gbK"/>
                         <segue destination="DEq-bS-VIw" kind="relationship" relationship="viewControllers" id="5Ea-pj-0Zm"/>
+                        <segue destination="kyo-Ce-z7K" kind="relationship" relationship="viewControllers" id="ACN-Zh-6ga"/>
                         <segue destination="yw3-a5-wVi" kind="relationship" relationship="viewControllers" id="xgN-77-aZt"/>
                     </connections>
                 </tabBarController>
@@ -1808,7 +1811,7 @@ EEZ1ZWwxA
                                 <rect key="frame" x="0.0" y="64" width="104" height="105"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="107" height="105"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="106.66" height="105"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="S9I-Vw-z5h">
@@ -1819,7 +1822,7 @@ EEZ1ZWwxA
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="fpq-Qp-R7y">
-                                            <rect key="frame" x="13" y="1" width="80" height="81"/>
+                                            <rect key="frame" x="9" y="-3" width="80" height="84"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
                                     </subviews>
@@ -2361,15 +2364,11 @@ EEZ1ZWwxA
             </objects>
             <point key="canvasLocation" x="52" y="3686"/>
         </scene>
-        <!-- Favorite Cars-->
+        <!--Navigation Controller-->
         <scene sceneID="b9f-ig-g6a">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qy5-Do-me2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" id="I3U-GI-bT0">
-                        <string key="title" base64-UTF8="YES">
-EEZhdm9yaXRlIENhcnM
-</string>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="I3U-GI-bT0"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xD7-Hh-1FB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -2383,6 +2382,87 @@ EEZhdm9yaXRlIENhcnM
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ddv-J2-LVb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-343" y="3686"/>
+        </scene>
+        <!--Favorites View Controller-->
+        <scene sceneID="lqo-pj-Rbs">
+            <objects>
+                <tableViewController id="OfR-ht-CWu" customClass="FavoritesViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="183" sectionHeaderHeight="22" sectionFooterHeight="22" id="7KE-bo-LLD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ModelCell" rowHeight="183" id="0Eo-pD-Ees" customClass="CarViewCell">
+                                <rect key="frame" x="0.0" y="86" width="320" height="183"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Eo-pD-Ees" id="DiS-uW-9uD">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="182"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="WPq-yh-7IE">
+                                            <rect key="frame" x="60" y="42" width="207" height="128"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fVI-UR-QDq">
+                                            <rect key="frame" x="43" y="13" width="240" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="17"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="X1i-cp-g89">
+                                            <rect key="frame" x="3" y="9" width="57" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Remove">
+                                                <color key="titleColor" red="1" green="0.0" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="CarImage" destination="WPq-yh-7IE" id="Fcx-EI-uwb"/>
+                                    <outlet property="CarName" destination="fVI-UR-QDq" id="4BC-Gz-7G8"/>
+                                    <outlet property="deleteButton" destination="X1i-cp-g89" id="buD-Xc-AfO"/>
+                                    <segue destination="wqd-aT-3l0" kind="push" identifier="pushDetailView" id="JsJ-8b-idj"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="OfR-ht-CWu" id="Zmb-Gf-VSi"/>
+                            <outlet property="delegate" destination="OfR-ht-CWu" id="j5M-zL-q4g"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="9Qa-UR-BZU">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="compose" id="A4T-qG-ted">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="568"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dsg-Fp-56F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1285" y="3730"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="BMV-ug-Lbn">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kyo-Ce-z7K" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="M2g-xx-ZLn"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DnQ-cG-MdT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="OfR-ht-CWu" kind="relationship" relationship="rootViewController" id="AFM-Ha-e86"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sw9-yX-3vG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="872" y="3718"/>
         </scene>
     </scenes>
     <resources>
@@ -2413,15 +2493,15 @@ EEZhdm9yaXRlIENhcnM
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="u8d-Nh-Fbr"/>
-        <segue reference="0aa-7x-UyU"/>
-        <segue reference="B34-lZ-zbJ"/>
-        <segue reference="W65-ah-7q4"/>
-        <segue reference="vIQ-NU-fi2"/>
-        <segue reference="x0E-UV-u6W"/>
-        <segue reference="mdM-ed-vXZ"/>
-        <segue reference="yVH-B1-Ypj"/>
+        <segue reference="JsJ-8b-idj"/>
         <segue reference="0ik-yw-rn7"/>
+        <segue reference="yVH-B1-Ypj"/>
+        <segue reference="u8d-Nh-Fbr"/>
         <segue reference="zv5-fN-0L1"/>
+        <segue reference="Kpt-H6-pwv"/>
+        <segue reference="B34-lZ-zbJ"/>
+        <segue reference="1cg-w3-3rc"/>
+        <segue reference="W65-ah-7q4"/>
+        <segue reference="mdM-ed-vXZ"/>
     </inferredMetricsTieBreakers>
 </document>

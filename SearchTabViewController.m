@@ -29,6 +29,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //[_searchBar becomeFirstResponder];
+    
     self.title = @"Search for a Car";
     [self makeAppDelModelArray];
 }

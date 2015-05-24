@@ -38,8 +38,19 @@ STKAudioPlayer * audioPlayer;
 
 - (void)viewDidLoad
 {
+    //int value = [_currentCar.CarHorsepower integerValue];
+    //NSNumber *carPriceHigh = [NSNumber numberWithInt:[_currentCar.CarPriceHigh integerValue]];
+    //double val = [_currentCar.CarPriceHigh doubleValue];
+    NSLog(@"price: %@", _currentCar.CarZeroToSixtyHigh);
+    
     [super viewDidLoad];
     audioPlayer = [[STKAudioPlayer alloc]init];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkStar) name:@"ChangeStar" object:nil];
+    
+    if([self isSaved:_currentCar] == true)
+        [saveButton setBackgroundImage:[UIImage imageNamed:@"Solid Star@2x.png"] forState:UIControlStateNormal];
+    else
+        [saveButton setBackgroundImage:[UIImage imageNamed:@"Star Outline@2x.png"] forState:UIControlStateNormal];
     
     [scroller setScrollEnabled:YES];
     [scroller setContentSize:CGSizeMake(320, 825)];
@@ -105,37 +116,51 @@ STKAudioPlayer * audioPlayer;
     UIAlertView *notsavedAlert = [[UIAlertView alloc]initWithTitle:@"Car Not Saved" message:@"You have already saved this car." delegate:self cancelButtonTitle:@"Done" otherButtonTitles:nil];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
     savedArray = [[NSMutableArray alloc]init];
     NSData *retrievedData = [defaults objectForKey:@"savedArray"];
     NSArray *testArray = [NSKeyedUnarchiver unarchiveObjectWithData:retrievedData];
-    if(testArray.count!=0){
+    if(testArray.count!=0)
         savedArray = [NSKeyedUnarchiver unarchiveObjectWithData:retrievedData];
-        NSLog(@"not nil");
-    }else{NSLog(@"nil");}
-    bool isThere = false;
-    for(int i=0; i<savedArray.count; i++){
-        Model * savedObject = [savedArray objectAtIndex:i];
-        if([savedObject.CarFullName isEqualToString:_currentCar.CarFullName]){
-            isThere = true;
-            [notsavedAlert show];
-        }
-    }
-    if(isThere == false){
+    
+    if([self isSaved:_currentCar] == false){
+        [saveButton setBackgroundImage:[UIImage imageNamed:@"Solid Star@2x.png"] forState:UIControlStateNormal];
         [savedArray addObject:_currentCar];
         [savedAlert show];
+    }else{
+        [notsavedAlert show];
     }
     NSLog(@"afteraddingobject %@",savedArray);
     NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:savedArray];
     [defaults setObject:arrayData forKey:@"savedArray"];
     [defaults synchronize];
     
-    //Get from defaults
-    NSArray *retrievedArray = [NSKeyedUnarchiver unarchiveObjectWithData:retrievedData];
-    [defaults synchronize];
-    NSLog(@"retrievedArray: %@", retrievedArray);
-    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadRootViewControllerTable" object:nil];
+}
+
+- (bool)isSaved:(Model *)currentModel
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    savedArray = [[NSMutableArray alloc]init];
+    NSData *retrievedData = [defaults objectForKey:@"savedArray"];
+    NSArray *testArray = [NSKeyedUnarchiver unarchiveObjectWithData:retrievedData];
+    if(testArray.count!=0)
+        savedArray = [NSKeyedUnarchiver unarchiveObjectWithData:retrievedData];
+    
+    bool isThere = false;
+    for(int i=0; i<savedArray.count; i++){
+        Model * savedObject = [savedArray objectAtIndex:i];
+        if([savedObject.CarFullName isEqualToString:_currentCar.CarFullName])
+            isThere = true;
+    }
+    return isThere;
+}
+
+- (void)checkStar
+{
+    if([self isSaved:_currentCar] == false)
+        [saveButton setBackgroundImage:[UIImage imageNamed:@"Star OutLine@2x.png"] forState:UIControlStateNormal];
+    else
+        [saveButton setBackgroundImage:[UIImage imageNamed:@"Solid Star@2x.png"] forState:UIControlStateNormal];
 }
 
 #pragma mark -

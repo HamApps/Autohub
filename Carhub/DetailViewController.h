@@ -11,6 +11,7 @@
 
 @interface DetailViewController : UIViewController
 {
+    IBOutlet UIButton *saveButton;
     IBOutlet UIImageView *imageview;
     IBOutlet UIScrollView * scroller;
 }
@@ -35,7 +36,10 @@
 #pragma mark -
 #pragma mark Methods
 
+- (bool)isSaved:(Model *)currentModel;
+- (void)checkStar;
 - (void)getModel:(id)modelObject;
 - (void)setLabels;
 -(IBAction)Website;
+
 @end

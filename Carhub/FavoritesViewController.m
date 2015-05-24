@@ -169,7 +169,7 @@
 }
 
 -(void)removeFavorite:(id)sender{
-    NSLog(@"meow");
+    [self.tableView beginUpdates];
     CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
     
@@ -181,10 +181,16 @@
     [defaults setObject:arrayData forKey:@"savedArray"];
     [defaults synchronize];
     NSLog(@"newArray.count %lu", (unsigned long)ModelArray.count);
+    [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];
     [self loadSavedCars];
-    [self.tableView reloadData];
-    UIAlertView *removedAlert = [[UIAlertView alloc]initWithTitle:@"Car Removed" message:@"The car was removed." delegate:self cancelButtonTitle:@"Done" otherButtonTitles:nil];
-    [removedAlert show];
+    [self.tableView endUpdates];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeStar" object:nil];
+    
+    double delayInSeconds = 1.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [self.tableView reloadData];
+    });
 }
 
 -(void) reloadTableViewData{

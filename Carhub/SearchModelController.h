@@ -16,16 +16,8 @@
 @property (nonatomic, retain) NSArray * ModelArray;
 @property (nonatomic, strong) NSMutableDictionary *cachedImages;
 
-- (void)getfirstModel:(id)firstcarObject2;
-- (void)getsecondModel:(id)secondcarObject2;
 - (void)getsearcharray:(id)searcharrayObject;
 
 @property (nonatomic, strong) Model * currentModel;
-
-@property(nonatomic, strong) Model * firstCar2;
-@property(nonatomic, strong) Model * secondCar2;
-
-#pragma mark-
-#pragma mark Class Methods
 
 @end
