@@ -14,8 +14,7 @@
 #import "Model.h"
 #import "ModelViewController.h"
 #import <QuartzCore/QuartzCore.h>
-#import "GADInterstitial.h"
-#import "GADInterstitialDelegate.h"
+#import <GoogleMobileAds/GADInterstitial.h>
 
 #define getMakeDataURL @"http://pl0x.net/CarMakesJSON.php"
 #define getModelDataURL @"http://pl0x.net/CarHubJSON2.php"
@@ -123,13 +122,11 @@
     Make * makeObject;
     makeObject = [makeimageArray objectAtIndex:indexPath.item];
     
-    NSString *identifier = [NSString stringWithFormat:@"MakeReuseID%@" , makeObject.MakeName];
+    NSString *identifier = [NSString stringWithFormat:@"MakeReuseID%@", makeObject.MakeName];
     NSString *urlIdentifier = [NSString stringWithFormat:@"imageurl%@", makeObject.MakeName];
-    
     
     cell.layer.borderWidth=0.7f;
     cell.layer.borderColor=[UIColor whiteColor].CGColor;
-    //cell.layer.cornerRadius = 10;
     
     cell.MakeNameLabel.text=makeObject.MakeName;
 
@@ -141,11 +138,14 @@
     
     if([defaults objectForKey:identifier] != nil)
     {
-    [cell.MakeImageView setAlpha:1.0];
+    NSLog(@"first");
     cell.MakeImageView.image = [UIImage imageWithData:imagedata];
+    [cell.MakeImageView setAlpha:1.0];
     }
     
     if(cell.MakeImageView.image == nil){
+        NSLog(@"second");
+        
         char const*s = [identifier UTF8String];
             dispatch_queue_t queue = dispatch_queue_create(s, 0);
         

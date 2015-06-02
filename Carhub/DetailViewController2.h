@@ -12,12 +12,11 @@
 @interface DetailViewController2 : UIViewController
 {
     IBOutlet UIButton *saveButton;
+    IBOutlet UIButton *exhaustButton;
     IBOutlet UIImageView *imageview;
     IBOutlet UIScrollView * scroller;
 }
 
-@property(nonatomic, strong) IBOutlet UILabel * CarMakeLabel;
-@property(nonatomic, strong) IBOutlet UILabel * CarModelLabel;
 @property(nonatomic, strong) IBOutlet UILabel * CarYearsMadeLabel;
 @property(nonatomic, strong) IBOutlet UILabel * CarPriceLabel;
 @property(nonatomic, strong) IBOutlet UILabel * CarEngineLabel;
@@ -29,6 +28,7 @@
 @property(nonatomic, strong) IBOutlet UILabel * CarWeightLabel;
 @property(nonatomic, strong) IBOutlet UILabel * CarFuelEconomyLabel;
 
+@property (nonatomic) bool isPlaying;
 @property (nonatomic, strong) NSMutableArray * savedArray;
 
 @property(nonatomic, strong) Model * currentCar;

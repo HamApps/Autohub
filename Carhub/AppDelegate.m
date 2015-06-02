@@ -206,9 +206,10 @@
         NSString * cURL = [[modeljsonArray objectAtIndex:i] objectForKey:@"Image URL"];
         NSString * cWebsite = [[modeljsonArray objectAtIndex:i]objectForKey:@"Make Link"];
         NSString * cFullName = [NSString stringWithFormat:@"%@%@%@",cMake,@" ",cModel];
+        NSString * cExhaust = [[modeljsonArray objectAtIndex:i] objectForKey:@"ExhaustSound"];
         
         //Add object to array
-        [modelArray addObject:[[Model alloc]initWithCarMake:cMake andCarModel:cModel andCarYearsMade:cYearsMade andCarPrice:cPrice andCarPriceLow:cPriceLow andCarPriceHigh:cPriceHigh andCarEngine:cEngine andCarTransmission:cTransmission andCarDriveType:cDriveType andCarHorsepower:cHorsepower andCarHorsepowerLow:cHorsepowerLow andCarHorsepowerHigh:cHorsepowerHigh andCarZeroToSixty:cZeroToSixty andCarZeroToSixtyLow:cZeroToSixtyLow andCarZeroToSixtyHigh:cZeroToSixtyHigh andCarTopSpeed:cTopSpeed andCarWeight:cWeight andCarFuelEconomy:cFuelEconomy andCarImageURL:cURL andCarWebsite:cWebsite andCarFullName:cFullName]];
+        [modelArray addObject:[[Model alloc]initWithCarMake:cMake andCarModel:cModel andCarYearsMade:cYearsMade andCarPrice:cPrice andCarPriceLow:cPriceLow andCarPriceHigh:cPriceHigh andCarEngine:cEngine andCarTransmission:cTransmission andCarDriveType:cDriveType andCarHorsepower:cHorsepower andCarHorsepowerLow:cHorsepowerLow andCarHorsepowerHigh:cHorsepowerHigh andCarZeroToSixty:cZeroToSixty andCarZeroToSixtyLow:cZeroToSixtyLow andCarZeroToSixtyHigh:cZeroToSixtyHigh andCarTopSpeed:cTopSpeed andCarWeight:cWeight andCarFuelEconomy:cFuelEconomy andCarImageURL:cURL andCarWebsite:cWebsite andCarFullName:cFullName andCarExhaust:cExhaust]];
     }
 }
 

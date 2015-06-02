@@ -29,9 +29,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //[_searchBar becomeFirstResponder];
+    self.searchDisplayController.active = YES;
+
+    [self.searchBar becomeFirstResponder];
     
-    self.title = @"Search for a Car";
+    self.title = @"Find Cars";
     [self makeAppDelModelArray];
 }
 
@@ -101,7 +103,6 @@
     cell.CarName.layer.borderColor=[UIColor whiteColor].CGColor;
     NSLog(@"fullname: %@", modelObject.CarFullName);
     
-    
     NSString *identifier = [[[NSString stringWithFormat:@"%@", modelObject.CarMake]stringByAppendingString:@" "]stringByAppendingString:modelObject.CarModel];
     NSString *urlIdentifier = [NSString stringWithFormat:@"imageurl%@%@%@",modelObject.CarMake,@" ", modelObject.CarModel];
     
@@ -140,7 +141,6 @@
                             [UIImageView setAnimationDuration:.75];
                             [updateCell.CarImage setAlpha:1.0];
                             [UIImageView commitAnimations];
-                            
                         }
                     });
                 }
@@ -160,7 +160,6 @@
     NSLog(@"appdelmodelarray %@", appdelmodelArray);
     NSLog(@"modelarray %@", ModelArray);
 }
-
 
 #pragma mark - Navigation
 

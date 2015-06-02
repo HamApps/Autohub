@@ -31,11 +31,11 @@
 @property (strong, nonatomic) NSString * CarImageURL;
 @property (strong, nonatomic) NSString * CarWebsite;
 @property (strong, nonatomic) NSString * CarFullName;
-
+@property (strong, nonatomic) NSString * CarExhaust;
 
 #pragma mark -
 #pragma mark Class Methods
 
-- (id)initWithCarMake: (NSString *)cMake andCarModel: (NSString *)cModel andCarYearsMade: (NSString *)cYearsMade andCarPrice: (NSString *) cPrice andCarPriceLow: (NSNumber *) cPriceLow andCarPriceHigh: (NSNumber *) cPriceHigh andCarEngine: (NSString *)cEngine andCarTransmission: (NSString *)cTransmission andCarDriveType: (NSString *)cDriveType andCarHorsepower: (NSString *) cHorsepower andCarHorsepowerLow: (NSNumber *) cHorsepowerLow andCarHorsepowerHigh: (NSNumber *) cHorsepowerHigh andCarZeroToSixty: (NSString *)cZeroToSixty andCarZeroToSixtyLow: (NSNumber *) cZeroToSixtyLow andCarZeroToSixtyHigh: (NSNumber *) cZeroToSixtyHigh andCarTopSpeed: (NSString *)cTopSpeed andCarWeight: (NSString *)cWeight andCarFuelEconomy: (NSString *)cFuelEconomy andCarImageURL: (NSString *)cURL andCarWebsite: (NSString *)cWebsite andCarFullName: (NSString *)cFullName;
+- (id)initWithCarMake: (NSString *)cMake andCarModel: (NSString *)cModel andCarYearsMade: (NSString *)cYearsMade andCarPrice: (NSString *) cPrice andCarPriceLow: (NSNumber *) cPriceLow andCarPriceHigh: (NSNumber *) cPriceHigh andCarEngine: (NSString *)cEngine andCarTransmission: (NSString *)cTransmission andCarDriveType: (NSString *)cDriveType andCarHorsepower: (NSString *) cHorsepower andCarHorsepowerLow: (NSNumber *) cHorsepowerLow andCarHorsepowerHigh: (NSNumber *) cHorsepowerHigh andCarZeroToSixty: (NSString *)cZeroToSixty andCarZeroToSixtyLow: (NSNumber *) cZeroToSixtyLow andCarZeroToSixtyHigh: (NSNumber *) cZeroToSixtyHigh andCarTopSpeed: (NSString *)cTopSpeed andCarWeight: (NSString *)cWeight andCarFuelEconomy: (NSString *)cFuelEconomy andCarImageURL: (NSString *)cURL andCarWebsite: (NSString *)cWebsite andCarFullName: (NSString *)cFullName andCarExhaust: (NSString *)cExhaust;
 
 @end

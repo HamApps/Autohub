@@ -6,13 +6,12 @@
 //  Copyright (c) 2014 Ham Applications. All rights reserved.
 //
 
+#import <GoogleMobileAds/GADInterstitial.h>
 #import "TopTensViewController.h"
 #import "NewTopTensViewController.h"
 #import "AppDelegate.h"
 #import "FavoritesViewController.h"
 #import "DetailViewController.h"
-#import "GADInterstitial.h"
-#import "GADInterstitialDelegate.h"
 
 #define DELEGATE ((AppDelegate*)[[UIApplication sharedApplication]delegate])
 

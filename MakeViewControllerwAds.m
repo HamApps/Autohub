@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Ham Applications. All rights reserved.
 //
 
+#import <GoogleMobileAds/GADInterstitial.h>
 #import "MakeViewControllerwAds.h"
 #import "AppDelegate.h"
 #import "MakeCell.h"
@@ -13,8 +14,6 @@
 #import "Model.h"
 #import "ModelViewController.h"
 #import <QuartzCore/QuartzCore.h>
-#import "GADInterstitial.h"
-#import "GADInterstitialDelegate.h"
 
 #define getMakeDataURL @"http://pl0x.net/CarMakesJSON.php"
 #define getModelDataURL @"http://pl0x.net/CarHubJSON2.php"
@@ -131,11 +130,11 @@
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSData *imagedata = [defaults objectForKey:identifier];
-    [defaults setObject:[NSString stringWithFormat:@"%i", makeimageArray.count] forKey:@"count"];
+    [defaults setObject:[NSString stringWithFormat:@"%lu", (unsigned long)makeimageArray.count] forKey:@"count"];
     
     //NSLog([defaults objectForKey:urlIdentifier]);
     
-    if([[defaults objectForKey:@"count"] integerValue] == [[NSString stringWithFormat:@"%i", makeimageArray.count] integerValue])
+    if([[defaults objectForKey:@"count"] integerValue] == [[NSString stringWithFormat:@"%lu", (unsigned long)makeimageArray.count] integerValue])
     {
         cell.MakeImageView.image = [UIImage imageWithData:imagedata];
         [cell.MakeImageView setAlpha:1.0];

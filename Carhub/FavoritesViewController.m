@@ -26,7 +26,7 @@
 
 @implementation FavoritesViewController
 
-@synthesize searchArray, ModelArray;
+@synthesize searchArray, ModelArray, editButton;
 
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -42,6 +42,10 @@
 {
     [super viewDidLoad];
     [self loadSavedCars];
+    
+    editButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style: UIBarButtonItemStyleBordered target:self action:@selector(enterEditMode:)];
+    [self.navigationItem setLeftBarButtonItem:editButton];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTableViewData) name:@"ReloadRootViewControllerTable" object:nil];
     
     self.title = @"Favorite Cars";
@@ -79,9 +83,6 @@
         cell = [[CarViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-    
-    UIButton * button = cell.deleteButton;
-    [button addTarget:self action:@selector(removeFavorite:) forControlEvents:UIControlEventTouchUpInside];
     
     Model * modelObject = [ModelArray objectAtIndex:indexPath.row];
 
@@ -168,35 +169,52 @@
     return [self GetIndexPathFromSender:((UIView*)[sender superview])];
 }
 
--(void)removeFavorite:(id)sender{
-    [self.tableView beginUpdates];
-    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
-    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
-    
-    NSLog(@"sender %ld",(long)sender);
-    NSLog(@"indexpath.row %ld",(long)indexPath.row);
-    [ModelArray removeObjectAtIndex:indexPath.row];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:ModelArray];
-    [defaults setObject:arrayData forKey:@"savedArray"];
-    [defaults synchronize];
-    NSLog(@"newArray.count %lu", (unsigned long)ModelArray.count);
-    [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];
-    [self loadSavedCars];
-    [self.tableView endUpdates];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeStar" object:nil];
-    
-    double delayInSeconds = 1.0;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        [self.tableView reloadData];
-    });
-}
-
 -(void) reloadTableViewData{
     NSLog(@"meow");
     [self loadSavedCars];
     [self.tableView reloadData];
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    return YES;
+}
+
+- (IBAction)enterEditMode:(id)sender {
+    
+    if ([self.tableView isEditing]) {
+        // If the tableView is already in edit mode, turn it off. Also change the title of the button to reflect the intended verb (‘Edit’, in this case).
+        [self.tableView setEditing:NO animated:YES];
+        [self.editButton setTitle:@"Edit"];
+    }
+    else {
+        [self.editButton setTitle:@"Done"];
+        
+        // Turn on edit mode
+        
+        [self.tableView setEditing:YES animated:YES];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [self.tableView beginUpdates];
+        [ModelArray removeObjectAtIndex:indexPath.row];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:ModelArray];
+        [defaults setObject:arrayData forKey:@"savedArray"];
+        [defaults synchronize];
+        
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];
+        [self loadSavedCars];
+        [self.tableView endUpdates];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeStar" object:nil];
+        
+        double delayInSeconds = 1.0;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            [self.tableView reloadData];
+        });
+    }
 }
 
 #pragma mark - Navigation

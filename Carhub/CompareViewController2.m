@@ -8,8 +8,7 @@
 
 #import "CompareViewController2.h"
 #import "AppDelegate.h"
-#import "GADInterstitial.h"
-#import "GADInterstitialDelegate.h"
+#import <GoogleMobileAds/GADInterstitial.h>
 #import "ImageViewController.h"
 
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)

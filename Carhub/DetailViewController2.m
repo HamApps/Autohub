@@ -24,7 +24,7 @@ STKAudioPlayer * audioPlayer;
 
 @implementation DetailViewController2
 
-@synthesize CarMakeLabel, CarModelLabel, CarYearsMadeLabel, CarPriceLabel, CarEngineLabel, CarTransmissionLabel, CarDriveTypeLabel, CarHorsepowerLabel, CarZeroToSixtyLabel, CarTopSpeedLabel, CarWeightLabel, CarFuelEconomyLabel, savedArray;
+@synthesize CarYearsMadeLabel, CarPriceLabel, CarEngineLabel, CarTransmissionLabel, CarDriveTypeLabel, CarHorsepowerLabel, CarZeroToSixtyLabel, CarTopSpeedLabel, CarWeightLabel, isPlaying, CarFuelEconomyLabel, savedArray;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,6 +38,7 @@ STKAudioPlayer * audioPlayer;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    isPlaying = false;
     audioPlayer = [[STKAudioPlayer alloc]init];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkStar) name:@"ChangeStar" object:nil];
     
@@ -86,18 +87,32 @@ STKAudioPlayer * audioPlayer;
     [self setLabels];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    isPlaying = false;
+    if(!([_currentCar.CarExhaust isEqual:@""]))
+        [exhaustButton setBackgroundImage:[UIImage imageNamed:@"PlayButton@2x.png"] forState:UIControlStateNormal];
+}
+
 - (void)viewWillDisappear:(BOOL)animated {
     [audioPlayer stop];
 }
 
 -(IBAction)Sound{
-    [audioPlayer resume];
-    NSString * soundurl = [[[@"http://www.pl0x.net/CarSounds/" stringByAppendingString:_currentCar.CarMake] stringByAppendingString:_currentCar.CarModel]stringByAppendingString:@".mp3"];
-    
-    [audioPlayer play:soundurl];
+    if(isPlaying == false){
+        isPlaying = true;
+        [exhaustButton setBackgroundImage:[UIImage imageNamed:@"PauseButton@2x.png"] forState:UIControlStateNormal];
+        [audioPlayer resume];
+        NSString * soundurl = [[[@"http://www.pl0x.net/CarSounds/" stringByAppendingString:_currentCar.CarMake] stringByAppendingString:_currentCar.CarModel]stringByAppendingString:@".mp3"];
+        [audioPlayer play:soundurl];
+    }else{
+        isPlaying = false;
+        [exhaustButton setBackgroundImage:[UIImage imageNamed:@"PlayButton@2x.png"] forState:UIControlStateNormal];
+        [audioPlayer stop];
+    }
     
     NSLog(@"button was pressed");
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -167,8 +182,6 @@ STKAudioPlayer * audioPlayer;
 
 - (void)setLabels
 {
-    CarMakeLabel.text = _currentCar.CarMake;
-    CarModelLabel.text = _currentCar.CarModel;
     CarYearsMadeLabel.text = _currentCar.CarYearsMade;
     CarPriceLabel.text = _currentCar.CarPrice;
     CarEngineLabel.text = _currentCar.CarEngine;
@@ -210,7 +223,6 @@ STKAudioPlayer * audioPlayer;
 -(IBAction)Website
 {
     [[UIApplication sharedApplication] openURL: [NSURL URLWithString:_currentCar.CarWebsite]];
-    NSLog(@"website: %@", _currentCar.CarWebsite);
 }
 
 @end

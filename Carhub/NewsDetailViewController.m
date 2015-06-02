@@ -7,8 +7,7 @@
 //
 
 #import "NewsDetailViewController.h"
-#import "GADInterstitial.h"
-#import "GADInterstitialDelegate.h"
+#import <GoogleMobileAds/GADInterstitial.h>
 
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="lID-nU-S7Y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="lID-nU-S7Y">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="eurostile.TTF">
@@ -89,135 +89,9 @@
             <string>EurostileRegular</string>
             <string>EurostileRegular</string>
             <string>EurostileRegular</string>
-            <string>EurostileRegular</string>
-            <string>EurostileRegular</string>
-            <string>EurostileRegular</string>
-            <string>EurostileRegular</string>
-            <string>EurostileRegular</string>
-            <string>EurostileRegular</string>
-            <string>EurostileRegular</string>
-            <string>EurostileRegular</string>
-            <string>EurostileRegular</string>
-            <string>EurostileRegular</string>
-            <string>EurostileRegular</string>
-            <string>EurostileRegular</string>
-            <string>EurostileRegular</string>
-            <string>EurostileRegular</string>
-            <string>EurostileRegular</string>
-            <string>EurostileRegular</string>
-            <string>EurostileRegular</string>
-            <string>EurostileRegular</string>
-            <string>EurostileRegular</string>
-            <string>EurostileRegular</string>
         </mutableArray>
     </customFonts>
     <scenes>
-        <!--Top Tens-->
-        <scene sceneID="5Lc-EA-BOT">
-            <objects>
-                <viewController title="Top Tens" id="xRv-GE-XX8" customClass="TopTensViewController2" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="MLX-DD-5Yj">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="hny-Ay-qQE">
-                                <rect key="frame" x="20" y="189" width="280" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="22"/>
-                                <state key="normal" title="Nürburgring Lap Times" backgroundImage="blue button 2.png">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="liv-Cl-lWN" kind="push" identifier="pushNurb" id="vFv-Yl-IW6"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="8FO-EQ-RF2">
-                                <rect key="frame" x="20" y="83" width="280" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="22"/>
-                                <state key="normal" title="Fastest 0-60's" backgroundImage="blue button 2.png">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="liv-Cl-lWN" kind="push" identifier="push0-60" id="tPZ-LJ-0Yn"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="crZ-AI-Ios">
-                                <rect key="frame" x="20" y="136" width="280" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="22"/>
-                                <state key="normal" title="Top Speeds" backgroundImage="blue button 2.png">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="liv-Cl-lWN" kind="push" identifier="pushtopspeed" id="bBk-YF-vsg"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="AYh-S6-D2d">
-                                <rect key="frame" x="20" y="242" width="280" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="22"/>
-                                <state key="normal" title="Most Expensive" backgroundImage="blue button 2.png">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="liv-Cl-lWN" kind="push" identifier="pushexpensive" id="wDf-De-1Iu"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="BWB-eA-SW6">
-                                <rect key="frame" x="20" y="295" width="280" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="22"/>
-                                <state key="normal" title="Best Fuel Economy" backgroundImage="blue button 2.png">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="liv-Cl-lWN" kind="push" identifier="pushfuel" id="E47-iI-pDr"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="FFJ-3y-eat">
-                                <rect key="frame" x="20" y="348" width="280" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="22"/>
-                                <state key="normal" title="Highest Horsepower" backgroundImage="blue button 2.png">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="liv-Cl-lWN" kind="push" identifier="pushhorsepower" id="Pzo-Xk-ZIh"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                    </view>
-                    <navigationItem key="navigationItem" title="Top Tens" id="xMF-Nv-Fmz">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="compose" id="K6C-Mo-PbC">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <segue destination="wEG-mh-v4Y" kind="push" id="YHL-Yl-wsN"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="568"/>
-                    <connections>
-                        <outlet property="fuelEconomyButton" destination="BWB-eA-SW6" id="qwD-FC-aqD"/>
-                        <outlet property="horsepowerButton" destination="FFJ-3y-eat" id="gjg-fV-4y3"/>
-                        <outlet property="mostExpensiveButton" destination="AYh-S6-D2d" id="KaN-3A-KbD"/>
-                        <outlet property="nurburgringButton" destination="hny-Ay-qQE" id="vCM-bv-tDp"/>
-                        <outlet property="topSpeedButton" destination="crZ-AI-Ios" id="hDk-xs-hvh"/>
-                        <outlet property="zeroToSixtyButton" destination="8FO-EQ-RF2" id="7br-V7-do3"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="w5k-oe-Up0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1252" y="-1858"/>
-        </scene>
         <!--Title-->
         <scene sceneID="KpF-UO-2tf">
             <objects>
@@ -250,7 +124,7 @@
                                             <rect key="frame" x="40" y="16" width="243" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -304,7 +178,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="825" y="44"/>
+            <point key="canvasLocation" x="794" y="-538"/>
         </scene>
         <!--Detail View Controller2-->
         <scene sceneID="75D-jb-hIS">
@@ -380,7 +254,7 @@
                                         <rect key="frame" x="36" y="318" width="110" height="27"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="14"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price ($):" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Srg-5d-FIe">
@@ -537,7 +411,7 @@
                                             <action selector="Save" destination="wqd-aT-3l0" eventType="touchUpInside" id="LQI-4j-uAi"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" id="lTr-HE-n6h">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lTr-HE-n6h">
                                         <rect key="frame" x="290" y="237" width="22" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal">
@@ -572,6 +446,7 @@
                         <outlet property="CarWeightLabel" destination="2O3-h5-8dT" id="szr-PZ-aAi"/>
                         <outlet property="CarYearsMadeLabel" destination="1Vd-Rn-5Rt" id="jny-1h-9WK"/>
                         <outlet property="CarZeroToSixtyLabel" destination="GLD-IJ-nDa" id="fpR-o5-Dyh"/>
+                        <outlet property="exhaustButton" destination="lTr-HE-n6h" id="vrF-aQ-CgZ"/>
                         <outlet property="imageview" destination="FsU-Df-glK" id="QVd-uK-Zfr"/>
                         <outlet property="saveButton" destination="EDL-vr-UGM" id="xnp-G0-4i5"/>
                         <outlet property="scroller" destination="vcM-KJ-qF2" id="tf1-Kf-vaz"/>
@@ -579,14 +454,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sRq-yy-9gL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1224" y="28"/>
+            <point key="canvasLocation" x="1180" y="-538"/>
         </scene>
         <!--Image View Controller-->
         <scene sceneID="et8-Ds-ccj">
             <objects>
                 <viewController id="jMX-vW-yfd" customClass="ImageViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A0o-ni-HhA">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="551"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="MJN-Sy-Mn4">
@@ -632,21 +507,21 @@
                                         <rect key="frame" x="218" y="458" width="95" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="12"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price1" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Wkj-dj-AmH">
                                         <rect key="frame" x="211" y="305" width="102" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="12"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0-60, 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6tL-Lb-jHs">
                                         <rect key="frame" x="9" y="487" width="104" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="12"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Speed (MPH)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bfN-PI-IEl">
@@ -659,7 +534,7 @@
                                         <rect key="frame" x="9" y="516" width="84" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="12"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0-60" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NtG-XK-QJe">
@@ -672,21 +547,21 @@
                                         <rect key="frame" x="9" y="539" width="90" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="12"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0-60, 1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="od0-bN-3Z4">
                                         <rect key="frame" x="189" y="487" width="124" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="12"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CarTitle1" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Dzi-bD-dp1">
                                         <rect key="frame" x="20" y="130" width="124" height="61"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price ($)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BQI-qR-hQ3">
@@ -711,7 +586,7 @@
                                         <rect key="frame" x="9" y="458" width="100" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="12"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Years Made Icon.png" id="Eao-tl-t64">
@@ -726,7 +601,7 @@
                                         <rect key="frame" x="193" y="333" width="120" height="39"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="10"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="rhU-4b-mI4">
@@ -744,7 +619,7 @@
 EEZ1ZWwxA
 </string>
                                         <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="12"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Horsepower Icon.png" id="N8v-mG-Rix">
@@ -755,7 +630,7 @@ EEZ1ZWwxA
                                         <rect key="frame" x="211" y="273" width="102" height="33"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="12"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="sYl-yX-hOq">
@@ -766,7 +641,7 @@ EEZ1ZWwxA
                                         <rect key="frame" x="9" y="273" width="100" height="33"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="12"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Drive Type Icon.png" id="LqM-hB-FgB">
@@ -777,7 +652,7 @@ EEZ1ZWwxA
                                         <rect key="frame" x="9" y="305" width="104" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="12"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Engine" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ojt-7T-FEK">
@@ -790,14 +665,14 @@ EEZ1ZWwxA
                                         <rect key="frame" x="211" y="429" width="102" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="12"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transmission1" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZIX-IN-e2F">
                                         <rect key="frame" x="202" y="371" width="111" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="10"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight (LBS)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZSM-Yi-fZr">
@@ -813,35 +688,35 @@ EEZ1ZWwxA
 EEZ1ZWwxA
 </string>
                                         <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="12"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CarTitle1" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Jw5-n9-FqT">
                                         <rect key="frame" x="179" y="130" width="134" height="61"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Engine1" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="k2K-Mu-ba7">
                                         <rect key="frame" x="9" y="333" width="110" height="39"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="10"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Years Made" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FxH-tt-DrN">
                                         <rect key="frame" x="120" y="279" width="81" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="14"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TopSpeed1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IbI-MW-vts">
                                         <rect key="frame" x="218" y="516" width="95" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="12"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Transmission Icon.png" id="r0r-uX-boN">
@@ -864,7 +739,7 @@ EEZ1ZWwxA
                                         <rect key="frame" x="9" y="429" width="90" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="12"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fuel pump icon.png" id="ppf-S4-jIN">
@@ -887,7 +762,7 @@ EEZ1ZWwxA
                                             <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="KM7-UJ-bLX" kind="push" identifier="pushMakesView2" id="3Vr-4l-7cv"/>
+                                            <segue destination="IV9-rb-YGr" kind="push" id="CS9-r1-biV"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="G0K-eY-m0k">
@@ -922,21 +797,21 @@ EEZ1ZWwxA
                                             <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="KM7-UJ-bLX" kind="push" identifier="pushMakesView" id="W65-ah-7q4"/>
+                                            <segue destination="IV9-rb-YGr" kind="push" id="AbF-w6-vZq"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight1" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uDd-HJ-SKQ">
                                         <rect key="frame" x="202" y="539" width="111" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="12"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transmission1" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HEE-Tl-Q7L">
                                         <rect key="frame" x="9" y="371" width="92" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="10"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dollarsign.png" id="9bn-Rd-xXe">
@@ -988,14 +863,14 @@ EEZ1ZWwxA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tf5-cs-VXd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1593" y="28"/>
+            <point key="canvasLocation" x="1561" y="-522"/>
         </scene>
         <!--Dispute Info View Controller2-->
         <scene sceneID="f7l-RB-ZjG">
             <objects>
                 <viewController id="wEG-mh-v4Y" customClass="DisputeInfoViewController2" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Fa-7L-6D0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="1451"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NewSpecsDisputePage4.png" id="glX-MP-UQY">
@@ -1031,353 +906,6 @@ EEZ1ZWwxA
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nwN-dg-tiv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2363" y="1854"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="MaG-XJ-CP1">
-            <objects>
-                <tabBarController restorationIdentifier="IAP" storyboardIdentifier="IAP" id="AhO-EY-ply" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="9Cj-Z7-NkC"/>
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="6QU-Jw-IbK">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="p62-wr-9zn" kind="relationship" relationship="viewControllers" id="uH4-2c-KsB"/>
-                        <segue destination="Das-hy-utX" kind="relationship" relationship="viewControllers" id="c5H-gy-YaJ"/>
-                        <segue destination="vAQ-Rm-fxh" kind="relationship" relationship="viewControllers" id="a1E-0l-DW9"/>
-                        <segue destination="lgh-tL-cmc" kind="relationship" relationship="viewControllers" id="t0A-Ec-4nO"/>
-                        <segue destination="qy5-Do-me2" kind="relationship" relationship="viewControllers" id="sHl-kW-T21"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6ap-Vm-EUj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-321" y="44"/>
-        </scene>
-        <!--Make View Controller-->
-        <scene sceneID="PLo-Gn-Gkw">
-            <objects>
-                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="KM7-UJ-bLX" customClass="MakeViewController" sceneMemberID="viewController">
-                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="CMt-uc-zv9">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="551"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="a6z-gt-OWl">
-                            <size key="itemSize" width="106.666" height="105"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MakeReuseID" id="2yR-55-DeI" customClass="MakeCell">
-                                <rect key="frame" x="0.0" y="64" width="104" height="105"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="106.66" height="105"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0J4-uy-wFj">
-                                            <rect key="frame" x="1" y="84" width="104" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="9m3-nL-qGF">
-                                            <rect key="frame" x="12" y="0.0" width="80" height="80"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        </imageView>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                                <size key="customSize" width="106.66" height="105"/>
-                                <connections>
-                                    <outlet property="MakeImageView" destination="9m3-nL-qGF" id="Ld5-tt-nNT"/>
-                                    <outlet property="MakeNameLabel" destination="0J4-uy-wFj" id="1T0-ic-YZQ"/>
-                                    <segue destination="Ph2-Hk-w9n" kind="push" identifier="pushModelView" id="mdM-ed-vXZ"/>
-                                </connections>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="KM7-UJ-bLX" id="jPT-FR-ghV"/>
-                            <outlet property="delegate" destination="KM7-UJ-bLX" id="d78-ON-hD5"/>
-                        </connections>
-                    </collectionView>
-                    <navigationItem key="navigationItem" id="usD-H2-md7"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
-                    <connections>
-                        <outlet property="searchDisplayController" destination="n4Y-ml-bcm" id="Sz7-1b-IP0"/>
-                    </connections>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MUJ-ax-Ict" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="n4Y-ml-bcm">
-                    <connections>
-                        <outlet property="delegate" destination="KM7-UJ-bLX" id="vMT-0c-zqy"/>
-                        <outlet property="searchContentsController" destination="KM7-UJ-bLX" id="fda-Ux-zvX"/>
-                        <outlet property="searchResultsDataSource" destination="KM7-UJ-bLX" id="tDh-lf-N4e"/>
-                        <outlet property="searchResultsDelegate" destination="KM7-UJ-bLX" id="HYo-9Q-qdi"/>
-                    </connections>
-                </searchDisplayController>
-            </objects>
-            <point key="canvasLocation" x="419" y="44"/>
-        </scene>
-        <!--Home-->
-        <scene sceneID="A3D-Vp-3f4">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="p62-wr-9zn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="garage-50.png" id="ge0-J1-Ns7"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YLy-2R-agt">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="KM7-UJ-bLX" kind="relationship" relationship="rootViewController" id="ak7-hL-5zb"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BzC-kc-faE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="52" y="44"/>
-        </scene>
-        <!--Item-->
-        <scene sceneID="cnF-qq-kjZ">
-            <objects>
-                <viewController id="YsL-L6-Vzs" customClass="SearchViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="BIa-ZE-qvR">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="1451"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="XLb-76-q5z">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="1451"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transmission:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nJE-Fc-scA">
-                                        <rect key="frame" x="34" y="740" width="101" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zqL-JQ-QyX">
-                                        <rect key="frame" x="34" y="400" width="40" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Engine:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EAR-6K-r0D">
-                                        <rect key="frame" x="34" y="570" width="53" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <pickerView contentMode="scaleToFill" id="xhM-SC-9IP">
-                                        <rect key="frame" x="123" y="330" width="197" height="162"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="YsL-L6-Vzs" id="fnB-AV-f57"/>
-                                            <outlet property="delegate" destination="YsL-L6-Vzs" id="dhp-Ra-xOE"/>
-                                        </connections>
-                                    </pickerView>
-                                    <pickerView contentMode="scaleToFill" id="qZD-kA-ZPA">
-                                        <rect key="frame" x="123" y="500" width="197" height="162"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="YsL-L6-Vzs" id="wbl-Zh-Yt6"/>
-                                            <outlet property="delegate" destination="YsL-L6-Vzs" id="bCY-m0-9pd"/>
-                                        </connections>
-                                    </pickerView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drive Type:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wHA-fd-d5K">
-                                        <rect key="frame" x="34" y="910" width="81" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Horsepower:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PO2-EP-Igb">
-                                        <rect key="frame" x="34" y="1080" width="94" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0-60 Time:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4Vg-Du-SwX">
-                                        <rect key="frame" x="34" y="1250" width="78" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <pickerView contentMode="scaleToFill" id="Jcs-RP-1RB">
-                                        <rect key="frame" x="123" y="670" width="196" height="162"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="YsL-L6-Vzs" id="LNI-tN-m2O"/>
-                                            <outlet property="delegate" destination="YsL-L6-Vzs" id="QAN-Ku-V34"/>
-                                        </connections>
-                                    </pickerView>
-                                    <pickerView contentMode="scaleToFill" id="qdn-V8-Izl">
-                                        <rect key="frame" x="123" y="840" width="196" height="162"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="YsL-L6-Vzs" id="ovS-be-Ppc"/>
-                                            <outlet property="delegate" destination="YsL-L6-Vzs" id="P1H-0F-uCB"/>
-                                        </connections>
-                                    </pickerView>
-                                    <pickerView contentMode="scaleToFill" id="lo5-9H-CQr">
-                                        <rect key="frame" x="123" y="1010" width="196" height="162"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="YsL-L6-Vzs" id="Azk-x3-1jK"/>
-                                            <outlet property="delegate" destination="YsL-L6-Vzs" id="OpE-YF-JI2"/>
-                                        </connections>
-                                    </pickerView>
-                                    <pickerView contentMode="scaleToFill" id="yYb-Tt-Cls">
-                                        <rect key="frame" x="123" y="1180" width="196" height="162"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="YsL-L6-Vzs" id="ayP-qi-v6S"/>
-                                            <outlet property="delegate" destination="YsL-L6-Vzs" id="gPa-g1-i7h"/>
-                                        </connections>
-                                    </pickerView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search By Specifications" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5cP-gf-g2c">
-                                        <rect key="frame" x="20" y="292" width="280" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="21"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="nTJ-qn-7wk">
-                                        <rect key="frame" x="98" y="1350" width="125" height="38"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="18"/>
-                                        <state key="normal" title="View Results" backgroundImage="blue button 2.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="UsePredicates" destination="YsL-L6-Vzs" eventType="touchUpInside" id="BA1-vG-afu"/>
-                                            <segue destination="x81-21-IWe" kind="push" identifier="pushModelView" id="9QX-2Z-LbH"/>
-                                        </connections>
-                                    </button>
-                                    <pickerView contentMode="scaleToFill" id="c59-tQ-cWo">
-                                        <rect key="frame" x="0.0" y="62" width="160" height="162"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="YsL-L6-Vzs" id="YbI-1u-Jl7"/>
-                                            <outlet property="delegate" destination="YsL-L6-Vzs" id="aIq-qg-9vU"/>
-                                        </connections>
-                                    </pickerView>
-                                    <pickerView contentMode="scaleToFill" id="sPH-d6-mdZ">
-                                        <rect key="frame" x="160" y="62" width="160" height="162"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="YsL-L6-Vzs" id="k2c-eO-jfG"/>
-                                            <outlet property="delegate" destination="YsL-L6-Vzs" id="axh-bi-70a"/>
-                                        </connections>
-                                    </pickerView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="bzV-WY-qrX">
-                                        <rect key="frame" x="98" y="232" width="125" height="38"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="18"/>
-                                        <state key="normal" title="View Car" backgroundImage="blue button 2.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="UseModelPredicates" destination="YsL-L6-Vzs" eventType="touchUpInside" id="Iz9-pV-ZO0"/>
-                                            <action selector="UsePredicates" destination="YsL-L6-Vzs" eventType="touchUpInside" id="8SP-Rm-w0s"/>
-                                            <segue destination="x81-21-IWe" kind="push" identifier="pushCarView" id="43o-Is-lnJ"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search By Model" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GKt-lL-9aZ">
-                                        <rect key="frame" x="21" y="20" width="279" height="34"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="22"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dollarsign.png" id="VZ5-Sq-3KJ">
-                                        <rect key="frame" x="3" y="397" width="19" height="27"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Engine Icon.png" id="VBS-Gt-5vC">
-                                        <rect key="frame" x="2" y="566" width="29" height="29"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Transmission Icon.png" id="Grq-dt-o8n">
-                                        <rect key="frame" x="0.0" y="737" width="27" height="27"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Drive Type Icon.png" id="5L7-o0-Z6F">
-                                        <rect key="frame" x="2" y="910" width="22" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Horsepower Icon.png" id="Scb-Cw-BGR">
-                                        <rect key="frame" x="2" y="1080" width="23" height="20"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sport-Activities-Stopwatch-icon.png" id="tyv-a1-yRA">
-                                        <rect key="frame" x="-1" y="1248" width="26" height="26"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Sz2-hd-gM6">
-                                        <rect key="frame" x="259" y="236" width="48" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Search">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="UCs-nO-vGD" kind="push" id="wxV-eq-EqL"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="XPa-l0-fCf"/>
-                    <navigationItem key="navigationItem" id="QTN-vA-uaq">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="compose" id="oZ6-tO-zMI">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <segue destination="wEG-mh-v4Y" kind="push" id="V3p-GO-JrG"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="1500"/>
-                    <connections>
-                        <outlet property="MakePicker" destination="c59-tQ-cWo" id="VeY-uF-wOZ"/>
-                        <outlet property="ModelPicker" destination="sPH-d6-mdZ" id="EFO-7K-e1f"/>
-                        <outlet property="Pricepicker" destination="xhM-SC-9IP" id="wHA-D3-w1k"/>
-                        <outlet property="driveTypePicker" destination="qdn-V8-Izl" id="jhF-xe-eGG"/>
-                        <outlet property="enginePicker" destination="qZD-kA-ZPA" id="Yvh-4d-SUA"/>
-                        <outlet property="horsepowerPicker" destination="lo5-9H-CQr" id="1r2-AG-qr0"/>
-                        <outlet property="scroller" destination="XLb-76-q5z" id="i5v-a5-Hca"/>
-                        <outlet property="transmissionPicker" destination="Jcs-RP-1RB" id="d6g-B4-fQN"/>
-                        <outlet property="zeroToSixtyPicker" destination="yYb-Tt-Cls" id="8tK-j0-mHs"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xgS-8a-XPf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="407" y="2509"/>
-        </scene>
-        <!--Find Cars-->
-        <scene sceneID="yjr-jQ-48y">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lgh-tL-cmc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Find Cars" image="magnifier_64.png" id="Y5B-jR-tDT"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5Oe-Wn-c3f">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="YsL-L6-Vzs" kind="relationship" relationship="rootViewController" id="gAg-ED-JNV"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cV2-QJ-ix1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-343" y="2238"/>
         </scene>
         <!--Search Model Controller-->
         <scene sceneID="wmY-cD-aWv">
@@ -1433,103 +961,7 @@ EEZ1ZWwxA
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T84-m7-waZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="850" y="2162"/>
-        </scene>
-        <!--Top Tens-->
-        <scene sceneID="wcw-DU-ahW">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Das-hy-utX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Top Tens" image="Top tens tab bar icon.png" id="Jev-oc-Fyx"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mx8-Qv-hHV">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="xRv-GE-XX8" kind="relationship" relationship="rootViewController" id="4L4-tS-BOb"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="61s-SP-dYr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="820" y="-1858"/>
-        </scene>
-        <!--News View Controller-->
-        <scene sceneID="OxB-f9-D2I">
-            <objects>
-                <tableViewController id="sA5-tv-MzB" customClass="NewsViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="257" sectionHeaderHeight="22" sectionFooterHeight="22" id="aU9-8Y-a0R">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="sectionIndexBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewsCell" rowHeight="257" id="tLW-gG-G5r" customClass="CarViewCell">
-                                <rect key="frame" x="0.0" y="86" width="320" height="223"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tLW-gG-G5r" id="5Q4-Ob-Ept">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="222"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vAs-WS-IAy">
-                                            <rect key="frame" x="8" y="184" width="267" height="42"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="18"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="2Xp-Of-dTJ">
-                                            <rect key="frame" x="-14" y="-4" width="343" height="189"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0Ll-oA-HqW">
-                                            <rect key="frame" x="8" y="223" width="299" height="29"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="13"/>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <outlet property="CarImage" destination="2Xp-Of-dTJ" id="vwz-BJ-qga"/>
-                                    <outlet property="CarName" destination="vAs-WS-IAy" id="gsZ-n7-3cX"/>
-                                    <outlet property="NewsDescription" destination="0Ll-oA-HqW" id="qku-RY-2LL"/>
-                                    <segue destination="F9U-F5-KBn" kind="push" identifier="pushNewsDetailView" id="vYd-Bd-efv"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="sA5-tv-MzB" id="jTF-5l-PR9"/>
-                            <outlet property="delegate" destination="sA5-tv-MzB" id="LPV-vY-blA"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="2aP-c2-im5"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9Br-Ay-BBI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="52" y="752"/>
-        </scene>
-        <!--Auto News-->
-        <scene sceneID="jeh-ef-bAY">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vAQ-Rm-fxh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Auto News" image="News icon.png" id="NPI-SA-8YJ"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1kE-8R-Xov">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="sA5-tv-MzB" kind="relationship" relationship="rootViewController" id="gXZ-35-jxK"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5pP-Ps-8ep" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-321" y="752"/>
+            <point key="canvasLocation" x="890" y="1482"/>
         </scene>
         <!--News Detail View Controller-->
         <scene sceneID="E4t-oq-kQG">
@@ -1556,7 +988,7 @@ EEZ1ZWwxA
                                 <rect key="frame" x="5" y="275" width="177" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="12"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="YCC-D6-0OZ">
@@ -1576,7 +1008,7 @@ EEZ1ZWwxA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VCa-qQ-GBq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="649" y="1050"/>
+            <point key="canvasLocation" x="794" y="58"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="gVj-ap-w6B">
@@ -1595,7 +1027,6 @@ EEZ1ZWwxA
                         <segue destination="l0e-x3-FGP" kind="relationship" relationship="viewControllers" id="8mg-4I-gbK"/>
                         <segue destination="DEq-bS-VIw" kind="relationship" relationship="viewControllers" id="5Ea-pj-0Zm"/>
                         <segue destination="kyo-Ce-z7K" kind="relationship" relationship="viewControllers" id="ACN-Zh-6ga"/>
-                        <segue destination="yw3-a5-wVi" kind="relationship" relationship="viewControllers" id="xgN-77-aZt"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KqZ-Zt-ADa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1638,7 +1069,7 @@ EEZ1ZWwxA
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i1v-GG-wuU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="820" y="-1230"/>
+            <point key="canvasLocation" x="52" y="-1162"/>
         </scene>
         <!--Top Tens-->
         <scene sceneID="mpK-55-LC2">
@@ -1741,63 +1172,14 @@ EEZ1ZWwxA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jDF-Qb-kRu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1252" y="-1230"/>
-        </scene>
-        <!--Upgrade-->
-        <scene sceneID="BfF-DH-cLf">
-            <objects>
-                <viewController id="yw3-a5-wVi" customClass="PurchaseViewController" sceneMemberID="viewController">
-                    <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="s80-Wb-hpw">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="adfreepageiphone4.jpg" id="YYz-HD-UHM">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="430"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pVm-am-elU">
-                                <rect key="frame" x="107" y="230" width="107" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="12"/>
-                                <state key="normal" title="Upgrade Now" backgroundImage="Green Buy Button.png">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="buyProduct:" destination="yw3-a5-wVi" eventType="touchUpInside" id="AIu-at-O2v"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Esk-wq-oog">
-                                <rect key="frame" x="107" y="270" width="107" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="12"/>
-                                <state key="normal" title="Restore Purchase" backgroundImage="Green Buy Button.png">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="Restore:" destination="yw3-a5-wVi" eventType="touchUpInside" id="VN4-oh-Zq0"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Upgrade" image="box-outgoing-7.png" id="1gL-Jl-QJo"/>
-                    <connections>
-                        <outlet property="buyButton" destination="pVm-am-elU" id="btc-iK-LUo"/>
-                        <outlet property="restoreButton" destination="Esk-wq-oog" id="Aia-4h-lW9"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NFc-Ks-uFT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-321" y="-1129"/>
+            <point key="canvasLocation" x="412" y="-1206"/>
         </scene>
         <!--Make View Controller-->
         <scene sceneID="4ah-LS-5HK">
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="IV9-rb-YGr" customClass="MakeViewController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="IR4-nS-G1A">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="79L-83-J38">
@@ -1811,18 +1193,18 @@ EEZ1ZWwxA
                                 <rect key="frame" x="0.0" y="64" width="104" height="105"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="106.66" height="105"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="107" height="105"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="S9I-Vw-z5h">
                                             <rect key="frame" x="1" y="88" width="106" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="fpq-Qp-R7y">
-                                            <rect key="frame" x="9" y="-3" width="80" height="84"/>
+                                            <rect key="frame" x="12" y="2" width="82" height="82"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
                                     </subviews>
@@ -1870,7 +1252,7 @@ EEZ1ZWwxA
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6dx-Dl-11Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-321" y="1298"/>
+            <point key="canvasLocation" x="52" y="58"/>
         </scene>
         <!--News View Controller-->
         <scene sceneID="c9s-94-8FC">
@@ -1893,7 +1275,7 @@ EEZ1ZWwxA
                                             <rect key="frame" x="8" y="184" width="267" height="42"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="18"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="joC-yu-9oK">
@@ -1928,7 +1310,7 @@ EEZ1ZWwxA
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4y4-Lx-5hm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52" y="1298"/>
+            <point key="canvasLocation" x="419" y="58"/>
         </scene>
         <!--Find Cars-->
         <scene sceneID="gBo-6m-Nc7">
@@ -1942,12 +1324,12 @@ EEZ1ZWwxA
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="4Ly-t5-mmX" kind="relationship" relationship="rootViewController" id="EaG-F1-AuB"/>
+                        <segue destination="4Ly-t5-mmX" kind="relationship" relationship="rootViewController" id="mXW-g1-6Ko"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q0X-Tb-3kO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-343" y="2801"/>
+            <point key="canvasLocation" x="-34" y="643"/>
         </scene>
         <!--Item-->
         <scene sceneID="NsD-co-Z6r">
@@ -1971,7 +1353,7 @@ EEZ1ZWwxA
                                         <rect key="frame" x="34" y="400" width="40" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Engine:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="efx-u3-P0d">
@@ -2065,7 +1447,7 @@ EEZ1ZWwxA
                                         </connections>
                                     </button>
                                     <pickerView contentMode="scaleToFill" id="C0E-wa-kEt">
-                                        <rect key="frame" x="0.0" y="62" width="160" height="162"/>
+                                        <rect key="frame" x="0.0" y="68" width="160" height="162"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <outlet property="dataSource" destination="4Ly-t5-mmX" id="9Q5-2n-66D"/>
@@ -2073,7 +1455,7 @@ EEZ1ZWwxA
                                         </connections>
                                     </pickerView>
                                     <pickerView contentMode="scaleToFill" id="m6i-rW-Ocj">
-                                        <rect key="frame" x="160" y="62" width="160" height="162"/>
+                                        <rect key="frame" x="160" y="68" width="160" height="162"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <outlet property="dataSource" destination="4Ly-t5-mmX" id="O1l-ts-DTY"/>
@@ -2094,10 +1476,10 @@ EEZ1ZWwxA
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search By Model" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="R1X-lE-kZQ">
-                                        <rect key="frame" x="21" y="20" width="279" height="34"/>
+                                        <rect key="frame" x="21" y="49" width="279" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="22"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dollarsign.png" id="NLA-CP-yPN">
@@ -2124,14 +1506,14 @@ EEZ1ZWwxA
                                         <rect key="frame" x="-1" y="1248" width="26" height="26"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="XML-X6-Fho">
-                                        <rect key="frame" x="252" y="236" width="48" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="OqT-ia-tlT">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Search">
+                                        <state key="normal" backgroundImage="searchbar2.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="UCs-nO-vGD" kind="push" id="0ik-yw-rn7"/>
+                                            <segue destination="UCs-nO-vGD" kind="push" id="JFc-RF-dec"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -2165,7 +1547,7 @@ EEZ1ZWwxA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5W-n2-lTZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="27" y="2509"/>
+            <point key="canvasLocation" x="412" y="1164"/>
         </scene>
         <!--New Top Tens View Controller-->
         <scene sceneID="DnW-pn-TQF">
@@ -2185,14 +1567,14 @@ EEZ1ZWwxA
                                             <rect key="frame" x="214" y="66" width="98" height="62"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Car Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="t8I-L6-aas">
                                             <rect key="frame" x="32" y="0.0" width="263" height="47"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="W0F-wo-0t3">
@@ -2203,7 +1585,7 @@ EEZ1ZWwxA
                                             <rect key="frame" x="3" y="4" width="47" height="39"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -2226,7 +1608,7 @@ EEZ1ZWwxA
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BTw-wU-CPo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1912" y="-1497"/>
+            <point key="canvasLocation" x="794" y="-1206"/>
         </scene>
         <!--Search Tab View Controller-->
         <scene sceneID="hA3-7m-fFO">
@@ -2300,88 +1682,7 @@ EEZ1ZWwxA
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="841" y="2829"/>
-        </scene>
-        <!--Favorites View Controller-->
-        <scene sceneID="S7f-7n-4Wh">
-            <objects>
-                <tableViewController id="Cvx-s2-oau" customClass="FavoritesViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="183" sectionHeaderHeight="22" sectionFooterHeight="22" id="Rbj-NX-ePD">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ModelCell" rowHeight="183" id="gqj-Ny-buH" customClass="CarViewCell">
-                                <rect key="frame" x="0.0" y="86" width="320" height="183"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gqj-Ny-buH" id="1DX-fj-jDy">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="182"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Hce-Sx-R1I">
-                                            <rect key="frame" x="60" y="42" width="207" height="128"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gy2-aK-kCa">
-                                            <rect key="frame" x="43" y="13" width="240" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="17"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ESE-60-nth">
-                                            <rect key="frame" x="3" y="9" width="57" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Remove">
-                                                <color key="titleColor" red="1" green="0.0" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                        </button>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="CarImage" destination="Hce-Sx-R1I" id="0vR-G3-00C"/>
-                                    <outlet property="CarName" destination="gy2-aK-kCa" id="TIn-E1-PoI"/>
-                                    <outlet property="deleteButton" destination="ESE-60-nth" id="G0l-AI-6EF"/>
-                                    <segue destination="wqd-aT-3l0" kind="push" identifier="pushDetailView" id="Brk-Cg-58I"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Cvx-s2-oau" id="jVS-gY-acD"/>
-                            <outlet property="delegate" destination="Cvx-s2-oau" id="eVf-8a-H7K"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="6wX-Lc-6GB">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="compose" id="G2B-eu-jrh">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="568"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0d7-1s-kiO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="52" y="3686"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="b9f-ig-g6a">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qy5-Do-me2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="I3U-GI-bT0"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xD7-Hh-1FB">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Cvx-s2-oau" kind="relationship" relationship="rootViewController" id="Ixf-mR-zDR"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ddv-J2-LVb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-343" y="3686"/>
+            <point key="canvasLocation" x="870" y="765"/>
         </scene>
         <!--Favorites View Controller-->
         <scene sceneID="lqo-pj-Rbs">
@@ -2409,20 +1710,11 @@ EEZ1ZWwxA
                                             <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="17"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="X1i-cp-g89">
-                                            <rect key="frame" x="3" y="9" width="57" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Remove">
-                                                <color key="titleColor" red="1" green="0.0" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                        </button>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="CarImage" destination="WPq-yh-7IE" id="Fcx-EI-uwb"/>
                                     <outlet property="CarName" destination="fVI-UR-QDq" id="4BC-Gz-7G8"/>
-                                    <outlet property="deleteButton" destination="X1i-cp-g89" id="buD-Xc-AfO"/>
                                     <segue destination="wqd-aT-3l0" kind="push" identifier="pushDetailView" id="JsJ-8b-idj"/>
                                 </connections>
                             </tableViewCell>
@@ -2443,7 +1735,7 @@ EEZ1ZWwxA
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dsg-Fp-56F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1285" y="3730"/>
+            <point key="canvasLocation" x="419" y="2326"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BMV-ug-Lbn">
@@ -2462,13 +1754,12 @@ EEZ1ZWwxA
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sw9-yX-3vG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="872" y="3718"/>
+            <point key="canvasLocation" x="52" y="2282"/>
         </scene>
     </scenes>
     <resources>
         <image name="Drive Type Icon.png" width="256" height="256"/>
         <image name="Engine Icon.png" width="256" height="256"/>
-        <image name="Green Buy Button.png" width="154" height="46"/>
         <image name="Horsepower Icon.png" width="150" height="133"/>
         <image name="NewSpecsDisputePage4.png" width="640" height="960"/>
         <image name="News icon.png" width="40" height="40"/>
@@ -2476,13 +1767,12 @@ EEZ1ZWwxA
         <image name="Top tens tab bar icon.png" width="25" height="25"/>
         <image name="Transmission Icon.png" width="256" height="256"/>
         <image name="Years Made Icon.png" width="256" height="256"/>
-        <image name="adfreepageiphone4.jpg" width="640" height="960"/>
         <image name="blue button 2.png" width="154" height="46"/>
-        <image name="box-outgoing-7.png" width="25" height="26"/>
         <image name="dollarsign.png" width="404" height="662"/>
         <image name="fuel pump icon.png" width="150" height="150"/>
         <image name="garage-50.png" width="25" height="25"/>
         <image name="magnifier_64.png" width="25" height="25"/>
+        <image name="searchbar2.png" width="240" height="34"/>
         <image name="speedometer 2.png" width="300" height="300"/>
         <image name="stopwatch icon.png" width="256" height="256"/>
         <image name="weight Icon.png" width="312" height="400"/>
@@ -2494,14 +1784,11 @@ EEZ1ZWwxA
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="JsJ-8b-idj"/>
-        <segue reference="0ik-yw-rn7"/>
+        <segue reference="B34-lZ-zbJ"/>
+        <segue reference="x0E-UV-u6W"/>
+        <segue reference="CS9-r1-biV"/>
+        <segue reference="IgV-gc-O6F"/>
         <segue reference="yVH-B1-Ypj"/>
         <segue reference="u8d-Nh-Fbr"/>
-        <segue reference="zv5-fN-0L1"/>
-        <segue reference="Kpt-H6-pwv"/>
-        <segue reference="B34-lZ-zbJ"/>
-        <segue reference="1cg-w3-3rc"/>
-        <segue reference="W65-ah-7q4"/>
-        <segue reference="mdM-ed-vXZ"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -25,7 +25,9 @@ STKAudioPlayer * audioPlayer;
 
 @implementation DetailViewController
 
-@synthesize CarMakeLabel, CarModelLabel, CarYearsMadeLabel, CarPriceLabel, CarEngineLabel, CarTransmissionLabel, CarDriveTypeLabel, CarHorsepowerLabel, CarZeroToSixtyLabel, CarTopSpeedLabel, CarWeightLabel, CarFuelEconomyLabel, savedArray;
+@synthesize CarYearsMadeLabel, CarPriceLabel, CarEngineLabel, CarTransmissionLabel, CarDriveTypeLabel, CarHorsepowerLabel, CarZeroToSixtyLabel, CarTopSpeedLabel, CarWeightLabel, isPlaying, CarFuelEconomyLabel, savedArray, currentCar
+
+;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,16 +40,13 @@ STKAudioPlayer * audioPlayer;
 
 - (void)viewDidLoad
 {
-    //int value = [_currentCar.CarHorsepower integerValue];
-    //NSNumber *carPriceHigh = [NSNumber numberWithInt:[_currentCar.CarPriceHigh integerValue]];
-    //double val = [_currentCar.CarPriceHigh doubleValue];
-    NSLog(@"price: %@", _currentCar.CarZeroToSixtyHigh);
-    
     [super viewDidLoad];
+    isPlaying = false;
+    
     audioPlayer = [[STKAudioPlayer alloc]init];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkStar) name:@"ChangeStar" object:nil];
     
-    if([self isSaved:_currentCar] == true)
+    if([self isSaved:currentCar] == true)
         [saveButton setBackgroundImage:[UIImage imageNamed:@"Solid Star@2x.png"] forState:UIControlStateNormal];
     else
         [saveButton setBackgroundImage:[UIImage imageNamed:@"Star Outline@2x.png"] forState:UIControlStateNormal];
@@ -57,11 +56,11 @@ STKAudioPlayer * audioPlayer;
     
     self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"whiteback.jpg"]];
     
-    NSString * makewithspace = [_currentCar.CarMake stringByAppendingString:@" "];
-    NSString * detailtitle = [makewithspace stringByAppendingString:_currentCar.CarModel];
+    NSString * makewithspace = [currentCar.CarMake stringByAppendingString:@" "];
+    NSString * detailtitle = [makewithspace stringByAppendingString:currentCar.CarModel];
     self.title = detailtitle;
     
-    NSString *identifier = [[[NSString stringWithFormat:@"%@", _currentCar.CarMake]stringByAppendingString:@" "]stringByAppendingString:_currentCar.CarModel];
+    NSString *identifier = [[[NSString stringWithFormat:@"%@", currentCar.CarMake]stringByAppendingString:@" "]stringByAppendingString:currentCar.CarModel];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSData *imagedata = [defaults objectForKey:identifier];
     imageview.image = [UIImage imageWithData:imagedata];
@@ -73,7 +72,7 @@ STKAudioPlayer * audioPlayer;
     if (imageview.image ==nil) {
 
         dispatch_async(kBgQueue, ^{
-            NSData *imgData = [NSData dataWithContentsOfURL:[NSURL URLWithString:_currentCar.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]];
+            NSData *imgData = [NSData dataWithContentsOfURL:[NSURL URLWithString:currentCar.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]];
             if (imgData) {
                 UIImage *image = [UIImage imageWithData:imgData];
                 if (image) {
@@ -91,16 +90,28 @@ STKAudioPlayer * audioPlayer;
     //Load up the UI
     [self setLabels];
 }
-
+- (void)viewWillAppear:(BOOL)animated {
+    isPlaying = false;
+    if(!([currentCar.CarExhaust isEqual:@""]))
+        [exhaustButton setBackgroundImage:[UIImage imageNamed:@"PlayButton@2x.png"] forState:UIControlStateNormal];
+}
 - (void)viewWillDisappear:(BOOL)animated {
     [audioPlayer stop];
 }
 
 -(IBAction)Sound{
+    if(isPlaying == false){
+    isPlaying = true;
+    [exhaustButton setBackgroundImage:[UIImage imageNamed:@"PauseButton@2x.png"] forState:UIControlStateNormal];
     [audioPlayer resume];
-    NSString * soundurl = [[[@"http://www.pl0x.net/CarSounds/" stringByAppendingString:_currentCar.CarMake] stringByAppendingString:_currentCar.CarModel]stringByAppendingString:@".mp3"];
-    
+    NSString * soundurl = [@"http://www.pl0x.net/CarSounds/" stringByAppendingString:currentCar.CarExhaust];
+    NSLog(@"soundurl: %@", soundurl);
     [audioPlayer play:soundurl];
+    }else{
+        isPlaying = false;
+        [exhaustButton setBackgroundImage:[UIImage imageNamed:@"PlayButton@2x.png"] forState:UIControlStateNormal];
+        [audioPlayer stop];
+    }
     
     NSLog(@"button was pressed");
 }
@@ -122,9 +133,9 @@ STKAudioPlayer * audioPlayer;
     if(testArray.count!=0)
         savedArray = [NSKeyedUnarchiver unarchiveObjectWithData:retrievedData];
     
-    if([self isSaved:_currentCar] == false){
+    if([self isSaved:currentCar] == false){
         [saveButton setBackgroundImage:[UIImage imageNamed:@"Solid Star@2x.png"] forState:UIControlStateNormal];
-        [savedArray addObject:_currentCar];
+        [savedArray addObject:currentCar];
         [savedAlert show];
     }else{
         [notsavedAlert show];
@@ -149,7 +160,7 @@ STKAudioPlayer * audioPlayer;
     bool isThere = false;
     for(int i=0; i<savedArray.count; i++){
         Model * savedObject = [savedArray objectAtIndex:i];
-        if([savedObject.CarFullName isEqualToString:_currentCar.CarFullName])
+        if([savedObject.CarFullName isEqualToString:currentCar.CarFullName])
             isThere = true;
     }
     return isThere;
@@ -157,7 +168,7 @@ STKAudioPlayer * audioPlayer;
 
 - (void)checkStar
 {
-    if([self isSaved:_currentCar] == false)
+    if([self isSaved:currentCar] == false)
         [saveButton setBackgroundImage:[UIImage imageNamed:@"Star OutLine@2x.png"] forState:UIControlStateNormal];
     else
         [saveButton setBackgroundImage:[UIImage imageNamed:@"Solid Star@2x.png"] forState:UIControlStateNormal];
@@ -168,25 +179,22 @@ STKAudioPlayer * audioPlayer;
 
 - (void)getModel:(id)modelObject;
 {
-    _currentCar = modelObject;
+    currentCar = modelObject;
 }
 
 - (void)setLabels
 {
-    CarMakeLabel.text = _currentCar.CarMake;
-    CarModelLabel.text = _currentCar.CarModel;
-    CarYearsMadeLabel.text = _currentCar.CarYearsMade;
-    CarPriceLabel.text = _currentCar.CarPrice;
-    CarEngineLabel.text = _currentCar.CarEngine;
-    CarTransmissionLabel.text= _currentCar.CarTransmission;
-    CarDriveTypeLabel.text = _currentCar.CarDriveType;
-    CarHorsepowerLabel.text = _currentCar.CarHorsepower;
-    CarZeroToSixtyLabel.text = _currentCar.CarZeroToSixty;
-    CarTopSpeedLabel.text = _currentCar.CarTopSpeed;
-    CarWeightLabel.text = _currentCar.CarWeight;
-    CarFuelEconomyLabel.text = _currentCar.CarFuelEconomy;
+    CarYearsMadeLabel.text = currentCar.CarYearsMade;
+    CarPriceLabel.text = currentCar.CarPrice;
+    CarEngineLabel.text = currentCar.CarEngine;
+    CarTransmissionLabel.text= currentCar.CarTransmission;
+    CarDriveTypeLabel.text = currentCar.CarDriveType;
+    CarHorsepowerLabel.text = currentCar.CarHorsepower;
+    CarZeroToSixtyLabel.text = currentCar.CarZeroToSixty;
+    CarTopSpeedLabel.text = currentCar.CarTopSpeed;
+    CarWeightLabel.text = currentCar.CarWeight;
+    CarFuelEconomyLabel.text = currentCar.CarFuelEconomy;
 }
-
 
  #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -197,26 +205,25 @@ STKAudioPlayer * audioPlayer;
     if ([[segue identifier] isEqualToString:@"pushCompareView"])
     {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSData *firstCarData = [NSKeyedArchiver archivedDataWithRootObject:_currentCar];
+        NSData *firstCarData = [NSKeyedArchiver archivedDataWithRootObject:currentCar];
         [defaults setObject:firstCarData forKey:@"firstcar"];
     }
     if ([[segue identifier] isEqualToString:@"pushCompareView2"])
     {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSData *secondCarData = [NSKeyedArchiver archivedDataWithRootObject:_currentCar];
+        NSData *secondCarData = [NSKeyedArchiver archivedDataWithRootObject:currentCar];
         [defaults setObject:secondCarData forKey:@"secondcar"];
     }
     if ([[segue identifier] isEqualToString:@"pushimageview"])
     {
         //Get the object
-        [[segue destinationViewController] getfirstModel:_currentCar];
+        [[segue destinationViewController] getfirstModel:currentCar];
     }
 }
 
 -(IBAction)Website
 {
-    [[UIApplication sharedApplication] openURL: [NSURL URLWithString:_currentCar.CarWebsite]];
-    NSLog(@"website: %@", _currentCar.CarWebsite);
+    [[UIApplication sharedApplication] openURL: [NSURL URLWithString:currentCar.CarWebsite]];
 }
 
 @end

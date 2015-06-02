@@ -10,7 +10,7 @@
 
 @implementation Model
 
-@synthesize CarMake, CarModel, CarYearsMade, CarPrice, CarEngine, CarTransmission, CarDriveType, CarHorsepower, CarZeroToSixty, CarTopSpeed, CarWeight, CarFuelEconomy, CarImageURL, CarWebsite, CarFullName, CarHorsepowerHigh, CarHorsepowerLow, CarPriceHigh, CarPriceLow, CarZeroToSixtyHigh, CarZeroToSixtyLow;
+@synthesize CarMake, CarModel, CarYearsMade, CarPrice, CarEngine, CarTransmission, CarDriveType, CarHorsepower, CarZeroToSixty, CarTopSpeed, CarWeight, CarFuelEconomy, CarImageURL, CarWebsite, CarFullName, CarHorsepowerHigh, CarHorsepowerLow, CarPriceHigh, CarPriceLow, CarZeroToSixtyHigh, CarZeroToSixtyLow, CarExhaust;
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
@@ -34,6 +34,7 @@
     [aCoder encodeObject:[self CarFuelEconomy] forKey:@"CarFuelEconomy"];
     [aCoder encodeObject:[self CarImageURL] forKey:@"CarImageURL"];
     [aCoder encodeObject:[self CarFullName] forKey:@"CarFullName"];
+    [aCoder encodeObject:[self CarExhaust] forKey:@"CarExhaust"];
 }
 
 -(id)initWithCoder:(NSCoder *)aDecoder
@@ -59,11 +60,12 @@
         self.CarFuelEconomy = [aDecoder decodeObjectForKey:@"CarFuelEconomy"];
         self.CarImageURL = [aDecoder decodeObjectForKey:@"CarImageURL"];
         self.CarFullName = [aDecoder decodeObjectForKey:@"CarFullName"];
+        self.CarExhaust = [aDecoder decodeObjectForKey:@"CarExhaust"];
     }
     return self;
 }
 
-- (id)initWithCarMake:(NSString *)cMake andCarModel:(NSString *)cModel andCarYearsMade:(NSString *)cYearsMade andCarPrice:(NSString *)cPrice andCarPriceLow:(NSNumber *)cPriceLow andCarPriceHigh:(NSNumber *)cPriceHigh andCarEngine:(NSString *)cEngine andCarTransmission:(NSString *)cTransmission andCarDriveType:(NSString *)cDriveType andCarHorsepower:(NSString *)cHorsepower andCarHorsepowerLow:(NSNumber *)cHorsepowerLow andCarHorsepowerHigh:(NSNumber *)cHorsepowerHigh andCarZeroToSixty:(NSString *)cZeroToSixty andCarZeroToSixtyLow:(NSNumber *)cZeroToSixtyLow andCarZeroToSixtyHigh:(NSNumber *)cZeroToSixtyHigh andCarTopSpeed:(NSString *)cTopSpeed andCarWeight:(NSString *)cWeight andCarFuelEconomy:(NSString *)cFuelEconomy andCarImageURL:(NSString *)cURL andCarWebsite:(NSString *)cWebsite andCarFullName:(NSString *)cFullName{
+- (id)initWithCarMake:(NSString *)cMake andCarModel:(NSString *)cModel andCarYearsMade:(NSString *)cYearsMade andCarPrice:(NSString *)cPrice andCarPriceLow:(NSNumber *)cPriceLow andCarPriceHigh:(NSNumber *)cPriceHigh andCarEngine:(NSString *)cEngine andCarTransmission:(NSString *)cTransmission andCarDriveType:(NSString *)cDriveType andCarHorsepower:(NSString *)cHorsepower andCarHorsepowerLow:(NSNumber *)cHorsepowerLow andCarHorsepowerHigh:(NSNumber *)cHorsepowerHigh andCarZeroToSixty:(NSString *)cZeroToSixty andCarZeroToSixtyLow:(NSNumber *)cZeroToSixtyLow andCarZeroToSixtyHigh:(NSNumber *)cZeroToSixtyHigh andCarTopSpeed:(NSString *)cTopSpeed andCarWeight:(NSString *)cWeight andCarFuelEconomy:(NSString *)cFuelEconomy andCarImageURL:(NSString *)cURL andCarWebsite:(NSString *)cWebsite andCarFullName:(NSString *)cFullName andCarExhaust:(NSString *)cExhaust{
     self = [super init];
     if (self)
     {
@@ -88,6 +90,7 @@
         CarImageURL = cURL;
         CarWebsite = cWebsite;
         CarFullName = cFullName;
+        CarExhaust = cExhaust;
     }
     return self;
 }

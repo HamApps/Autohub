@@ -580,16 +580,11 @@
         self.ModelPredicate = nil;
         [self.ModelPicker reloadAllComponents];
         [self.ModelPicker selectRow:0 inComponent:0 animated:YES];
+        ModelPredicate = [NSPredicate predicateWithFormat:@"CarMake == %@", [makeimageArray objectAtIndex:row]];
     }
     
     if([pickerView isEqual:ModelPicker]){
-        [self.ModelPicker selectRow:0 inComponent:0 animated:YES];
-        NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
-        if (row == 0){
-            ModelPredicate = [NSPredicate predicateWithFormat:@"CarMake == %@", [defaults objectForKey:@"currentMake"]];
-        }else{
         ModelPredicate = [NSPredicate predicateWithFormat:@"CarModel == %@", [ModelArray objectAtIndex:row]];
-        }
     }
 }
 

@@ -36,7 +36,26 @@
     NSData *imagedata = [defaults objectForKey:identifier];
     imageview.image = [UIImage imageWithData:imagedata];
     
+    UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleDoubleTap:)];
+    
+    [doubleTap setNumberOfTapsRequired:2];
+    
+    [scrollView addGestureRecognizer:doubleTap];
+    
     // Do any additional setup after loading the view.
+}
+
+- (void)handleDoubleTap:(UIGestureRecognizer *)gestureRecognizer {
+    if(scrollView.zoomScale == scrollView.maximumZoomScale)
+        [scrollView setZoomScale:scrollView.minimumZoomScale animated:YES];
+    else
+        [scrollView setZoomScale:scrollView.maximumZoomScale animated:YES];
+    
+    //if(scrollView.zoomScale > scrollView.minimumZoomScale)
+        //[scrollView setZoomScale:scrollView.minimumZoomScale animated:YES];
+    //else
+        //[scrollView setZoomScale:scrollView.maximumZoomScale animated:YES];
+    
 }
 
 - (void)didReceiveMemoryWarning

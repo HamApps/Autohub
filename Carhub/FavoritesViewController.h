@@ -17,6 +17,7 @@
 
 @property (nonatomic, strong) NSMutableArray * ModelArray;
 @property (nonatomic, strong) NSArray * searchArray;
+@property (nonatomic, strong) UIBarButtonItem *editButton;
 
 - (void)loadSavedCars;
 

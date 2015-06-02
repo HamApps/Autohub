@@ -7,8 +7,7 @@
 //
 
 #import "DisputeInfoViewController.h"
-#import "GADInterstitial.h"
-#import "GADInterstitialDelegate.h"
+#import <GoogleMobileAds/GADInterstitial.h>
 
 @interface DisputeInfoViewController ()<GADInterstitialDelegate>
 
