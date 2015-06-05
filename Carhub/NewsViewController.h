@@ -16,6 +16,4 @@
 
 @property (nonatomic, strong) NSMutableDictionary *cachedImages;
 
-- (void) retrieveData;
-
 @end

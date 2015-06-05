@@ -12,6 +12,7 @@
 #import "TopTensCell.h"
 #import "Model.h"
 #import "DetailViewController.h"
+#import "SDWebImage/UIImageView+WebCache.h"
 
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
@@ -81,91 +82,20 @@
         cell = [[TopTensCell alloc] initWithStyle:UITableViewCellStyleDefault
                                   reuseIdentifier:CellIdentifier];
     }
-    
     cell.CarRank.text = toptensObject.CarRank;
     cell.CarName.text = toptensObject.CarName;
     cell.CarValue.text = toptensObject.CarValue;
     
-    NSString *identifier = [NSString stringWithFormat:@"%@", toptensObject.CarName];
-    NSString *urlIdentifier = [NSString stringWithFormat:@"imageurl%@", toptensObject.CarName];
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSData *imagedata = [defaults objectForKey:identifier];
-    [defaults setObject:[NSString stringWithFormat:@"%lu", (unsigned long)topTensArray.count] forKey:@"count"];
-    
-    if([[defaults objectForKey:@"count"] integerValue] == [[NSString stringWithFormat:@"%lu", (unsigned long)topTensArray.count] integerValue])
-    {
-        cell.CarImage.image = [UIImage imageWithData:imagedata];
-        [UIImageView beginAnimations:nil context:NULL];
-        [UIImageView setAnimationDuration:.01];
-        [cell.CarImage setAlpha:1.0];
-        [UIImageView commitAnimations];
-    }
-    if(!([[defaults objectForKey:urlIdentifier] isEqualToString:toptensObject.CarURL]) || cell.CarImage.image == nil){
-        char const*s = [identifier UTF8String];
-        dispatch_queue_t queue = dispatch_queue_create(s, 0);
-        
-        dispatch_async(queue, ^{
-            
-            NSData *imgData = [NSData dataWithContentsOfURL:[NSURL URLWithString:toptensObject.CarURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]];
-            if (imgData) {
-                UIImage *image = [UIImage imageWithData:imgData];
-                if (image) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        TopTensCell *updateCell = (id)[tableView cellForRowAtIndexPath:indexPath];
-                        if (updateCell)
-                        {
-                            [defaults setObject:UIImagePNGRepresentation(image) forKey:identifier];
-                            [defaults setObject:toptensObject.CarURL forKey:urlIdentifier];
-                            NSData *imgdata = [defaults objectForKey:identifier];
-                            updateCell.CarImage.image = [UIImage imageWithData:imgdata];
-                            [updateCell.CarImage setAlpha:0.0];
-                            [UIImageView beginAnimations:nil context:NULL];
-                            [UIImageView setAnimationDuration:.75];
-                            [updateCell.CarImage setAlpha:1.0];
-                            [UIImageView commitAnimations];
-                        }
-                    });
-                }
-            }
-        });
-    }
+    //Load and fade image
+    [cell.CarImage sd_setImageWithURL:[NSURL URLWithString:toptensObject.CarURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]
+            completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageurl){
+                    [cell.CarImage setAlpha:0.0];
+                    [UIImageView animateWithDuration:.5 animations:^{
+                    [cell.CarImage setAlpha:1.0];
+            }];
+        }];
     return cell;
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 -(void)getTopTenID:(id)TopTenID;
 {

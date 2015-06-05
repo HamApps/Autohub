@@ -10,11 +10,9 @@
 #import "AppDelegate.h"
 #import <GoogleMobileAds/GADInterstitial.h>
 #import "ImageViewController.h"
-
-#define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+#import "SDWebImage/UIImageView+WebCache.h"
 
 @interface CompareViewController ()
-
 
 @end
 
@@ -44,73 +42,15 @@
     
     self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"whiteback.jpg"]];
     
-    if(firstCar != nil){
-        NSString *identifier = [[[NSString stringWithFormat:@"%@", firstCar.CarMake]stringByAppendingString:@" "]stringByAppendingString:firstCar.CarModel];
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSData *imagedata = [defaults objectForKey:identifier];
-        firstimageview.image = [UIImage imageWithData:imagedata];
-        [UIImageView beginAnimations:nil context:NULL];
-        [UIImageView setAnimationDuration:.01];
-        [firstimageview setAlpha:1.0];
-        [UIImageView commitAnimations];
-    }
-    if(secondCar != nil){
-        NSString *identifier2 = [[[NSString stringWithFormat:@"%@", secondCar.CarMake]stringByAppendingString:@" "]stringByAppendingString:secondCar.CarModel];
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSData *imagedata = [defaults objectForKey:identifier2];
-        secondimageview.image = [UIImage imageWithData:imagedata];
-        [UIImageView beginAnimations:nil context:NULL];
-        [UIImageView setAnimationDuration:.01];
-        [secondimageview setAlpha:1.0];
-        [UIImageView commitAnimations];
-    }
+    [firstimageview setAlpha:1.0];
+    [firstimageview sd_setImageWithURL:[NSURL URLWithString:firstCar.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]];
     
-    if (firstimageview.image ==nil) {
-        
-        dispatch_async(kBgQueue, ^{
-            NSData *imgData = [NSData dataWithContentsOfURL:[NSURL URLWithString:firstCar.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]];
-            if (imgData) {
-                UIImage *image = [UIImage imageWithData:imgData];
-                if (image) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        firstimageview.image = image;
-                        [UIImageView beginAnimations:nil context:NULL];
-                        [UIImageView setAnimationDuration:.75];
-                        [firstimageview setAlpha:1.0];
-                        [UIImageView commitAnimations];
-                    });
-                }
-            }
-        });
-    }
-    
-    if (secondimageview.image ==nil) {
-        
-        dispatch_async(kBgQueue, ^{
-            NSData *imgData = [NSData dataWithContentsOfURL:[NSURL URLWithString:secondCar.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]];
-            if (imgData) {
-                UIImage *image = [UIImage imageWithData:imgData];
-                if (image) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        secondimageview.image = image;
-                        [UIImageView beginAnimations:nil context:NULL];
-                        [UIImageView setAnimationDuration:.75];
-                        [secondimageview setAlpha:1.0];
-                        [UIImageView commitAnimations];
-                    });
-                }
-            }
-        });
-    }
-    
-    NSString * makewithspace = [firstCar.CarMake stringByAppendingString:@" "];
-    NSString * detailtitle = [makewithspace stringByAppendingString:firstCar.CarModel];
-    NSString * makewithspace2 = [secondCar.CarMake stringByAppendingString:@" "];
-    NSString * detailtitle2 = [makewithspace2 stringByAppendingString:secondCar.CarModel];
-    
+    [secondimageview setAlpha:1.0];
+    [secondimageview sd_setImageWithURL:[NSURL URLWithString:secondCar.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]];
+
     self.title = @"Model Comparison";
-    CarTitleLabel.text = detailtitle;
-    CarTitleLabel2.text = detailtitle2;
+    CarTitleLabel.text = [[firstCar.CarMake stringByAppendingString:@" "] stringByAppendingString:firstCar.CarModel];
+    CarTitleLabel2.text = [[secondCar.CarMake stringByAppendingString:@" "] stringByAppendingString:secondCar.CarModel];
     
     // Do any additional setup after loading the view.
     
@@ -132,11 +72,9 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSData *firstCarData = [defaults objectForKey:@"firstcar"];
     firstCar = [NSKeyedUnarchiver unarchiveObjectWithData:firstCarData];
-    NSLog(@"firstCar %@", firstCar.CarFullName);
     
     NSData *secondCarData = [defaults objectForKey:@"secondcar"];
     secondCar = [NSKeyedUnarchiver unarchiveObjectWithData:secondCarData];
-    NSLog(@"secondCar %@", secondCar.CarFullName);
 }
 
 - (void)setLabels

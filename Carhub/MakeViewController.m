@@ -15,6 +15,8 @@
 #import "ModelViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import <GoogleMobileAds/GADInterstitial.h>
+#import "SDWebImage/UIImageView+WebCache.h"
+
 
 #define getMakeDataURL @"http://pl0x.net/CarMakesJSON.php"
 #define getModelDataURL @"http://pl0x.net/CarHubJSON2.php"
@@ -122,57 +124,20 @@
     Make * makeObject;
     makeObject = [makeimageArray objectAtIndex:indexPath.item];
     
-    NSString *identifier = [NSString stringWithFormat:@"MakeReuseID%@", makeObject.MakeName];
-    NSString *urlIdentifier = [NSString stringWithFormat:@"imageurl%@", makeObject.MakeName];
-    
     cell.layer.borderWidth=0.7f;
     cell.layer.borderColor=[UIColor whiteColor].CGColor;
     
+    //Load and fade image
+    [cell.MakeImageView sd_setImageWithURL:[NSURL URLWithString:makeObject.MakeImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image2.php"]]
+                completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageurl){
+                        [cell.MakeImageView setAlpha:0.0];
+                        [UIImageView animateWithDuration:.5 animations:^{
+                        [cell.MakeImageView setAlpha:1.0];
+                    }];
+                }];
+    
     cell.MakeNameLabel.text=makeObject.MakeName;
-
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSData *imagedata = [defaults objectForKey:identifier];
-    [defaults setObject:[NSString stringWithFormat:@"%lu", (unsigned long)makeimageArray.count] forKey:@"count"];
-    cell.MakeImageView.image = nil;
     
-    
-    if([defaults objectForKey:identifier] != nil)
-    {
-    NSLog(@"first");
-    cell.MakeImageView.image = [UIImage imageWithData:imagedata];
-    [cell.MakeImageView setAlpha:1.0];
-    }
-    
-    if(cell.MakeImageView.image == nil){
-        NSLog(@"second");
-        
-        char const*s = [identifier UTF8String];
-            dispatch_queue_t queue = dispatch_queue_create(s, 0);
-        
-            dispatch_async(queue, ^{
-                NSData *imgData = [NSData dataWithContentsOfURL:[NSURL URLWithString:makeObject.MakeImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image2.php"]]];
-                if (imgData) {
-                    UIImage *image = [UIImage imageWithData:imgData];
-                    if (image) {
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            MakeCell *updateCell = (id)[collectionView cellForItemAtIndexPath:indexPath];
-                            if (updateCell)
-                            {
-                                [defaults setObject:UIImagePNGRepresentation(image) forKey:identifier];
-                                [defaults setObject:makeObject.MakeImageURL forKey:urlIdentifier];
-                                NSData *imgdata = [defaults objectForKey:identifier];
-                                updateCell.MakeImageView.image = [UIImage imageWithData:imgdata];
-                                [updateCell.MakeImageView setAlpha:0.0];
-                                [UIImageView beginAnimations:nil context:NULL];
-                                [UIImageView setAnimationDuration:.75];
-                                [updateCell.MakeImageView setAlpha:1.0];
-                                [UIImageView commitAnimations];
-                            }
-                        });
-                    }
-                }
-            });
-    }
     return cell;
 }
 

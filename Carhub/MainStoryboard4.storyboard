@@ -87,8 +87,6 @@
             <string>EurostileRegular</string>
             <string>EurostileRegular</string>
             <string>EurostileRegular</string>
-            <string>EurostileRegular</string>
-            <string>EurostileRegular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -963,53 +961,6 @@ EEZ1ZWwxA
             </objects>
             <point key="canvasLocation" x="890" y="1482"/>
         </scene>
-        <!--News Detail View Controller-->
-        <scene sceneID="E4t-oq-kQG">
-            <objects>
-                <viewController id="F9U-F5-KBn" customClass="NewsDetailViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Jnu-MJ-WcU">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="796-gd-t5D">
-                                <rect key="frame" x="5" y="250" width="293" height="23"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="18"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Label" id="jm4-s1-Tr5">
-                                <rect key="frame" x="0.0" y="298" width="320" height="131"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
-                            </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.44999999999999962" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0eL-rP-Hh0">
-                                <rect key="frame" x="5" y="275" width="177" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="12"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="YCC-D6-0OZ">
-                                <rect key="frame" x="-46" y="63" width="412" height="183"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="RHY-Xd-f99"/>
-                    <connections>
-                        <outlet property="NewsArticleLabel" destination="jm4-s1-Tr5" id="uSs-6E-3sK"/>
-                        <outlet property="NewsDateLabel" destination="0eL-rP-Hh0" id="o3E-c6-KYD"/>
-                        <outlet property="NewsTitleLabel" destination="796-gd-t5D" id="AZ3-Zd-Cw6"/>
-                        <outlet property="imageview" destination="YCC-D6-0OZ" id="dlq-OE-Trg"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VCa-qQ-GBq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="794" y="58"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="gVj-ap-w6B">
             <objects>
@@ -1204,7 +1155,7 @@ EEZ1ZWwxA
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="fpq-Qp-R7y">
-                                            <rect key="frame" x="12" y="2" width="82" height="82"/>
+                                            <rect key="frame" x="12" y="2" width="80" height="82"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
                                     </subviews>
@@ -1297,7 +1248,7 @@ EEZ1ZWwxA
                                     <outlet property="CarImage" destination="joC-yu-9oK" id="Xdd-Ws-pcc"/>
                                     <outlet property="CarName" destination="bK3-Za-x79" id="sSr-Hf-Kd2"/>
                                     <outlet property="NewsDescription" destination="fpW-Y9-Co3" id="6Os-Hw-7iw"/>
-                                    <segue destination="F9U-F5-KBn" kind="push" identifier="pushNewsDetailView" id="zv5-fN-0L1"/>
+                                    <segue destination="L5y-Ep-AYh" kind="push" identifier="pushNewsDetailView" id="9py-EX-exG"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1755,6 +1706,31 @@ EEZ1ZWwxA
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sw9-yX-3vG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="52" y="2282"/>
+        </scene>
+        <!--Test News View Controller-->
+        <scene sceneID="cA3-dS-zxo">
+            <objects>
+                <viewController id="L5y-Ep-AYh" customClass="TestNewsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qfo-W4-Dy2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" id="Tdp-Jk-daT">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="yF8-2W-6aa"/>
+                    <connections>
+                        <outlet property="webView" destination="Tdp-Jk-daT" id="7QI-aA-7b8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Ht-2z-ar8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="812" y="58"/>
         </scene>
     </scenes>
     <resources>

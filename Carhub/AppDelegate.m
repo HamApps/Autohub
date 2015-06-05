@@ -275,9 +275,10 @@
         NSString * nDescription = [[newsjsonArray objectAtIndex:i] objectForKey:@"Description"];
         NSString * nArticle = [[newsjsonArray objectAtIndex:i] objectForKey:@"Article"];
         NSString * nDate = [[newsjsonArray objectAtIndex:i] objectForKey:@"Date/Name"];
+        NSString * nArticleURL = [[newsjsonArray objectAtIndex:i] objectForKey:@"articleURL"];
         
         //Add the city object to our cities array
-        [newsArray addObject:[[News alloc]initWithNewsTitle:nTitle andNewsImageURL:nImageURL andNewsDescription:nDescription andNewsArticle:nArticle andNewsDate:nDate]];
+        [newsArray addObject:[[News alloc]initWithNewsTitle:nTitle andNewsImageURL:nImageURL andNewsDescription:nDescription andNewsArticle:nArticle andNewsDate:nDate andNewsArticleURL:nArticleURL]];
     }
 }
 

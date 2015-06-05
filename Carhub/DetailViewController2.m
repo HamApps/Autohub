@@ -14,8 +14,7 @@
 #import "STKAudioPlayer.h"
 #import "FavoritesViewController.h"
 #import "ImageViewController.h"
-
-#define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+#import "SDWebImage/UIImageView+WebCache.h"
 
 @interface DetailViewController2 ()
 
@@ -49,41 +48,13 @@ STKAudioPlayer * audioPlayer;
     
     [scroller setScrollEnabled:YES];
     [scroller setContentSize:CGSizeMake(320, 1061)];
-    
+
     self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"whiteback.jpg"]];
+    self.title = [[_currentCar.CarMake stringByAppendingString:@" "] stringByAppendingString:_currentCar.CarModel];
     
-    NSString * makewithspace = [_currentCar.CarMake stringByAppendingString:@" "];
-    NSString * detailtitle = [makewithspace stringByAppendingString:_currentCar.CarModel];
-    self.title = detailtitle;
-    
-    NSString *identifier = [[[NSString stringWithFormat:@"%@", _currentCar.CarMake]stringByAppendingString:@" "]stringByAppendingString:_currentCar.CarModel];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSData *imagedata = [defaults objectForKey:identifier];
-    imageview.image = [UIImage imageWithData:imagedata];
-    [UIImageView beginAnimations:nil context:NULL];
-    [UIImageView setAnimationDuration:.01];
     [imageview setAlpha:1.0];
-    [UIImageView commitAnimations];
+    [imageview sd_setImageWithURL:[NSURL URLWithString:_currentCar.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]];
     
-    if (imageview.image ==nil) {
-        
-        dispatch_async(kBgQueue, ^{
-            NSData *imgData = [NSData dataWithContentsOfURL:[NSURL URLWithString:_currentCar.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]];
-            if (imgData) {
-                UIImage *image = [UIImage imageWithData:imgData];
-                if (image) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        imageview.image = image;
-                        [UIImageView beginAnimations:nil context:NULL];
-                        [UIImageView setAnimationDuration:.75];
-                        [imageview setAlpha:1.0];
-                        [UIImageView commitAnimations];
-                    });
-                }
-            }
-        });
-    }
-    //Load up the UI
     [self setLabels];
 }
 

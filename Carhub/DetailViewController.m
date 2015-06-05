@@ -15,8 +15,7 @@
 #import "Model.h"
 #import "STKAudioPlayer.h"
 #import "ImageViewController.h"
-
-#define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+#import "SDWebImage/UIImageView+WebCache.h"
 
 @interface DetailViewController ()
 
@@ -55,39 +54,11 @@ STKAudioPlayer * audioPlayer;
     [scroller setContentSize:CGSizeMake(320, 825)];
     
     self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"whiteback.jpg"]];
+    self.title = [[currentCar.CarMake stringByAppendingString:@" "] stringByAppendingString:currentCar.CarModel];
     
-    NSString * makewithspace = [currentCar.CarMake stringByAppendingString:@" "];
-    NSString * detailtitle = [makewithspace stringByAppendingString:currentCar.CarModel];
-    self.title = detailtitle;
-    
-    NSString *identifier = [[[NSString stringWithFormat:@"%@", currentCar.CarMake]stringByAppendingString:@" "]stringByAppendingString:currentCar.CarModel];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSData *imagedata = [defaults objectForKey:identifier];
-    imageview.image = [UIImage imageWithData:imagedata];
-    [UIImageView beginAnimations:nil context:NULL];
-    [UIImageView setAnimationDuration:.01];
     [imageview setAlpha:1.0];
-    [UIImageView commitAnimations];
-
-    if (imageview.image ==nil) {
-
-        dispatch_async(kBgQueue, ^{
-            NSData *imgData = [NSData dataWithContentsOfURL:[NSURL URLWithString:currentCar.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]];
-            if (imgData) {
-                UIImage *image = [UIImage imageWithData:imgData];
-                if (image) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        imageview.image = image;
-                        [UIImageView beginAnimations:nil context:NULL];
-                        [UIImageView setAnimationDuration:.75];
-                        [imageview setAlpha:1.0];
-                        [UIImageView commitAnimations];
-                    });
-                }
-            }
-        });
-    }
-    //Load up the UI
+    [imageview sd_setImageWithURL:[NSURL URLWithString:currentCar.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]];
+    
     [self setLabels];
 }
 - (void)viewWillAppear:(BOOL)animated {
@@ -119,13 +90,11 @@ STKAudioPlayer * audioPlayer;
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(IBAction)Save{
     UIAlertView *savedAlert = [[UIAlertView alloc]initWithTitle:@"Car Saved" message:@"Your car was successfully saved." delegate:self cancelButtonTitle:@"Done" otherButtonTitles:nil];
     UIAlertView *notsavedAlert = [[UIAlertView alloc]initWithTitle:@"Car Not Saved" message:@"You have already saved this car." delegate:self cancelButtonTitle:@"Done" otherButtonTitles:nil];
-    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     savedArray = [[NSMutableArray alloc]init];
     NSData *retrievedData = [defaults objectForKey:@"savedArray"];
@@ -140,7 +109,6 @@ STKAudioPlayer * audioPlayer;
     }else{
         [notsavedAlert show];
     }
-    NSLog(@"afteraddingobject %@",savedArray);
     NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:savedArray];
     [defaults setObject:arrayData forKey:@"savedArray"];
     [defaults synchronize];

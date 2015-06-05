@@ -78,8 +78,6 @@
             <string>EurostileRegular</string>
             <string>EurostileRegular</string>
             <string>EurostileRegular</string>
-            <string>EurostileRegular</string>
-            <string>EurostileRegular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -587,53 +585,6 @@ EEZ1ZWwxA
             </objects>
             <point key="canvasLocation" x="235" y="1303"/>
         </scene>
-        <!--News Detail View Controller-->
-        <scene sceneID="SA4-uQ-thg">
-            <objects>
-                <viewController id="d3M-k6-unc" customClass="NewsDetailViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8uL-0t-ldH">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ctQ-CX-HOW">
-                                <rect key="frame" x="7" y="244" width="313" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="18"/>
-                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.44999999999999962" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WJS-lx-clF">
-                                <rect key="frame" x="7" y="280" width="304" height="18"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="12"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="TextView" id="C4M-bh-zCu">
-                                <rect key="frame" x="0.0" y="298" width="320" height="238"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
-                            </textView>
-                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="dWo-Vl-DxZ">
-                                <rect key="frame" x="-46" y="63" width="412" height="183"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                        </subviews>
-                    </view>
-                    <navigationItem key="navigationItem" id="TcT-u0-dPH"/>
-                    <connections>
-                        <outlet property="NewsArticleLabel" destination="C4M-bh-zCu" id="XkU-qw-eVu"/>
-                        <outlet property="NewsDateLabel" destination="WJS-lx-clF" id="nqL-8D-7F8"/>
-                        <outlet property="NewsTitleLabel" destination="ctQ-CX-HOW" id="iEF-nt-l0h"/>
-                        <outlet property="imageview" destination="dWo-Vl-DxZ" id="bzN-rA-lEj"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DjF-Rx-2Z6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-586" y="1972"/>
-        </scene>
         <!--Detail View Controller-->
         <scene sceneID="f0C-rS-tsv">
             <objects>
@@ -1021,6 +972,31 @@ EEZ1ZWwxA
             </objects>
             <point key="canvasLocation" x="-1863" y="1309"/>
         </scene>
+        <!--Test News View Controller-->
+        <scene sceneID="a91-S5-DY8">
+            <objects>
+                <viewController id="WH2-cE-2Q3" customClass="TestNewsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fSU-dK-M8x">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" id="0HU-al-K7O">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="yb4-SG-Je3"/>
+                    <connections>
+                        <outlet property="webView" destination="0HU-al-K7O" id="CwH-3h-AZ6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4za-58-5ay" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-517" y="1972"/>
+        </scene>
         <!--Top Tens-->
         <scene sceneID="mEg-Xn-xD0">
             <objects>
@@ -1225,7 +1201,7 @@ EEZ1ZWwxA
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="8pC-Po-6hc">
-                                            <rect key="frame" x="13" y="-3" width="80" height="84"/>
+                                            <rect key="frame" x="13" y="3" width="79" height="84"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
                                     </subviews>
@@ -1296,7 +1272,7 @@ EEZ1ZWwxA
                                     <outlet property="CarImage" destination="Ehi-HI-9bU" id="Pqq-X2-Dtk"/>
                                     <outlet property="CarName" destination="Wng-f5-YcD" id="SLg-Xx-MhZ"/>
                                     <outlet property="NewsDescription" destination="RRL-ua-z7j" id="ozT-RW-P0O"/>
-                                    <segue destination="d3M-k6-unc" kind="push" identifier="pushNewsDetailView" id="Xg5-ac-p3t"/>
+                                    <segue destination="WH2-cE-2Q3" kind="push" identifier="pushNewsDetailView" id="f8p-c2-nf9"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

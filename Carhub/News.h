@@ -15,8 +15,9 @@
 @property (strong, nonatomic) NSString * NewsDescription;
 @property (strong, nonatomic) NSString * NewsArticle;
 @property (strong, nonatomic) NSString * NewsDate;
+@property (strong, nonatomic) NSString * NewsArticleURL;
 
 
-- (id)initWithNewsTitle:(NSString *)nTitle andNewsImageURL:(NSString *)nImageURL andNewsDescription:(NSString *)nDescription andNewsArticle:(NSString *)nArticle andNewsDate:(NSString *)nDate;
+- (id)initWithNewsTitle:(NSString *)nTitle andNewsImageURL:(NSString *)nImageURL andNewsDescription:(NSString *)nDescription andNewsArticle:(NSString *)nArticle andNewsDate:(NSString *)nDate andNewsArticleURL:(NSString *) nArticleURL;
 
 @end

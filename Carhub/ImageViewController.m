@@ -7,6 +7,7 @@
 //
 
 #import "ImageViewController.h"
+#import "SDWebImage/UIImageView+WebCache.h"
 
 @interface ImageViewController ()
 
@@ -31,18 +32,12 @@
 
     scrollView.maximumZoomScale = 3.0; scrollView.minimumZoomScale = 0.6; scrollView.clipsToBounds = YES; scrollView.delegate = self; [scrollView addSubview:imageview];
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *identifier = [[[NSString stringWithFormat:@"%@", _currentCar.CarMake]stringByAppendingString:@" "]stringByAppendingString:_currentCar.CarModel];
-    NSData *imagedata = [defaults objectForKey:identifier];
-    imageview.image = [UIImage imageWithData:imagedata];
+    [imageview setAlpha:1.0];
+    [imageview sd_setImageWithURL:[NSURL URLWithString:_currentCar.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]];
     
     UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleDoubleTap:)];
-    
     [doubleTap setNumberOfTapsRequired:2];
-    
     [scrollView addGestureRecognizer:doubleTap];
-    
-    // Do any additional setup after loading the view.
 }
 
 - (void)handleDoubleTap:(UIGestureRecognizer *)gestureRecognizer {
@@ -50,12 +45,6 @@
         [scrollView setZoomScale:scrollView.minimumZoomScale animated:YES];
     else
         [scrollView setZoomScale:scrollView.maximumZoomScale animated:YES];
-    
-    //if(scrollView.zoomScale > scrollView.minimumZoomScale)
-        //[scrollView setZoomScale:scrollView.minimumZoomScale animated:YES];
-    //else
-        //[scrollView setZoomScale:scrollView.maximumZoomScale animated:YES];
-    
 }
 
 - (void)didReceiveMemoryWarning

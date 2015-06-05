@@ -11,12 +11,8 @@
 #import "News.h"
 #import "NewsDetailViewController.h"
 #import "AppDelegate.h"
-
-#define kNSUSERDEFAULTSCAR @"nsuserdefaultscar"
-
-#define getDataURL @"http://pl0x.net/CarNewsJSON.php"
-
-#define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+#import "TestNewsViewController.h"
+#import "SDWebImage/UIImageView+WebCache.h"
 
 @interface NewsViewController ()
 
@@ -42,14 +38,9 @@
     
     self.title = @"Auto News";
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
     //Load Data
     [self makeAppDelNewsArray];
-    //NSLog(@"%@", newsArray);
     self.cachedImages = [[NSMutableDictionary alloc]init];
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -82,7 +73,6 @@
     // Configure the cell...
     News * newsObject;
     newsObject = [newsArray objectAtIndex:indexPath.row];
-    // Configure the cell...
     
     if (cell == nil) {
         cell = [[CarViewCell alloc] initWithStyle:UITableViewCellStyleDefault
@@ -90,8 +80,17 @@
     }
     
     cell.CarName.text = newsObject.NewsTitle;
-    //cell.CarImage.image = nil;
     cell.NewsDescription.text = newsObject.NewsDescription;
+    
+    //Load and fade image
+    [cell.CarImage sd_setImageWithURL:[NSURL URLWithString:newsObject.NewsImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/newsimage.php"]]
+                            completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageurl){
+                                [cell.CarImage setAlpha:0.0];
+                                [UIImageView animateWithDuration:.5 animations:^{
+                                [cell.CarImage setAlpha:1.0];
+                                }];
+                            }];
+
     
     //Accessory
     /*
@@ -101,82 +100,9 @@
     cell.CarName.layer.borderWidth=1.0f;
     cell.CarName.layer.borderColor=[UIColor whiteColor].CGColor;
     */
-    NSString *identifier = [NSString stringWithFormat:@"ModelCell%ld" , (long)indexPath.row];
-    cell.CarImage.image = [self.cachedImages valueForKey:identifier];
     
-    if([self.cachedImages objectForKey:identifier] !=nil){
-        cell.CarImage.image = [self.cachedImages valueForKey:identifier];
-    }else{
-        
-        char const*s = [identifier UTF8String];
-        dispatch_queue_t queue = dispatch_queue_create(s, 0);
-
-    
-        dispatch_async(queue, ^{
-            NSData *imgData = [NSData dataWithContentsOfURL:[NSURL URLWithString:newsObject.NewsImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/newsimage.php"]]];
-            if (imgData) {
-                UIImage *image = [UIImage imageWithData:imgData];
-                if (image) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        CarViewCell *updateCell = (id)[tableView cellForRowAtIndexPath:indexPath];
-                        
-                        if (updateCell){
-                            [self.cachedImages setValue:image forKey:identifier];
-                        updateCell.CarImage.image = [self.cachedImages valueForKey:identifier];
-                        //updateCell.CarImage.image = image;
-                            [updateCell.CarImage setAlpha:0.0];
-                        [UIImageView beginAnimations:nil context:NULL];
-                        [UIImageView setAnimationDuration:.75];
-                        [updateCell.CarImage setAlpha:1.0];
-                        [UIImageView commitAnimations];
-                        }
-                    });
-                }
-            }
-        });
-        
-    }
     return cell;
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 
 #pragma mark - Navigation
 
@@ -192,34 +118,6 @@
         [[segue destinationViewController] getNews:object];
     }
     
-}
-
-
-
-- (void) retrieveData;
-{
-    NSURL * url = [NSURL URLWithString:getDataURL];
-    NSData * data = [NSData dataWithContentsOfURL:url];
-    
-    jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-    
-    
-    //Set up our cities arrray
-    newsArray = [[NSMutableArray alloc] init];
-    
-    //Loop through ourjsonArray
-    for (int i=0; i < jsonArray.count; i++)
-    {
-        //Create our city object
-        NSString * nTitle = [[jsonArray objectAtIndex:i] objectForKey:@"Title"];
-        NSString * nImageURL = [[jsonArray objectAtIndex:i] objectForKey:@"ImageURL"];
-        NSString * nDescription = [[jsonArray objectAtIndex:i] objectForKey:@"Description"];
-        NSString * nArticle = [[jsonArray objectAtIndex:i] objectForKey:@"Article"];
-        NSString * nDate = [[jsonArray objectAtIndex:i] objectForKey:@"Date/Name"];
-    
-        //Add the city object to our cities array
-        [newsArray addObject:[[News alloc]initWithNewsTitle:nTitle andNewsImageURL:nImageURL andNewsDescription:nDescription andNewsArticle:nArticle andNewsDate:nDate]];
-    }
 }
 
 - (void) makeAppDelNewsArray;

@@ -13,12 +13,7 @@
 #import "DetailViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "AppDelegate.h"
-
-#define getDataURL @"http://pl0x.net/CarHubJSON2.php"
-
-#define getImageURL @"http://pl0x.net/image.php"
-
-#define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+//#import "SDWebimage/UIImageView+WebCache.h"
 
 @interface SearchTabViewController ()
 
@@ -101,9 +96,12 @@
     //cell.layer.cornerRadius = 20;
     cell.CarName.layer.borderWidth=1.0f;
     cell.CarName.layer.borderColor=[UIColor whiteColor].CGColor;
-    NSLog(@"fullname: %@", modelObject.CarFullName);
     
-    NSString *identifier = [[[NSString stringWithFormat:@"%@", modelObject.CarMake]stringByAppendingString:@" "]stringByAppendingString:modelObject.CarModel];
+    //Load and fade image
+    
+
+    
+    /*NSString *identifier = [[[NSString stringWithFormat:@"%@", modelObject.CarMake]stringByAppendingString:@" "]stringByAppendingString:modelObject.CarModel];
     NSString *urlIdentifier = [NSString stringWithFormat:@"imageurl%@%@%@",modelObject.CarMake,@" ", modelObject.CarModel];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -146,7 +144,7 @@
                 }
             }
         });
-    }
+    }*/
     return cell;
 }
 
