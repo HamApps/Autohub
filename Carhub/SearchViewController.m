@@ -23,7 +23,7 @@
 
 @implementation SearchViewController
 
-@synthesize PriceData, Pricepicker, OutputLabel, enginePicker, EngineData, EngineDisData, enginedisPicker, HorsepowerData, horsepowerPicker, DriveTypeData, driveTypePicker, ZeroToSixtyData, zeroToSixtyPicker, TransmissionData, transmissionPicker, specsArray, carArray, ModelArray, DriveTypeArray1, PriceArray1, EngineArray1, EngineDisArray1, HorsepowerArray1, ZerotoSixtyArray1, TransmissionArray1, ZeroToSixtyPredicate, PricePredicate, EnginePredicate, HorsepowerPredicate, TransmissionPredicate, DriveTypePredicate, finalArray, makejsonArray, AlphabeticalArray, makeimageArray, MakePicker, ModelPicker, MakePredicate, cModel, testArray, ModelPredicate, finalModelArray, appdelmodeljsonArray;
+@synthesize PriceData, Pricepicker, OutputLabel, enginePicker, EngineData, EngineDisData, HorsepowerData, horsepowerPicker, DriveTypeData, driveTypePicker, ZeroToSixtyData, zeroToSixtyPicker, TransmissionData, transmissionPicker, specsArray, carArray, ModelArray, DriveTypeArray1, PriceArray1, EngineArray1, EngineDisArray1, HorsepowerArray1, ZerotoSixtyArray1, TransmissionArray1, ZeroToSixtyPredicate, PricePredicate, EnginePredicate, HorsepowerPredicate, TransmissionPredicate, DriveTypePredicate, finalArray, makejsonArray, AlphabeticalArray, makeimageArray, MakePicker, ModelPicker, MakePredicate, cModel, testArray, ModelPredicate, finalModelArray, appdelmodeljsonArray, FEPredicate, FuelEconomyArray1, FuelEconomyData, FuelEconomyPicker;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -42,7 +42,7 @@
     
     //Set Scroller for View
     [scroller setScrollEnabled:YES];
-    [scroller setContentSize:CGSizeMake(320, 1415)];
+    [scroller setContentSize:CGSizeMake(320, 1615)];
     
     self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"whiteback.jpg"]];
     
@@ -77,6 +77,10 @@
     //Contents of 0-60 picker
     NSArray * zerotosixtyarray = [[NSArray alloc] initWithObjects:@"Any", @"2-3.0 secs", @"3.1-4.0 secs", @"4.1-5.0 secs", @"5.1-5.5 secs", @"5.6-6.0 secs", @"6.1-6.5 secs", @"6.6-7.0 secs", @"7.1-8.0 secs", @"8.1-9.0 secs", @"9.1-10.0 secs", @"10.1+ secs", nil];
     self.ZeroToSixtyData = zerotosixtyarray;
+    
+    //Contents of FE picker
+    NSArray * fueleconomyarray = [[NSArray alloc] initWithObjects:@"Any", @"0-10", @"11-20", @"21-30", @"31-40", @"41-50", @"51+", nil];
+    self.FuelEconomyData = fueleconomyarray;
 }
 
 - (void)didReceiveMemoryWarning
@@ -90,45 +94,25 @@
 
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
     if([pickerView isEqual:Pricepicker])
-    {
         return [PriceData count];
-    }
     if([pickerView isEqual:enginePicker])
-    {
         return [EngineData count];
-    }
-    if([pickerView isEqual:enginedisPicker])
-    {
-        return [EngineDisData count];
-    }
     if([pickerView isEqual:transmissionPicker])
-    {
         return [TransmissionData count];
-    }
     if([pickerView isEqual:driveTypePicker])
-    {
         return [DriveTypeData count];
-    }
     if([pickerView isEqual:horsepowerPicker])
-    {
         return [HorsepowerData count];
-    }
     if([pickerView isEqual:zeroToSixtyPicker])
-    {
         return [ZeroToSixtyData count];
-    }
+    if([pickerView isEqual:FuelEconomyPicker])
+        return [FuelEconomyData count];
     if([pickerView isEqual:MakePicker])
-    {
         return [makeimageArray count];
-    }
     if([pickerView isEqual:ModelPicker])
-    {
         return [ModelArray count];
-    }
     else
-    {
         return 0;
-    }
 }
 
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row
@@ -199,6 +183,17 @@
         return label;
     }
     
+    else if([pickerView isEqual:FuelEconomyPicker])
+    {
+        UILabel *label = (id)view;
+        if (!label) {
+            label = [[UILabel alloc] initWithFrame:CGRectMake(1.0f, 1.0f, [pickerView rowSizeForComponent:component].width, [pickerView rowSizeForComponent:component].height)];
+        }
+        label.font = [UIFont systemFontOfSize:16];
+        label.text = [FuelEconomyData objectAtIndex:row];
+        return label;
+    }
+
     else if([pickerView isEqual:MakePicker])
     {
         UILabel *label = (id)view;
@@ -225,43 +220,24 @@
 }
 
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-    
     if([pickerView isEqual:Pricepicker])
-    {
         return [PriceData objectAtIndex:row];
-    }
     else if([pickerView isEqual:enginePicker])
-    {
         return [EngineData objectAtIndex:row];
-    }
-    else if([pickerView isEqual:enginedisPicker])
-    {
-        return [EngineDisData objectAtIndex:row];
-    }
     else if([pickerView isEqual:transmissionPicker])
-    {
         return [TransmissionData objectAtIndex:row];
-    }
     else if([pickerView isEqual:driveTypePicker])
-    {
         return [DriveTypeData objectAtIndex:row];
-    }
     else if([pickerView isEqual:horsepowerPicker])
-    {
         return [HorsepowerData objectAtIndex:row];
-    }
     else if([pickerView isEqual:zeroToSixtyPicker])
-    {
         return [ZeroToSixtyData objectAtIndex:row];
-    }
+    else if([pickerView isEqual:FuelEconomyPicker])
+        return [FuelEconomyData objectAtIndex:row];
     else if([pickerView isEqual:MakePicker])
-    {
         return [makeimageArray objectAtIndex:row];
-    }
     else if([pickerView isEqual:ModelPicker])
-    {
         return [ModelArray objectAtIndex:row];
-    }
     else
         return 0;
 }
@@ -572,6 +548,51 @@
         }
     }
     
+    if([pickerView isEqual:FuelEconomyPicker]){
+        //@"Any", @"0-10", @"11-20", @"21-30", @"31-40", @"41-50", @"51+"
+        if (row == 0){
+            FEPredicate = [NSPredicate predicateWithFormat:@"CarFuelEconomy.length > 0"];
+            FuelEconomyArray1 = [ZerotoSixtyArray1 filteredArrayUsingPredicate:FEPredicate];
+            NSLog(@"pricedata%lu", (unsigned long)FuelEconomyArray1.count);
+        }
+        if (row == 1){
+            FEPredicate = [NSPredicate predicateWithFormat:@"(CarFuelEconomyLow<=10 Or CarFuelEconomyHigh<=10) AND NOT (CarFuelEconomy CONTAINS %@)", @"N/A"];
+            FuelEconomyArray1 = [ZerotoSixtyArray1 filteredArrayUsingPredicate:FEPredicate];
+            NSLog(@"transmissionarray%@", ZerotoSixtyArray1);
+            NSLog(@"horsepowerarraycount%lu", (unsigned long)FuelEconomyArray1.count);
+        }
+        if (row == 2){
+            FEPredicate = [NSPredicate predicateWithFormat:@"((CarFuelEconomyLow>=11 AND CarFuelEconomyLow<=20) OR (CarFuelEconomyHigh>=11 AND CarFuelEconomyHigh<=20))"];
+            FuelEconomyArray1 = [ZerotoSixtyArray1 filteredArrayUsingPredicate:FEPredicate];
+            NSLog(@"transmissionarray%@", ZerotoSixtyArray1);
+            NSLog(@"horsepowerarraycount%lu", (unsigned long)FuelEconomyArray1.count);
+        }
+        if (row == 3){
+            FEPredicate = [NSPredicate predicateWithFormat:@"((CarFuelEconomyLow>=21 AND CarFuelEconomyLow<=30) OR (CarFuelEconomyHigh>=21 AND CarFuelEconomyHigh<=30))"];
+            FuelEconomyArray1 = [ZerotoSixtyArray1 filteredArrayUsingPredicate:FEPredicate];
+            NSLog(@"transmissionarray%@", ZerotoSixtyArray1);
+            NSLog(@"horsepowerarraycount%lu", (unsigned long)FuelEconomyArray1.count);
+        }
+        if (row == 4){
+            FEPredicate = [NSPredicate predicateWithFormat:@"((CarFuelEconomyLow>=31 AND CarFuelEconomyLow<=40) OR (CarFuelEconomyHigh>=31 AND CarFuelEconomyHigh<=40))"];
+            FuelEconomyArray1 = [ZerotoSixtyArray1 filteredArrayUsingPredicate:FEPredicate];
+            NSLog(@"transmissionarray%@", ZerotoSixtyArray1);
+            NSLog(@"horsepowerarraycount%lu", (unsigned long)FuelEconomyArray1.count);
+        }
+        if (row == 5){
+            FEPredicate = [NSPredicate predicateWithFormat:@"((CarFuelEconomyLow>=41 AND CarFuelEconomyLow<=50) OR (CarFuelEconomyHigh>=41 AND CarFuelEconomyHigh<=50))"];
+            FuelEconomyArray1 = [ZerotoSixtyArray1 filteredArrayUsingPredicate:FEPredicate];
+            NSLog(@"transmissionarray%@", ZerotoSixtyArray1);
+            NSLog(@"horsepowerarraycount%lu", (unsigned long)FuelEconomyArray1.count);
+        }
+        if (row == 6){
+            FEPredicate = [NSPredicate predicateWithFormat:@"(CarFuelEconomyLow>=51 OR CarFuelEconomyHigh>=51)"];
+            FuelEconomyArray1 = [ZerotoSixtyArray1 filteredArrayUsingPredicate:FEPredicate];
+            NSLog(@"transmissionarray%@", ZerotoSixtyArray1);
+            NSLog(@"horsepowerarraycount%lu", (unsigned long)FuelEconomyArray1.count);
+        }
+    }
+    
     if([pickerView isEqual:MakePicker]){
         MakePredicate = [NSPredicate predicateWithFormat:@"CarMake == %@", [makeimageArray objectAtIndex:row]];
         [self setModels];
@@ -594,7 +615,6 @@
     appdelmodeljsonArray = [[NSMutableArray alloc]init];
     AppDelegate *appdel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [specsArray addObjectsFromArray:appdel.modelArray];
-    
     makeimageArray = [[NSMutableArray alloc]init];
     [makeimageArray addObjectsFromArray:appdel.makeimageArray];
 }
@@ -615,42 +635,37 @@
 
 - (IBAction)UsePredicates {
     if (PricePredicate == nil)
-    {
         PricePredicate = [NSPredicate predicateWithFormat:@"CarPrice.length > 0"];
-    }
     if (EnginePredicate == nil)
-    {
         EnginePredicate = [NSPredicate predicateWithFormat:@"CarPrice.length > 0"];
-    }
-
     if (TransmissionPredicate == nil)
-    {
         TransmissionPredicate = [NSPredicate predicateWithFormat:@"CarPrice.length > 0"];
-    }
-
     if (DriveTypePredicate == nil)
-    {
         DriveTypePredicate = [NSPredicate predicateWithFormat:@"CarPrice.length > 0"];
-    }
-
     if (HorsepowerPredicate == nil)
-    {
         HorsepowerPredicate = [NSPredicate predicateWithFormat:@"CarPrice.length > 0"];
-    }
-
     if (ZeroToSixtyPredicate == nil)
-    {
         ZeroToSixtyPredicate = [NSPredicate predicateWithFormat:@"CarPrice.length > 0"];
-    }
+    if (FEPredicate == nil)
+        FEPredicate = [NSPredicate predicateWithFormat:@"CarPrice.length > 0"];
+    
     PriceArray1 = [specsArray filteredArrayUsingPredicate:PricePredicate];
     EngineArray1 = [PriceArray1 filteredArrayUsingPredicate:EnginePredicate];
     TransmissionArray1 = [EngineArray1 filteredArrayUsingPredicate:TransmissionPredicate];
     DriveTypeArray1 = [TransmissionArray1 filteredArrayUsingPredicate:DriveTypePredicate];
     HorsepowerArray1 = [DriveTypeArray1 filteredArrayUsingPredicate:HorsepowerPredicate];
     ZerotoSixtyArray1 = [HorsepowerArray1 filteredArrayUsingPredicate:ZeroToSixtyPredicate];
+    FuelEconomyArray1 = [ZerotoSixtyArray1 filteredArrayUsingPredicate:FEPredicate];
 
     NSSortDescriptor * alphasort = [NSSortDescriptor sortDescriptorWithKey:@"CarModel" ascending:YES];
-    ZerotoSixtyArray1 = [ZerotoSixtyArray1 sortedArrayUsingDescriptors:[NSArray arrayWithObject:alphasort]];
+    FuelEconomyArray1 = [FuelEconomyArray1 sortedArrayUsingDescriptors:[NSArray arrayWithObject:alphasort]];
+    for(int i=0;i<FuelEconomyArray1.count;i++)
+    {
+        Model *currentModel = FuelEconomyArray1[i];
+        NSString *fe = currentModel.CarFuelEconomy;
+        NSString *carname = currentModel.CarFullName;
+        NSLog(@"FE: %@ Model: %@", fe, carname);
+    }
 }
 
 - (IBAction)UseModelPredicates {
@@ -665,7 +680,7 @@
 {
     if ([[segue identifier] isEqualToString:@"pushModelView"])
     {
-        NSArray * searcharray = ZerotoSixtyArray1;
+        NSArray * searcharray = FuelEconomyArray1;
         [[segue destinationViewController] getsearcharray:searcharray];
     }
     if ([[segue identifier] isEqualToString:@"pushCarView"])

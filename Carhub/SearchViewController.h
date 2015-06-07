@@ -30,6 +30,7 @@
 @property (nonatomic, retain) NSArray * DriveTypeArray1;
 @property (nonatomic, retain) NSArray * HorsepowerArray1;
 @property (nonatomic, retain) NSArray * ZerotoSixtyArray1;
+@property (nonatomic, retain) NSArray * FuelEconomyArray1;
 
 @property (nonatomic, retain) NSArray * finalModelArray;
 
@@ -40,11 +41,11 @@
 
 @property (weak, nonatomic) IBOutlet UIPickerView *Pricepicker;
 @property (weak, nonatomic) IBOutlet UIPickerView *enginePicker;
-@property (weak, nonatomic) IBOutlet UIPickerView *enginedisPicker;
 @property (weak, nonatomic) IBOutlet UIPickerView *transmissionPicker;
 @property (weak, nonatomic) IBOutlet UIPickerView *driveTypePicker;
 @property (weak, nonatomic) IBOutlet UIPickerView *horsepowerPicker;
 @property (weak, nonatomic) IBOutlet UIPickerView *zeroToSixtyPicker;
+@property (weak, nonatomic) IBOutlet UIPickerView *FuelEconomyPicker;
 @property (weak, nonatomic) IBOutlet UIPickerView *MakePicker;
 @property (weak, nonatomic) IBOutlet UIPickerView *ModelPicker;
 
@@ -54,9 +55,9 @@
 @property (strong, nonatomic) NSPredicate *DriveTypePredicate;
 @property (strong, nonatomic) NSPredicate *HorsepowerPredicate;
 @property (strong, nonatomic) NSPredicate *ZeroToSixtyPredicate;
+@property (strong, nonatomic) NSPredicate *FEPredicate;
 @property (strong, nonatomic) NSPredicate *MakePredicate;
 @property (strong, nonatomic) NSPredicate *ModelPredicate;
-
 
 @property (nonatomic, strong) IBOutlet UILabel * OutputLabel;
 @property (retain, nonatomic) NSArray *PriceData;
@@ -66,6 +67,7 @@
 @property (retain, nonatomic) NSArray *DriveTypeData;
 @property (retain, nonatomic) NSArray *HorsepowerData;
 @property (retain, nonatomic) NSArray *ZeroToSixtyData;
+@property (retain, nonatomic) NSArray *FuelEconomyData;
 @property (retain, nonatomic) NSArray *MakeData;
 
 @property (nonatomic, strong) NSMutableArray * makejsonArray;

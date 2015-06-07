@@ -459,7 +459,7 @@
             <objects>
                 <viewController id="jMX-vW-yfd" customClass="ImageViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A0o-ni-HhA">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="551"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="MJN-Sy-Mn4">
@@ -868,7 +868,7 @@ EEZ1ZWwxA
             <objects>
                 <viewController id="wEG-mh-v4Y" customClass="DisputeInfoViewController2" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Fa-7L-6D0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="1451"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NewSpecsDisputePage4.png" id="glX-MP-UQY">
@@ -1155,7 +1155,7 @@ EEZ1ZWwxA
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="fpq-Qp-R7y">
-                                            <rect key="frame" x="12" y="2" width="80" height="82"/>
+                                            <rect key="frame" x="11" y="2" width="80" height="82"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
                                     </subviews>
@@ -1521,13 +1521,6 @@ EEZ1ZWwxA
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Car Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="t8I-L6-aas">
-                                            <rect key="frame" x="32" y="0.0" width="263" height="47"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="W0F-wo-0t3">
                                             <rect key="frame" x="3" y="55" width="199" height="83"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1536,6 +1529,13 @@ EEZ1ZWwxA
                                             <rect key="frame" x="3" y="4" width="47" height="39"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Car Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="t8I-L6-aas">
+                                            <rect key="frame" x="32" y="0.0" width="263" height="47"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -1759,12 +1759,12 @@ EEZ1ZWwxA
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="JsJ-8b-idj"/>
-        <segue reference="B34-lZ-zbJ"/>
-        <segue reference="x0E-UV-u6W"/>
-        <segue reference="CS9-r1-biV"/>
-        <segue reference="IgV-gc-O6F"/>
         <segue reference="yVH-B1-Ypj"/>
-        <segue reference="u8d-Nh-Fbr"/>
+        <segue reference="dF7-WB-K3G"/>
+        <segue reference="0aa-7x-UyU"/>
+        <segue reference="Kpt-H6-pwv"/>
+        <segue reference="B34-lZ-zbJ"/>
+        <segue reference="CS9-r1-biV"/>
+        <segue reference="vz4-hx-5Qb"/>
     </inferredMetricsTieBreakers>
 </document>
