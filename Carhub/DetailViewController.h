@@ -9,12 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "Model.h"
 
-@interface DetailViewController : UIViewController
+@interface DetailViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 {
     IBOutlet UIButton *saveButton;
     IBOutlet UIButton *exhaustButton;
     IBOutlet UIImageView *imageview;
     IBOutlet UIScrollView * scroller;
+    IBOutlet UITableView * SpecsTableView;
 }
 
 @property(nonatomic, strong) IBOutlet UILabel * CarYearsMadeLabel;
@@ -36,6 +37,8 @@
 #pragma mark -
 #pragma mark Methods
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 - (bool)isSaved:(Model *)currentModel;
 - (void)checkStar;
 - (void)getModel:(id)modelObject;

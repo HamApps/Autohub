@@ -12,9 +12,9 @@
 #import "DetailViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "AppDelegate.h"
-#import "MakeViewController.h"
+#import "SDWebImage/UIImageView+WebCache.h"
 
-@interface SearchTabViewController ()
+@interface SearchTabModelController ()
 
 @end
 
@@ -24,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.searchDisplayController.active = YES;
-
+    
     [self.searchBar becomeFirstResponder];
     
     self.title = @"Find Cars";
@@ -95,15 +95,55 @@
     //cell.layer.cornerRadius = 20;
     cell.CarName.layer.borderWidth=1.0f;
     cell.CarName.layer.borderColor=[UIColor whiteColor].CGColor;
-
+    
     //Load and fade image
-    [cell.CarImage sd_setImageWithURL:[NSURL URLWithString:modelObject.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]
-                            completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageurl){
-                                [cell.CarImage setAlpha:0.0];
-                                [UIImageView animateWithDuration:.5 animations:^{
-                                    [cell.CarImage setAlpha:1.0];
-                                }];
-                            }];
+    
+    
+    
+    /*NSString *identifier = [[[NSString stringWithFormat:@"%@", modelObject.CarMake]stringByAppendingString:@" "]stringByAppendingString:modelObject.CarModel];
+     NSString *urlIdentifier = [NSString stringWithFormat:@"imageurl%@%@%@",modelObject.CarMake,@" ", modelObject.CarModel];
+     
+     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+     NSData *imagedata = [defaults objectForKey:identifier];
+     [defaults setObject:[NSString stringWithFormat:@"%lu", (unsigned long)ModelArray.count] forKey:@"count"];
+     
+     if([[defaults objectForKey:@"count"] integerValue] == [[NSString stringWithFormat:@"%lu", (unsigned long)ModelArray.count] integerValue])
+     {
+     cell.CarImage.image = [UIImage imageWithData:imagedata];
+     [UIImageView beginAnimations:nil context:NULL];
+     [UIImageView setAnimationDuration:.01];
+     [cell.CarImage setAlpha:1.0];
+     [UIImageView commitAnimations];
+     }
+     if(!([[defaults objectForKey:urlIdentifier] isEqualToString:modelObject.CarImageURL]) || cell.CarImage.image == nil){
+     char const*s = [identifier UTF8String];
+     dispatch_queue_t queue = dispatch_queue_create(s, 0);
+     
+     dispatch_async(queue, ^{
+     
+     NSData *imgData = [NSData dataWithContentsOfURL:[NSURL URLWithString:modelObject.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]];
+     if (imgData) {
+     UIImage *image = [UIImage imageWithData:imgData];
+     if (image) {
+     dispatch_async(dispatch_get_main_queue(), ^{
+     CarViewCell *updateCell = (id)[tableView cellForRowAtIndexPath:indexPath];
+     if (updateCell)
+     {
+     [defaults setObject:UIImagePNGRepresentation(image) forKey:identifier];
+     [defaults setObject:modelObject.CarImageURL forKey:urlIdentifier];
+     NSData *imgdata = [defaults objectForKey:identifier];
+     updateCell.CarImage.image = [UIImage imageWithData:imgdata];
+     [updateCell.CarImage setAlpha:0.0];
+     [UIImageView beginAnimations:nil context:NULL];
+     [UIImageView setAnimationDuration:.75];
+     [updateCell.CarImage setAlpha:1.0];
+     [UIImageView commitAnimations];
+     }
+     });
+     }
+     }
+     });
+     }*/
     return cell;
 }
 

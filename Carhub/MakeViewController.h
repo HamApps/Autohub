@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Make.h"
 #import "Model.h"
+#import "SDWebImage/UIImageView+WebCache.h"
 
 @interface MakeViewController : UICollectionViewController
 

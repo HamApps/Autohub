@@ -13,6 +13,7 @@
 {
     IBOutlet UIImageView *firstimageview;
     IBOutlet UIImageView *secondimageview;
+    IBOutlet UIScrollView * scroller;
 }
 
 @property(nonatomic, strong) IBOutlet UILabel * CarMakeLabel;

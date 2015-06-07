@@ -16,6 +16,7 @@
 #import "STKAudioPlayer.h"
 #import "ImageViewController.h"
 #import "SDWebImage/UIImageView+WebCache.h"
+#import "SpecsCell.h"
 
 @interface DetailViewController ()
 
@@ -24,9 +25,7 @@ STKAudioPlayer * audioPlayer;
 
 @implementation DetailViewController
 
-@synthesize CarYearsMadeLabel, CarPriceLabel, CarEngineLabel, CarTransmissionLabel, CarDriveTypeLabel, CarHorsepowerLabel, CarZeroToSixtyLabel, CarTopSpeedLabel, CarWeightLabel, isPlaying, CarFuelEconomyLabel, savedArray, currentCar
-
-;
+@synthesize CarYearsMadeLabel, CarPriceLabel, CarEngineLabel, CarTransmissionLabel, CarDriveTypeLabel, CarHorsepowerLabel, CarZeroToSixtyLabel, CarTopSpeedLabel, CarWeightLabel, isPlaying, CarFuelEconomyLabel, savedArray, currentCar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,6 +39,14 @@ STKAudioPlayer * audioPlayer;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    SpecsTableView = [[UITableView alloc]init];
+    SpecsTableView.dataSource = self;
+    SpecsTableView.delegate = self;
+    [SpecsTableView registerClass:[SpecsCell class] forCellReuseIdentifier:@"SpecsCell"];
+    [SpecsTableView reloadData];
+    [self.view addSubview:SpecsTableView];
+    
     isPlaying = false;
     
     audioPlayer = [[STKAudioPlayer alloc]init];
@@ -61,13 +68,39 @@ STKAudioPlayer * audioPlayer;
     
     [self setLabels];
 }
+
 - (void)viewWillAppear:(BOOL)animated {
     isPlaying = false;
     if(!([currentCar.CarExhaust isEqual:@""]))
         [exhaustButton setBackgroundImage:[UIImage imageNamed:@"PlayButton@2x.png"] forState:UIControlStateNormal];
 }
+
 - (void)viewWillDisappear:(BOOL)animated {
     [audioPlayer stop];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 10;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"SpecsCell";
+    SpecsCell *cell = (SpecsCell *)[SpecsTableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    if (cell == nil)
+    {
+        cell = [[SpecsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"whiteback.jpg"]];
+    cell.SpecName.text = @"Years Made";
+    
+    return cell;
 }
 
 -(IBAction)Sound{

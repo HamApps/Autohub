@@ -40,6 +40,9 @@
     [self getCars];
     [self setLabels];
     
+    [scroller setScrollEnabled:YES];
+    [scroller setContentSize:CGSizeMake(320, 825)];
+    
     self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"whiteback.jpg"]];
     
     [firstimageview setAlpha:1.0];

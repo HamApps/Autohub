@@ -97,6 +97,7 @@
 		38E522AC1A9134EC003F1099 /* NewTopTensViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E522AB1A9134EC003F1099 /* NewTopTensViewController.m */; };
 		38E522AF1A913803003F1099 /* TopTensCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E522AE1A913803003F1099 /* TopTensCell.m */; };
 		38F2EC081ACE11B60028D55F /* settingsbutton1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38F2EC071ACE11B60028D55F /* settingsbutton1@2x.png */; };
+		38FD7C301B22771600E576B3 /* SpecsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FD7C2F1B22771600E576B3 /* SpecsCell.m */; };
 		AA3E760619F0A32A00C1F870 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA3E760519F0A32A00C1F870 /* AdSupport.framework */; };
 		AA3E760819F0A33000C1F870 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA3E760719F0A33000C1F870 /* AudioToolbox.framework */; };
 		AA3E760A19F0A33900C1F870 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA3E760919F0A33900C1F870 /* AVFoundation.framework */; };
@@ -297,6 +298,8 @@
 		38E522AD1A913803003F1099 /* TopTensCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopTensCell.h; sourceTree = "<group>"; };
 		38E522AE1A913803003F1099 /* TopTensCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopTensCell.m; sourceTree = "<group>"; };
 		38F2EC071ACE11B60028D55F /* settingsbutton1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settingsbutton1@2x.png"; sourceTree = "<group>"; };
+		38FD7C2E1B22771600E576B3 /* SpecsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpecsCell.h; path = ../SpecsCell.h; sourceTree = "<group>"; };
+		38FD7C2F1B22771600E576B3 /* SpecsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpecsCell.m; path = ../SpecsCell.m; sourceTree = "<group>"; };
 		AA3E760519F0A32A00C1F870 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		AA3E760719F0A33000C1F870 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		AA3E760919F0A33900C1F870 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -485,6 +488,7 @@
 				AA55469A1979F2CE00E7CF12 /* AppDelegate.m */,
 				AA5546A21979F2CE00E7CF12 /* Images.xcassets */,
 				AA5546911979F2CE00E7CF12 /* Supporting Files */,
+				3851C19A1B2127FB002A0474 /* SDWebImage */,
 				385C1404197B3FDA003BBB09 /* MainStoryboard.storyboard */,
 				AAB744E1198318BF00A8545A /* MainStoryboard4.storyboard */,
 				380689B01B1D621000CD4425 /* TestNewsViewController.h */,
@@ -511,6 +515,8 @@
 				38E522AE1A913803003F1099 /* TopTensCell.m */,
 				38595D9B197C4D4200AA0BF9 /* CarViewCell.h */,
 				38595D9C197C4D4200AA0BF9 /* CarViewCell.m */,
+				38FD7C2E1B22771600E576B3 /* SpecsCell.h */,
+				38FD7C2F1B22771600E576B3 /* SpecsCell.m */,
 				38AEE96419A82B4B00792503 /* News.h */,
 				38AEE96519A82B4B00792503 /* News.m */,
 				AAED753C19EF6EA900FCE06F /* iRate.h */,
@@ -611,7 +617,6 @@
 				AA5546931979F2CE00E7CF12 /* InfoPlist.strings */,
 				AA5546961979F2CE00E7CF12 /* main.m */,
 				AA5546981979F2CE00E7CF12 /* Carhub-Prefix.pch */,
-				3851C19A1B2127FB002A0474 /* SDWebImage */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -847,6 +852,7 @@
 				3851C1CB1B2127FB002A0474 /* UIView+WebCacheOperation.m in Sources */,
 				38BABF5F19A96B210054B1EC /* FavoritesViewController.m in Sources */,
 				38D5196E1A8FF9AE001140EF /* STKHTTPDataSource.m in Sources */,
+				38FD7C301B22771600E576B3 /* SpecsCell.m in Sources */,
 				381DDFE919C7AE1F0055DB4E /* InAppDemoViewController.m in Sources */,
 				3851C1BD1B2127FB002A0474 /* NSData+ImageContentType.m in Sources */,
 				38D2B8D319A58FB5004D0687 /* ModelViewController.m in Sources */,

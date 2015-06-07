@@ -10,7 +10,6 @@
 #import "Model.h"
 #import "DetailViewController.h"
 
-
 @interface FavoritesViewController : UITableViewController<UISearchDisplayDelegate>
 
 //@property (nonatomic, strong) IBOutlet UISearchBar *searchBar;
