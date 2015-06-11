@@ -118,6 +118,7 @@
 		AA6299F91A5741D1009ACD4F /* eurostile.TTF in Resources */ = {isa = PBXBuildFile; fileRef = AA6299F71A5741D1009ACD4F /* eurostile.TTF */; };
 		AA629A0A1A57504D009ACD4F /* NewSpecsDisputePage4.png in Resources */ = {isa = PBXBuildFile; fileRef = AA629A091A57504D009ACD4F /* NewSpecsDisputePage4.png */; };
 		AA629A0B1A57504D009ACD4F /* NewSpecsDisputePage4.png in Resources */ = {isa = PBXBuildFile; fileRef = AA629A091A57504D009ACD4F /* NewSpecsDisputePage4.png */; };
+		AA81C35E1B2650D6001FE50F /* DarkerTabBarColor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA81C35D1B2650D6001FE50F /* DarkerTabBarColor@2x.png */; };
 		AA88E5C11A56507E005B1E43 /* darkishgrey.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA88E5C01A56507E005B1E43 /* darkishgrey.jpg */; };
 		AA88E5C31A56508A005B1E43 /* Tabbarcolor.png in Resources */ = {isa = PBXBuildFile; fileRef = AA88E5C21A56508A005B1E43 /* Tabbarcolor.png */; };
 		AA8D9E5C1980B3AE00AAB3E2 /* TopTensViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA8D9E5B1980B3AE00AAB3E2 /* TopTensViewController.m */; };
@@ -324,6 +325,7 @@
 		AA5546B51979F2CE00E7CF12 /* CarhubTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CarhubTests.m; sourceTree = "<group>"; };
 		AA6299F71A5741D1009ACD4F /* eurostile.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = eurostile.TTF; sourceTree = "<group>"; };
 		AA629A091A57504D009ACD4F /* NewSpecsDisputePage4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NewSpecsDisputePage4.png; sourceTree = "<group>"; };
+		AA81C35D1B2650D6001FE50F /* DarkerTabBarColor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "DarkerTabBarColor@2x.png"; path = "../../DarkerTabBarColor@2x.png"; sourceTree = "<group>"; };
 		AA88E5C01A56507E005B1E43 /* darkishgrey.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = darkishgrey.jpg; sourceTree = "<group>"; };
 		AA88E5C21A56508A005B1E43 /* Tabbarcolor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tabbarcolor.png; sourceTree = "<group>"; };
 		AA8D9E5A1980B3AE00AAB3E2 /* TopTensViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopTensViewController.h; sourceTree = "<group>"; };
@@ -563,6 +565,7 @@
 		AA5546911979F2CE00E7CF12 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AA81C35D1B2650D6001FE50F /* DarkerTabBarColor@2x.png */,
 				38E169201B1BBD1E00240372 /* searchbar2@2x.png */,
 				3818EE4F1B13D20500DF2F97 /* PlayButton@2x.png */,
 				3818EE4B1B13D14F00DF2F97 /* PauseButton@2x.png */,
@@ -764,6 +767,7 @@
 				388DDAD51AC7785B0062C16E /* speedometer 2@2x.png in Resources */,
 				388DDAE71AC778BB0062C16E /* weight Icon@2x.png in Resources */,
 				AAED754719EF6ED500FCE06F /* horse_PNG2553@2x.png in Resources */,
+				AA81C35E1B2650D6001FE50F /* DarkerTabBarColor@2x.png in Resources */,
 				AA5546951979F2CE00E7CF12 /* InfoPlist.strings in Resources */,
 				388DDAE11AC778A00062C16E /* Top tens tab bar icon@2x.png in Resources */,
 				AAED756F19EF6EED00FCE06F /* ferrari logo@2x.png in Resources */,

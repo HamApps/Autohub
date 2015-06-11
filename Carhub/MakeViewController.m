@@ -56,7 +56,7 @@
 
     [self makeAppDelModelArray];
     self.title = @"Makes";
-    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"whiteback.jpg"]];
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)interstitialDidReceiveAd:(GADInterstitial *)interstitial {
@@ -124,8 +124,8 @@
     Make * makeObject;
     makeObject = [makeimageArray objectAtIndex:indexPath.item];
     
-    cell.layer.borderWidth=0.7f;
-    cell.layer.borderColor=[UIColor whiteColor].CGColor;
+    cell.layer.borderWidth=0.6f;
+    cell.layer.borderColor=[UIColor lightGrayColor].CGColor;
     
     //Load and fade image
     [cell.MakeImageView sd_setImageWithURL:[NSURL URLWithString:makeObject.MakeImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image2.php"]]

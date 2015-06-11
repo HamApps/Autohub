@@ -36,7 +36,7 @@
     self.cachedImages = [[NSMutableDictionary alloc]init];
     self.title = @"Results";
     
-    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"whiteback.jpg"]];
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)didReceiveMemoryWarning
