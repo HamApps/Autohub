@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="cDA-tu-9pC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="cDA-tu-9pC">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="eurostile.TTF">
@@ -996,11 +996,16 @@ EEZ1ZWwxA
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="q2h-Gq-3qH">
+                                <rect key="frame" x="82" y="138" width="157" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="yb4-SG-Je3"/>
                     <connections>
+                        <outlet property="loadingWheel" destination="q2h-Gq-3qH" id="3VU-aP-Q3L"/>
                         <outlet property="webView" destination="0HU-al-K7O" id="CwH-3h-AZ6"/>
                     </connections>
                 </viewController>
@@ -1212,7 +1217,7 @@ EEZ1ZWwxA
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="8pC-Po-6hc">
-                                            <rect key="frame" x="14" y="4" width="81" height="89"/>
+                                            <rect key="frame" x="14" y="4" width="80" height="89"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
                                     </subviews>
@@ -1809,11 +1814,11 @@ EEZ1ZWwxA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="r54-US-OFB"/>
         <segue reference="bdK-mg-JyT"/>
-        <segue reference="qHV-ed-jCq"/>
-        <segue reference="30L-8O-aJ4"/>
+        <segue reference="r54-US-OFB"/>
+        <segue reference="CMB-An-ZTl"/>
         <segue reference="Qdr-UW-Q4c"/>
+        <segue reference="30L-8O-aJ4"/>
         <segue reference="IKm-l5-xV9"/>
         <segue reference="adk-x1-Vyi"/>
     </inferredMetricsTieBreakers>
