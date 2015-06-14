@@ -76,13 +76,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if(tableView == self.searchDisplayController.searchResultsTableView)
-    {
-        return self.searchArray.count;
-    }else{
-        return self.ModelArray.count;
-    }
+return self.ModelArray.count;
 }
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

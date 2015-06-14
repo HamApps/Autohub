@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "News.h"
 
-@interface TestNewsViewController : UIViewController
+@interface TestNewsViewController : UIViewController<UIWebViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
-@property(nonatomic, strong) News * currentnews;
+@property (nonatomic, strong) News * currentnews;
+@property (nonatomic, strong) IBOutlet UIImageView * loadingWheel;
 
 - (void)getNews:(id)newsObject;
 

@@ -1715,16 +1715,21 @@ EEZ1ZWwxA
                         <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" id="Tdp-Jk-daT">
+                            <webView alpha="0.0" contentMode="scaleToFill" id="Tdp-Jk-daT">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="yq6-Qz-Ooi">
+                                <rect key="frame" x="83" y="91" width="154" height="126"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="yF8-2W-6aa"/>
                     <connections>
+                        <outlet property="loadingWheel" destination="yq6-Qz-Ooi" id="fP7-M1-2gA"/>
                         <outlet property="webView" destination="Tdp-Jk-daT" id="7QI-aA-7b8"/>
                     </connections>
                 </viewController>
