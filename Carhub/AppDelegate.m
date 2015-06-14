@@ -86,7 +86,7 @@
     
     // detect the height of our screen
     int height = [UIScreen mainScreen].bounds.size.height;
-    UIImage* tabBarBackground = [UIImage imageNamed:@"Tabbarcolor.png"];
+    UIImage* tabBarBackground = [UIImage imageNamed:@"DarkerTabBarColor.png"];
     [[UINavigationBar appearance] setBackgroundImage:tabBarBackground forBarMetrics:UIBarMetricsDefault];
     //[[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"darkishgrey.jpg"] forBarMetrics:UIBarMetricsDefault];
     NSShadow *shadow = [[NSShadow alloc] init];

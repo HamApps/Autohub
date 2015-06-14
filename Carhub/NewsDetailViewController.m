@@ -38,7 +38,7 @@
     [scroller setContentSize:CGSizeMake(320, 1000)];
     
     NSLog(@"newsimageurl %@", _currentnews.NewsArticleURL);
-    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"whiteback.jpg"]];
+    self.view.backgroundColor = [UIColor whiteColor];
     
     if (imageview.image ==nil) {
         

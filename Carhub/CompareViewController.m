@@ -41,10 +41,9 @@
     [self setLabels];
     
     [scroller setScrollEnabled:YES];
-    [scroller setContentSize:CGSizeMake(320, 825)];
+    [scroller setContentSize:CGSizeMake(320, 875)];
     
-    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"whiteback.jpg"]];
-    
+    self.view.backgroundColor = [UIColor whiteColor];
     [firstimageview setAlpha:1.0];
     [firstimageview sd_setImageWithURL:[NSURL URLWithString:firstCar.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]];
     
