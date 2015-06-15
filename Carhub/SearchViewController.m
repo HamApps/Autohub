@@ -23,7 +23,7 @@
 
 @implementation SearchViewController
 
-@synthesize PriceData, Pricepicker, OutputLabel, enginePicker, EngineData, EngineDisData, HorsepowerData, horsepowerPicker, DriveTypeData, driveTypePicker, ZeroToSixtyData, zeroToSixtyPicker, TransmissionData, transmissionPicker, specsArray, carArray, ModelArray, DriveTypeArray1, PriceArray1, EngineArray1, EngineDisArray1, HorsepowerArray1, ZerotoSixtyArray1, TransmissionArray1, ZeroToSixtyPredicate, PricePredicate, EnginePredicate, HorsepowerPredicate, TransmissionPredicate, DriveTypePredicate, finalArray, makejsonArray, AlphabeticalArray, makeimageArray, MakePicker, ModelPicker, MakePredicate, cModel, testArray, ModelPredicate, finalModelArray, appdelmodeljsonArray, FEPredicate, FuelEconomyArray1, FuelEconomyData, FuelEconomyPicker;
+@synthesize PriceData, Pricepicker, enginePicker, EngineData, EngineDisData, HorsepowerData, horsepowerPicker, DriveTypeData, driveTypePicker, ZeroToSixtyData, zeroToSixtyPicker, TransmissionData, transmissionPicker, specsArray, carArray, ModelArray, DriveTypeArray1, PriceArray1, EngineArray1, EngineDisArray1, HorsepowerArray1, ZerotoSixtyArray1, TransmissionArray1, ZeroToSixtyPredicate, PricePredicate, EnginePredicate, HorsepowerPredicate, TransmissionPredicate, DriveTypePredicate, finalArray, makejsonArray, AlphabeticalArray, makeimageArray, MakePicker, ModelPicker, MakePredicate, cModel, testArray, ModelPredicate, finalModelArray, appdelmodeljsonArray, FEPredicate, FuelEconomyArray1, FuelEconomyData, FuelEconomyPicker;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -248,72 +248,58 @@
         if (row == 0){
             PricePredicate = [NSPredicate predicateWithFormat:@"CarPrice.length > 0"];
             PriceArray1 = specsArray;
-            NSLog(@"pricedata%lu", (unsigned long)PriceArray1.count);
         }
         if (row == 1){
             PricePredicate = [NSPredicate predicateWithFormat:@"(CarPriceHigh<=5000 OR CarPriceLow<=5000) AND NOT (CarPrice CONTAINS %@)", @"N/A"];
             PriceArray1 = [specsArray filteredArrayUsingPredicate:PricePredicate];
-            NSLog(@"pricedata%lu", (unsigned long)PriceArray1.count);
         }
         if (row == 2){
             PricePredicate = [NSPredicate predicateWithFormat:@"((CarPriceHigh>=5000 AND CarPriceHigh<=10000) OR (CarPriceLow>=5000 AND CarPriceLow<=10000))"];
             PriceArray1 = [specsArray filteredArrayUsingPredicate:PricePredicate];
-            NSLog(@"pricedata%lu", (unsigned long)PriceArray1.count);
         }
         if (row == 3){
             PricePredicate = [NSPredicate predicateWithFormat:@"((CarPriceHigh>=10000 AND CarPriceHigh<=20000) OR (CarPriceLow>=10000 AND CarPriceLow<=20000))"];
             PriceArray1 = [specsArray filteredArrayUsingPredicate: PricePredicate];
-            NSLog(@"pricedata%lu", (unsigned long)PriceArray1.count);
         }
         if (row == 4){
             PricePredicate = [NSPredicate predicateWithFormat:@"((CarPriceHigh>=20000 AND CarPriceHigh<=30000) OR (CarPriceLow>=20000 AND CarPriceLow<=30000))"];
             PriceArray1 = [specsArray filteredArrayUsingPredicate:PricePredicate];
-            NSLog(@"pricedata%lu", (unsigned long)PriceArray1.count);
         }
         if (row == 5){
             PricePredicate = [NSPredicate predicateWithFormat:@"((CarPriceHigh>=30000 AND CarPriceHigh<=40000) OR (CarPriceLow>=30000 AND CarPriceLow<=40000))"];
             PriceArray1 = [specsArray filteredArrayUsingPredicate:PricePredicate];
-            NSLog(@"pricedata%lu", (unsigned long)PriceArray1.count);
         }
         if (row == 6){
             PricePredicate = [NSPredicate predicateWithFormat:@"((CarPriceHigh>=40000 AND CarPriceHigh<=50000) OR (CarPriceLow>=40000 AND CarPriceLow<=50000))"];
             PriceArray1 = [specsArray filteredArrayUsingPredicate:PricePredicate];
-            NSLog(@"pricedata%lu", (unsigned long)PriceArray1.count);
         }
         if (row == 7){
             PricePredicate = [NSPredicate predicateWithFormat:@"((CarPriceHigh>=50000 AND CarPriceHigh<=65000) OR (CarPriceLow>=50000 AND CarPriceLow<=65000))"];
             PriceArray1 = [specsArray filteredArrayUsingPredicate:PricePredicate];
-            NSLog(@"pricedata%lu", (unsigned long)PriceArray1.count);
         }
         if (row == 8){
             PricePredicate = [NSPredicate predicateWithFormat:@"((CarPriceHigh>=65000 AND CarPriceHigh<=80000) OR (CarPriceLow>=65000 AND CarPriceLow<=80000))"];
             PriceArray1 = [specsArray filteredArrayUsingPredicate:PricePredicate];
-            NSLog(@"pricedata%lu", (unsigned long)PriceArray1.count);
         }
         if (row == 9){
             PricePredicate = [NSPredicate predicateWithFormat:@"((CarPriceHigh>=80000 AND CarPriceHigh<=100000) OR (CarPriceLow>=80000 AND CarPriceLow<=100000))"];
             PriceArray1 = [specsArray filteredArrayUsingPredicate:PricePredicate];
-            NSLog(@"pricedata%lu", (unsigned long)PriceArray1.count);
         }
         if (row == 10){
             PricePredicate = [NSPredicate predicateWithFormat:@"((CarPriceHigh>=100000 AND CarPriceHigh<=150000) OR (CarPriceLow>=100000 AND CarPriceLow<=150000))"];
             PriceArray1 = [specsArray filteredArrayUsingPredicate:PricePredicate];
-            NSLog(@"pricedata%lu", (unsigned long)PriceArray1.count);
         }
         if (row == 11){
             PricePredicate = [NSPredicate predicateWithFormat:@"((CarPriceHigh>=150000 AND CarPriceHigh<=200000) OR (CarPriceLow>=150000 AND CarPriceLow<=200000))"];
             PriceArray1 = [specsArray filteredArrayUsingPredicate:PricePredicate];
-            NSLog(@"pricedata%lu", (unsigned long)PriceArray1.count);
         }
         if (row == 12){
             PricePredicate = [NSPredicate predicateWithFormat:@"((CarPriceHigh>=200000 AND CarPriceHigh<=500000) OR (CarPriceLow>=200000 AND CarPriceLow<=500000))"];
             PriceArray1 = [specsArray filteredArrayUsingPredicate:PricePredicate];
-            NSLog(@"pricedata%lu", (unsigned long)PriceArray1.count);
         }
         if (row == 13){
             PricePredicate = [NSPredicate predicateWithFormat:@"(CarPriceHigh>=500000 OR CarPriceLow>=500000)"];
             PriceArray1 = [specsArray filteredArrayUsingPredicate:PricePredicate];
-            NSLog(@"pricedata%lu", (unsigned long)PriceArray1.count);
         }
     }
     
@@ -321,57 +307,46 @@
         if (row == 0){
             EnginePredicate = [NSPredicate predicateWithFormat:@"CarEngine.length > 0"];
             EngineArray1 = [PriceArray1 filteredArrayUsingPredicate:EnginePredicate];
-            NSLog(@"pricedata%lu", (unsigned long)EngineArray1.count);
         }
         if (row == 1){
             EnginePredicate = [NSPredicate predicateWithFormat:@"CarEngine CONTAINS %@", @"Electric"];
             EngineArray1 = [PriceArray1 filteredArrayUsingPredicate:EnginePredicate];
-            NSLog(@"transmissionarray%lu", (unsigned long)EngineArray1.count);
         }
         if (row == 2){
             EnginePredicate = [NSPredicate predicateWithFormat:@"CarEngine CONTAINS %@", @"l3"];
             EngineArray1 = [PriceArray1 filteredArrayUsingPredicate:EnginePredicate];
-            NSLog(@"transmissionarray%lu", (unsigned long)EngineArray1.count);
         }
         if (row == 3){
             EnginePredicate = [NSPredicate predicateWithFormat:@"(CarEngine CONTAINS %@) OR (CarEngine CONTAINS %@)", @"Flat-4", @"l4"];
             EngineArray1 = [PriceArray1 filteredArrayUsingPredicate:EnginePredicate];
-            NSLog(@"transmissionarray%lu", (unsigned long)EngineArray1.count);
         }
         if (row == 4){
             EnginePredicate = [NSPredicate predicateWithFormat:@"CarEngine CONTAINS %@", @"l5"];
             EngineArray1 = [PriceArray1 filteredArrayUsingPredicate:EnginePredicate];
-            NSLog(@"transmissionarray%lu", (unsigned long)EngineArray1.count);
         }
         if (row == 5){
             EnginePredicate = [NSPredicate predicateWithFormat:@"(CarEngine CONTAINS %@) OR (CarEngine CONTAINS %@) OR (CarEngine CONTAINS %@)", @"Flat-6", @"V6", @"l6"];
             EngineArray1 = [PriceArray1 filteredArrayUsingPredicate:EnginePredicate];
-            NSLog(@"transmissionarray%lu", (unsigned long)EngineArray1.count);
         }
         if (row == 6){
             EnginePredicate = [NSPredicate predicateWithFormat:@"(CarEngine CONTAINS %@) OR (CarEngine CONTAINS %@)", @"V8", @"l8"];
             EngineArray1 = [PriceArray1 filteredArrayUsingPredicate:EnginePredicate];
-            NSLog(@"transmissionarray%lu", (unsigned long)EngineArray1.count);
         }
         if (row == 7){
             EnginePredicate = [NSPredicate predicateWithFormat:@"CarEngine CONTAINS %@", @"V10"];
             EngineArray1 = [PriceArray1 filteredArrayUsingPredicate:EnginePredicate];
-            NSLog(@"transmissionarray%lu", (unsigned long)EngineArray1.count);
         }
         if (row == 8){
             EnginePredicate = [NSPredicate predicateWithFormat:@"(CarEngine CONTAINS %@) OR (CarEngine CONTAINS %@) OR (CarEngine CONTAINS %@)", @"F12", @"V12", @"W12"];
             EngineArray1 = [PriceArray1 filteredArrayUsingPredicate:EnginePredicate];
-            NSLog(@"transmissionarray%lu", (unsigned long)EngineArray1.count);
         }
         if (row == 9){
             EnginePredicate = [NSPredicate predicateWithFormat:@"CarEngine CONTAINS %@", @"W16"];
             EngineArray1 = [PriceArray1 filteredArrayUsingPredicate:EnginePredicate];
-            NSLog(@"transmissionarray%lu", (unsigned long)EngineArray1.count);
         }
         if (row == 10){
             EnginePredicate = [NSPredicate predicateWithFormat:@"CarEngine CONTAINS %@", @"Rotary"];
             EngineArray1 = [PriceArray1 filteredArrayUsingPredicate:EnginePredicate];
-            NSLog(@"transmissionarray%lu", (unsigned long)EngineArray1.count);
         }
     }
 
@@ -379,22 +354,18 @@
         if (row == 0){
             TransmissionPredicate = [NSPredicate predicateWithFormat:@"CarTransmission.length > 0"];
             TransmissionArray1 = [EngineArray1 filteredArrayUsingPredicate:TransmissionPredicate];
-            NSLog(@"transmissionarray%lu", (unsigned long)TransmissionArray1.count);
         }
         if (row == 1){
             TransmissionPredicate = [NSPredicate predicateWithFormat:@"CarTransmission CONTAINS %@", @"Automatic"];
             TransmissionArray1 = [EngineArray1 filteredArrayUsingPredicate:TransmissionPredicate];
-            NSLog(@"transmissionarray%lu", (unsigned long)TransmissionArray1.count);
         }
         if (row == 2){
             TransmissionPredicate = [NSPredicate predicateWithFormat:@"CarTransmission CONTAINS %@", @"Manual"];
             TransmissionArray1 = [EngineArray1 filteredArrayUsingPredicate:TransmissionPredicate];
-            NSLog(@"transmissionarray%lu", (unsigned long)TransmissionArray1.count);
         }
         if (row == 3){
             TransmissionPredicate = [NSPredicate predicateWithFormat:@"CarTransmission CONTAINS %@", @"CVT"];
             TransmissionArray1 = [EngineArray1 filteredArrayUsingPredicate:TransmissionPredicate];
-            NSLog(@"transmissionarray%lu", (unsigned long)TransmissionArray1.count);
         }
     }
     
@@ -402,27 +373,22 @@
         if (row == 0){
             DriveTypePredicate = [NSPredicate predicateWithFormat:@"CarDriveType.length > 0"];
             DriveTypeArray1 = [TransmissionArray1 filteredArrayUsingPredicate:DriveTypePredicate];
-            NSLog(@"pricedata%lu", (unsigned long)DriveTypeArray1.count);
         }
         if (row == 1){
             DriveTypePredicate = [NSPredicate predicateWithFormat:@"CarDriveType CONTAINS %@", @"4WD"];
             DriveTypeArray1 = [TransmissionArray1 filteredArrayUsingPredicate:DriveTypePredicate];
-            NSLog(@"drivetypearray%@", DriveTypeArray1);
         }
         if (row == 2){
             DriveTypePredicate = [NSPredicate predicateWithFormat:@"CarDriveType CONTAINS %@",@"AWD"];
             DriveTypeArray1 = [TransmissionArray1 filteredArrayUsingPredicate:DriveTypePredicate];
-            NSLog(@"drivetypearray%@", DriveTypeArray1);
         }
         if (row == 3){
             DriveTypePredicate = [NSPredicate predicateWithFormat:@"CarDriveType CONTAINS %@", @"FWD"];
             DriveTypeArray1 = [TransmissionArray1 filteredArrayUsingPredicate:DriveTypePredicate];
-            NSLog(@"drivetypearray%@", DriveTypeArray1);
         }
         if (row == 4){
             DriveTypePredicate = [NSPredicate predicateWithFormat:@"CarDriveType CONTAINS %@", @"RWD"];
             DriveTypeArray1 = [TransmissionArray1 filteredArrayUsingPredicate:DriveTypePredicate];
-            NSLog(@"drivetypearray%@", DriveTypeArray1);
         }
     }
     
@@ -430,47 +396,38 @@
         if (row == 0){
             HorsepowerPredicate = [NSPredicate predicateWithFormat:@"CarHorsepower.length > 0"];
             HorsepowerArray1 = [DriveTypeArray1 filteredArrayUsingPredicate:HorsepowerPredicate];
-            NSLog(@"pricedata%lu", (unsigned long)HorsepowerArray1.count);
         }
         if (row == 1){
             HorsepowerPredicate = [NSPredicate predicateWithFormat:@"(CarHorsepowerHigh<=99 OR CarHorsepowerLow<=99) AND NOT (CarHorsepower CONTAINS %@)", @"N/A"];
             HorsepowerArray1 = [DriveTypeArray1 filteredArrayUsingPredicate:HorsepowerPredicate];
-            NSLog(@"horsepowerarraycount%lu", (unsigned long)HorsepowerArray1.count);
         }
         if (row == 2){
             HorsepowerPredicate = [NSPredicate predicateWithFormat:@"((CarHorsepowerLow>=100 AND CarHorsepowerLow<=200) OR (CarHorsepowerHigh>=100 AND CarHorsepowerHigh<=200))"];
             HorsepowerArray1 = [DriveTypeArray1 filteredArrayUsingPredicate:HorsepowerPredicate];
-            NSLog(@"transmissionarray%lu", (unsigned long)HorsepowerArray1.count);
         }
         if (row == 3){
             HorsepowerPredicate = [NSPredicate predicateWithFormat:@"((CarHorsepowerLow>=201 AND CarHorsepowerLow<=300) OR (CarHorsepowerHigh>=201 AND CarHorsepowerHigh<=300))"];
             HorsepowerArray1 = [DriveTypeArray1 filteredArrayUsingPredicate:HorsepowerPredicate];
-            NSLog(@"transmissionarray%lu", (unsigned long)HorsepowerArray1.count);
         }
         if (row == 4){
             HorsepowerPredicate = [NSPredicate predicateWithFormat:@"((CarHorsepowerLow>=301 AND CarHorsepowerLow<=400) OR (CarHorsepowerHigh>=301 AND CarHorsepowerHigh<=400))"];
             HorsepowerArray1 = [DriveTypeArray1 filteredArrayUsingPredicate:HorsepowerPredicate];
-            NSLog(@"horsepowerarraycount%lu", (unsigned long)HorsepowerArray1.count);
         }
         if (row == 5){
             HorsepowerPredicate = [NSPredicate predicateWithFormat:@"((CarHorsepowerLow>=401 AND CarHorsepowerLow<=500) OR (CarHorsepowerHigh>=401 AND CarHorsepowerHigh<=500))"];
             HorsepowerArray1 = [DriveTypeArray1 filteredArrayUsingPredicate:HorsepowerPredicate];
-            NSLog(@"horsepowerarraycount%lu", (unsigned long)HorsepowerArray1.count);
         }
         if (row == 6){
             HorsepowerPredicate = [NSPredicate predicateWithFormat:@"((CarHorsepowerLow>=501 AND CarHorsepowerLow<=600) OR (CarHorsepowerHigh>=501 AND CarHorsepowerHigh<=600))"];
             HorsepowerArray1 = [DriveTypeArray1 filteredArrayUsingPredicate:HorsepowerPredicate];
-            NSLog(@"horsepowerarraycount%lu", (unsigned long)HorsepowerArray1.count);
         }
         if (row == 7){
             HorsepowerPredicate = [NSPredicate predicateWithFormat:@"((CarHorsepowerLow>=601 AND CarHorsepowerLow<=700) OR (CarHorsepowerHigh>=601 AND CarHorsepowerHigh<=700))"];
             HorsepowerArray1 = [DriveTypeArray1 filteredArrayUsingPredicate:HorsepowerPredicate];
-            NSLog(@"horsepowerarraycount%lu", (unsigned long)HorsepowerArray1.count);
         }
         if (row == 8){
             HorsepowerPredicate = [NSPredicate predicateWithFormat:@"(CarHorsepowerLow>=701 OR CarHorsepowerHigh>=701)"];
             HorsepowerArray1 = [DriveTypeArray1 filteredArrayUsingPredicate:HorsepowerPredicate];
-            NSLog(@"horsepowerarraycount%lu", (unsigned long)HorsepowerArray1.count);
         }
     }
 
@@ -478,118 +435,81 @@
         if (row == 0){
             ZeroToSixtyPredicate = [NSPredicate predicateWithFormat:@"CarZeroToSixty.length > 0"];
             ZerotoSixtyArray1 = [HorsepowerArray1 filteredArrayUsingPredicate:ZeroToSixtyPredicate];
-            NSLog(@"pricedata%lu", (unsigned long)ZerotoSixtyArray1.count);
         }
         if (row == 1){
             ZeroToSixtyPredicate = [NSPredicate predicateWithFormat:@"(CarZeroToSixtyLow<=3 Or CarZeroToSixtyHigh<3) AND NOT (CarZeroToSixty CONTAINS %@)", @"N/A"];
             ZerotoSixtyArray1 = [HorsepowerArray1 filteredArrayUsingPredicate:ZeroToSixtyPredicate];
-            NSLog(@"transmissionarray%@", ZerotoSixtyArray1);
-            NSLog(@"horsepowerarraycount%lu", (unsigned long)ZerotoSixtyArray1.count);
         }
         if (row == 2){
             ZeroToSixtyPredicate = [NSPredicate predicateWithFormat:@"((CarZeroToSixtyLow>=3.1 AND CarZeroToSixtyLow<=4) OR (CarZeroToSixtyHigh>=3.1 AND CarZeroToSixtyHigh<=4))"];
             ZerotoSixtyArray1 = [HorsepowerArray1 filteredArrayUsingPredicate:ZeroToSixtyPredicate];
-            NSLog(@"transmissionarray%@", ZerotoSixtyArray1);
-            NSLog(@"horsepowerarraycount%lu", (unsigned long)ZerotoSixtyArray1.count);
         }
         if (row == 3){
             ZeroToSixtyPredicate = [NSPredicate predicateWithFormat:@"((CarZeroToSixtyLow>=4.1 AND CarZeroToSixtyLow<=5) OR (CarZeroToSixtyHigh>=4.1 AND CarZeroToSixtyHigh<=5))"];
             ZerotoSixtyArray1 = [HorsepowerArray1 filteredArrayUsingPredicate:ZeroToSixtyPredicate];
-            NSLog(@"transmissionarray%@", ZerotoSixtyArray1);
-            NSLog(@"horsepowerarraycount%lu", (unsigned long)ZerotoSixtyArray1.count);
         }
         if (row == 4){
             ZeroToSixtyPredicate = [NSPredicate predicateWithFormat:@"((CarZeroToSixtyLow>=5.1 AND CarZeroToSixtyLow<=5.5) OR (CarZeroToSixtyHigh>=5.1 AND CarZeroToSixtyHigh<=5.5))"];
             ZerotoSixtyArray1 = [HorsepowerArray1 filteredArrayUsingPredicate:ZeroToSixtyPredicate];
-            NSLog(@"transmissionarray%@", ZerotoSixtyArray1);
-            NSLog(@"horsepowerarraycount%lu", (unsigned long)ZerotoSixtyArray1.count);
         }
         if (row == 5){
             ZeroToSixtyPredicate = [NSPredicate predicateWithFormat:@"((CarZeroToSixtyLow>=5.6 AND CarZeroToSixtyLow<=6) OR (CarZeroToSixtyHigh>=5.6 AND CarZeroToSixtyHigh<=6))"];
             ZerotoSixtyArray1 = [HorsepowerArray1 filteredArrayUsingPredicate:ZeroToSixtyPredicate];
-            NSLog(@"transmissionarray%@", ZerotoSixtyArray1);
-            NSLog(@"horsepowerarraycount%lu", (unsigned long)ZerotoSixtyArray1.count);
         }
         if (row == 6){
             ZeroToSixtyPredicate = [NSPredicate predicateWithFormat:@"((CarZeroToSixtyLow>=6.1 AND CarZeroToSixtyLow<=6.5) OR (CarZeroToSixtyHigh>=6.1 AND CarZeroToSixtyHigh<=6.5))"];
             ZerotoSixtyArray1 = [HorsepowerArray1 filteredArrayUsingPredicate:ZeroToSixtyPredicate];
-            NSLog(@"transmissionarray%@", ZerotoSixtyArray1);
-            NSLog(@"horsepowerarraycount%lu", (unsigned long)ZerotoSixtyArray1.count);
         }
         if (row == 7){
             ZeroToSixtyPredicate = [NSPredicate predicateWithFormat:@"((CarZeroToSixtyLow>=6.6 AND CarZeroToSixtyLow<=7.0) OR (CarZeroToSixtyHigh>=6.6 AND CarZeroToSixtyHigh<=7.0))"];
             ZerotoSixtyArray1 = [HorsepowerArray1 filteredArrayUsingPredicate:ZeroToSixtyPredicate];
-            NSLog(@"transmissionarray%@", ZerotoSixtyArray1);
-            NSLog(@"horsepowerarraycount%lu", (unsigned long)ZerotoSixtyArray1.count);
         }
         if (row == 8){
             ZeroToSixtyPredicate = [NSPredicate predicateWithFormat:@"((CarZeroToSixtyLow>=7.1 AND CarZeroToSixtyLow<=8.0) OR (CarZeroToSixtyHigh>=7.1 AND CarZeroToSixtyHigh<=8.0))"];
             ZerotoSixtyArray1 = [HorsepowerArray1 filteredArrayUsingPredicate:ZeroToSixtyPredicate];
-            NSLog(@"transmissionarray%@", ZerotoSixtyArray1);
-            NSLog(@"horsepowerarraycount%lu", (unsigned long)ZerotoSixtyArray1.count);
         }
         if (row == 9){
             ZeroToSixtyPredicate = [NSPredicate predicateWithFormat:@"((CarZeroToSixtyLow>=8.1 AND CarZeroToSixtyLow<=9.0) OR (CarZeroToSixtyHigh>=8.1 AND CarZeroToSixtyHigh<=9.0))"];
             ZerotoSixtyArray1 = [HorsepowerArray1 filteredArrayUsingPredicate:ZeroToSixtyPredicate];
-            NSLog(@"transmissionarray%@", ZerotoSixtyArray1);
-            NSLog(@"horsepowerarraycount%lu", (unsigned long)ZerotoSixtyArray1.count);
         }
         if (row == 10){
             ZeroToSixtyPredicate = [NSPredicate predicateWithFormat:@"((CarZeroToSixtyLow>=9.1 AND CarZeroToSixtyLow<=10.0) OR (CarZeroToSixtyHigh>=9.1 AND CarZeroToSixtyHigh<=10.0))"];
             ZerotoSixtyArray1 = [HorsepowerArray1 filteredArrayUsingPredicate:ZeroToSixtyPredicate];
-            NSLog(@"transmissionarray%@", ZerotoSixtyArray1);
-            NSLog(@"horsepowerarraycount%lu", (unsigned long)ZerotoSixtyArray1.count);
         }
         if (row == 11){
             ZeroToSixtyPredicate = [NSPredicate predicateWithFormat:@"(CarZeroToSixtyLow>=10.1 Or CarZeroToSixtyHigh>=10.1)"];
             ZerotoSixtyArray1 = [HorsepowerArray1 filteredArrayUsingPredicate:ZeroToSixtyPredicate];
-            NSLog(@"transmissionarray%@", ZerotoSixtyArray1);
-            NSLog(@"horsepowerarraycount%lu", (unsigned long)ZerotoSixtyArray1.count);
         }
     }
     
     if([pickerView isEqual:FuelEconomyPicker]){
-        //@"Any", @"0-10", @"11-20", @"21-30", @"31-40", @"41-50", @"51+"
         if (row == 0){
             FEPredicate = [NSPredicate predicateWithFormat:@"CarFuelEconomy.length > 0"];
             FuelEconomyArray1 = [ZerotoSixtyArray1 filteredArrayUsingPredicate:FEPredicate];
-            NSLog(@"pricedata%lu", (unsigned long)FuelEconomyArray1.count);
         }
         if (row == 1){
             FEPredicate = [NSPredicate predicateWithFormat:@"(CarFuelEconomyLow<=10 Or CarFuelEconomyHigh<=10) AND NOT (CarFuelEconomy CONTAINS %@)", @"N/A"];
             FuelEconomyArray1 = [ZerotoSixtyArray1 filteredArrayUsingPredicate:FEPredicate];
-            NSLog(@"transmissionarray%@", ZerotoSixtyArray1);
-            NSLog(@"horsepowerarraycount%lu", (unsigned long)FuelEconomyArray1.count);
         }
         if (row == 2){
             FEPredicate = [NSPredicate predicateWithFormat:@"((CarFuelEconomyLow>=11 AND CarFuelEconomyLow<=20) OR (CarFuelEconomyHigh>=11 AND CarFuelEconomyHigh<=20))"];
             FuelEconomyArray1 = [ZerotoSixtyArray1 filteredArrayUsingPredicate:FEPredicate];
-            NSLog(@"transmissionarray%@", ZerotoSixtyArray1);
-            NSLog(@"horsepowerarraycount%lu", (unsigned long)FuelEconomyArray1.count);
         }
         if (row == 3){
             FEPredicate = [NSPredicate predicateWithFormat:@"((CarFuelEconomyLow>=21 AND CarFuelEconomyLow<=30) OR (CarFuelEconomyHigh>=21 AND CarFuelEconomyHigh<=30))"];
             FuelEconomyArray1 = [ZerotoSixtyArray1 filteredArrayUsingPredicate:FEPredicate];
-            NSLog(@"transmissionarray%@", ZerotoSixtyArray1);
-            NSLog(@"horsepowerarraycount%lu", (unsigned long)FuelEconomyArray1.count);
         }
         if (row == 4){
             FEPredicate = [NSPredicate predicateWithFormat:@"((CarFuelEconomyLow>=31 AND CarFuelEconomyLow<=40) OR (CarFuelEconomyHigh>=31 AND CarFuelEconomyHigh<=40))"];
             FuelEconomyArray1 = [ZerotoSixtyArray1 filteredArrayUsingPredicate:FEPredicate];
-            NSLog(@"transmissionarray%@", ZerotoSixtyArray1);
-            NSLog(@"horsepowerarraycount%lu", (unsigned long)FuelEconomyArray1.count);
         }
         if (row == 5){
             FEPredicate = [NSPredicate predicateWithFormat:@"((CarFuelEconomyLow>=41 AND CarFuelEconomyLow<=50) OR (CarFuelEconomyHigh>=41 AND CarFuelEconomyHigh<=50))"];
             FuelEconomyArray1 = [ZerotoSixtyArray1 filteredArrayUsingPredicate:FEPredicate];
-            NSLog(@"transmissionarray%@", ZerotoSixtyArray1);
-            NSLog(@"horsepowerarraycount%lu", (unsigned long)FuelEconomyArray1.count);
         }
         if (row == 6){
             FEPredicate = [NSPredicate predicateWithFormat:@"(CarFuelEconomyLow>=51 OR CarFuelEconomyHigh>=51)"];
             FuelEconomyArray1 = [ZerotoSixtyArray1 filteredArrayUsingPredicate:FEPredicate];
-            NSLog(@"transmissionarray%@", ZerotoSixtyArray1);
-            NSLog(@"horsepowerarraycount%lu", (unsigned long)FuelEconomyArray1.count);
         }
     }
     
@@ -605,7 +525,11 @@
     }
     
     if([pickerView isEqual:ModelPicker]){
-        ModelPredicate = [NSPredicate predicateWithFormat:@"CarModel == %@", [ModelArray objectAtIndex:row]];
+        NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+        if (row == 0)
+            ModelPredicate = [NSPredicate predicateWithFormat:@"CarMake == %@", [defaults objectForKey:@"currentMake"]];
+        else
+            ModelPredicate = [NSPredicate predicateWithFormat:@"CarModel == %@", [ModelArray objectAtIndex:row]];
     }
 }
 
@@ -659,13 +583,6 @@
 
     NSSortDescriptor * alphasort = [NSSortDescriptor sortDescriptorWithKey:@"CarModel" ascending:YES];
     FuelEconomyArray1 = [FuelEconomyArray1 sortedArrayUsingDescriptors:[NSArray arrayWithObject:alphasort]];
-    for(int i=0;i<FuelEconomyArray1.count;i++)
-    {
-        Model *currentModel = FuelEconomyArray1[i];
-        NSString *fe = currentModel.CarFuelEconomy;
-        NSString *carname = currentModel.CarFullName;
-        NSLog(@"FE: %@ Model: %@", fe, carname);
-    }
 }
 
 - (IBAction)UseModelPredicates {

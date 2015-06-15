@@ -13,8 +13,6 @@
 @interface ModelViewController : UITableViewController <UISearchDisplayDelegate>
 
 @property (nonatomic, strong) IBOutlet UISearchBar *searchBar;
-@property (nonatomic, strong) NSMutableArray * jsonArray;
-@property (nonatomic, strong) NSMutableArray * carArray;
 @property (nonatomic, strong) NSMutableArray * appdelmodelArray;
 @property (nonatomic, strong) NSArray * ModelArray;
 @property (nonatomic, strong) NSArray * searchArray;

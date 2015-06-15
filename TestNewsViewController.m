@@ -24,7 +24,6 @@
     self.loadingWheel.animationRepeatCount = 0;
     [self.loadingWheel startAnimating];
     
-    //NSURL *url = [NSURL URLWithString:@"http://www.pl0x.net/AutohubNews/?p=1"];
     NSURL *url = [NSURL URLWithString:_currentnews.NewsArticleURL];
     [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
 }
@@ -37,10 +36,6 @@
     [self.webView setAlpha:1];
     [UIView commitAnimations];
     [self.loadingWheel stopAnimating];
-    //if (!webView.isLoading)
-        //[self.loadingWheel stopAnimating];
-    //else
-        //NSLog(@"meow");
 }
 
 

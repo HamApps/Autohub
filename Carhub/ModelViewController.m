@@ -15,18 +15,12 @@
 #import "AppDelegate.h"
 #import "SDWebImage/UIImageView+WebCache.h"
 
-#define getDataURL @"http://pl0x.net/CarHubJSON2.php"
-
-#define getImageURL @"http://pl0x.net/image.php"
-
-#define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-
 @interface ModelViewController ()
 
 @end
 
 @implementation ModelViewController
-@synthesize currentMake, ModelArray, jsonArray, carArray, searchArray, appdelmodelArray;
+@synthesize currentMake, ModelArray, searchArray, appdelmodelArray;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -56,7 +50,7 @@
 
 - (void)filterContentForSearchText:(NSString *)searchText scope:(NSString *)scope
 {
-    NSPredicate *resultsPredicate = [NSPredicate predicateWithFormat:@"SELF.CarModel contains [search] %@", searchText];
+    NSPredicate *resultsPredicate = [NSPredicate predicateWithFormat:@"SELF.CarFullName contains [search] %@", searchText];
     self.searchArray = [[self.ModelArray filteredArrayUsingPredicate:resultsPredicate]mutableCopy];
     NSLog(@"searchArray %@", searchArray);
 }
@@ -83,7 +77,6 @@
         return self.ModelArray.count;
     }
 }
-
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -163,7 +156,6 @@
 - (void)getnumber
 {
     NSPredicate *MakePredicate = [NSPredicate predicateWithFormat:@"CarMake == %@", currentMake.MakeName];
-    //ModelArray = [carArray filteredArrayUsingPredicate:MakePredicate];
     ModelArray = [appdelmodelArray filteredArrayUsingPredicate:MakePredicate];
 }
 

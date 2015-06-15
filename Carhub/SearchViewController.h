@@ -14,7 +14,6 @@
     NSArray *PriceData;
 }
 
-
 @property (nonatomic, strong) NSMutableArray * specsArray;
 @property (nonatomic, strong) NSMutableArray * carArray;
 @property (nonatomic, strong) NSMutableArray * finalArray;
@@ -59,7 +58,6 @@
 @property (strong, nonatomic) NSPredicate *MakePredicate;
 @property (strong, nonatomic) NSPredicate *ModelPredicate;
 
-@property (nonatomic, strong) IBOutlet UILabel * OutputLabel;
 @property (retain, nonatomic) NSArray *PriceData;
 @property (retain, nonatomic) NSArray *EngineData;
 @property (retain, nonatomic) NSArray *EngineDisData;
