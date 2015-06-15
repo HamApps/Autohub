@@ -1590,6 +1590,14 @@ EEZ1ZWwxA
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="183" sectionHeaderHeight="22" sectionFooterHeight="22" id="C7W-u9-eIV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="Fyc-Yy-OHK">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="hBM-Zn-tm9" id="W8p-hN-adI"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ModelCell" rowHeight="183" id="Ds6-fi-eZB" customClass="CarViewCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="183"/>
@@ -1629,8 +1637,21 @@ EEZ1ZWwxA
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="568"/>
+                    <connections>
+                        <outlet property="searchBar" destination="Fyc-Yy-OHK" id="Ejn-dZ-KBw"/>
+                        <outlet property="searchDisplayController" destination="ah7-nU-gfk" id="YBe-Qv-IzT"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pnj-n0-Msk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="ah7-nU-gfk">
+                    <connections>
+                        <outlet property="delegate" destination="hBM-Zn-tm9" id="2n0-5m-VUw"/>
+                        <outlet property="searchBar" destination="Fyc-Yy-OHK" id="Wzz-dg-Zbh"/>
+                        <outlet property="searchContentsController" destination="hBM-Zn-tm9" id="Y0f-8N-eMb"/>
+                        <outlet property="searchResultsDataSource" destination="hBM-Zn-tm9" id="REr-KN-1hU"/>
+                        <outlet property="searchResultsDelegate" destination="hBM-Zn-tm9" id="FRC-W5-PVq"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="-84" y="2694"/>
         </scene>
@@ -1716,6 +1737,14 @@ EEZ1ZWwxA
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="i7Y-QK-PVW">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="zS1-Di-EFh" id="AMK-jg-YEf"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ModelCell" rowHeight="183" id="XT8-yY-bvS" customClass="CarViewCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="183"/>
@@ -1756,8 +1785,21 @@ EEZ1ZWwxA
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="568"/>
+                    <connections>
+                        <outlet property="searchBar" destination="i7Y-QK-PVW" id="rBY-c2-qHv"/>
+                        <outlet property="searchDisplayController" destination="Hfz-Mo-Q1o" id="sKl-uT-SZo"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iil-jp-yxG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="Hfz-Mo-Q1o">
+                    <connections>
+                        <outlet property="delegate" destination="zS1-Di-EFh" id="iTr-6U-4h7"/>
+                        <outlet property="searchBar" destination="i7Y-QK-PVW" id="bPj-fL-bw3"/>
+                        <outlet property="searchContentsController" destination="zS1-Di-EFh" id="VWj-OM-2JU"/>
+                        <outlet property="searchResultsDataSource" destination="zS1-Di-EFh" id="kar-TZ-9Ai"/>
+                        <outlet property="searchResultsDelegate" destination="zS1-Di-EFh" id="q9B-aY-nHf"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="-995" y="4338"/>
         </scene>
@@ -1814,12 +1856,12 @@ EEZ1ZWwxA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="IKm-l5-xV9"/>
+        <segue reference="30L-8O-aJ4"/>
+        <segue reference="7e7-5m-ct1"/>
         <segue reference="bdK-mg-JyT"/>
         <segue reference="r54-US-OFB"/>
-        <segue reference="CMB-An-ZTl"/>
         <segue reference="Qdr-UW-Q4c"/>
-        <segue reference="30L-8O-aJ4"/>
-        <segue reference="IKm-l5-xV9"/>
         <segue reference="adk-x1-Vyi"/>
     </inferredMetricsTieBreakers>
 </document>

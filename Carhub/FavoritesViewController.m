@@ -59,6 +59,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)filterContentForSearchText:(NSString *)searchText scope:(NSString *)scope
+{
+    NSPredicate *resultsPredicate = [NSPredicate predicateWithFormat:@"SELF.CarFullName contains [search] %@", searchText];
+    self.searchArray = [[self.ModelArray filteredArrayUsingPredicate:resultsPredicate]mutableCopy];
+    NSLog(@"searchArray %@", searchArray);
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString{
+    [self filterContentForSearchText:searchString scope:[[self.searchDisplayController.searchBar scopeButtonTitles]objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
+    return YES;
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -68,14 +80,23 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return ModelArray.count;
+    if(tableView == self.searchDisplayController.searchResultsTableView)
+    {
+        return self.searchArray.count;
+    }else{
+        return self.ModelArray.count;
+    }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 183;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"ModelCell";
-    CarViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    CarViewCell *cell = (CarViewCell *)[self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     self.view.backgroundColor = [UIColor whiteColor];
     cell.backgroundColor = [UIColor whiteColor];
@@ -85,8 +106,12 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
-    Model * modelObject = [ModelArray objectAtIndex:indexPath.row];
-
+    Model * modelObject;
+    if(tableView == self.searchDisplayController.searchResultsTableView){
+        modelObject = [self.searchArray objectAtIndex:indexPath.row];
+    } else {
+        modelObject = [self.ModelArray objectAtIndex:indexPath.row];
+    }
     
     cell.CarName.text = modelObject.CarFullName;
     //Accessory stuff

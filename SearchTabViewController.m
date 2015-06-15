@@ -38,7 +38,6 @@
 
 - (void)filterContentForSearchText:(NSString *)searchText scope:(NSString *)scope
 {
-    //NSPredicate *resultsPredicate = [NSPredicate predicateWithFormat:@"SELF.CarModel contains [search] %@", searchText];
     NSPredicate *resultsPredicate = [NSPredicate predicateWithFormat:@"SELF.CarFullName contains [search] %@", searchText];
     self.searchArray = [[self.ModelArray filteredArrayUsingPredicate:resultsPredicate]mutableCopy];
     NSLog(@"searchArray %@", searchArray);

@@ -19,7 +19,7 @@
 @end
 
 @implementation SearchModelController
-@synthesize currentModel, ModelArray, jsonArray, carArray, cachedImages;
+@synthesize currentModel, ModelArray, searchArray;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -33,7 +33,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.cachedImages = [[NSMutableDictionary alloc]init];
     self.title = @"Results";
     
     self.view.backgroundColor = [UIColor whiteColor];
@@ -43,6 +42,18 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)filterContentForSearchText:(NSString *)searchText scope:(NSString *)scope
+{
+    NSPredicate *resultsPredicate = [NSPredicate predicateWithFormat:@"SELF.CarModel contains [search] %@", searchText];
+    self.searchArray = [[self.ModelArray filteredArrayUsingPredicate:resultsPredicate]mutableCopy];
+    NSLog(@"searchArray %@", searchArray);
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString{
+    [self filterContentForSearchText:searchString scope:[[self.searchDisplayController.searchBar scopeButtonTitles]objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
+    return YES;
 }
 
 #pragma mark - Table view data source
@@ -55,20 +66,36 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    return carArray.count;
+    if(tableView == self.searchDisplayController.searchResultsTableView)
+    {
+        return self.searchArray.count;
+    }else{
+        return self.ModelArray.count;
+    }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 183;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"ModelCell";
-    CarViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    CarViewCell *cell = (CarViewCell *)[self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (cell==nil) {
+        cell = [[CarViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
     
     // Configure the cell...
     Model * modelObject;
-    modelObject = [carArray objectAtIndex:indexPath.row];
-    
+    if(tableView == self.searchDisplayController.searchResultsTableView){
+        modelObject = [self.searchArray objectAtIndex:indexPath.row];
+    } else {
+        modelObject = [self.ModelArray objectAtIndex:indexPath.row];
+    }
     cell.CarName.text = modelObject.CarModel;
     //Accessory stuff
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -100,10 +127,16 @@
     
     if ([[segue identifier] isEqualToString:@"pushDetailView"])
     {
-        NSIndexPath * indexPath = [self.tableView indexPathForSelectedRow];
-        
-        //Get the object for the selected row
-        Model * object = [carArray objectAtIndex:indexPath.row];
+        NSIndexPath * indexPath;
+        Model * object;
+
+        if (self.searchDisplayController.active) {
+            indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
+            object = [searchArray objectAtIndex:indexPath.row];
+        } else {
+            indexPath = [self.tableView indexPathForSelectedRow];
+            object = [ModelArray objectAtIndex:indexPath.row];
+        }
         [[segue destinationViewController] getModel:object];
     }
 }
@@ -111,7 +144,7 @@
 - (void)getsearcharray:(id)searcharrayObject;
 {
     //ModelArray = [[NSMutableArray alloc]init];
-    carArray = searcharrayObject;
+    ModelArray = searcharrayObject;
     NSLog(@"CarArraycount: %lu", (unsigned long)ModelArray.count);
     NSLog(@"meow");
 }

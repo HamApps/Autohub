@@ -12,7 +12,7 @@
 
 @interface FavoritesViewController : UITableViewController<UISearchDisplayDelegate>
 
-//@property (nonatomic, strong) IBOutlet UISearchBar *searchBar;
+@property (nonatomic, strong) IBOutlet UISearchBar *searchBar;
 
 @property (nonatomic, strong) NSMutableArray * ModelArray;
 @property (nonatomic, strong) NSArray * searchArray;
