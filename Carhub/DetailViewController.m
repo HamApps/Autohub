@@ -72,7 +72,7 @@ STKAudioPlayer * audioPlayer;
 - (void)viewWillAppear:(BOOL)animated {
     isPlaying = false;
     if(!([currentCar.CarExhaust isEqual:@""]))
-        [exhaustButton setBackgroundImage:[UIImage imageNamed:@"PlayButton@2x.png"] forState:UIControlStateNormal];
+        [exhaustButton setBackgroundImage:[UIImage imageNamed:@"ExhaustButtonStart@2x.png"] forState:UIControlStateNormal];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -97,7 +97,7 @@ STKAudioPlayer * audioPlayer;
     {
         cell = [[SpecsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"whiteback.jpg"]];
+    self.view.backgroundColor = [UIColor whiteColor];
     cell.SpecName.text = @"Years Made";
     
     return cell;
@@ -106,14 +106,14 @@ STKAudioPlayer * audioPlayer;
 -(IBAction)Sound{
     if(isPlaying == false){
     isPlaying = true;
-    [exhaustButton setBackgroundImage:[UIImage imageNamed:@"PauseButton@2x.png"] forState:UIControlStateNormal];
+    [exhaustButton setBackgroundImage:[UIImage imageNamed:@"ExhaustButtonStop@2x.png"] forState:UIControlStateNormal];
     [audioPlayer resume];
     NSString * soundurl = [@"http://www.pl0x.net/CarSounds/" stringByAppendingString:currentCar.CarExhaust];
     NSLog(@"soundurl: %@", soundurl);
     [audioPlayer play:soundurl];
     }else{
         isPlaying = false;
-        [exhaustButton setBackgroundImage:[UIImage imageNamed:@"PlayButton@2x.png"] forState:UIControlStateNormal];
+        [exhaustButton setBackgroundImage:[UIImage imageNamed:@"ExhaustButtonStart@2x.png"] forState:UIControlStateNormal];
         [audioPlayer stop];
     }
     

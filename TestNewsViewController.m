@@ -26,6 +26,8 @@
     
     NSURL *url = [NSURL URLWithString:_currentnews.NewsArticleURL];
     [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"LoadingWheelBackground5.png"]];
+
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView

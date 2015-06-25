@@ -49,7 +49,7 @@ STKAudioPlayer * audioPlayer;
     [scroller setScrollEnabled:YES];
     [scroller setContentSize:CGSizeMake(320, 1061)];
 
-    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"whiteback.jpg"]];
+    self.view.backgroundColor = [UIColor whiteColor];
     self.title = [[_currentCar.CarMake stringByAppendingString:@" "] stringByAppendingString:_currentCar.CarModel];
     
     [imageview setAlpha:1.0];
