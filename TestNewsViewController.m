@@ -27,6 +27,8 @@
     //NSURL *url = [NSURL URLWithString:_currentnews.NewsArticleURL];
     NSURL *url = [NSURL URLWithString:@"http://www.pl0x.net/AutohubNews/?p=32"];
     [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"LoadingWheelBackground5.png"]];
+
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView

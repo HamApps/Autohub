@@ -59,7 +59,7 @@ STKAudioPlayer * audioPlayer;
         [saveButton setBackgroundImage:[UIImage imageNamed:@"Star Outline@2x.png"] forState:UIControlStateNormal];
     
     [scroller setScrollEnabled:YES];
-    [scroller setContentSize:CGSizeMake(320, 780)];
+    [scroller setContentSize:CGSizeMake(320, 750)];
     
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = [[currentCar.CarMake stringByAppendingString:@" "] stringByAppendingString:currentCar.CarModel];
@@ -98,7 +98,7 @@ STKAudioPlayer * audioPlayer;
     {
         cell = [[SpecsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"whiteback.jpg"]];
+    self.view.backgroundColor = [UIColor whiteColor];
     cell.SpecName.text = @"Years Made";
     
     return cell;
