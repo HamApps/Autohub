@@ -13,11 +13,10 @@
 
 @interface MakeViewController : UICollectionViewController
 
-@property (nonatomic, strong) NSMutableArray * makejsonArray;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *barButton;
+
 @property (nonatomic, strong) NSMutableArray * makeimageArray;
 @property (nonatomic, strong) NSMutableArray * modelArray;
-@property (nonatomic, strong) NSMutableArray * appdelmodelArray;
-
 @property (nonatomic, strong) Make * currentMake;
 
 @end

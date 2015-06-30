@@ -13,14 +13,14 @@
 #import "AppDelegate.h"
 #import "TestNewsViewController.h"
 #import "SDWebImage/UIImageView+WebCache.h"
+#import "SWRevealViewController.h"
 
 @interface NewsViewController ()
 
 @end
 
 @implementation NewsViewController
-
-@synthesize jsonArray, newsArray, cachedImages;
+@synthesize jsonArray, newsArray;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -36,11 +36,14 @@
 {
     [super viewDidLoad];
     
+    self.barButton.target = self.revealViewController;
+    self.barButton.action = @selector(revealToggle:);
     self.title = @"Auto News";
+    
+    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     
     //Load Data
     [self makeAppDelNewsArray];
-    self.cachedImages = [[NSMutableDictionary alloc]init];
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,28 +52,20 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-
-    // Return the number of rows in the section.
-    //return newsArray.count;
     return newsArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
     static NSString *CellIdentifier = @"NewsCell";
     CarViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    // Configure the cell...
     News * newsObject;
     newsObject = [newsArray objectAtIndex:indexPath.row];
     
@@ -78,9 +73,6 @@
         cell = [[CarViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                   reuseIdentifier:CellIdentifier];
     }
-    
-    cell.CarName.text = newsObject.NewsTitle;
-    cell.NewsDescription.text = newsObject.NewsDescription;
     
     //Load and fade image
     [cell.CarImage sd_setImageWithURL:[NSURL URLWithString:newsObject.NewsImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/newsimage.php"]]
@@ -90,6 +82,8 @@
                                 [cell.CarImage setAlpha:1.0];
                                 }];
                             }];
+    cell.CarName.text = newsObject.NewsTitle;
+    cell.NewsDescription.text = newsObject.NewsDescription;
 
     
     //Accessory
@@ -125,7 +119,6 @@
     newsArray = [[NSMutableArray alloc]init];
     AppDelegate *appdel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [newsArray addObjectsFromArray:appdel.newsArray];
-    //NSLog(@"appdelarray3: %@", newsArray);
 }
 
 @end

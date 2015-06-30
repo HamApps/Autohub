@@ -13,8 +13,7 @@
 #import "Model.h"
 #import "DetailViewController.h"
 #import "SDWebImage/UIImageView+WebCache.h"
-
-#define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+#import "SWRevealViewController.h"
 
 @interface NewTopTensViewController ()
 
@@ -34,6 +33,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     //Set which Top Ten was picked
     AppDelegate *appdel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     topTensArray = [[NSMutableArray alloc]init];
@@ -54,20 +54,11 @@
         [topTensArray addObjectsFromArray:appdel.horsepowerArray];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
     return topTensArray.count;
 }
 
@@ -94,6 +85,7 @@
                     [cell.CarImage setAlpha:1.0];
             }];
         }];
+    
     return cell;
 }
 
@@ -109,9 +101,6 @@
     [appdelmodelArray addObjectsFromArray:appdel.modelArray];
 }
 
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"pushDetailView"])
     {

@@ -13,15 +13,14 @@
 @interface ModelViewController : UITableViewController <UISearchDisplayDelegate>
 
 @property (nonatomic, strong) IBOutlet UISearchBar *searchBar;
+
 @property (nonatomic, strong) NSMutableArray * appdelmodelArray;
 @property (nonatomic, strong) NSArray * ModelArray;
 @property (nonatomic, strong) NSArray * searchArray;
 @property (nonatomic, strong) NSMutableDictionary *cachedImages;
 @property (nonatomic, strong) NSArray * AlphabeticalArray;
-
 @property (nonatomic, strong) Make * currentMake;
 
-#pragma mark-
-#pragma mark Class Methods
 - (void) getMake:(id)makeObject;
+
 @end

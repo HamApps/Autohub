@@ -8,6 +8,7 @@
 
 #import "ImageViewController.h"
 #import "SDWebImage/UIImageView+WebCache.h"
+#import "SWRevealViewController.h"
 
 @interface ImageViewController ()
 
@@ -29,6 +30,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.barButton.target = self.revealViewController;
+    self.barButton.action = @selector(revealToggle:);
 
     scrollView.maximumZoomScale = 3.0; scrollView.minimumZoomScale = 0.6; scrollView.clipsToBounds = YES; scrollView.delegate = self; [scrollView addSubview:imageview];
     

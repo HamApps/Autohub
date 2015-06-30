@@ -15,6 +15,7 @@
 #import "FavoritesViewController.h"
 #import "ImageViewController.h"
 #import "SDWebImage/UIImageView+WebCache.h"
+#import "SWRevealViewController.h"
 
 @interface DetailViewController2 ()
 
@@ -37,6 +38,7 @@ STKAudioPlayer * audioPlayer;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
     isPlaying = false;
     audioPlayer = [[STKAudioPlayer alloc]init];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkStar) name:@"ChangeStar" object:nil];

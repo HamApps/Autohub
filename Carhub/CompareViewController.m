@@ -11,6 +11,7 @@
 #import <GoogleMobileAds/GADInterstitial.h>
 #import "ImageViewController.h"
 #import "SDWebImage/UIImageView+WebCache.h"
+#import "SWRevealViewController.h"
 
 @interface CompareViewController ()
 

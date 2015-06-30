@@ -13,10 +13,11 @@
 @interface FavoritesViewController : UITableViewController<UISearchDisplayDelegate>
 
 @property (nonatomic, strong) IBOutlet UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *barButton;
+@property (nonatomic, strong) UIBarButtonItem *editButton;
 
 @property (nonatomic, strong) NSMutableArray * ModelArray;
 @property (nonatomic, strong) NSArray * searchArray;
-@property (nonatomic, strong) UIBarButtonItem *editButton;
 
 - (void)loadSavedCars;
 

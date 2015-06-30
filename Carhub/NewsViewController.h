@@ -14,6 +14,6 @@
 @property (nonatomic, strong) NSMutableArray * jsonArray;
 @property (nonatomic, strong) NSMutableArray * newsArray;
 
-@property (nonatomic, strong) NSMutableDictionary *cachedImages;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *barButton;
 
 @end

@@ -11,11 +11,7 @@
 #import "SearchModelController.h"
 #import "Make.h"
 #import "AppDelegate.h"
-
-#define getDataURL @"http://pl0x.net/CarHubJSON2.php"
-#define getMakeDataURL @"http://pl0x.net/CarMakesJSON.php"
-
-#define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+#import "SWRevealViewController.h"
 
 @interface SearchViewController ()
 
@@ -37,6 +33,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.barButton.target = self.revealViewController;
+    self.barButton.action = @selector(revealToggle:);
+    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     
     [self makeAppDelModelArray];
     

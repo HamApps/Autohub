@@ -12,8 +12,9 @@
 @interface TestNewsViewController : UIViewController<UIWebViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
-@property (nonatomic, strong) News * currentnews;
 @property (nonatomic, strong) IBOutlet UIImageView * loadingWheel;
+
+@property (nonatomic, strong) News * currentnews;
 
 - (void)getNews:(id)newsObject;
 

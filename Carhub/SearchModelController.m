@@ -13,6 +13,7 @@
 #import "DetailViewController.h"
 #import "SearchViewController.h"
 #import "SDWebImage/UIImageView+WebCache.h"
+#import "SWRevealViewController.h"
 
 @interface SearchModelController ()
 
@@ -36,12 +37,6 @@
     self.title = @"Results";
     
     self.view.backgroundColor = [UIColor whiteColor];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)filterContentForSearchText:(NSString *)searchText scope:(NSString *)scope

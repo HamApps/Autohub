@@ -35,7 +35,6 @@
 
 @property (nonatomic, strong) NSString *cModel;
 
-//- (IBAction):UsePredicates;
 - (IBAction) UseModelPredicates;
 
 @property (weak, nonatomic) IBOutlet UIPickerView *Pricepicker;
@@ -71,6 +70,8 @@
 @property (nonatomic, strong) NSMutableArray * makejsonArray;
 @property (nonatomic, strong) NSMutableArray * makeimageArray;
 @property (nonatomic, strong) NSArray * AlphabeticalArray;
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *barButton;
 
 - (void) setModels;
 - (void) UsePredicates;

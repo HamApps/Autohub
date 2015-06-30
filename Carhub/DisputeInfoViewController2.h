@@ -13,5 +13,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *myTextView;
 - (IBAction)emailButton:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *barButton;
+
 @end
 

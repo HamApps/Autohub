@@ -13,11 +13,11 @@
 @interface SearchModelController : UITableViewController<UISearchDisplayDelegate>
 
 @property (nonatomic, strong) IBOutlet UISearchBar *searchBar;
+
 @property (nonatomic, retain) NSArray * ModelArray;
 @property (nonatomic, strong) NSArray * searchArray;
+@property (nonatomic, strong) Model * currentModel;
 
 - (void)getsearcharray:(id)searcharrayObject;
-
-@property (nonatomic, strong) Model * currentModel;
 
 @end

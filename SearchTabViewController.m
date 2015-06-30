@@ -13,34 +13,29 @@
 #import <QuartzCore/QuartzCore.h>
 #import "AppDelegate.h"
 #import "MakeViewController.h"
+#import "SWRevealViewController.h"
 
 @interface SearchTabViewController ()
 
 @end
 
 @implementation SearchTabViewController
-@synthesize ModelArray, searchArray, appdelmodelArray;
+@synthesize ModelArray, searchArray;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.searchDisplayController.active = YES;
-
     [self.searchBar becomeFirstResponder];
     
     self.title = @"Find Cars";
     [self makeAppDelModelArray];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (void)filterContentForSearchText:(NSString *)searchText scope:(NSString *)scope
 {
     NSPredicate *resultsPredicate = [NSPredicate predicateWithFormat:@"SELF.CarFullName contains [search] %@", searchText];
     self.searchArray = [[self.ModelArray filteredArrayUsingPredicate:resultsPredicate]mutableCopy];
-    NSLog(@"searchArray %@", searchArray);
 }
 
 -(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString{
@@ -71,8 +66,6 @@
 {
     static NSString *CellIdentifier = @"ModelCell";
     CarViewCell *cell = (CarViewCell *)[self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    self.view.backgroundColor = [UIColor whiteColor];
-    cell.backgroundColor = [UIColor whiteColor];
     if (cell==nil) {
         cell = [[CarViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -86,11 +79,11 @@
         modelObject = [self.ModelArray objectAtIndex:indexPath.row];
     }
     
-    cell.CarName.text = modelObject.CarFullName;
-    //Accessory stuff
+    //UI stuff
+    self.view.backgroundColor = [UIColor whiteColor];
+    cell.backgroundColor = [UIColor whiteColor];
     cell.layer.borderWidth=1.0f;
     cell.layer.borderColor=[UIColor blackColor].CGColor;
-    //cell.layer.cornerRadius = 20;
     cell.CarName.layer.borderWidth=1.0f;
     cell.CarName.layer.borderColor=[UIColor whiteColor].CGColor;
 
@@ -102,18 +95,16 @@
                                     [cell.CarImage setAlpha:1.0];
                                 }];
                             }];
+    cell.CarName.text = modelObject.CarFullName;
+    
     return cell;
 }
 
 - (void) makeAppDelModelArray;
 {
-    appdelmodelArray = [[NSMutableArray alloc]init];
     AppDelegate *appdel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [appdelmodelArray addObjectsFromArray:appdel.modelArray];
     ModelArray = [[NSMutableArray alloc]init];
-    [ModelArray addObjectsFromArray:appdelmodelArray];
-    NSLog(@"appdelmodelarray %@", appdelmodelArray);
-    NSLog(@"modelarray %@", ModelArray);
+    [ModelArray addObjectsFromArray:appdel.modelArray];
 }
 
 #pragma mark - Navigation
@@ -132,7 +123,7 @@
             indexPath = [self.tableView indexPathForSelectedRow];
             object = [ModelArray objectAtIndex:indexPath.row];
         }
-        NSLog (@"object.Carmodel%@", object.CarModel);
+        
         [[segue destinationViewController] getModel:object];
     }
 }

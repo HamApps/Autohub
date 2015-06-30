@@ -21,3 +21,4 @@
 - (id)initWithNewsTitle:(NSString *)nTitle andNewsImageURL:(NSString *)nImageURL andNewsDescription:(NSString *)nDescription andNewsArticle:(NSString *)nArticle andNewsDate:(NSString *)nDate andNewsArticleURL:(NSString *) nArticleURL;
 
 @end
+

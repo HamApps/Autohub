@@ -7,6 +7,7 @@
 //
 
 #import "DisputeInfoViewController2.h"
+#import "SWRevealViewController.h"
 
 @interface DisputeInfoViewController2 ()
 
@@ -26,6 +27,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.barButton.target = self.revealViewController;
+    self.barButton.action = @selector(revealToggle:);
+    
     self.title = @"Info Dispute";
     self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"whiteback.jpg"]];
     // Do any additional setup after loading the view.

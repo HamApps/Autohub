@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
 
-@interface DisputeInfoViewController : UIViewController<MFMailComposeViewControllerDelegate>
+@interface DisputeInfoViewController : UIViewController<MFMailComposeViewControllerDelegate, UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *myTextView;
 - (IBAction)emailButton:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *barButton;
 
 @end

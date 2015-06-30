@@ -18,4 +18,6 @@
 - (void)getfirstModel:(id)firstcarObject;
 - (void)getsecondModel:(id)secondcarObject;
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *barButton;
+
 @end

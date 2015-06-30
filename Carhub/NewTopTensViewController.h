@@ -14,10 +14,8 @@
 @property (nonatomic, strong) NSMutableArray * jsonArray;
 @property (nonatomic, strong) NSMutableArray * topTensArray;
 @property (nonatomic, strong) NSMutableArray * appdelmodelArray;
-
 @property (nonatomic, strong) NSString *currentTopTen;
 @property (nonatomic, strong) NSString *urlExtention;
-
 @property(nonatomic, strong) Model * objectToSend;
 
 -(void)getTopTenID:(id)TopTenID;
