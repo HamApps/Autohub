@@ -91,6 +91,7 @@
             <string>EurostileRegular</string>
             <string>EurostileRegular</string>
             <string>EurostileRegular</string>
+            <string>EurostileRegular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -131,7 +132,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0qj-6K-XHd">
                                             <rect key="frame" x="3" y="4" width="47" height="39"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                            <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="26"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -272,7 +273,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Engine1" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ika-hf-Ekx">
-                                        <rect key="frame" x="7" y="247" width="100" height="39"/>
+                                        <rect key="frame" x="7" y="245" width="104" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="13"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -286,7 +287,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transmission1" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6es-ci-W5D">
-                                        <rect key="frame" x="7" y="300" width="90" height="50"/>
+                                        <rect key="frame" x="7" y="294" width="90" height="62"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="13"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1950,7 +1951,7 @@ EEZ1ZWwxA
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="r54-US-OFB"/>
-        <segue reference="UR4-Fk-tIr"/>
+        <segue reference="qHV-ed-jCq"/>
         <segue reference="30L-8O-aJ4"/>
         <segue reference="C6b-Pf-jq5"/>
         <segue reference="IKm-l5-xV9"/>
