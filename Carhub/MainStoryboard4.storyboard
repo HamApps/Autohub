@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="bUt-7L-xzk">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="eurostile.TTF">
@@ -491,11 +491,11 @@
             <objects>
                 <viewController id="GCP-Ir-q3y" customClass="CompareViewController2" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H2F-DA-Dmd">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="514"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="KKt-Ac-xl8">
-                                <rect key="frame" x="0.0" y="61" width="320" height="570"/>
+                                <rect key="frame" x="0.0" y="-25" width="320" height="570"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weight Icon.png" id="u4Z-q1-1TQ">
@@ -869,7 +869,7 @@ EEZ1ZWwxA
             <objects>
                 <viewController id="wEG-mh-v4Y" customClass="DisputeInfoViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Fa-7L-6D0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SpecsDisputePage4.png" id="glX-MP-UQY">
@@ -895,7 +895,7 @@ EEZ1ZWwxA
                                     <action selector="emailButton:" destination="wEG-mh-v4Y" eventType="touchUpInside" id="uLY-VM-KgZ"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="rrJ-X3-1La">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="rrJ-X3-1Lb">
                                 <rect key="frame" x="48" y="184" width="225" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.97089165060000004" green="0.96583916020000005" blue="0.95689128180000005" alpha="1" colorSpace="calibratedRGB"/>
@@ -1761,7 +1761,7 @@ EEZ1ZWwxA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qb8-57-ZTL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1589" y="-226"/>
+            <point key="canvasLocation" x="-1047" y="-288"/>
         </scene>
         <!--Navigation View Controller-->
         <scene sceneID="WRR-oI-Ouv">
@@ -1898,7 +1898,7 @@ EEZ1ZWwxA
         <image name="SpecsDisputePage4.png" width="320" height="480"/>
         <image name="Sport-Activities-Stopwatch-icon.png" width="256" height="256"/>
         <image name="Transmission Icon.png" width="256" height="256"/>
-        <image name="Years Made Icon.png" width="256" height="256"/>
+        <image name="Years Made Icon.png" width="320" height="568"/>
         <image name="blue button 2.png" width="154" height="46"/>
         <image name="dollarsign.png" width="404" height="662"/>
         <image name="fuel pump icon.png" width="150" height="150"/>
@@ -1914,12 +1914,12 @@ EEZ1ZWwxA
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="q18-YF-yA8"/>
-        <segue reference="yVH-B1-Ypj"/>
-        <segue reference="9Lp-9r-wHa"/>
-        <segue reference="Kpt-H6-pwv"/>
         <segue reference="B34-lZ-zbJ"/>
+        <segue reference="9Lp-9r-wHa"/>
+        <segue reference="yVH-B1-Ypj"/>
+        <segue reference="q18-YF-yA8"/>
+        <segue reference="jtL-zx-N97"/>
         <segue reference="dF7-WB-K3G"/>
-        <segue reference="chA-ZM-Ebw"/>
+        <segue reference="Kpt-H6-pwv"/>
     </inferredMetricsTieBreakers>
 </document>
