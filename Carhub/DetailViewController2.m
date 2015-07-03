@@ -38,10 +38,15 @@ STKAudioPlayer * audioPlayer;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UIImage* tabBarBackground = [UIImage imageNamed:@"DarkerTabBarColor.png"];
+    [toolbar setBackgroundImage:tabBarBackground forToolbarPosition:UIToolbarPositionBottom barMetrics:UIBarMetricsDefault];
+    [toolbar setFrame:CGRectMake(0, 420, 320, 60)];
 
     isPlaying = false;
     audioPlayer = [[STKAudioPlayer alloc]init];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkStar) name:@"ChangeStar" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(revertExhaustButton) name:@"RevertExhaustButton" object:nil];
     
     if([self isSaved:_currentCar] == true)
         [saveButton setBackgroundImage:[UIImage imageNamed:@"Solid Star@2x.png"] forState:UIControlStateNormal];
@@ -49,7 +54,7 @@ STKAudioPlayer * audioPlayer;
         [saveButton setBackgroundImage:[UIImage imageNamed:@"Star Outline@2x.png"] forState:UIControlStateNormal];
     
     [scroller setScrollEnabled:YES];
-    [scroller setContentSize:CGSizeMake(320, 845)];
+    [scroller setContentSize:CGSizeMake(320, 860)];
 
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = [[_currentCar.CarMake stringByAppendingString:@" "] stringByAppendingString:_currentCar.CarModel];
@@ -63,7 +68,7 @@ STKAudioPlayer * audioPlayer;
 - (void)viewWillAppear:(BOOL)animated {
     isPlaying = false;
     if(!([_currentCar.CarExhaust isEqual:@""]))
-        [exhaustButton setBackgroundImage:[UIImage imageNamed:@"PlayButton@2x.png"] forState:UIControlStateNormal];
+        [exhaustButton setBackgroundImage:[UIImage imageNamed:@"ExhaustButtonStart.png"] forState:UIControlStateNormal];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -71,19 +76,21 @@ STKAudioPlayer * audioPlayer;
 }
 
 -(IBAction)Sound{
+    if(!([_currentCar.CarExhaust isEqual:@""])){
     if(isPlaying == false){
         isPlaying = true;
-        [exhaustButton setBackgroundImage:[UIImage imageNamed:@"PauseButton@2x.png"] forState:UIControlStateNormal];
+        [exhaustButton setBackgroundImage:[UIImage imageNamed:@"ExhuastButtonStop.png"] forState:UIControlStateNormal];
         [audioPlayer resume];
         NSString * soundurl = [[[@"http://www.pl0x.net/CarSounds/" stringByAppendingString:_currentCar.CarMake] stringByAppendingString:_currentCar.CarModel]stringByAppendingString:@".mp3"];
         [audioPlayer play:soundurl];
     }else{
         isPlaying = false;
-        [exhaustButton setBackgroundImage:[UIImage imageNamed:@"PlayButton@2x.png"] forState:UIControlStateNormal];
+        [exhaustButton setBackgroundImage:[UIImage imageNamed:@"ExhaustButtonStart.png"] forState:UIControlStateNormal];
         [audioPlayer stop];
     }
     
     NSLog(@"button was pressed");
+    }
 }
 
 
@@ -143,6 +150,12 @@ STKAudioPlayer * audioPlayer;
         [saveButton setBackgroundImage:[UIImage imageNamed:@"Star OutLine@2x.png"] forState:UIControlStateNormal];
     else
         [saveButton setBackgroundImage:[UIImage imageNamed:@"Solid Star@2x.png"] forState:UIControlStateNormal];
+}
+
+- (void)revertExhaustButton
+{
+    isPlaying = false;
+    [exhaustButton setBackgroundImage:[UIImage imageNamed:@"ExhaustButtonStart.png"] forState:UIControlStateNormal];
 }
 
 #pragma mark -

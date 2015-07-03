@@ -41,6 +41,10 @@ STKAudioPlayer * audioPlayer;
 {
     [super viewDidLoad];
     
+    UIImage* tabBarBackground = [UIImage imageNamed:@"DarkerTabBarColor.png"];
+    [toolbar setBackgroundImage:tabBarBackground forToolbarPosition:UIToolbarPositionBottom barMetrics:UIBarMetricsDefault];
+    [toolbar setFrame:CGRectMake(0, 508, 320, 60)];
+    
     SpecsTableView = [[UITableView alloc]init];
     SpecsTableView.dataSource = self;
     SpecsTableView.delegate = self;
@@ -52,6 +56,7 @@ STKAudioPlayer * audioPlayer;
     
     audioPlayer = [[STKAudioPlayer alloc]init];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkStar) name:@"ChangeStar" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(revertExhaustButton) name:@"RevertExhaustButton" object:nil];
     
     if([self isSaved:currentCar] == true)
         [saveButton setBackgroundImage:[UIImage imageNamed:@"Solid Star@2x.png"] forState:UIControlStateNormal];
@@ -104,9 +109,8 @@ STKAudioPlayer * audioPlayer;
     return cell;
 }
 
-
-
 -(IBAction)Sound{
+    if(!([currentCar.CarExhaust isEqual:@""])){
     if(isPlaying == false){
     isPlaying = true;
     [exhaustButton setBackgroundImage:[UIImage imageNamed:@"ExhuastButtonStop.png"] forState:UIControlStateNormal];
@@ -121,6 +125,7 @@ STKAudioPlayer * audioPlayer;
     }
     
     NSLog(@"button was pressed");
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -176,6 +181,12 @@ STKAudioPlayer * audioPlayer;
         [saveButton setBackgroundImage:[UIImage imageNamed:@"Star OutLine@2x.png"] forState:UIControlStateNormal];
     else
         [saveButton setBackgroundImage:[UIImage imageNamed:@"Solid Star@2x.png"] forState:UIControlStateNormal];
+}
+
+- (void)revertExhaustButton
+{
+    isPlaying = false;
+    [exhaustButton setBackgroundImage:[UIImage imageNamed:@"ExhaustButtonStart.png"] forState:UIControlStateNormal];
 }
 
 #pragma mark -

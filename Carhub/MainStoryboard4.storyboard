@@ -180,18 +180,18 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="794" y="-538"/>
+            <point key="canvasLocation" x="792" y="-582"/>
         </scene>
         <!--Detail View Controller2-->
         <scene sceneID="75D-jb-hIS">
             <objects>
                 <viewController id="wqd-aT-3l0" customClass="DetailViewController2" sceneMemberID="viewController">
                     <view key="view" contentMode="redraw" id="bIF-ek-1Vg">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="vcM-KJ-qF2">
-                                <rect key="frame" x="0.0" y="-44" width="320" height="687"/>
+                                <rect key="frame" x="0.0" y="36" width="320" height="485"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="FsU-Df-glK">
@@ -399,32 +399,45 @@
                                         <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="14"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="EDL-vr-UGM">
-                                        <rect key="frame" x="139" y="0.0" width="40" height="40"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="Save" destination="wqd-aT-3l0" eventType="touchUpInside" id="LQI-4j-uAi"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lTr-HE-n6h">
-                                        <rect key="frame" x="290" y="108" width="22" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="Sound" destination="wqd-aT-3l0" eventType="touchUpInside" id="4q1-aa-vlD"/>
-                                        </connections>
-                                    </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TopSpeedIcon.png" id="Aip-Zm-gle">
                                         <rect key="frame" x="6" y="600" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
                             </scrollView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Pwk-VT-fs3">
+                                <rect key="frame" x="0.0" y="475" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem width="50" style="plain" systemItem="fixedSpace" id="VHu-IN-FIK"/>
+                                    <barButtonItem style="plain" id="iy6-Mw-HdA">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Lnk-V5-bpN">
+                                            <rect key="frame" x="66" y="7" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="Save" destination="wqd-aT-3l0" eventType="touchUpInside" id="hy4-Lz-G6r"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
+                                    <barButtonItem width="80" style="plain" systemItem="fixedSpace" id="4Ns-L2-poe"/>
+                                    <barButtonItem style="plain" id="XGS-ke-PbU">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="oTa-ri-Zh6">
+                                            <rect key="frame" x="206" y="7" width="60" height="60"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="Sound" destination="wqd-aT-3l0" eventType="touchUpInside" id="Dj6-dx-fF4"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
+                                    <barButtonItem width="50" style="plain" systemItem="fixedSpace" id="C7X-gh-fSH"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="0.70196080207824707" green="0.70196080207824707" blue="0.70196080207824707" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -450,22 +463,23 @@
                         <outlet property="CarWeightLabel" destination="2O3-h5-8dT" id="szr-PZ-aAi"/>
                         <outlet property="CarYearsMadeLabel" destination="1Vd-Rn-5Rt" id="jny-1h-9WK"/>
                         <outlet property="CarZeroToSixtyLabel" destination="GLD-IJ-nDa" id="fpR-o5-Dyh"/>
-                        <outlet property="exhaustButton" destination="lTr-HE-n6h" id="vrF-aQ-CgZ"/>
+                        <outlet property="exhaustButton" destination="oTa-ri-Zh6" id="SdM-u7-roS"/>
                         <outlet property="imageview" destination="FsU-Df-glK" id="QVd-uK-Zfr"/>
-                        <outlet property="saveButton" destination="EDL-vr-UGM" id="xnp-G0-4i5"/>
+                        <outlet property="saveButton" destination="Lnk-V5-bpN" id="ko5-QW-J6D"/>
                         <outlet property="scroller" destination="vcM-KJ-qF2" id="tf1-Kf-vaz"/>
+                        <outlet property="toolbar" destination="Pwk-VT-fs3" id="A5o-Tr-rJU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sRq-yy-9gL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1180" y="-538"/>
+            <point key="canvasLocation" x="1162" y="-582"/>
         </scene>
         <!--Image View Controller-->
         <scene sceneID="et8-Ds-ccj">
             <objects>
                 <viewController id="jMX-vW-yfd" customClass="ImageViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A0o-ni-HhA">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="MJN-Sy-Mn4">
@@ -496,11 +510,11 @@
             <objects>
                 <viewController id="GCP-Ir-q3y" customClass="CompareViewController2" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H2F-DA-Dmd">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="514"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="KKt-Ac-xl8">
-                                <rect key="frame" x="0.0" y="-25" width="320" height="570"/>
+                                <rect key="frame" x="0.0" y="29" width="320" height="490"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WeightIcon.png" id="u4Z-q1-1TQ">
@@ -836,7 +850,7 @@ EEZ1ZWwxA
                         </barButtonItem>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="800"/>
+                    <size key="freeformSize" width="320" height="568"/>
                     <connections>
                         <outlet property="CarDriveTypeLabel" destination="1Rh-B5-JS1" id="KYE-35-Fte"/>
                         <outlet property="CarDriveTypeLabel2" destination="TmX-dT-Oos" id="5dD-qs-o7M"/>
@@ -874,7 +888,7 @@ EEZ1ZWwxA
             <objects>
                 <viewController id="wEG-mh-v4Y" customClass="DisputeInfoViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Fa-7L-6D0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SpecsDisputePage4.png" id="glX-MP-UQY">
@@ -1110,7 +1124,7 @@ EEZ1ZWwxA
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="IV9-rb-YGr" customClass="MakeViewController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="IR4-nS-G1A">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="79L-83-J38">
@@ -1124,7 +1138,7 @@ EEZ1ZWwxA
                                 <rect key="frame" x="0.0" y="64" width="106.66" height="105"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="107" height="105"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="106.66" height="105"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="S9I-Vw-z5h">
@@ -1135,7 +1149,7 @@ EEZ1ZWwxA
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="fpq-Qp-R7y">
-                                            <rect key="frame" x="11" y="1" width="78" height="83"/>
+                                            <rect key="frame" x="13" y="4" width="75" height="82"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
                                     </subviews>
@@ -1900,13 +1914,14 @@ EEZ1ZWwxA
         <image name="0-60icon.png" width="32" height="32"/>
         <image name="EngineIcon.png" width="256" height="256"/>
         <image name="Horsepower Icon.png" width="150" height="133"/>
+        <image name="PriceIcon.png" width="32" height="32"/>
         <image name="SpecsDisputePage4.png" width="320" height="480"/>
-        <image name="Sport-Activities-Stopwatch-icon.png" width="256" height="256"/>
-        <image name="Transmission Icon.png" width="256" height="256"/>
-        <image name="Years Made Icon.png" width="320" height="568"/>
+        <image name="TopSpeedIcon.png" width="32" height="32"/>
+        <image name="TransmissionIcon.png" width="32" height="32"/>
+        <image name="WeightIcon.png" width="32" height="32"/>
         <image name="blue button 2.png" width="154" height="46"/>
-        <image name="dollarsign.png" width="404" height="662"/>
-        <image name="fuel pump icon.png" width="150" height="150"/>
+        <image name="calendar112.png" width="32" height="32"/>
+        <image name="fuelEconomyIcon.png" width="32" height="32"/>
         <image name="lines7.png" width="32" height="32"/>
         <image name="searchbar2.png" width="240" height="34"/>
         <image name="wheels10.png" width="32" height="32"/>
@@ -1917,12 +1932,12 @@ EEZ1ZWwxA
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="B34-lZ-zbJ"/>
-        <segue reference="9Lp-9r-wHa"/>
         <segue reference="yVH-B1-Ypj"/>
-        <segue reference="q18-YF-yA8"/>
-        <segue reference="jtL-zx-N97"/>
         <segue reference="dF7-WB-K3G"/>
+        <segue reference="b6C-O1-37U"/>
+        <segue reference="CS9-r1-biV"/>
+        <segue reference="B34-lZ-zbJ"/>
+        <segue reference="1cg-w3-3rc"/>
         <segue reference="Kpt-H6-pwv"/>
     </inferredMetricsTieBreakers>
 </document>

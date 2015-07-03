@@ -15,6 +15,7 @@
     IBOutlet UIButton *exhaustButton;
     IBOutlet UIImageView *imageview;
     IBOutlet UIScrollView * scroller;
+    IBOutlet UIToolbar * toolbar;
 }
 
 @property(nonatomic, strong) IBOutlet UILabel * CarYearsMadeLabel;

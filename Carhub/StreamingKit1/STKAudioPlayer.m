@@ -1078,6 +1078,7 @@ static void AudioFileStreamPacketsProc(void* clientData, UInt32 numberBytes, UIn
     
     [self processFinishPlayingIfAnyAndPlayingNext:entry withNext:next];
     [self processRunloop];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"RevertExhaustButton" object:nil];
 }
 
 -(void) setCurrentlyReadingEntry:(STKQueueEntry*)entry andStartPlaying:(BOOL)startPlaying
