@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="5rc-4q-CRu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="5rc-4q-CRu">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="eurostile.TTF">
@@ -175,7 +175,7 @@
             <objects>
                 <viewController id="dyO-Xs-Ifc" customClass="DisputeInfoViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5K0-9c-PuS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="1632"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SpecsDisputePage.png" id="fMk-nG-cIj">
@@ -1344,7 +1344,7 @@ EEZ1ZWwxA
                                 <rect key="frame" x="0.0" y="0.0" width="109.66" height="108"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="110" height="108"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="109.66" height="108"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5iO-RK-T6h">
@@ -1964,7 +1964,7 @@ EEZ1ZWwxA
         <image name="dark blue button.png" width="154" height="46"/>
         <image name="ferrari logo.png" width="1000" height="1600"/>
         <image name="fuelEconomyIcon.png" width="32" height="32"/>
-        <image name="lines7.png" width="12" height="12"/>
+        <image name="lines7.png" width="32" height="32"/>
         <image name="peugeot logo.png" width="640" height="451"/>
         <image name="searchbar2.png" width="240" height="34"/>
         <image name="wheels10.png" width="32" height="32"/>
@@ -1976,11 +1976,11 @@ EEZ1ZWwxA
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="2uW-oU-10V"/>
+        <segue reference="r54-US-OFB"/>
+        <segue reference="gJw-Hj-Nih"/>
         <segue reference="7e7-5m-ct1"/>
         <segue reference="Qdr-UW-Q4c"/>
         <segue reference="30L-8O-aJ4"/>
-        <segue reference="l8b-EC-7zU"/>
         <segue reference="RxO-oc-qbF"/>
-        <segue reference="r54-US-OFB"/>
     </inferredMetricsTieBreakers>
 </document>
