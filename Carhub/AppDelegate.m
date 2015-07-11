@@ -26,60 +26,102 @@
 @synthesize favoritesarray, modelArray, modeljsonArray, makeimageArray, makejsonArray, AlphabeticalArray, newsArray, newsjsonArray, makeimageArray2, makejsonArray2, AlphabeticalArray2, zt60Array, topspeedArray, nurbArray, expensiveArray, fuelArray, horsepowerArray, toptensArray, topTensjson;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+
 {
+    
     UIStoryboard *storyboard = [self grabStoryboard];
     
+    
+    
     [self retrieveModelData];
+    
     NSLog(@"Done 1");
+    
     [self retrieveMakeImageData];
+    
     NSLog(@"Done 2");
+    
     [self retrievenewsData];
+    
     NSLog(@"Done 3");
+    
     [self retrieveMakeImageData2];
+    
     NSLog(@"Done 4");
+    
     [self retrieveTopTensData];
+    
     NSLog(@"Done 5");
+    
     [self splitTopTensArrays];
+    
     NSLog(@"Done 6");
     
+    
+    
     // show the storyboard
+    
     self.window.rootViewController = [storyboard instantiateInitialViewController];
+    
     [self.window makeKeyAndVisible];
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    bool saved = [defaults boolForKey:k_Save];
     
-    if (!saved){
-        [defaults setObject:@"yes" forKey:@"showads"];
-    } else {
-        //saved code here
-        self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    
+    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    
+    
+    
+    int height = [UIScreen mainScreen].bounds.size.height;
+    
+    if (height == 480) {
         
-        int height = [UIScreen mainScreen].bounds.size.height;
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard4" bundle:nil];
         
-        if (height == 480) {
-            [defaults setObject:@"no" forKey:@"showads"];
         
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard4" bundle:nil];
         
-            UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"IAP"]; // determine the initial view controller here and instantiate it with [storyboard instantiateViewControllerWithIdentifier:<storyboard id>];
+        UIViewController *viewController = [storyboard instantiateInitialViewController];
         
-            self.window.rootViewController = viewController;
-            [self.window makeKeyAndVisible];
-        } else {
-            [defaults setObject:@"no" forKey:@"showads"];
-            
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-            UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"IAP2"];
-            self.window.rootViewController = viewController;
-            [self.window makeKeyAndVisible];
-        }
+        self.window.rootViewController = viewController;
+        
+        [self.window makeKeyAndVisible];
+        
+    } else if (height == 568) {
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        
+        UIViewController *viewController = [storyboard instantiateInitialViewController];
+        
+        self.window.rootViewController = viewController;
+        
+        [self.window makeKeyAndVisible];
+        
+    } if (height == 667) {
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard6" bundle:nil];
+        
+        UIViewController *viewController = [storyboard instantiateInitialViewController];
+        
+        self.window.rootViewController = viewController;
+        
+        [self.window makeKeyAndVisible];
+        
+    } if (height == 736) {
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard6+" bundle:nil];
+        
+        UIViewController *viewController = [storyboard instantiateInitialViewController];
+        
+        self.window.rootViewController = viewController;
+        
+        [self.window makeKeyAndVisible];
+        
     }
     
+    
+    
     return YES;
-    return YES;
+    
 }
-
 - (UIStoryboard *)grabStoryboard {
     
     UIStoryboard *storyboard;
