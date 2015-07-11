@@ -123,6 +123,7 @@
         if (!label) {
             label = [[UILabel alloc] initWithFrame:CGRectMake(1.0f, 1.0f, [pickerView rowSizeForComponent:component].width, [pickerView rowSizeForComponent:component].height)];
         }
+        label.textAlignment = NSTextAlignmentCenter;
         label.font = [UIFont systemFontOfSize:16];
         label.text = [PriceData objectAtIndex:row];
         return label;
@@ -134,6 +135,7 @@
         if (!label) {
             label = [[UILabel alloc] initWithFrame:CGRectMake(1.0f, 1.0f, [pickerView rowSizeForComponent:component].width, [pickerView rowSizeForComponent:component].height)];
         }
+        label.textAlignment = NSTextAlignmentCenter;
         label.font = [UIFont systemFontOfSize:16];
         label.text = [EngineData objectAtIndex:row];
         return label;
@@ -145,6 +147,7 @@
         if (!label) {
             label = [[UILabel alloc] initWithFrame:CGRectMake(1.0f, 1.0f, [pickerView rowSizeForComponent:component].width, [pickerView rowSizeForComponent:component].height)];
         }
+        label.textAlignment = NSTextAlignmentCenter;
         label.font = [UIFont systemFontOfSize:16];
         label.text = [TransmissionData objectAtIndex:row];
         return label;
@@ -156,6 +159,7 @@
         if (!label) {
             label = [[UILabel alloc] initWithFrame:CGRectMake(1.0f, 1.0f, [pickerView rowSizeForComponent:component].width, [pickerView rowSizeForComponent:component].height)];
         }
+        label.textAlignment = NSTextAlignmentCenter;
         label.font = [UIFont systemFontOfSize:16];
         label.text = [DriveTypeData objectAtIndex:row];
         return label;
@@ -167,6 +171,7 @@
         if (!label) {
             label = [[UILabel alloc] initWithFrame:CGRectMake(1.0f, 1.0f, [pickerView rowSizeForComponent:component].width, [pickerView rowSizeForComponent:component].height)];
         }
+        label.textAlignment = NSTextAlignmentCenter;
         label.font = [UIFont systemFontOfSize:16];
         label.text = [HorsepowerData objectAtIndex:row];
         return label;
@@ -178,6 +183,7 @@
         if (!label) {
             label = [[UILabel alloc] initWithFrame:CGRectMake(1.0f, 1.0f, [pickerView rowSizeForComponent:component].width, [pickerView rowSizeForComponent:component].height)];
         }
+        label.textAlignment = NSTextAlignmentCenter;
         label.font = [UIFont systemFontOfSize:16];
         label.text = [ZeroToSixtyData objectAtIndex:row];
         return label;
@@ -189,6 +195,7 @@
         if (!label) {
             label = [[UILabel alloc] initWithFrame:CGRectMake(1.0f, 1.0f, [pickerView rowSizeForComponent:component].width, [pickerView rowSizeForComponent:component].height)];
         }
+        label.textAlignment = NSTextAlignmentCenter;
         label.font = [UIFont systemFontOfSize:16];
         label.text = [FuelEconomyData objectAtIndex:row];
         return label;
@@ -200,6 +207,7 @@
         if (!label) {
             label = [[UILabel alloc] initWithFrame:CGRectMake(1.0f, 1.0f, [pickerView rowSizeForComponent:component].width, [pickerView rowSizeForComponent:component].height)];
         }
+        label.textAlignment = NSTextAlignmentCenter;
         label.font = [UIFont systemFontOfSize:16];
         label.text = [makeimageArray objectAtIndex:row];
         return label;
@@ -211,6 +219,7 @@
         if (!label) {
             label = [[UILabel alloc] initWithFrame:CGRectMake(1.0f, 1.0f, [pickerView rowSizeForComponent:component].width, [pickerView rowSizeForComponent:component].height)];
         }
+        label.textAlignment = NSTextAlignmentCenter;
         label.font = [UIFont systemFontOfSize:16];
         label.text = [ModelArray objectAtIndex:row];
         return label;
