@@ -26,24 +26,43 @@
 @synthesize favoritesarray, modelArray, modeljsonArray, makeimageArray, makejsonArray, AlphabeticalArray, newsArray, newsjsonArray, makeimageArray2, makejsonArray2, AlphabeticalArray2, zt60Array, topspeedArray, nurbArray, expensiveArray, fuelArray, horsepowerArray, toptensArray, topTensjson;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+
 {
+    
     UIStoryboard *storyboard = [self grabStoryboard];
     
+    
+    
     [self retrieveModelData];
+    
     NSLog(@"Done 1");
+    
     [self retrieveMakeImageData];
+    
     NSLog(@"Done 2");
+    
     [self retrievenewsData];
+    
     NSLog(@"Done 3");
+    
     [self retrieveMakeImageData2];
+    
     NSLog(@"Done 4");
+    
     [self retrieveTopTensData];
+    
     NSLog(@"Done 5");
+    
     [self splitTopTensArrays];
+    
     NSLog(@"Done 6");
     
+    
+    
     // show the storyboard
+    
     self.window.rootViewController = [storyboard instantiateInitialViewController];
+    
     [self.window makeKeyAndVisible];
 
         self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
@@ -72,9 +91,10 @@
             [self.window makeKeyAndVisible];
         }
     
+    
+    
     return YES;
 }
-
 - (UIStoryboard *)grabStoryboard {
     
     UIStoryboard *storyboard;

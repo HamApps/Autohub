@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="5rc-4q-CRu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="5rc-4q-CRu">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="eurostile.TTF">
+            <string>EurostileRegular</string>
             <string>EurostileRegular</string>
             <string>EurostileRegular</string>
             <string>EurostileRegular</string>
@@ -104,28 +105,21 @@
             <objects>
                 <tableViewController id="RqE-iD-y1H" customClass="NewTopTensViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="140" sectionHeaderHeight="22" sectionFooterHeight="22" id="84h-eD-984">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="toptens" rowHeight="140" id="gxa-Ow-F5Z" customClass="TopTensCell">
-                                <rect key="frame" x="0.0" y="86" width="320" height="140"/>
+                                <rect key="frame" x="0.0" y="86" width="414" height="140"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gxa-Ow-F5Z" id="uZ4-Qb-aPm">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="139"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="381" height="139"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iJd-Gf-Azm">
-                                            <rect key="frame" x="214" y="66" width="98" height="62"/>
+                                            <rect key="frame" x="214" y="66" width="153" height="62"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="22"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Car Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rhd-Kb-UMg">
-                                            <rect key="frame" x="32" y="0.0" width="263" height="47"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="20"/>
+                                            <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="23"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -137,6 +131,13 @@
                                             <rect key="frame" x="3" y="4" width="47" height="39"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="26"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Car Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rhd-Kb-UMg">
+                                            <rect key="frame" x="59" y="0.0" width="263" height="47"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="21"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -164,35 +165,36 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cQA-hW-9vG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-519" y="84"/>
+            <point key="canvasLocation" x="-1915" y="2207"/>
         </scene>
         <!--Dispute Info View Controller-->
         <scene sceneID="Rqg-Fc-lMM">
             <objects>
                 <viewController id="dyO-Xs-Ifc" customClass="DisputeInfoViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5K0-9c-PuS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="772"/>
+                        <rect key="frame" x="0.0" y="64" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SpecsDisputePage.png" id="fMk-nG-cIj">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SpecsDiputePage6+.png" id="fMk-nG-cIj">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.8389540555603564" blue="0.78199223482649893" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="4iu-fI-YEB">
-                                <rect key="frame" x="16" y="202" width="288" height="126"/>
+                                <rect key="frame" x="32" y="239" width="351" height="178"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.97089165060000004" green="0.96583916020000005" blue="0.95689128180000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="AfZ-T4-ZOI">
-                                <rect key="frame" x="103" y="338" width="114" height="34"/>
+                                <rect key="frame" x="139" y="424" width="137" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="20"/>
                                 <state key="normal" title="Send Email" backgroundImage="blue button 2.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -204,6 +206,7 @@
                         </subviews>
                     </view>
                     <navigationItem key="navigationItem" id="UzE-rZ-KcV"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="myTextView" destination="4iu-fI-YEB" id="sas-qF-KFx"/>
                     </connections>
@@ -217,7 +220,7 @@
             <objects>
                 <viewController id="6kx-mZ-18w" customClass="ImageViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uEv-Mx-ANm">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="772"/>
+                        <rect key="frame" x="0.0" y="64" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="6YB-dk-eEi">
@@ -234,6 +237,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="J33-ce-O9J"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="imageview" destination="v1r-e4-Pup" id="1w2-ik-33M"/>
                         <outlet property="scrollView" destination="6YB-dk-eEi" id="z1u-pw-97U"/>
@@ -248,115 +252,115 @@
             <objects>
                 <viewController id="GCP-Ir-q3y" customClass="CompareViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H2F-DA-Dmd">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="772"/>
+                        <rect key="frame" x="0.0" y="64" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="KlZ-Su-xnA">
-                                <rect key="frame" x="0.0" y="63" width="320" height="659"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CarTitle1" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qHQ-QB-6AF">
-                                        <rect key="frame" x="188" y="-35" width="127" height="61"/>
+                                        <rect key="frame" x="285" y="38" width="127" height="52"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="16"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price1" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CYh-AB-0Ps">
-                                        <rect key="frame" x="7" y="196" width="114" height="21"/>
+                                        <rect key="frame" x="8" y="260" width="116" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="13"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price1" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YxN-gR-fT4">
-                                        <rect key="frame" x="200" y="192" width="111" height="29"/>
+                                        <rect key="frame" x="294" y="256" width="111" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="13"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Engine1" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ika-hf-Ekx">
-                                        <rect key="frame" x="7" y="245" width="104" height="44"/>
+                                        <rect key="frame" x="8" y="309" width="139" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="13"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Engine1" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mJ7-or-dgC">
-                                        <rect key="frame" x="211" y="247" width="100" height="39"/>
+                                        <rect key="frame" x="267" y="311" width="138" height="39"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="13"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transmission1" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6es-ci-W5D">
-                                        <rect key="frame" x="7" y="294" width="90" height="62"/>
+                                        <rect key="frame" x="7" y="358" width="131" height="62"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="13"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transmission1" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qte-xn-3zr">
-                                        <rect key="frame" x="221" y="300" width="90" height="50"/>
+                                        <rect key="frame" x="285" y="364" width="120" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="13"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DriveType1" textAlignment="right" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0W2-9D-7dn">
-                                        <rect key="frame" x="221" y="373" width="90" height="21"/>
+                                        <rect key="frame" x="303" y="437" width="102" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="13"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Horsepower1" textAlignment="right" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7v5-NN-eDX">
-                                        <rect key="frame" x="221" y="432" width="91" height="21"/>
+                                        <rect key="frame" x="285" y="496" width="120" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="13"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0-60, 1" textAlignment="right" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VR0-dV-sxD">
-                                        <rect key="frame" x="221" y="492" width="90" height="21"/>
+                                        <rect key="frame" x="303" y="556" width="102" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="13"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TopSpeed1" textAlignment="right" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5mu-Me-xXn">
-                                        <rect key="frame" x="237" y="551" width="73" height="21"/>
+                                        <rect key="frame" x="303" y="615" width="102" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="13"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight1" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kMK-Z3-Mp7">
-                                        <rect key="frame" x="221" y="604" width="90" height="34"/>
+                                        <rect key="frame" x="315" y="668" width="90" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="13"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="right" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7CJ-Af-nLQ">
-                                        <rect key="frame" x="243" y="670" width="68" height="21"/>
+                                        <rect key="frame" x="320" y="734" width="85" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <string key="text" base64-UTF8="YES">
 EEZ1ZWwxA
 </string>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="13"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Vw2-kS-xJ3">
-                                        <rect key="frame" x="0.0" y="33" width="148" height="86"/>
+                                        <rect key="frame" x="0.0" y="91" width="172" height="97"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="g1l-gL-ZXN">
-                                        <rect key="frame" x="183" y="-64" width="137" height="30"/>
+                                        <rect key="frame" x="267" y="-2" width="147" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="18"/>
                                         <state key="normal" title="Change Car 2" backgroundImage="blue button 2.png">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -369,114 +373,110 @@ EEZ1ZWwxA
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="avH-c9-6eo">
-                                        <rect key="frame" x="172" y="33" width="148" height="86"/>
+                                        <rect key="frame" x="242" y="91" width="171" height="97"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Years Made" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="X7Y-ro-yZx">
-                                        <rect key="frame" x="125" y="138" width="81" height="21"/>
+                                        <rect key="frame" x="178" y="202" width="84" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="16"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price ($)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9xw-Qk-z4s">
-                                        <rect key="frame" x="138" y="196" width="54" height="21"/>
+                                        <rect key="frame" x="187" y="260" width="67" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="16"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Engine" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xuv-6M-iYf">
-                                        <rect key="frame" x="142" y="256" width="46" height="21"/>
+                                        <rect key="frame" x="197" y="320" width="46" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="16"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transmission" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lP2-6s-9mK">
-                                        <rect key="frame" x="122" y="314" width="87" height="21"/>
+                                        <rect key="frame" x="174" y="378" width="93" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="16"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drive Type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YgN-k8-xYG">
-                                        <rect key="frame" x="131" y="373" width="69" height="21"/>
+                                        <rect key="frame" x="186" y="437" width="69" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="16"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Horsepower" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="G5Q-hI-BJT">
-                                        <rect key="frame" x="125" y="433" width="80" height="21"/>
+                                        <rect key="frame" x="175" y="497" width="90" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="16"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0-60" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1AN-nV-Gkf">
-                                        <rect key="frame" x="148" y="492" width="34" height="21"/>
+                                        <rect key="frame" x="203" y="556" width="34" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="16"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Speed (MPH)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aG4-3O-1Sc">
-                                        <rect key="frame" x="108" y="551" width="115" height="21"/>
+                                        <rect key="frame" x="159" y="615" width="122" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="16"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight (LBS)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="I0c-Fe-jBy">
-                                        <rect key="frame" x="122" y="610" width="86" height="21"/>
+                                        <rect key="frame" x="174" y="674" width="93" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="16"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fuel Economy (MPG)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XPF-DK-2Iz">
-                                        <rect key="frame" x="100" y="670" width="130" height="21"/>
+                                        <rect key="frame" x="152" y="734" width="136" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="13"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar112.png" id="aR1-93-RRs">
-                                        <rect key="frame" x="107" y="138" width="21" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PriceIcon.png" id="a1u-2x-Ira">
-                                        <rect key="frame" x="115" y="197" width="20" height="20"/>
+                                        <rect key="frame" x="151" y="199" width="27" height="27"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EngineIcon.png" id="1Xg-yt-1KZ">
-                                        <rect key="frame" x="119" y="257" width="20" height="20"/>
+                                        <rect key="frame" x="166" y="317" width="27" height="27"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TransmissionIcon.png" id="XfG-KY-yck">
-                                        <rect key="frame" x="103" y="315" width="20" height="20"/>
+                                        <rect key="frame" x="146" y="375" width="27" height="27"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wheels10.png" id="Hcu-Vj-WZ2">
-                                        <rect key="frame" x="110" y="374" width="20" height="20"/>
+                                        <rect key="frame" x="156" y="434" width="27" height="27"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Horsepower Icon.png" id="gY6-su-Y9I">
-                                        <rect key="frame" x="106" y="433" width="20" height="20"/>
+                                        <rect key="frame" x="147" y="493" width="27" height="27"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0-60icon.png" id="edK-iu-ig7">
-                                        <rect key="frame" x="126" y="493" width="20" height="20"/>
+                                        <rect key="frame" x="172" y="553" width="27" height="27"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TopSpeedIcon.png" id="M5k-CB-hcy">
-                                        <rect key="frame" x="90" y="552" width="20" height="20"/>
+                                        <rect key="frame" x="132" y="612" width="27" height="27"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fuelEconomyIcon.png" id="6Ta-Hm-rTm">
-                                        <rect key="frame" x="86" y="671" width="20" height="20"/>
+                                        <rect key="frame" x="127" y="732" width="25" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WeightIcon.png" id="vGl-Jl-hTk">
-                                        <rect key="frame" x="103" y="610" width="20" height="20"/>
+                                        <rect key="frame" x="146" y="671" width="27" height="27"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="xxK-gR-in5">
-                                        <rect key="frame" x="0.0" y="-64" width="137" height="30"/>
+                                        <rect key="frame" x="0.0" y="-2" width="147" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="18"/>
                                         <state key="normal" title="Change Car 1" backgroundImage="blue button 2.png">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -489,7 +489,7 @@ EEZ1ZWwxA
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xW0-Vg-H7S">
-                                        <rect key="frame" x="2" y="-5" width="146" height="86"/>
+                                        <rect key="frame" x="0.0" y="90" width="172" height="96"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -499,7 +499,7 @@ EEZ1ZWwxA
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="f6v-uo-fd8">
-                                        <rect key="frame" x="172" y="-5" width="146" height="86"/>
+                                        <rect key="frame" x="242" y="90" width="173" height="97"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -509,104 +509,77 @@ EEZ1ZWwxA
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CarTitle1" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MHi-m2-LyT">
-                                        <rect key="frame" x="2" y="-36" width="122" height="61"/>
+                                        <rect key="frame" x="2" y="38" width="122" height="51"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="16"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DriveType1" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="D7c-Ij-BPr">
+                                        <rect key="frame" x="7" y="438" width="90" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DriveType1" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="D7c-Ij-BPr">
-                                        <rect key="frame" x="7" y="374" width="90" height="20"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="13"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Horsepower1" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mb7-M1-Kmh">
-                                        <rect key="frame" x="8" y="432" width="90" height="21"/>
+                                        <rect key="frame" x="7" y="496" width="117" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="13"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0-60, 1" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kNy-Yn-GQ0">
-                                        <rect key="frame" x="7" y="492" width="90" height="21"/>
+                                        <rect key="frame" x="7" y="556" width="90" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="13"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TopSpeed1" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="V8n-D9-4AM">
-                                        <rect key="frame" x="7" y="551" width="72" height="21"/>
+                                        <rect key="frame" x="7" y="615" width="101" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="13"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight1" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hI4-1r-Wsk">
-                                        <rect key="frame" x="7" y="604" width="90" height="34"/>
+                                        <rect key="frame" x="7" y="668" width="90" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="13"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Years Made1" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Igw-o7-EIA">
-                                        <rect key="frame" x="209" y="132" width="102" height="33"/>
+                                        <rect key="frame" x="303" y="196" width="102" height="33"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="13"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Years Made1" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ind-2e-Ubq">
-                                        <rect key="frame" x="7" y="132" width="100" height="33"/>
+                                        <rect key="frame" x="8" y="196" width="100" height="33"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="13"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JFf-M9-Lru">
-                                        <rect key="frame" x="7" y="670" width="72" height="21"/>
+                                        <rect key="frame" x="7" y="734" width="85" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <string key="text" base64-UTF8="YES">
 EEZ1ZWwxA
 </string>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="13"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PriceIcon.png" id="a1u-2x-Ira">
+                                        <rect key="frame" x="162" y="257" width="27" height="27"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                             </scrollView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="fpj-oF-AZP">
-                                <rect key="frame" x="0.0" y="364" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem style="plain" id="o6h-DF-oDH">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="TVS-g6-qgr">
-                                            <rect key="frame" x="16" y="7" width="80" height="80"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="Sound1" destination="GCP-Ir-q3y" eventType="touchUpInside" id="eAM-vS-ci1"/>
-                                            </connections>
-                                        </button>
-                                    </barButtonItem>
-                                    <barButtonItem width="115" style="plain" systemItem="fixedSpace" id="xEf-Gx-5ea"/>
-                                    <barButtonItem style="plain" id="CIH-xW-csI">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" id="VJL-D7-mFJ">
-                                            <rect key="frame" x="248" y="-8" width="80" height="80"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="Sound2" destination="GCP-Ir-q3y" eventType="touchUpInside" id="Eqf-2D-Z2b"/>
-                                            </connections>
-                                        </button>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -618,8 +591,7 @@ EEZ1ZWwxA
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="772"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="CarDriveTypeLabel" destination="D7c-Ij-BPr" id="8hu-4O-KeD"/>
                         <outlet property="CarDriveTypeLabel2" destination="0W2-9D-7dn" id="1qa-G7-LB3"/>
@@ -643,194 +615,191 @@ EEZ1ZWwxA
                         <outlet property="CarYearsMadeLabel2" destination="Igw-o7-EIA" id="AtD-4i-bgS"/>
                         <outlet property="CarZeroToSixtyLabel" destination="kNy-Yn-GQ0" id="939-z5-r78"/>
                         <outlet property="CarZeroToSixtyLabel2" destination="VR0-dV-sxD" id="t5f-b2-uIR"/>
-                        <outlet property="exhaustButton1" destination="TVS-g6-qgr" id="N8c-Vy-zZV"/>
-                        <outlet property="exhaustButton2" destination="VJL-D7-mFJ" id="Ntl-6E-jW9"/>
                         <outlet property="firstimageview" destination="Vw2-kS-xJ3" id="VgY-Ib-EGT"/>
                         <outlet property="scroller" destination="KlZ-Su-xnA" id="SIC-ap-Gh6"/>
                         <outlet property="secondimageview" destination="avH-c9-6eo" id="YOQ-cx-OJi"/>
-                        <outlet property="toolbar" destination="fpj-oF-AZP" id="x7V-eq-zzo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tf5-cs-VXd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1185" y="1925"/>
+            <point key="canvasLocation" x="-290" y="1318"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="f0C-rS-tsv">
             <objects>
                 <viewController id="CBs-NP-Au8" customClass="DetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ny4-h9-Sve">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="700"/>
+                        <rect key="frame" x="0.0" y="64" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="c76-Vg-7gh">
-                                <rect key="frame" x="0.0" y="131" width="320" height="569"/>
+                                <rect key="frame" x="0.0" y="-1" width="414" height="737"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="8l7-hj-Ona">
-                                        <rect key="frame" x="33" y="42" width="254" height="121"/>
+                                        <rect key="frame" x="65" y="49" width="284" height="161"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <gestureRecognizers/>
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vhP-lT-R4w">
-                                        <rect key="frame" x="173" y="164" width="139" height="34"/>
+                                        <rect key="frame" x="221" y="221" width="139" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="16"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Lyr-JM-dEh">
-                                        <rect key="frame" x="173" y="227" width="158" height="21"/>
+                                        <rect key="frame" x="221" y="284" width="158" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="16"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="76c-sS-oq7">
-                                        <rect key="frame" x="173" y="256" width="147" height="81"/>
+                                        <rect key="frame" x="221" y="313" width="165" height="81"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="16"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OGT-hp-z3a">
-                                        <rect key="frame" x="173" y="321" width="145" height="70"/>
+                                        <rect key="frame" x="221" y="378" width="165" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="16"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1Ej-iP-mtP">
-                                        <rect key="frame" x="173" y="400" width="138" height="24"/>
+                                        <rect key="frame" x="221" y="457" width="138" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="16"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tkn-77-7YU">
-                                        <rect key="frame" x="173" y="459" width="135" height="21"/>
+                                        <rect key="frame" x="221" y="516" width="135" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="16"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6kU-4v-VVe">
-                                        <rect key="frame" x="173" y="516" width="135" height="21"/>
+                                        <rect key="frame" x="221" y="573" width="135" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="16"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HCi-qD-WtH">
-                                        <rect key="frame" x="173" y="573" width="135" height="21"/>
+                                        <rect key="frame" x="221" y="630" width="135" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="16"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EFi-ej-YWQ">
-                                        <rect key="frame" x="173" y="630" width="135" height="21"/>
+                                        <rect key="frame" x="221" y="687" width="135" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="16"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nxv-tk-t5Z">
-                                        <rect key="frame" x="173" y="687" width="135" height="21"/>
+                                        <rect key="frame" x="208" y="744" width="135" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="16"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Years Made:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WyA-V2-NKq">
-                                        <rect key="frame" x="39" y="170" width="82" height="21"/>
+                                        <rect key="frame" x="57" y="227" width="113" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="16"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price ($):" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zsg-95-239">
-                                        <rect key="frame" x="39" y="227" width="58" height="21"/>
+                                        <rect key="frame" x="57" y="284" width="73" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="16"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Engine:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eLW-xP-JXw">
-                                        <rect key="frame" x="39" y="286" width="50" height="21"/>
+                                        <rect key="frame" x="57" y="343" width="50" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="16"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transmission:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hwI-9K-3mP">
-                                        <rect key="frame" x="39" y="343" width="91" height="21"/>
+                                        <rect key="frame" x="57" y="400" width="100" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="16"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drive Type:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cW8-xV-VEs">
-                                        <rect key="frame" x="39" y="401" width="73" height="21"/>
+                                        <rect key="frame" x="57" y="458" width="73" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="16"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Horsepower:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KaK-xt-IP3">
-                                        <rect key="frame" x="39" y="459" width="84" height="21"/>
+                                        <rect key="frame" x="57" y="516" width="113" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="16"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0-60:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LVu-J4-dW8">
-                                        <rect key="frame" x="39" y="516" width="42" height="21"/>
+                                        <rect key="frame" x="57" y="573" width="42" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="16"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Speed (MPH):" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5wC-kJ-oVl" userLabel="Top Speed (MPH):">
-                                        <rect key="frame" x="39" y="573" width="127" height="21"/>
+                                        <rect key="frame" x="57" y="630" width="127" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="16"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight (LBS):" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6XV-1V-u7u" userLabel="Weight (LBS):">
-                                        <rect key="frame" x="39" y="630" width="100" height="21"/>
+                                        <rect key="frame" x="57" y="687" width="100" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="16"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fuel Economy (MPG):" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="68L-HL-zoQ" userLabel="Fuel Economy (MPG):">
-                                        <rect key="frame" x="39" y="687" width="139" height="21"/>
+                                        <rect key="frame" x="57" y="744" width="139" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="13"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar112.png" id="iFs-l6-DFs">
-                                        <rect key="frame" x="5" y="166" width="30" height="30"/>
+                                        <rect key="frame" x="10" y="223" width="33" height="33"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PriceIcon.png" id="qvP-v8-dDZ">
-                                        <rect key="frame" x="5" y="223" width="30" height="30"/>
+                                        <rect key="frame" x="10" y="280" width="33" height="33"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EngineIcon.png" id="prB-Ig-WZe">
-                                        <rect key="frame" x="5" y="282" width="30" height="30"/>
+                                        <rect key="frame" x="10" y="339" width="33" height="33"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TransmissionIcon.png" id="LaP-SN-jQX">
-                                        <rect key="frame" x="5" y="339" width="30" height="30"/>
+                                        <rect key="frame" x="10" y="396" width="33" height="33"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wheels10.png" id="GUZ-Hf-RDp">
-                                        <rect key="frame" x="5" y="397" width="30" height="30"/>
+                                        <rect key="frame" x="10" y="454" width="33" height="33"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Horsepower Icon.png" id="yIT-Pi-BF5">
-                                        <rect key="frame" x="5" y="455" width="30" height="30"/>
+                                        <rect key="frame" x="10" y="512" width="33" height="33"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TopSpeedIcon.png" id="hRN-GH-L2l">
-                                        <rect key="frame" x="5" y="569" width="30" height="30"/>
+                                        <rect key="frame" x="10" y="626" width="33" height="33"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WeightIcon.png" id="mlH-hE-Ayj">
-                                        <rect key="frame" x="5" y="626" width="30" height="30"/>
+                                        <rect key="frame" x="10" y="680" width="33" height="33"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fuelEconomyIcon.png" id="MII-1j-IXI">
-                                        <rect key="frame" x="5" y="683" width="30" height="30"/>
+                                        <rect key="frame" x="10" y="740" width="33" height="33"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="mR3-xp-Hte">
-                                        <rect key="frame" x="0.0" y="0.0" width="135" height="35"/>
+                                        <rect key="frame" x="0.0" y="-1" width="147" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="18"/>
                                         <state key="normal" title="Set As Car 1" backgroundImage="blue button 2.png">
@@ -848,7 +817,7 @@ EEZ1ZWwxA
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="ih3-lP-p1U">
-                                        <rect key="frame" x="184" y="0.0" width="136" height="35"/>
+                                        <rect key="frame" x="267" y="-1" width="147" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="18"/>
                                         <state key="normal" title="Set As Car 2" backgroundImage="blue button 2.png">
@@ -865,8 +834,12 @@ EEZ1ZWwxA
                                             <segue destination="GCP-Ir-q3y" kind="push" identifier="pushCompareView2" id="imD-vs-7C4"/>
                                         </connections>
                                     </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0-60icon.png" id="IPq-qO-Qn7">
+                                        <rect key="frame" x="10" y="569" width="33" height="33"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Pm4-5p-L7p">
-                                        <rect key="frame" x="54" y="53" width="213" height="107"/>
+                                        <rect key="frame" x="77" y="61" width="263" height="139"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -875,57 +848,21 @@ EEZ1ZWwxA
                                             <segue destination="6kx-mZ-18w" kind="push" identifier="pushimageview" id="Qdr-UW-Q4c"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0-60icon.png" id="IPq-qO-Qn7">
-                                        <rect key="frame" x="4" y="512" width="30" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="60N-vi-cMJ">
+                                        <rect key="frame" x="116" y="792" width="183" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="18"/>
+                                        <state key="normal" title="Manufacturer Website" backgroundImage="blue button 2.png">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="Website" destination="CBs-NP-Au8" eventType="touchUpInside" id="o0v-gs-09v"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <inset key="contentInset" minX="0.0" minY="0.0" maxX="0.0" maxY="50"/>
                             </scrollView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="hyM-cC-9P7">
-                                <rect key="frame" x="0.0" y="595" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem style="plain" id="QSr-xt-jR6">
-                                        <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Cqd-Pl-zPX">
-                                            <rect key="frame" x="16" y="5" width="34" height="34"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" backgroundImage="browser100.png">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="Website" destination="CBs-NP-Au8" eventType="touchUpInside" id="lX7-yu-pjj"/>
-                                            </connections>
-                                        </button>
-                                    </barButtonItem>
-                                    <barButtonItem width="80" style="plain" systemItem="fixedSpace" id="Ukc-ee-Uaq"/>
-                                    <barButtonItem style="plain" id="5Sa-P7-ZPY">
-                                        <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="TE5-5U-iP9">
-                                            <rect key="frame" x="132" y="3" width="38" height="38"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="Save" destination="CBs-NP-Au8" eventType="touchUpInside" id="YEv-cw-7pY"/>
-                                            </connections>
-                                        </button>
-                                    </barButtonItem>
-                                    <barButtonItem width="58" style="plain" systemItem="fixedSpace" id="zht-cq-ePj"/>
-                                    <barButtonItem style="plain" id="yT1-ns-jqZ">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GGW-ZU-uXZ">
-                                            <rect key="frame" x="248" y="-8" width="80" height="80"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="Sound" destination="CBs-NP-Au8" eventType="touchUpInside" id="Nga-9V-spv"/>
-                                            </connections>
-                                        </button>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -937,8 +874,7 @@ EEZ1ZWwxA
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="700"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="CarDriveTypeLabel" destination="1Ej-iP-mtP" id="Ipa-b4-gSZ"/>
                         <outlet property="CarEngineLabel" destination="76c-sS-oq7" id="Tjc-Ku-nbX"/>
@@ -950,27 +886,24 @@ EEZ1ZWwxA
                         <outlet property="CarWeightLabel" destination="EFi-ej-YWQ" id="MFh-df-Qwd"/>
                         <outlet property="CarYearsMadeLabel" destination="vhP-lT-R4w" id="TFM-lV-dWA"/>
                         <outlet property="CarZeroToSixtyLabel" destination="6kU-4v-VVe" id="MVS-1S-hnn"/>
-                        <outlet property="exhaustButton" destination="GGW-ZU-uXZ" id="vlU-xQ-VBm"/>
                         <outlet property="imageview" destination="8l7-hj-Ona" id="bLQ-tu-sFd"/>
-                        <outlet property="saveButton" destination="TE5-5U-iP9" id="nr0-fI-KdW"/>
                         <outlet property="scroller" destination="c76-Vg-7gh" id="7zK-4h-8MZ"/>
-                        <outlet property="toolbar" destination="hyM-cC-9P7" id="kuK-Zw-Fwx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gue-qh-23V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1569" y="1967"/>
+            <point key="canvasLocation" x="-817" y="1318"/>
         </scene>
         <!--Model View Controller-->
         <scene sceneID="bX0-Sc-ttr">
             <objects>
                 <tableViewController id="zOK-Uj-ZGv" customClass="ModelViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="183" sectionHeaderHeight="22" sectionFooterHeight="22" id="0KL-EE-vIS">
-                        <rect key="frame" x="0.0" y="64" width="320" height="659"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" id="7so-ZA-DYT">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
@@ -979,20 +912,20 @@ EEZ1ZWwxA
                         </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ModelCell" rowHeight="183" id="xnh-Pu-fKT" customClass="CarViewCell">
-                                <rect key="frame" x="0.0" y="66" width="320" height="183"/>
+                                <rect key="frame" x="0.0" y="66" width="414" height="183"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xnh-Pu-fKT" id="UnA-Hq-FVz">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="182"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="381" height="182"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="mGR-ql-8Di">
-                                            <rect key="frame" x="60" y="42" width="207" height="128"/>
+                                            <rect key="frame" x="60" y="42" width="301" height="128"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4TE-hC-UoX">
-                                            <rect key="frame" x="43" y="13" width="240" height="21"/>
+                                            <rect key="frame" x="45" y="13" width="331" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="18"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -1017,6 +950,7 @@ EEZ1ZWwxA
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="searchBar" destination="7so-ZA-DYT" id="Cdx-Yz-hLs"/>
                         <outlet property="searchDisplayController" destination="WPF-ig-ic7" id="TzH-xS-K3u"/>
@@ -1033,18 +967,18 @@ EEZ1ZWwxA
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-2006" y="2003"/>
+            <point key="canvasLocation" x="-1386" y="1318"/>
         </scene>
         <!--Test News View Controller-->
         <scene sceneID="a91-S5-DY8">
             <objects>
                 <viewController id="WH2-cE-2Q3" customClass="TestNewsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fSU-dK-M8x">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" id="0HU-al-K7O">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </webView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="q2h-Gq-3qH">
@@ -1062,6 +996,7 @@ EEZ1ZWwxA
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="loadingWheel" destination="q2h-Gq-3qH" id="3VU-aP-Q3L"/>
                         <outlet property="webView" destination="0HU-al-K7O" id="CwH-3h-AZ6"/>
@@ -1076,10 +1011,11 @@ EEZ1ZWwxA
             <objects>
                 <viewController id="5rc-4q-CRu" customClass="SWRevealViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DS8-Lv-gb3">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <segue destination="esI-Zb-Dcc" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegue" id="2Ah-j9-ebr"/>
                         <segue destination="aM6-ZW-DRG" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegue" id="vDh-iE-Trj"/>
@@ -1087,34 +1023,34 @@ EEZ1ZWwxA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ND-m3-4Bl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2197" y="406"/>
+            <point key="canvasLocation" x="-2477" y="390"/>
         </scene>
         <!--Navigation View Controller-->
         <scene sceneID="iue-yU-05J">
             <objects>
                 <tableViewController id="esI-Zb-Dcc" customClass="NavigationViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="55" sectionHeaderHeight="22" sectionFooterHeight="22" id="Rtl-8X-Z13">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Home" id="K0E-oc-Gsz">
-                                <rect key="frame" x="0.0" y="22" width="320" height="55"/>
+                                <rect key="frame" x="0.0" y="22" width="414" height="55"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K0E-oc-Gsz" id="CeQ-ZC-pAH">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="54"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Makes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9yc-3h-0EC">
-                                            <rect key="frame" x="63" y="19" width="66" height="21"/>
+                                            <rect key="frame" x="60" y="19" width="66" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="19"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MakesIcon.png" id="kR3-9i-GQ5">
-                                            <rect key="frame" x="13" y="9" width="42" height="42"/>
+                                            <rect key="frame" x="10" y="7" width="46" height="46"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>
@@ -1125,21 +1061,21 @@ EEZ1ZWwxA
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Top Tens" id="L7l-Ym-UGU">
-                                <rect key="frame" x="0.0" y="77" width="320" height="55"/>
+                                <rect key="frame" x="0.0" y="77" width="414" height="55"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="L7l-Ym-UGU" id="S0V-09-m57">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="54"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Tens" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OqM-fh-GQ2">
-                                            <rect key="frame" x="63" y="16" width="69" height="21"/>
+                                            <rect key="frame" x="63" y="16" width="94" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="18"/>
+                                            <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="20"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TopTensIcon.png" id="tKQ-WN-csi">
-                                            <rect key="frame" x="15" y="9" width="35" height="35"/>
+                                            <rect key="frame" x="12" y="7" width="39" height="39"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>
@@ -1150,21 +1086,21 @@ EEZ1ZWwxA
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Auto News" id="bUK-w3-UHv">
-                                <rect key="frame" x="0.0" y="132" width="320" height="55"/>
+                                <rect key="frame" x="0.0" y="132" width="414" height="55"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bUK-w3-UHv" id="iFO-2m-WhY">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="54"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="News" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gBc-ee-td3">
-                                            <rect key="frame" x="65" y="16" width="43" height="21"/>
+                                            <rect key="frame" x="65" y="16" width="67" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="18"/>
+                                            <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="20"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NewsIcon.png" id="sYh-Si-YAi">
-                                            <rect key="frame" x="15" y="9" width="35" height="35"/>
+                                            <rect key="frame" x="12" y="8" width="38" height="38"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>
@@ -1175,21 +1111,21 @@ EEZ1ZWwxA
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Search" id="7Fp-TE-lu0">
-                                <rect key="frame" x="0.0" y="187" width="320" height="55"/>
+                                <rect key="frame" x="0.0" y="187" width="414" height="55"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Fp-TE-lu0" id="xvi-2Y-Kkf">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="54"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Car Finder" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="py9-VD-vXm">
-                                            <rect key="frame" x="63" y="17" width="79" height="21"/>
+                                            <rect key="frame" x="63" y="17" width="105" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="18"/>
+                                            <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="20"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SearchIcon.png" id="XKb-K4-tft">
-                                            <rect key="frame" x="13" y="10" width="33" height="33"/>
+                                            <rect key="frame" x="8" y="9" width="37" height="37"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>
@@ -1200,20 +1136,20 @@ EEZ1ZWwxA
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Favorites" id="Ekm-DU-CAe">
-                                <rect key="frame" x="0.0" y="242" width="320" height="55"/>
+                                <rect key="frame" x="0.0" y="242" width="414" height="55"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ekm-DU-CAe" id="VsI-JT-rAo">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="54"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FavoritesIcon2.png" id="6sh-mP-Wt7">
-                                            <rect key="frame" x="8" y="8" width="38" height="38"/>
+                                            <rect key="frame" x="8" y="6" width="41" height="41"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorite Cars" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="efM-dr-GxI">
-                                            <rect key="frame" x="64" y="16" width="100" height="21"/>
+                                            <rect key="frame" x="64" y="16" width="127" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="18"/>
+                                            <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="20"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -1230,15 +1166,17 @@ EEZ1ZWwxA
                             <outlet property="delegate" destination="esI-Zb-Dcc" id="7ao-rp-Gnw"/>
                         </connections>
                     </tableView>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HXz-lz-71k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2414" y="1122"/>
+            <point key="canvasLocation" x="-2477" y="1318"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="t7S-09-7T2">
             <objects>
                 <navigationController id="aM6-ZW-DRG" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dbZ-sS-OgU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1249,18 +1187,18 @@ EEZ1ZWwxA
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Tw-GT-9ZA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1951" y="1122"/>
+            <point key="canvasLocation" x="-1915" y="390"/>
         </scene>
         <!--Top Tens-->
         <scene sceneID="Cv2-YS-ylX">
             <objects>
                 <viewController title="Top Tens" id="V28-vH-pmn" customClass="TopTensViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CJF-bz-0bF">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="nYS-Yc-F98">
-                                <rect key="frame" x="20" y="179" width="280" height="45"/>
+                                <rect key="frame" x="41" y="261" width="333" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="22"/>
                                 <state key="normal" title="Nürburgring Lap Times" backgroundImage="blue button 2.png">
@@ -1272,7 +1210,7 @@ EEZ1ZWwxA
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="JXZ-5u-mY0">
-                                <rect key="frame" x="20" y="73" width="280" height="45"/>
+                                <rect key="frame" x="41" y="111" width="333" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="22"/>
                                 <state key="normal" title="Fastest 0-60's" backgroundImage="blue button 2.png">
@@ -1283,7 +1221,7 @@ EEZ1ZWwxA
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="HHr-QQ-Ucb">
-                                <rect key="frame" x="20" y="126" width="280" height="45"/>
+                                <rect key="frame" x="41" y="186" width="333" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="22"/>
                                 <state key="normal" title="Top Speeds" backgroundImage="blue button 2.png">
@@ -1295,7 +1233,7 @@ EEZ1ZWwxA
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="tYq-h5-vLd">
-                                <rect key="frame" x="20" y="232" width="280" height="45"/>
+                                <rect key="frame" x="41" y="336" width="333" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="22"/>
                                 <state key="normal" title="Most Expensive" backgroundImage="blue button 2.png">
@@ -1307,7 +1245,7 @@ EEZ1ZWwxA
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="i3F-qw-nFk">
-                                <rect key="frame" x="20" y="285" width="280" height="45"/>
+                                <rect key="frame" x="41" y="411" width="333" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="22"/>
                                 <state key="normal" title="Best Fuel Economy" backgroundImage="blue button 2.png">
@@ -1319,36 +1257,27 @@ EEZ1ZWwxA
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ariel Logo.png" id="2M3-QO-I6J">
-                                <rect key="frame" x="5" y="470" width="66" height="66"/>
+                                <rect key="frame" x="38" y="638" width="78" height="78"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Koenigsegg logo.png" id="g2K-VZ-3wO">
-                                <rect key="frame" x="62" y="476" width="50" height="52"/>
+                                <rect key="frame" x="103" y="642" width="61" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Radical Logo.png" id="9g6-Xq-UKz">
-                                <rect key="frame" x="112" y="471" width="50" height="62"/>
+                                <rect key="frame" x="159" y="637" width="58" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ferrari logo.png" id="Egn-CH-hsr">
-                                <rect key="frame" x="165" y="475" width="33" height="53"/>
+                                <rect key="frame" x="212" y="641" width="37" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="peugeot logo.png" id="usd-Jb-uIW">
-                                <rect key="frame" x="203" y="481" width="59" height="42"/>
+                                <rect key="frame" x="252" y="650" width="66" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0tT-Xa-zTf">
-                                <rect key="frame" x="77" y="415" width="166" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="18"/>
-                                <state key="normal" title="Current Leaders" backgroundImage="dark blue button.png">
-                                    <color key="titleColor" red="1" green="0.9257241713395099" blue="0.13350902772481787" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="7Pb-3a-req">
-                                <rect key="frame" x="20" y="338" width="280" height="45"/>
+                                <rect key="frame" x="41" y="486" width="333" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="22"/>
                                 <state key="normal" title="Highest Horsepower" backgroundImage="blue button 2.png">
@@ -1360,9 +1289,18 @@ EEZ1ZWwxA
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SSC Logo.png" id="9ls-4e-Dhj">
-                                <rect key="frame" x="265" y="476" width="35" height="46"/>
+                                <rect key="frame" x="312" y="642" width="43" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0tT-Xa-zTf">
+                                <rect key="frame" x="106" y="582" width="203" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="21"/>
+                                <state key="normal" title="Current Leaders" backgroundImage="dark blue button.png">
+                                    <color key="titleColor" red="1" green="0.9257241713395099" blue="0.13350902772481787" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                     </view>
                     <navigationItem key="navigationItem" title="Top Tens" id="m2g-dL-1wE">
@@ -1377,6 +1315,7 @@ EEZ1ZWwxA
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="barButton" destination="lp8-Zp-hGf" id="cKT-Hd-Kcs"/>
                         <outlet property="fuelEconomyButton" destination="i3F-qw-nFk" id="ZNo-kv-7S4"/>
@@ -1389,45 +1328,45 @@ EEZ1ZWwxA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7t3-HY-b4X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1292" y="337"/>
+            <point key="canvasLocation" x="-2477" y="2207"/>
         </scene>
         <!--Make View Controller-->
         <scene sceneID="8qj-hu-EUA">
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="PMI-Mj-UTT" customClass="MakeViewController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="BEo-U9-wOw">
-                        <rect key="frame" x="0.0" y="64" width="320" height="659"/>
+                        <rect key="frame" x="0.0" y="64" width="414" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="g1K-sp-Q0j">
-                            <size key="itemSize" width="106.66" height="105"/>
+                            <size key="itemSize" width="138" height="140"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MakeReuseID" id="Q5L-db-HvE" customClass="MakeCell">
-                                <rect key="frame" x="0.0" y="0.0" width="109.66" height="108"/>
+                                <rect key="frame" x="0.0" y="0.0" width="138" height="140"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="110" height="108"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="138" height="140"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5iO-RK-T6h">
-                                            <rect key="frame" x="2" y="83" width="107" height="25"/>
+                                            <rect key="frame" x="4" y="115" width="130" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="16"/>
+                                            <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="19"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="8pC-Po-6hc">
-                                            <rect key="frame" x="7" y="5" width="84" height="78"/>
+                                            <rect key="frame" x="13" y="8" width="112" height="109"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <size key="customSize" width="109.66" height="108"/>
+                                <size key="customSize" width="138" height="140"/>
                                 <connections>
                                     <outlet property="MakeImageView" destination="8pC-Po-6hc" id="Qyf-n1-xXx"/>
                                     <outlet property="MakeNameLabel" destination="5iO-RK-T6h" id="NuP-zR-sZy"/>
@@ -1453,28 +1392,29 @@ EEZ1ZWwxA
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="barButton" destination="d6Z-Pp-5jJ" id="kOX-wc-Fsq"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ccu-te-gz6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2458" y="2003"/>
+            <point key="canvasLocation" x="-1915" y="1318"/>
         </scene>
         <!--News View Controller-->
         <scene sceneID="lja-bM-FRz">
             <objects>
                 <tableViewController id="qK2-03-eSg" customClass="NewsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="257" sectionHeaderHeight="22" sectionFooterHeight="22" id="om6-IM-DiC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewsCell" rowHeight="257" id="rin-NX-m50" customClass="CarViewCell">
-                                <rect key="frame" x="0.0" y="22" width="320" height="257"/>
+                                <rect key="frame" x="0.0" y="22" width="414" height="257"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rin-NX-m50" id="2uY-Ex-T79">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="256"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="381" height="256"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Wng-f5-YcD">
@@ -1522,49 +1462,50 @@ EEZ1ZWwxA
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="barButton" destination="C3K-sX-UcC" id="JlT-sd-fAF"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ail-W5-lgG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="942" y="1160"/>
+            <point key="canvasLocation" x="554" y="1864"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="bDw-1p-NSp">
             <objects>
                 <viewController id="ZNI-ag-FsV" customClass="SearchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gih-vn-3b2">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="1632"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="2000"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="hGb-W6-lxo">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="1633"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="2001"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transmission:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TrI-Yt-SSz">
                                         <rect key="frame" x="38" y="749" width="101" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="A2f-nq-08Z">
                                         <rect key="frame" x="38" y="409" width="94" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Engine:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FWf-Ls-tuG">
                                         <rect key="frame" x="38" y="579" width="94" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <pickerView contentMode="scaleToFill" id="pMP-UP-drP">
-                                        <rect key="frame" x="123" y="339" width="197" height="162"/>
+                                        <rect key="frame" x="165" y="339" width="207" height="162"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <outlet property="dataSource" destination="ZNI-ag-FsV" id="lMg-Md-F2N"/>
@@ -1572,7 +1513,7 @@ EEZ1ZWwxA
                                         </connections>
                                     </pickerView>
                                     <pickerView contentMode="scaleToFill" id="vge-29-c4H">
-                                        <rect key="frame" x="123" y="509" width="197" height="162"/>
+                                        <rect key="frame" x="165" y="509" width="207" height="162"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <outlet property="dataSource" destination="ZNI-ag-FsV" id="c9Q-5H-NsR"/>
@@ -1582,26 +1523,26 @@ EEZ1ZWwxA
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drive Type:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xXN-ZC-nbM">
                                         <rect key="frame" x="38" y="919" width="94" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Horsepower:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Dtp-Vx-Yxq">
                                         <rect key="frame" x="38" y="1089" width="94" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0-60 Time:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Oxk-Ty-ZHk">
                                         <rect key="frame" x="38" y="1259" width="94" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <pickerView contentMode="scaleToFill" id="UUt-n7-SmB">
-                                        <rect key="frame" x="123" y="679" width="196" height="162"/>
+                                        <rect key="frame" x="165" y="677" width="207" height="162"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <outlet property="dataSource" destination="ZNI-ag-FsV" id="tLc-gt-obr"/>
@@ -1609,7 +1550,7 @@ EEZ1ZWwxA
                                         </connections>
                                     </pickerView>
                                     <pickerView contentMode="scaleToFill" id="rnJ-3q-9c3">
-                                        <rect key="frame" x="123" y="849" width="196" height="162"/>
+                                        <rect key="frame" x="165" y="849" width="207" height="162"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <outlet property="dataSource" destination="ZNI-ag-FsV" id="zrx-3T-7h9"/>
@@ -1617,27 +1558,15 @@ EEZ1ZWwxA
                                         </connections>
                                     </pickerView>
                                     <pickerView contentMode="scaleToFill" id="Q8u-rS-15q">
-                                        <rect key="frame" x="123" y="1019" width="196" height="162"/>
+                                        <rect key="frame" x="165" y="1019" width="207" height="162"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <outlet property="dataSource" destination="ZNI-ag-FsV" id="QH1-Cy-WZz"/>
                                             <outlet property="delegate" destination="ZNI-ag-FsV" id="s7R-Wq-tJA"/>
                                         </connections>
                                     </pickerView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="JJV-ND-a9Z">
-                                        <rect key="frame" x="98" y="1538" width="125" height="38"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="18"/>
-                                        <state key="normal" title="View Results" backgroundImage="blue button 2.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="UsePredicates" destination="ZNI-ag-FsV" eventType="touchUpInside" id="V38-r3-ggm"/>
-                                            <segue destination="hBM-Zn-tm9" kind="push" identifier="pushModelView" id="r54-US-OFB"/>
-                                        </connections>
-                                    </button>
                                     <pickerView contentMode="scaleToFill" id="rYk-3r-O3H">
-                                        <rect key="frame" x="0.0" y="62" width="160" height="162"/>
+                                        <rect key="frame" x="0.0" y="75" width="207" height="162"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <outlet property="dataSource" destination="ZNI-ag-FsV" id="EXO-TL-ua4"/>
@@ -1665,9 +1594,9 @@ EEZ1ZWwxA
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yaD-XW-nlC">
-                                        <rect key="frame" x="98" y="232" width="125" height="38"/>
+                                        <rect key="frame" x="131" y="245" width="152" height="41"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="18"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="22"/>
                                         <state key="normal" title="View Car" backgroundImage="blue button 2.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -1678,21 +1607,21 @@ EEZ1ZWwxA
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search by Specifications" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zKN-1D-2d7">
-                                        <rect key="frame" x="45" y="310" width="230" height="21"/>
+                                        <rect key="frame" x="92" y="310" width="230" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="19"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="21"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search by Model" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IBA-JX-S57">
-                                        <rect key="frame" x="80" y="54" width="160" height="21"/>
+                                        <rect key="frame" x="127" y="55" width="160" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="19"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="21"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <pickerView contentMode="scaleToFill" id="L35-uk-A67">
-                                        <rect key="frame" x="123" y="1189" width="196" height="162"/>
+                                        <rect key="frame" x="165" y="1187" width="207" height="162"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <outlet property="dataSource" destination="ZNI-ag-FsV" id="VLi-99-oZa"/>
@@ -1700,46 +1629,58 @@ EEZ1ZWwxA
                                         </connections>
                                     </pickerView>
                                     <pickerView contentMode="scaleToFill" id="FXT-8z-Wm8">
-                                        <rect key="frame" x="160" y="62" width="160" height="162"/>
+                                        <rect key="frame" x="207" y="75" width="207" height="162"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <outlet property="dataSource" destination="ZNI-ag-FsV" id="6Dr-eb-If3"/>
                                             <outlet property="delegate" destination="ZNI-ag-FsV" id="4bu-ZM-N8E"/>
                                         </connections>
                                     </pickerView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Yyz-K6-OdM">
-                                        <rect key="frame" x="0.0" y="-2" width="320" height="50"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fuelEconomyIcon.png" id="htg-a8-kMv">
+                                        <rect key="frame" x="4" y="1420" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" backgroundImage="SearchBar4.png">
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fuel Economy:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GkC-FP-Eps">
+                                        <rect key="frame" x="38" y="1424" width="111" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wheels10.png" id="b38-6V-MaZ">
+                                        <rect key="frame" x="4" y="915" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Yyz-K6-OdM">
+                                        <rect key="frame" x="0.0" y="-3" width="414" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" backgroundImage="SearchBar6+.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <segue destination="cO0-HM-nLm" kind="push" id="g83-bb-oug"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fuelEconomyIcon.png" id="htg-a8-kMv">
-                                        <rect key="frame" x="4" y="1420" width="30" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="JJV-ND-a9Z">
+                                        <rect key="frame" x="131" y="1532" width="152" height="41"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fuel Economy:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GkC-FP-Eps">
-                                        <rect key="frame" x="38" y="1424" width="94" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="22"/>
+                                        <state key="normal" title="View Results" backgroundImage="blue button 2.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="UsePredicates" destination="ZNI-ag-FsV" eventType="touchUpInside" id="V38-r3-ggm"/>
+                                            <segue destination="hBM-Zn-tm9" kind="push" identifier="pushModelView" id="r54-US-OFB"/>
+                                        </connections>
+                                    </button>
                                     <pickerView contentMode="scaleToFill" id="EOr-Un-6ix">
-                                        <rect key="frame" x="123" y="1354" width="196" height="162"/>
+                                        <rect key="frame" x="165" y="1354" width="207" height="162"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <outlet property="dataSource" destination="ZNI-ag-FsV" id="y5A-lN-nCR"/>
                                             <outlet property="delegate" destination="ZNI-ag-FsV" id="mQn-GA-6GD"/>
                                         </connections>
                                     </pickerView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wheels10.png" id="b38-6V-MaZ">
-                                        <rect key="frame" x="4" y="915" width="30" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -1757,7 +1698,7 @@ EEZ1ZWwxA
                         </barButtonItem>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="1632"/>
+                    <size key="freeformSize" width="414" height="2000"/>
                     <connections>
                         <outlet property="FuelEconomyPicker" destination="EOr-Un-6ix" id="K4T-NF-QK7"/>
                         <outlet property="MakePicker" destination="rYk-3r-O3H" id="G3D-f6-RB7"/>
@@ -1774,17 +1715,17 @@ EEZ1ZWwxA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QAJ-JF-t4c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-961" y="3260"/>
+            <point key="canvasLocation" x="-2477" y="3076"/>
         </scene>
         <!--Search Model Controller-->
         <scene sceneID="R9V-nH-cM8">
             <objects>
                 <tableViewController id="hBM-Zn-tm9" customClass="SearchModelController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="183" sectionHeaderHeight="22" sectionFooterHeight="22" id="C7W-u9-eIV">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" id="Fyc-Yy-OHK">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
@@ -1793,18 +1734,18 @@ EEZ1ZWwxA
                         </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ModelCell" rowHeight="183" id="Ds6-fi-eZB" customClass="CarViewCell">
-                                <rect key="frame" x="0.0" y="66" width="320" height="183"/>
+                                <rect key="frame" x="0.0" y="66" width="414" height="183"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ds6-fi-eZB" id="FZZ-Mb-5kh">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="182"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="381" height="182"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="c2r-my-vNV">
-                                            <rect key="frame" x="60" y="42" width="207" height="128"/>
+                                            <rect key="frame" x="60" y="42" width="301" height="128"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HfH-Cw-Ynz">
-                                            <rect key="frame" x="43" y="13" width="240" height="21"/>
+                                            <rect key="frame" x="46" y="13" width="328" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="17"/>
                                             <nil key="highlightedColor"/>
@@ -1831,8 +1772,7 @@ EEZ1ZWwxA
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="568"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="searchBar" destination="Fyc-Yy-OHK" id="Ejn-dZ-KBw"/>
                         <outlet property="searchDisplayController" destination="ah7-nU-gfk" id="YBe-Qv-IzT"/>
@@ -1849,18 +1789,18 @@ EEZ1ZWwxA
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-84" y="2694"/>
+            <point key="canvasLocation" x="128" y="4454"/>
         </scene>
         <!--Search Tab View Controller-->
         <scene sceneID="3P7-iW-cmN">
             <objects>
                 <tableViewController id="cO0-HM-nLm" customClass="SearchTabViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="183" sectionHeaderHeight="22" sectionFooterHeight="22" id="uVH-eX-mkm">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search For a Car" id="hWi-Mj-Xut">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <rect key="frame" x="0.0" y="64" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
@@ -1869,22 +1809,22 @@ EEZ1ZWwxA
                         </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ModelCell" rowHeight="183" id="xlj-C9-7UM" customClass="CarViewCell">
-                                <rect key="frame" x="0.0" y="130" width="320" height="183"/>
+                                <rect key="frame" x="0.0" y="130" width="414" height="183"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xlj-C9-7UM" id="Zum-D2-31f">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="182"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="381" height="182"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="kgy-h2-oWQ">
-                                            <rect key="frame" x="60" y="42" width="207" height="128"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JJS-rl-qjO">
-                                            <rect key="frame" x="43" y="13" width="240" height="21"/>
+                                            <rect key="frame" x="41" y="13" width="339" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="19"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="kgy-h2-oWQ">
+                                            <rect key="frame" x="60" y="42" width="301" height="128"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
@@ -1908,8 +1848,7 @@ EEZ1ZWwxA
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="568"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="searchBar" destination="hWi-Mj-Xut" id="hnz-oj-Rl1"/>
                         <outlet property="searchDisplayController" destination="Xul-gQ-yqi" id="igP-Pb-Ddm"/>
@@ -1926,18 +1865,18 @@ EEZ1ZWwxA
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-586" y="2694"/>
+            <point key="canvasLocation" x="-1915" y="3076"/>
         </scene>
         <!--Favorites View Controller-->
         <scene sceneID="7fh-7O-iPO">
             <objects>
                 <tableViewController id="zS1-Di-EFh" customClass="FavoritesViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="183" sectionHeaderHeight="22" sectionFooterHeight="22" id="F95-9a-3fl">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" id="i7Y-QK-PVW">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <rect key="frame" x="0.0" y="64" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
@@ -1946,20 +1885,20 @@ EEZ1ZWwxA
                         </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ModelCell" rowHeight="183" id="XT8-yY-bvS" customClass="CarViewCell">
-                                <rect key="frame" x="0.0" y="130" width="320" height="183"/>
+                                <rect key="frame" x="0.0" y="130" width="414" height="183"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XT8-yY-bvS" id="5LV-l2-fiK">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="182"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="381" height="182"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="tV1-iz-rNm">
-                                            <rect key="frame" x="60" y="42" width="207" height="128"/>
+                                            <rect key="frame" x="60" y="42" width="301" height="128"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="03q-pj-yCZ">
-                                            <rect key="frame" x="43" y="13" width="240" height="21"/>
+                                            <rect key="frame" x="39" y="13" width="342" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="19"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -1985,8 +1924,7 @@ EEZ1ZWwxA
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="568"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="barButton" destination="2Hx-cr-nPM" id="4Mi-tp-lgo"/>
                         <outlet property="searchBar" destination="i7Y-QK-PVW" id="rBY-c2-qHv"/>
@@ -2004,7 +1942,7 @@ EEZ1ZWwxA
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-595" y="4346"/>
+            <point key="canvasLocation" x="-1271" y="2530"/>
         </scene>
     </scenes>
     <resources>
@@ -2019,20 +1957,19 @@ EEZ1ZWwxA
         <image name="PriceIcon.png" width="32" height="32"/>
         <image name="Radical Logo.png" width="64" height="82"/>
         <image name="SSC Logo.png" width="89" height="118"/>
-        <image name="SearchBar4.png" width="320" height="50"/>
+        <image name="SearchBar6+.png" width="621" height="75"/>
         <image name="SearchIcon.png" width="64" height="64"/>
-        <image name="SpecsDisputePage.png" width="320" height="568"/>
+        <image name="SpecsDiputePage6+.png" width="1080" height="1920"/>
         <image name="TopSpeedIcon.png" width="32" height="32"/>
         <image name="TopTensIcon.png" width="32" height="32"/>
         <image name="TransmissionIcon.png" width="32" height="32"/>
         <image name="WeightIcon.png" width="32" height="32"/>
         <image name="blue button 2.png" width="154" height="46"/>
-        <image name="browser100.png" width="64" height="64"/>
         <image name="calendar112.png" width="32" height="32"/>
         <image name="dark blue button.png" width="154" height="46"/>
         <image name="ferrari logo.png" width="1000" height="1600"/>
         <image name="fuelEconomyIcon.png" width="32" height="32"/>
-        <image name="lines7.png" width="32" height="32"/>
+        <image name="lines7.png" width="12" height="12"/>
         <image name="peugeot logo.png" width="640" height="451"/>
         <image name="wheels10.png" width="32" height="32"/>
     </resources>
@@ -2042,12 +1979,12 @@ EEZ1ZWwxA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="7e7-5m-ct1"/>
+        <segue reference="r54-US-OFB"/>
+        <segue reference="UR4-Fk-tIr"/>
+        <segue reference="G1w-b8-9S3"/>
         <segue reference="30L-8O-aJ4"/>
-        <segue reference="IKm-l5-xV9"/>
-        <segue reference="C6b-Pf-jq5"/>
+        <segue reference="7Ei-JC-q0Q"/>
         <segue reference="Pfn-2j-Oxg"/>
         <segue reference="RxO-oc-qbF"/>
-        <segue reference="r54-US-OFB"/>
     </inferredMetricsTieBreakers>
 </document>
