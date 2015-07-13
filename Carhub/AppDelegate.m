@@ -45,38 +45,33 @@
     // show the storyboard
     self.window.rootViewController = [storyboard instantiateInitialViewController];
     [self.window makeKeyAndVisible];
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    bool saved = [defaults boolForKey:k_Save];
-    
-    if (!saved){
-        [defaults setObject:@"yes" forKey:@"showads"];
-    } else {
-        //saved code here
+
         self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
         
         int height = [UIScreen mainScreen].bounds.size.height;
-        
         if (height == 480) {
-            [defaults setObject:@"no" forKey:@"showads"];
-        
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard4" bundle:nil];
         
-            UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"IAP"]; // determine the initial view controller here and instantiate it with [storyboard instantiateViewControllerWithIdentifier:<storyboard id>];
-        
+            UIViewController *viewController = [storyboard instantiateInitialViewController];
             self.window.rootViewController = viewController;
             [self.window makeKeyAndVisible];
-        } else {
-            [defaults setObject:@"no" forKey:@"showads"];
-            
+        } else if (height == 568) {
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-            UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"IAP2"];
+            UIViewController *viewController = [storyboard instantiateInitialViewController];
+            self.window.rootViewController = viewController;
+            [self.window makeKeyAndVisible];
+        } if (height == 667) {
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard6" bundle:nil];
+            UIViewController *viewController = [storyboard instantiateInitialViewController];
+            self.window.rootViewController = viewController;
+            [self.window makeKeyAndVisible];
+        } if (height == 736) {
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard6" bundle:nil];
+            UIViewController *viewController = [storyboard instantiateInitialViewController];
             self.window.rootViewController = viewController;
             [self.window makeKeyAndVisible];
         }
-    }
     
-    return YES;
     return YES;
 }
 

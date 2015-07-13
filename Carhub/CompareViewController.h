@@ -13,11 +13,12 @@
 {
     IBOutlet UIImageView *firstimageview;
     IBOutlet UIImageView *secondimageview;
+    IBOutlet UIButton *exhaustButton1;
+    IBOutlet UIButton *exhaustButton2;
     IBOutlet UIScrollView * scroller;
+    IBOutlet UIToolbar * toolbar;
 }
 
-@property(nonatomic, strong) IBOutlet UILabel * CarMakeLabel;
-@property(nonatomic, strong) IBOutlet UILabel * CarModelLabel;
 @property(nonatomic, strong) IBOutlet UILabel * CarYearsMadeLabel;
 @property(nonatomic, strong) IBOutlet UILabel * CarPriceLabel;
 @property(nonatomic, strong) IBOutlet UILabel * CarEngineLabel;
@@ -29,8 +30,6 @@
 @property(nonatomic, strong) IBOutlet UILabel * CarWeightLabel;
 @property(nonatomic, strong) IBOutlet UILabel * CarFuelEconomyLabel;
 @property(nonatomic, strong) IBOutlet UILabel * CarTitleLabel;
-@property(nonatomic, strong) IBOutlet UILabel * CarMakeLabel2;
-@property(nonatomic, strong) IBOutlet UILabel * CarModelLabel2;
 @property(nonatomic, strong) IBOutlet UILabel * CarYearsMadeLabel2;
 @property(nonatomic, strong) IBOutlet UILabel * CarPriceLabel2;
 @property(nonatomic, strong) IBOutlet UILabel * CarEngineLabel2;
@@ -42,6 +41,9 @@
 @property(nonatomic, strong) IBOutlet UILabel * CarWeightLabel2;
 @property(nonatomic, strong) IBOutlet UILabel * CarFuelEconomyLabel2;
 @property(nonatomic, strong) IBOutlet UILabel * CarTitleLabel2;
+
+@property (nonatomic) bool isPlaying1;
+@property (nonatomic) bool isPlaying2;
 
 @property(nonatomic, strong) Model * firstCar;
 @property(nonatomic, strong) Model * secondCar;

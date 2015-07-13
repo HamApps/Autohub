@@ -8,14 +8,17 @@
 
 #import "CompareViewController2.h"
 #import "AppDelegate.h"
-#import <GoogleMobileAds/GADInterstitial.h>
 #import "ImageViewController.h"
 #import "SDWebImage/UIImageView+WebCache.h"
+#import "STKAudioPlayer.h"
 #import "SWRevealViewController.h"
 
 @interface CompareViewController2 ()
 
 @end
+
+STKAudioPlayer * audioPlayer1;
+STKAudioPlayer * audioPlayer2;
 
 @implementation CompareViewController2
 
@@ -23,7 +26,7 @@
     return (AppDelegate *)[[UIApplication sharedApplication]delegate];
 }
 
-@synthesize CarMakeLabel, CarModelLabel, CarYearsMadeLabel, CarPriceLabel, CarEngineLabel, CarTransmissionLabel, CarDriveTypeLabel, CarHorsepowerLabel, CarZeroToSixtyLabel, CarTopSpeedLabel, CarWeightLabel, CarFuelEconomyLabel, firstCar, secondCar, CarTitleLabel, CarDriveTypeLabel2, CarEngineLabel2, CarFuelEconomyLabel2, CarHorsepowerLabel2, CarMakeLabel2, CarModelLabel2, CarPriceLabel2, CarTitleLabel2, CarTopSpeedLabel2, CarTransmissionLabel2, CarWeightLabel2, CarYearsMadeLabel2, CarZeroToSixtyLabel2;
+@synthesize CarYearsMadeLabel, CarPriceLabel, CarEngineLabel, CarTransmissionLabel, CarDriveTypeLabel, CarHorsepowerLabel, CarZeroToSixtyLabel, CarTopSpeedLabel, CarWeightLabel, CarFuelEconomyLabel, firstCar, secondCar, CarTitleLabel, CarDriveTypeLabel2, CarEngineLabel2, CarFuelEconomyLabel2, CarHorsepowerLabel2, CarPriceLabel2, CarTitleLabel2, CarTopSpeedLabel2, CarTransmissionLabel2, CarWeightLabel2, CarYearsMadeLabel2, CarZeroToSixtyLabel2, isPlaying1, isPlaying2;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,13 +41,24 @@
 {
     [super viewDidLoad];
     
+    UIImage* tabBarBackground = [UIImage imageNamed:@"DarkerTabBarColor.png"];
+    [toolbar setBackgroundImage:tabBarBackground forToolbarPosition:UIToolbarPositionBottom barMetrics:UIBarMetricsDefault];
+    [toolbar setFrame:CGRectMake(0, 436, 320, 44)];
+    
+    isPlaying1 = false;
+    isPlaying2 = false;
+    audioPlayer1 = [[STKAudioPlayer alloc]init];
+    audioPlayer2 = [[STKAudioPlayer alloc]init];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(revertExhaustButton1) name:@"RevertExhaustButton1" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(revertExhaustButton2) name:@"RevertExhaustButton2" object:nil];
+
     [self getCars];
     [self setLabels];
     
     self.view.backgroundColor = [UIColor whiteColor];
     
     [scroller setScrollEnabled:YES];
-    [scroller setContentSize:CGSizeMake(320, 775)];
+    [scroller setContentSize:CGSizeMake(320, 795)];
     
     [firstimageview setAlpha:1.0];
     [firstimageview sd_setImageWithURL:[NSURL URLWithString:firstCar.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]];
@@ -55,16 +69,64 @@
     self.title = @"Model Comparison";
     CarTitleLabel.text = [[firstCar.CarMake stringByAppendingString:@" "] stringByAppendingString:firstCar.CarModel];
     CarTitleLabel2.text = [[secondCar.CarMake stringByAppendingString:@" "] stringByAppendingString:secondCar.CarModel];
-    
-    // Do any additional setup after loading the view.
-    
-    [super viewDidLoad];
 }
 
-- (void)didReceiveMemoryWarning
+- (void)viewWillAppear:(BOOL)animated {
+    isPlaying1 = false;
+    isPlaying2 = false;
+    if(!([firstCar.CarExhaust isEqual:@""]))
+        [exhaustButton1 setBackgroundImage:[UIImage imageNamed:@"ExhaustIconPlay.png"] forState:UIControlStateNormal];
+    if(!([secondCar.CarExhaust isEqual:@""]))
+        [exhaustButton2 setBackgroundImage:[UIImage imageNamed:@"ExhaustIconPlay.png"] forState:UIControlStateNormal];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [audioPlayer1 stop];
+    [audioPlayer2 stop];
+}
+
+-(IBAction)Sound1{
+    if(!([firstCar.CarExhaust isEqual:@""])){
+        if(isPlaying1 == false){
+            isPlaying1 = true;
+            [exhaustButton1 setBackgroundImage:[UIImage imageNamed:@"ExhaustIconPause.png"] forState:UIControlStateNormal];
+            [audioPlayer1 resume];
+            NSString * soundurl = [@"http://www.pl0x.net/CarSounds/" stringByAppendingString:firstCar.CarExhaust];
+            [audioPlayer1 play:soundurl];
+        }else{
+            isPlaying1 = false;
+            [exhaustButton1 setBackgroundImage:[UIImage imageNamed:@"ExhaustIconPlay.png"] forState:UIControlStateNormal];
+            [audioPlayer1 stop];
+        }
+    }
+}
+
+-(IBAction)Sound2{
+    if(!([secondCar.CarExhaust isEqual:@""])){
+        if(isPlaying2 == false){
+            isPlaying2 = true;
+            [exhaustButton2 setBackgroundImage:[UIImage imageNamed:@"ExhaustIconPause.png"] forState:UIControlStateNormal];
+            [audioPlayer2 resume];
+            NSString * soundurl = [@"http://www.pl0x.net/CarSounds/" stringByAppendingString:secondCar.CarExhaust];
+            [audioPlayer2 play:soundurl];
+        }else{
+            isPlaying2 = false;
+            [exhaustButton2 setBackgroundImage:[UIImage imageNamed:@"ExhaustIconPlay.png"] forState:UIControlStateNormal];
+            [audioPlayer2 stop];
+        }
+    }
+}
+
+- (void)revertExhaustButton1
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    isPlaying1 = false;
+    [exhaustButton1 setBackgroundImage:[UIImage imageNamed:@"ExhaustIconPlay.png"] forState:UIControlStateNormal];
+}
+
+- (void)revertExhaustButton2
+{
+    isPlaying2 = false;
+    [exhaustButton2 setBackgroundImage:[UIImage imageNamed:@"ExhaustIconPlay.png"] forState:UIControlStateNormal];
 }
 
 #pragma mark -
@@ -75,17 +137,12 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSData *firstCarData = [defaults objectForKey:@"firstcar"];
     firstCar = [NSKeyedUnarchiver unarchiveObjectWithData:firstCarData];
-    NSLog(@"firstCar %@", firstCar.CarFullName);
-    
     NSData *secondCarData = [defaults objectForKey:@"secondcar"];
     secondCar = [NSKeyedUnarchiver unarchiveObjectWithData:secondCarData];
-    NSLog(@"secondCar %@", secondCar.CarFullName);
 }
 
 - (void)setLabels
 {
-    CarMakeLabel.text = firstCar.CarMake;
-    CarModelLabel.text = firstCar.CarModel;
     CarYearsMadeLabel.text = firstCar.CarYearsMade;
     CarPriceLabel.text = firstCar.CarPrice;
     CarEngineLabel.text = firstCar.CarEngine;
@@ -97,8 +154,6 @@
     CarWeightLabel.text = firstCar.CarWeight;
     CarFuelEconomyLabel.text = firstCar.CarFuelEconomy;
     
-    CarMakeLabel2.text = secondCar.CarMake;
-    CarModelLabel2.text = secondCar.CarModel;
     CarYearsMadeLabel2.text = secondCar.CarYearsMade;
     CarPriceLabel2.text = secondCar.CarPrice;
     CarEngineLabel2.text = secondCar.CarEngine;

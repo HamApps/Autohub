@@ -70,6 +70,7 @@
 		38D5196F1A8FF9AE001140EF /* STKLocalFileDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D519641A8FF9AE001140EF /* STKLocalFileDataSource.m */; };
 		38D519701A8FF9AE001140EF /* STKQueueEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D519661A8FF9AE001140EF /* STKQueueEntry.m */; };
 		38D7BD4D1A7754CA00E22B40 /* adfreepageiphone4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 38D7BD4C1A7754CA00E22B40 /* adfreepageiphone4.jpg */; };
+		38DA14AC1B4DD0BE00979686 /* ExhaustIconPlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38DA14AB1B4DD0BE00979686 /* ExhaustIconPlay@2x.png */; };
 		38E169211B1BBD1E00240372 /* searchbar2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E169201B1BBD1E00240372 /* searchbar2@2x.png */; };
 		38E41D071A9123E700EA6135 /* TopTens.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E41D061A9123E700EA6135 /* TopTens.m */; };
 		38E522AC1A9134EC003F1099 /* NewTopTensViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E522AB1A9134EC003F1099 /* NewTopTensViewController.m */; };
@@ -79,7 +80,6 @@
 		38F741B81B4CCE8100F2FC79 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 38F741B71B4CCE8100F2FC79 /* star.png */; };
 		38F741BA1B4CCE8600F2FC79 /* outline-star-64.png in Resources */ = {isa = PBXBuildFile; fileRef = 38F741B91B4CCE8600F2FC79 /* outline-star-64.png */; };
 		38F741BC1B4CCE8E00F2FC79 /* ExhaustIconPause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38F741BB1B4CCE8E00F2FC79 /* ExhaustIconPause@2x.png */; };
-		38F741BE1B4CCE9E00F2FC79 /* ExhaustIconPlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38F741BD1B4CCE9E00F2FC79 /* ExhaustIconPlay@2x.png */; };
 		38F741C01B4CCEB300F2FC79 /* FavoritesIcon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 38F741BF1B4CCEB300F2FC79 /* FavoritesIcon2.png */; };
 		38F741C21B4CCEC200F2FC79 /* MakesIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38F741C11B4CCEC200F2FC79 /* MakesIcon@2x.png */; };
 		38F741C41B4CCEC800F2FC79 /* TopTensIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38F741C31B4CCEC800F2FC79 /* TopTensIcon@2x.png */; };
@@ -268,6 +268,7 @@
 		38D519661A8FF9AE001140EF /* STKQueueEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STKQueueEntry.m; sourceTree = "<group>"; };
 		38D519671A8FF9AE001140EF /* StreamingKit-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "StreamingKit-Prefix.pch"; sourceTree = "<group>"; };
 		38D7BD4C1A7754CA00E22B40 /* adfreepageiphone4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = adfreepageiphone4.jpg; sourceTree = "<group>"; };
+		38DA14AB1B4DD0BE00979686 /* ExhaustIconPlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ExhaustIconPlay@2x.png"; path = "../../../Downloads/ExhaustIconPlay@2x.png"; sourceTree = "<group>"; };
 		38E169201B1BBD1E00240372 /* searchbar2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "searchbar2@2x.png"; sourceTree = "<group>"; };
 		38E41D051A9123E700EA6135 /* TopTens.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopTens.h; path = ../TopTens.h; sourceTree = "<group>"; };
 		38E41D061A9123E700EA6135 /* TopTens.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopTens.m; path = ../TopTens.m; sourceTree = "<group>"; };
@@ -281,7 +282,6 @@
 		38F741B71B4CCE8100F2FC79 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star.png; path = ../../../Downloads/star.png; sourceTree = "<group>"; };
 		38F741B91B4CCE8600F2FC79 /* outline-star-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "outline-star-64.png"; path = "../../../Downloads/outline-star-64.png"; sourceTree = "<group>"; };
 		38F741BB1B4CCE8E00F2FC79 /* ExhaustIconPause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ExhaustIconPause@2x.png"; path = "../../../Downloads/ExhaustIconPause@2x.png"; sourceTree = "<group>"; };
-		38F741BD1B4CCE9E00F2FC79 /* ExhaustIconPlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ExhaustIconPlay@2x.png"; path = "../../../Downloads/ExhaustIconPlay@2x.png"; sourceTree = "<group>"; };
 		38F741BF1B4CCEB300F2FC79 /* FavoritesIcon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FavoritesIcon2.png; path = ../../../Downloads/FavoritesIcon2.png; sourceTree = "<group>"; };
 		38F741C11B4CCEC200F2FC79 /* MakesIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "MakesIcon@2x.png"; path = "../../../Downloads/MakesIcon@2x.png"; sourceTree = "<group>"; };
 		38F741C31B4CCEC800F2FC79 /* TopTensIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "TopTensIcon@2x.png"; path = "../../../Downloads/TopTensIcon@2x.png"; sourceTree = "<group>"; };
@@ -613,8 +613,8 @@
 				38F741B51B4CCE7300F2FC79 /* browser100.png */,
 				38F741B71B4CCE8100F2FC79 /* star.png */,
 				38F741B91B4CCE8600F2FC79 /* outline-star-64.png */,
+				38DA14AB1B4DD0BE00979686 /* ExhaustIconPlay@2x.png */,
 				38F741BB1B4CCE8E00F2FC79 /* ExhaustIconPause@2x.png */,
-				38F741BD1B4CCE9E00F2FC79 /* ExhaustIconPlay@2x.png */,
 				38F741BF1B4CCEB300F2FC79 /* FavoritesIcon2.png */,
 				38F741C11B4CCEC200F2FC79 /* MakesIcon@2x.png */,
 				38F741C31B4CCEC800F2FC79 /* TopTensIcon@2x.png */,
@@ -793,6 +793,7 @@
 				38F741C01B4CCEB300F2FC79 /* FavoritesIcon2.png in Resources */,
 				38F741C21B4CCEC200F2FC79 /* MakesIcon@2x.png in Resources */,
 				381DDFF119C7AF460055DB4E /* PurchaseViewController.xib in Resources */,
+				38DA14AC1B4DD0BE00979686 /* ExhaustIconPlay@2x.png in Resources */,
 				38F741ED1B4CCFBF00F2FC79 /* LoadingWheelBackground5@2x.png in Resources */,
 				38F741DD1B4CCF7200F2FC79 /* EngineIcon@2x.png in Resources */,
 				38F741CC1B4CCF0500F2FC79 /* garage-50@2x.png in Resources */,
@@ -821,7 +822,6 @@
 				38F741B81B4CCE8100F2FC79 /* star.png in Resources */,
 				AA88E5C11A56507E005B1E43 /* darkishgrey.jpg in Resources */,
 				38F741D91B4CCF5F00F2FC79 /* 0-60icon@2x.png in Resources */,
-				38F741BE1B4CCE9E00F2FC79 /* ExhaustIconPlay@2x.png in Resources */,
 				38F741BA1B4CCE8600F2FC79 /* outline-star-64.png in Resources */,
 				38F741C41B4CCEC800F2FC79 /* TopTensIcon@2x.png in Resources */,
 				38F741E11B4CCF8100F2FC79 /* PriceIcon@2x.png in Resources */,
