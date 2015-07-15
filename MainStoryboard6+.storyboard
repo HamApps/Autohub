@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="5rc-4q-CRu">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -176,7 +175,7 @@
             <objects>
                 <viewController id="dyO-Xs-Ifc" customClass="DisputeInfoViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5K0-9c-PuS">
-                        <rect key="frame" x="0.0" y="64" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SpecsDiputePage6+.png" id="fMk-nG-cIj">
@@ -1949,17 +1948,17 @@ EEZ1ZWwxA
         <image name="0-60icon.png" width="32" height="32"/>
         <image name="Ariel Logo.png" width="125" height="125"/>
         <image name="EngineIcon.png" width="256" height="256"/>
-        <image name="FavoritesIcon2.png" width="64" height="64"/>
+        <image name="FavoritesIcon2.png" width="32" height="32"/>
         <image name="Horsepower Icon.png" width="150" height="133"/>
         <image name="Koenigsegg logo.png" width="265" height="275"/>
         <image name="MakesIcon.png" width="32" height="32"/>
-        <image name="NewsIcon.png" width="64" height="64"/>
+        <image name="NewsIcon.png" width="32" height="32"/>
         <image name="PriceIcon.png" width="32" height="32"/>
         <image name="Radical Logo.png" width="64" height="82"/>
         <image name="SSC Logo.png" width="89" height="118"/>
         <image name="SearchBar6+.png" width="621" height="75"/>
-        <image name="SearchIcon.png" width="64" height="64"/>
-        <image name="SpecsDiputePage6+.png" width="1080" height="1920"/>
+        <image name="SearchIcon.png" width="32" height="32"/>
+        <image name="SpecsDiputePage6+.png" width="540" height="960"/>
         <image name="TopSpeedIcon.png" width="32" height="32"/>
         <image name="TopTensIcon.png" width="32" height="32"/>
         <image name="TransmissionIcon.png" width="32" height="32"/>
@@ -1980,11 +1979,11 @@ EEZ1ZWwxA
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="r54-US-OFB"/>
+        <segue reference="RxO-oc-qbF"/>
         <segue reference="UR4-Fk-tIr"/>
-        <segue reference="G1w-b8-9S3"/>
         <segue reference="30L-8O-aJ4"/>
         <segue reference="7Ei-JC-q0Q"/>
         <segue reference="Pfn-2j-Oxg"/>
-        <segue reference="RxO-oc-qbF"/>
+        <segue reference="lZH-q4-y63"/>
     </inferredMetricsTieBreakers>
 </document>
