@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="5rc-4q-CRu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="5rc-4q-CRu">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="eurostile.TTF">
@@ -1407,7 +1406,7 @@ EEZ1ZWwxA
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MakeReuseID" id="Q5L-db-HvE" customClass="MakeCell">
-                                <rect key="frame" x="0.0" y="0.0" width="109.66" height="108"/>
+                                <rect key="frame" x="0.0" y="0.0" width="110" height="108"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="110" height="108"/>
@@ -1421,7 +1420,7 @@ EEZ1ZWwxA
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="8pC-Po-6hc">
-                                            <rect key="frame" x="7" y="5" width="84" height="78"/>
+                                            <rect key="frame" x="5" y="4" width="84" height="78"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
                                     </subviews>
@@ -2011,23 +2010,23 @@ EEZ1ZWwxA
         <image name="0-60icon.png" width="32" height="32"/>
         <image name="Ariel Logo.png" width="125" height="125"/>
         <image name="EngineIcon.png" width="256" height="256"/>
-        <image name="FavoritesIcon2.png" width="64" height="64"/>
+        <image name="FavoritesIcon2.png" width="32" height="32"/>
         <image name="Horsepower Icon.png" width="150" height="133"/>
         <image name="Koenigsegg logo.png" width="265" height="275"/>
         <image name="MakesIcon.png" width="32" height="32"/>
-        <image name="NewsIcon.png" width="64" height="64"/>
+        <image name="NewsIcon.png" width="32" height="32"/>
         <image name="PriceIcon.png" width="32" height="32"/>
         <image name="Radical Logo.png" width="64" height="82"/>
         <image name="SSC Logo.png" width="89" height="118"/>
         <image name="SearchBar4.png" width="320" height="50"/>
-        <image name="SearchIcon.png" width="64" height="64"/>
+        <image name="SearchIcon.png" width="32" height="32"/>
         <image name="SpecsDisputePage.png" width="320" height="568"/>
         <image name="TopSpeedIcon.png" width="32" height="32"/>
         <image name="TopTensIcon.png" width="32" height="32"/>
         <image name="TransmissionIcon.png" width="32" height="32"/>
         <image name="WeightIcon.png" width="32" height="32"/>
         <image name="blue button 2.png" width="154" height="46"/>
-        <image name="browser100.png" width="64" height="64"/>
+        <image name="browser100.png" width="32" height="32"/>
         <image name="calendar112.png" width="32" height="32"/>
         <image name="dark blue button.png" width="154" height="46"/>
         <image name="ferrari logo.png" width="1000" height="1600"/>
@@ -2042,12 +2041,12 @@ EEZ1ZWwxA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="7e7-5m-ct1"/>
-        <segue reference="30L-8O-aJ4"/>
-        <segue reference="IKm-l5-xV9"/>
-        <segue reference="C6b-Pf-jq5"/>
-        <segue reference="Pfn-2j-Oxg"/>
-        <segue reference="RxO-oc-qbF"/>
         <segue reference="r54-US-OFB"/>
+        <segue reference="CMB-An-ZTl"/>
+        <segue reference="30L-8O-aJ4"/>
+        <segue reference="Pfn-2j-Oxg"/>
+        <segue reference="C6b-Pf-jq5"/>
+        <segue reference="IKm-l5-xV9"/>
+        <segue reference="RxO-oc-qbF"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -70,7 +70,6 @@
         int height = [UIScreen mainScreen].bounds.size.height;
         if (height == 480) {
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard4" bundle:nil];
-        
             UIViewController *viewController = [storyboard instantiateInitialViewController];
             self.window.rootViewController = viewController;
             [self.window makeKeyAndVisible];
@@ -85,7 +84,7 @@
             self.window.rootViewController = viewController;
             [self.window makeKeyAndVisible];
         } if (height == 736) {
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard6" bundle:nil];
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard6+" bundle:nil];
             UIViewController *viewController = [storyboard instantiateInitialViewController];
             self.window.rootViewController = viewController;
             [self.window makeKeyAndVisible];

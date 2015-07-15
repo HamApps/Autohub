@@ -41,6 +41,8 @@
 #import "NSMutableArray+STKAudioPlayer.h"
 #import "libkern/OSAtomic.h"
 #import <float.h>
+#import "CompareViewController.h"
+#import "CompareViewController2.h"
 
 #ifndef DBL_MAX
 #define DBL_MAX 1.7976931348623157e+308
@@ -1079,6 +1081,13 @@ static void AudioFileStreamPacketsProc(void* clientData, UInt32 numberBytes, UIn
     [self processFinishPlayingIfAnyAndPlayingNext:entry withNext:next];
     [self processRunloop];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RevertExhaustButton" object:nil];
+    CompareViewController *compare = [[CompareViewController alloc]init];
+    CompareViewController2 *compare2 = [[CompareViewController2 alloc]init];
+
+    if(!compare.isPlaying1 && !compare2.isPlaying1)
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"RevertExhaustButton1" object:nil];
+    if(!compare.isPlaying2 && !compare2.isPlaying2)
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"RevertExhaustButton2" object:nil];
 }
 
 -(void) setCurrentlyReadingEntry:(STKQueueEntry*)entry andStartPlaying:(BOOL)startPlaying

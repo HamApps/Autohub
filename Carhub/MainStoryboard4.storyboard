@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="bUt-7L-xzk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="bUt-7L-xzk">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="eurostile.TTF">
@@ -186,11 +185,11 @@
             <objects>
                 <viewController id="wqd-aT-3l0" customClass="DetailViewController2" sceneMemberID="viewController">
                     <view key="view" contentMode="redraw" id="bIF-ek-1Vg">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="vcM-KJ-qF2">
-                                <rect key="frame" x="0.0" y="85" width="320" height="485"/>
+                                <rect key="frame" x="0.0" y="36" width="320" height="485"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="FsU-Df-glK">
@@ -393,7 +392,7 @@
                                 </subviews>
                             </scrollView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Q8J-0R-cds">
-                                <rect key="frame" x="0.0" y="474" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="425" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem style="plain" id="m2z-j3-dKB">
@@ -508,11 +507,11 @@
             <objects>
                 <viewController id="GCP-Ir-q3y" customClass="CompareViewController2" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H2F-DA-Dmd">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="KKt-Ac-xl8">
-                                <rect key="frame" x="0.0" y="78" width="320" height="490"/>
+                                <rect key="frame" x="0.0" y="29" width="320" height="490"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WeightIcon.png" id="u4Z-q1-1TQ">
@@ -837,7 +836,7 @@ EEZ1ZWwxA
                                 </subviews>
                             </scrollView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="maO-mL-vuv">
-                                <rect key="frame" x="0.0" y="450" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="401" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem style="plain" id="jQd-vu-bTM">
@@ -920,7 +919,7 @@ EEZ1ZWwxA
             <objects>
                 <viewController id="wEG-mh-v4Y" customClass="DisputeInfoViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Fa-7L-6D0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="1632"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SpecsDisputePage4.png" id="glX-MP-UQY">
@@ -1537,7 +1536,7 @@ EEZ1ZWwxA
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="toptens" rowHeight="140" id="ere-P6-81h" customClass="TopTensCell">
-                                <rect key="frame" x="0.0" y="22" width="320" height="140"/>
+                                <rect key="frame" x="0.0" y="86" width="320" height="140"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ere-P6-81h" id="OzI-eG-woe">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="139"/>
@@ -1950,13 +1949,12 @@ EEZ1ZWwxA
         <image name="EngineIcon.png" width="256" height="256"/>
         <image name="Horsepower Icon.png" width="150" height="133"/>
         <image name="PriceIcon.png" width="32" height="32"/>
-        <image name="SearchBar4.png" width="320" height="50"/>
         <image name="SpecsDisputePage4.png" width="320" height="480"/>
         <image name="TopSpeedIcon.png" width="32" height="32"/>
         <image name="TransmissionIcon.png" width="32" height="32"/>
         <image name="WeightIcon.png" width="32" height="32"/>
         <image name="blue button 2.png" width="154" height="46"/>
-        <image name="browser100.png" width="64" height="64"/>
+        <image name="browser100.png" width="32" height="32"/>
         <image name="calendar112.png" width="32" height="32"/>
         <image name="fuelEconomyIcon.png" width="32" height="32"/>
         <image name="lines7.png" width="32" height="32"/>
@@ -1969,12 +1967,12 @@ EEZ1ZWwxA
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="dF7-WB-K3G"/>
-        <segue reference="IgV-gc-O6F"/>
         <segue reference="yVH-B1-Ypj"/>
+        <segue reference="dF7-WB-K3G"/>
         <segue reference="CS9-r1-biV"/>
         <segue reference="B34-lZ-zbJ"/>
         <segue reference="b6C-O1-37U"/>
         <segue reference="x0E-UV-u6W"/>
+        <segue reference="vIQ-NU-fi2"/>
     </inferredMetricsTieBreakers>
 </document>

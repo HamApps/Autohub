@@ -10,6 +10,8 @@
 #import "Model.h"
 #import "CarViewCell.h"
 #import "DetailViewController.h"
+#import "DetailViewController2.h"
+#import "DetailViewController3.h"
 #import <QuartzCore/QuartzCore.h>
 #import "AppDelegate.h"
 #import "MakeViewController.h"
@@ -86,7 +88,7 @@
     cell.layer.borderColor=[UIColor blackColor].CGColor;
     cell.CarName.layer.borderWidth=1.0f;
     cell.CarName.layer.borderColor=[UIColor whiteColor].CGColor;
-
+    
     //Load and fade image
     [cell.CarImage sd_setImageWithURL:[NSURL URLWithString:modelObject.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]
                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageurl){
