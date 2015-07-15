@@ -8,12 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		380689B21B1D621000CD4425 /* TestNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 380689B11B1D621000CD4425 /* TestNewsViewController.m */; };
-		380BC52B1B55B04500081B43 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 380BC52A1B55B04500081B43 /* star.png */; };
-		380BC52D1B55B06600081B43 /* DriveTypeIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 380BC52C1B55B06600081B43 /* DriveTypeIcon@2x.png */; };
-		380BC52F1B55B1B700081B43 /* lines7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 380BC52E1B55B1B700081B43 /* lines7@2x.png */; };
-		380BC5311B55B1F200081B43 /* MakesIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 380BC5301B55B1F200081B43 /* MakesIcon@2x.png */; };
-		380BC5331B55B24C00081B43 /* wheels10@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 380BC5321B55B24C00081B43 /* wheels10@2x.png */; };
-		380BC5351B55B29400081B43 /* ExhaustIconPause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 380BC5341B55B29400081B43 /* ExhaustIconPause@2x.png */; };
 		380BC5381B55FEA200081B43 /* CompareViewController3.m in Sources */ = {isa = PBXBuildFile; fileRef = 380BC5371B55FEA200081B43 /* CompareViewController3.m */; };
 		380BC53B1B5607C400081B43 /* DetailViewController4.m in Sources */ = {isa = PBXBuildFile; fileRef = 380BC53A1B5607C400081B43 /* DetailViewController4.m */; };
 		380BC53E1B56085D00081B43 /* CompareViewController4.m in Sources */ = {isa = PBXBuildFile; fileRef = 380BC53D1B56085D00081B43 /* CompareViewController4.m */; };
@@ -45,28 +39,6 @@
 		385C1403197B3F76003BBB09 /* Make.m in Sources */ = {isa = PBXBuildFile; fileRef = 385C1402197B3F76003BBB09 /* Make.m */; };
 		385C1405197B3FDA003BBB09 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 385C1404197B3FDA003BBB09 /* MainStoryboard.storyboard */; };
 		385C141D197BBC32003BBB09 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 385C141C197BBC32003BBB09 /* DetailViewController.m */; };
-		3872C8DB1B54A594006E77D0 /* FavoritesIcon2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3872C8DA1B54A594006E77D0 /* FavoritesIcon2@2x.png */; };
-		3872C8DD1B54A5B5006E77D0 /* SearchIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3872C8DC1B54A5B5006E77D0 /* SearchIcon@2x.png */; };
-		3872C8DF1B54A5BE006E77D0 /* NewsIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3872C8DE1B54A5BE006E77D0 /* NewsIcon@2x.png */; };
-		3872C8E11B54A5CB006E77D0 /* 0-60icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3872C8E01B54A5CB006E77D0 /* 0-60icon@2x.png */; };
-		3872C8E31B54A5D4006E77D0 /* calendar112@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3872C8E21B54A5D4006E77D0 /* calendar112@2x.png */; };
-		3872C8E51B54A5DD006E77D0 /* EngineIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3872C8E41B54A5DD006E77D0 /* EngineIcon@2x.png */; };
-		3872C8E71B54A5E9006E77D0 /* fuelEconomyIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3872C8E61B54A5E9006E77D0 /* fuelEconomyIcon@2x.png */; };
-		3872C8E91B54A5F2006E77D0 /* PriceIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3872C8E81B54A5F2006E77D0 /* PriceIcon@2x.png */; };
-		3872C8EB1B54A5FA006E77D0 /* TransmissionIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3872C8EA1B54A5FA006E77D0 /* TransmissionIcon@2x.png */; };
-		3872C8ED1B54A602006E77D0 /* WeightIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3872C8EC1B54A602006E77D0 /* WeightIcon@2x.png */; };
-		3872C8EF1B54A60A006E77D0 /* TopSpeedIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3872C8EE1B54A60A006E77D0 /* TopSpeedIcon@2x.png */; };
-		3872C8F11B54A611006E77D0 /* blue button 2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3872C8F01B54A611006E77D0 /* blue button 2@2x.png */; };
-		3872C8F31B54A61A006E77D0 /* DarkerTabBarColor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3872C8F21B54A61A006E77D0 /* DarkerTabBarColor@2x.png */; };
-		3872C8F51B54A624006E77D0 /* LoadingWheelBackground5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3872C8F41B54A624006E77D0 /* LoadingWheelBackground5@2x.png */; };
-		3872C8F71B54A631006E77D0 /* UIColor+CreateMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 3872C8F61B54A631006E77D0 /* UIColor+CreateMethods.m */; };
-		3872C8FB1B54A691006E77D0 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3872C8FA1B54A691006E77D0 /* SWRevealViewController.m */; };
-		3872C8FD1B54A6C8006E77D0 /* SearchBar6+@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3872C8FC1B54A6C8006E77D0 /* SearchBar6+@2x.png */; };
-		3872C8FF1B54A6D2006E77D0 /* Horsepower Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3872C8FE1B54A6D2006E77D0 /* Horsepower Icon@2x.png */; };
-		3872C9011B54A6E0006E77D0 /* SpecsDisputePage6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3872C9001B54A6E0006E77D0 /* SpecsDisputePage6@2x.png */; };
-		3872C9051B54A705006E77D0 /* SpecsDiputePage6+@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3872C9041B54A705006E77D0 /* SpecsDiputePage6+@2x.png */; };
-		3872C9071B54A75A006E77D0 /* SearchBar4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3872C9061B54A75A006E77D0 /* SearchBar4@2x.png */; };
-		3872C9091B54A780006E77D0 /* SearchBar6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3872C9081B54A780006E77D0 /* SearchBar6@2x.png */; };
 		3872C90F1B54A7CD006E77D0 /* DetailViewController3.m in Sources */ = {isa = PBXBuildFile; fileRef = 3872C90E1B54A7CD006E77D0 /* DetailViewController3.m */; };
 		38774D3319C5E5F300C22A70 /* NewsLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38774D3219C5E5F300C22A70 /* NewsLabel.m */; };
 		387A28A21B30F42E00152F55 /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 387A28A11B30F42E00152F55 /* NavigationViewController.m */; };
@@ -102,17 +74,45 @@
 		38D5196F1A8FF9AE001140EF /* STKLocalFileDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D519641A8FF9AE001140EF /* STKLocalFileDataSource.m */; };
 		38D519701A8FF9AE001140EF /* STKQueueEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D519661A8FF9AE001140EF /* STKQueueEntry.m */; };
 		38D7BD4D1A7754CA00E22B40 /* adfreepageiphone4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 38D7BD4C1A7754CA00E22B40 /* adfreepageiphone4.jpg */; };
-		38DA14AC1B4DD0BE00979686 /* ExhaustIconPlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38DA14AB1B4DD0BE00979686 /* ExhaustIconPlay@2x.png */; };
 		38E169211B1BBD1E00240372 /* searchbar2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E169201B1BBD1E00240372 /* searchbar2@2x.png */; };
 		38E41D071A9123E700EA6135 /* TopTens.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E41D061A9123E700EA6135 /* TopTens.m */; };
 		38E522AC1A9134EC003F1099 /* NewTopTensViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E522AB1A9134EC003F1099 /* NewTopTensViewController.m */; };
 		38E522AF1A913803003F1099 /* TopTensCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E522AE1A913803003F1099 /* TopTensCell.m */; };
-		38F741B61B4CCE7300F2FC79 /* browser100@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38F741B51B4CCE7300F2FC79 /* browser100@2x.png */; };
 		38F741BA1B4CCE8600F2FC79 /* outline-star-64.png in Resources */ = {isa = PBXBuildFile; fileRef = 38F741B91B4CCE8600F2FC79 /* outline-star-64.png */; };
-		38F741C41B4CCEC800F2FC79 /* TopTensIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38F741C31B4CCEC800F2FC79 /* TopTensIcon@2x.png */; };
-		38F741CC1B4CCF0500F2FC79 /* garage-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38F741CB1B4CCF0500F2FC79 /* garage-50@2x.png */; };
-		38F741D21B4CCF2100F2FC79 /* SpecsDisputePage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38F741D11B4CCF2100F2FC79 /* SpecsDisputePage@2x.png */; };
 		38FD7C301B22771600E576B3 /* SpecsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FD7C2F1B22771600E576B3 /* SpecsCell.m */; };
+		AA12FBFE1B56155B00EE5E5C /* ExhaustIconPause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA12FBFD1B56155B00EE5E5C /* ExhaustIconPause@2x.png */; };
+		AA12FC001B56156100EE5E5C /* wheels10@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA12FBFF1B56156100EE5E5C /* wheels10@2x.png */; };
+		AA12FC021B56156B00EE5E5C /* MakesIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA12FC011B56156B00EE5E5C /* MakesIcon@2x.png */; };
+		AA12FC041B56158300EE5E5C /* browser100@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA12FC031B56158300EE5E5C /* browser100@2x.png */; };
+		AA12FC061B56159400EE5E5C /* lines7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA12FC051B56159400EE5E5C /* lines7@2x.png */; };
+		AA12FC081B56159C00EE5E5C /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = AA12FC071B56159C00EE5E5C /* star.png */; };
+		AA12FC0A1B5615DC00EE5E5C /* SearchBar4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA12FC091B5615DC00EE5E5C /* SearchBar4@2x.png */; };
+		AA12FC0C1B5615E100EE5E5C /* SearchBar6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA12FC0B1B5615E100EE5E5C /* SearchBar6@2x.png */; };
+		AA12FC0E1B56160300EE5E5C /* Horsepower Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA12FC0D1B56160300EE5E5C /* Horsepower Icon@2x.png */; };
+		AA12FC101B56160B00EE5E5C /* DriveTypeIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA12FC0F1B56160B00EE5E5C /* DriveTypeIcon@2x.png */; };
+		AA12FC121B56162700EE5E5C /* SpecsDiputePage6+@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA12FC111B56162700EE5E5C /* SpecsDiputePage6+@2x.png */; };
+		AA12FC141B56164200EE5E5C /* SpecsDisputePage6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA12FC131B56164200EE5E5C /* SpecsDisputePage6@2x.png */; };
+		AA12FC161B56164B00EE5E5C /* SearchBar6+@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA12FC151B56164B00EE5E5C /* SearchBar6+@2x.png */; };
+		AA12FC191B56165600EE5E5C /* UIColor+CreateMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = AA12FC181B56165600EE5E5C /* UIColor+CreateMethods.m */; };
+		AA12FC1B1B56166E00EE5E5C /* ExhaustIconPlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA12FC1A1B56166E00EE5E5C /* ExhaustIconPlay@2x.png */; };
+		AA12FC1D1B56167500EE5E5C /* FavoritesIcon2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA12FC1C1B56167500EE5E5C /* FavoritesIcon2@2x.png */; };
+		AA12FC1F1B56168100EE5E5C /* TopTensIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA12FC1E1B56168100EE5E5C /* TopTensIcon@2x.png */; };
+		AA12FC211B56168700EE5E5C /* SearchIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA12FC201B56168700EE5E5C /* SearchIcon@2x.png */; };
+		AA12FC231B56168D00EE5E5C /* NewsIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA12FC221B56168D00EE5E5C /* NewsIcon@2x.png */; };
+		AA12FC251B5616AA00EE5E5C /* SpecsDisputePage4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA12FC241B5616AA00EE5E5C /* SpecsDisputePage4@2x.png */; };
+		AA12FC271B5616C900EE5E5C /* SpecsDisputePage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA12FC261B5616C900EE5E5C /* SpecsDisputePage@2x.png */; };
+		AA12FC291B56173E00EE5E5C /* 0-60icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA12FC281B56173E00EE5E5C /* 0-60icon@2x.png */; };
+		AA12FC2B1B56174600EE5E5C /* calendar112@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA12FC2A1B56174600EE5E5C /* calendar112@2x.png */; };
+		AA12FC2D1B56174B00EE5E5C /* EngineIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA12FC2C1B56174B00EE5E5C /* EngineIcon@2x.png */; };
+		AA12FC331B56176400EE5E5C /* fuelEconomyIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA12FC2E1B56176400EE5E5C /* fuelEconomyIcon@2x.png */; };
+		AA12FC341B56176400EE5E5C /* PriceIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA12FC2F1B56176400EE5E5C /* PriceIcon@2x.png */; };
+		AA12FC351B56176400EE5E5C /* TopTensIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA12FC301B56176400EE5E5C /* TopTensIcon@2x.png */; };
+		AA12FC361B56176400EE5E5C /* TransmissionIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA12FC311B56176400EE5E5C /* TransmissionIcon@2x.png */; };
+		AA12FC371B56176400EE5E5C /* WeightIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA12FC321B56176400EE5E5C /* WeightIcon@2x.png */; };
+		AA12FC391B56177600EE5E5C /* blue button 2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA12FC381B56177600EE5E5C /* blue button 2@2x.png */; };
+		AA12FC3B1B56179200EE5E5C /* ExhaustButtonStart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA12FC3A1B56179200EE5E5C /* ExhaustButtonStart@2x.png */; };
+		AA12FC3D1B56179B00EE5E5C /* LoadingWheelBackground5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA12FC3C1B56179B00EE5E5C /* LoadingWheelBackground5@2x.png */; };
+		AA12FC3F1B5617D000EE5E5C /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA12FC3E1B5617D000EE5E5C /* SWRevealViewController.m */; };
 		AA3E760619F0A32A00C1F870 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA3E760519F0A32A00C1F870 /* AdSupport.framework */; };
 		AA3E760819F0A33000C1F870 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA3E760719F0A33000C1F870 /* AudioToolbox.framework */; };
 		AA3E760A19F0A33900C1F870 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA3E760919F0A33900C1F870 /* AVFoundation.framework */; };
@@ -165,12 +165,6 @@
 /* Begin PBXFileReference section */
 		380689B01B1D621000CD4425 /* TestNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestNewsViewController.h; path = ../TestNewsViewController.h; sourceTree = "<group>"; };
 		380689B11B1D621000CD4425 /* TestNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestNewsViewController.m; path = ../TestNewsViewController.m; sourceTree = "<group>"; };
-		380BC52A1B55B04500081B43 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star.png; path = ../../../Downloads/star.png; sourceTree = "<group>"; };
-		380BC52C1B55B06600081B43 /* DriveTypeIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "DriveTypeIcon@2x.png"; path = "../../untitled folder/DriveTypeIcon@2x.png"; sourceTree = "<group>"; };
-		380BC52E1B55B1B700081B43 /* lines7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "lines7@2x.png"; path = "../../../Downloads/lines7@2x.png"; sourceTree = "<group>"; };
-		380BC5301B55B1F200081B43 /* MakesIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "MakesIcon@2x.png"; path = "../../../Downloads/MakesIcon@2x.png"; sourceTree = "<group>"; };
-		380BC5321B55B24C00081B43 /* wheels10@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wheels10@2x.png"; path = "../../untitled folder/wheels10@2x.png"; sourceTree = "<group>"; };
-		380BC5341B55B29400081B43 /* ExhaustIconPause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ExhaustIconPause@2x.png"; path = "../../../Downloads/ExhaustIconPause@2x.png"; sourceTree = "<group>"; };
 		380BC5361B55FEA200081B43 /* CompareViewController3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CompareViewController3.h; path = ../CompareViewController3.h; sourceTree = "<group>"; };
 		380BC5371B55FEA200081B43 /* CompareViewController3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CompareViewController3.m; path = ../CompareViewController3.m; sourceTree = "<group>"; };
 		380BC5391B5607C400081B43 /* DetailViewController4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailViewController4.h; path = ../DetailViewController4.h; sourceTree = "<group>"; };
@@ -230,30 +224,6 @@
 		385C1404197B3FDA003BBB09 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		385C141B197BBC32003BBB09 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		385C141C197BBC32003BBB09 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; usesTabs = 0; };
-		3872C8DA1B54A594006E77D0 /* FavoritesIcon2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "FavoritesIcon2@2x.png"; path = "../../../Downloads/FavoritesIcon2@2x.png"; sourceTree = "<group>"; };
-		3872C8DC1B54A5B5006E77D0 /* SearchIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SearchIcon@2x.png"; path = "../../../Downloads/SearchIcon@2x.png"; sourceTree = "<group>"; };
-		3872C8DE1B54A5BE006E77D0 /* NewsIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "NewsIcon@2x.png"; path = "../../../Downloads/NewsIcon@2x.png"; sourceTree = "<group>"; };
-		3872C8E01B54A5CB006E77D0 /* 0-60icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "0-60icon@2x.png"; path = "../../../Downloads/0-60icon@2x.png"; sourceTree = "<group>"; };
-		3872C8E21B54A5D4006E77D0 /* calendar112@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "calendar112@2x.png"; path = "../../untitled folder/calendar112@2x.png"; sourceTree = "<group>"; };
-		3872C8E41B54A5DD006E77D0 /* EngineIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "EngineIcon@2x.png"; path = "../../../Downloads/EngineIcon@2x.png"; sourceTree = "<group>"; };
-		3872C8E61B54A5E9006E77D0 /* fuelEconomyIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fuelEconomyIcon@2x.png"; path = "../../untitled folder/fuelEconomyIcon@2x.png"; sourceTree = "<group>"; };
-		3872C8E81B54A5F2006E77D0 /* PriceIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "PriceIcon@2x.png"; path = "../../untitled folder/PriceIcon@2x.png"; sourceTree = "<group>"; };
-		3872C8EA1B54A5FA006E77D0 /* TransmissionIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "TransmissionIcon@2x.png"; path = "../../untitled folder/TransmissionIcon@2x.png"; sourceTree = "<group>"; };
-		3872C8EC1B54A602006E77D0 /* WeightIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "WeightIcon@2x.png"; path = "../../untitled folder/WeightIcon@2x.png"; sourceTree = "<group>"; };
-		3872C8EE1B54A60A006E77D0 /* TopSpeedIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "TopSpeedIcon@2x.png"; path = "../../untitled folder/TopSpeedIcon@2x.png"; sourceTree = "<group>"; };
-		3872C8F01B54A611006E77D0 /* blue button 2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blue button 2@2x.png"; path = "../../../Downloads/blue button 2@2x.png"; sourceTree = "<group>"; };
-		3872C8F21B54A61A006E77D0 /* DarkerTabBarColor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "DarkerTabBarColor@2x.png"; path = "../../../Downloads/DarkerTabBarColor@2x.png"; sourceTree = "<group>"; };
-		3872C8F41B54A624006E77D0 /* LoadingWheelBackground5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "LoadingWheelBackground5@2x.png"; path = "../../untitled folder/LoadingWheelBackground5@2x.png"; sourceTree = "<group>"; };
-		3872C8F61B54A631006E77D0 /* UIColor+CreateMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+CreateMethods.m"; path = "../../../Downloads/AMSlideMenu-master 3/AMSlideMenuDemo-with Storyboard/AMSlideMenu/Categories/UIColor+CreateMethods.m"; sourceTree = "<group>"; };
-		3872C8F81B54A637006E77D0 /* UIColor+CreateMethods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIColor+CreateMethods.h"; path = "../../../Downloads/AMSlideMenu-master 3/AMSlideMenuDemo-with Storyboard/AMSlideMenu/Categories/UIColor+CreateMethods.h"; sourceTree = "<group>"; };
-		3872C8F91B54A67F006E77D0 /* SWRevealViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = "../../../Desktop/untitled folder 2/SlideOutMenuFiles/SWRevealViewController.h"; sourceTree = "<group>"; };
-		3872C8FA1B54A691006E77D0 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = "../../SlideOutMenu 2/SlideOutMenuFiles/SWRevealViewController.m"; sourceTree = "<group>"; };
-		3872C8FC1B54A6C8006E77D0 /* SearchBar6+@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SearchBar6+@2x.png"; path = "../../../Downloads/SearchBar6+@2x.png"; sourceTree = "<group>"; };
-		3872C8FE1B54A6D2006E77D0 /* Horsepower Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Horsepower Icon@2x.png"; path = "../../../Downloads/AutohubRepo-8443379735bf1f14c8928e9e7fc8e9c8974bb8e7/Carhub/Horsepower Icon@2x.png"; sourceTree = "<group>"; };
-		3872C9001B54A6E0006E77D0 /* SpecsDisputePage6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SpecsDisputePage6@2x.png"; path = "../../../Downloads/SpecsDisputePage6@2x.png"; sourceTree = "<group>"; };
-		3872C9041B54A705006E77D0 /* SpecsDiputePage6+@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SpecsDiputePage6+@2x.png"; path = "../../../Downloads/SpecsDiputePage6+@2x.png"; sourceTree = "<group>"; };
-		3872C9061B54A75A006E77D0 /* SearchBar4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SearchBar4@2x.png"; path = "../../../Downloads/SearchBar4@2x.png"; sourceTree = "<group>"; };
-		3872C9081B54A780006E77D0 /* SearchBar6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SearchBar6@2x.png"; path = "../../../Downloads/SearchBar6@2x.png"; sourceTree = "<group>"; };
 		3872C90D1B54A7CD006E77D0 /* DetailViewController3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailViewController3.h; path = ../DetailViewController3.h; sourceTree = "<group>"; };
 		3872C90E1B54A7CD006E77D0 /* DetailViewController3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailViewController3.m; path = ../DetailViewController3.m; sourceTree = "<group>"; };
 		38774D3119C5E5F300C22A70 /* NewsLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsLabel.h; sourceTree = "<group>"; };
@@ -316,7 +286,6 @@
 		38D519661A8FF9AE001140EF /* STKQueueEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STKQueueEntry.m; sourceTree = "<group>"; };
 		38D519671A8FF9AE001140EF /* StreamingKit-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "StreamingKit-Prefix.pch"; sourceTree = "<group>"; };
 		38D7BD4C1A7754CA00E22B40 /* adfreepageiphone4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = adfreepageiphone4.jpg; sourceTree = "<group>"; };
-		38DA14AB1B4DD0BE00979686 /* ExhaustIconPlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ExhaustIconPlay@2x.png"; path = "../../../Downloads/ExhaustIconPlay@2x.png"; sourceTree = "<group>"; };
 		38E169201B1BBD1E00240372 /* searchbar2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "searchbar2@2x.png"; sourceTree = "<group>"; };
 		38E41D051A9123E700EA6135 /* TopTens.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopTens.h; path = ../TopTens.h; sourceTree = "<group>"; };
 		38E41D061A9123E700EA6135 /* TopTens.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopTens.m; path = ../TopTens.m; sourceTree = "<group>"; };
@@ -324,17 +293,45 @@
 		38E522AB1A9134EC003F1099 /* NewTopTensViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTopTensViewController.m; sourceTree = "<group>"; };
 		38E522AD1A913803003F1099 /* TopTensCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopTensCell.h; sourceTree = "<group>"; };
 		38E522AE1A913803003F1099 /* TopTensCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopTensCell.m; sourceTree = "<group>"; };
-		38F741B51B4CCE7300F2FC79 /* browser100@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "browser100@2x.png"; path = "../../../Downloads/browser100@2x.png"; sourceTree = "<group>"; };
 		38F741B91B4CCE8600F2FC79 /* outline-star-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "outline-star-64.png"; path = "../../../Downloads/outline-star-64.png"; sourceTree = "<group>"; };
-		38F741C31B4CCEC800F2FC79 /* TopTensIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "TopTensIcon@2x.png"; path = "../../../Downloads/TopTensIcon@2x.png"; sourceTree = "<group>"; };
-		38F741CB1B4CCF0500F2FC79 /* garage-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "garage-50@2x.png"; path = "../../../Downloads/AutohubRepo-master 2/Carhub/garage-50@2x.png"; sourceTree = "<group>"; };
-		38F741CF1B4CCF1800F2FC79 /* SpecsDisputePage4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SpecsDisputePage4@2x.png"; path = "../../../Downloads/SpecsDisputePage4@2x.png"; sourceTree = "<group>"; };
-		38F741D11B4CCF2100F2FC79 /* SpecsDisputePage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SpecsDisputePage@2x.png"; path = "../../../Downloads/SpecsDisputePage@2x.png"; sourceTree = "<group>"; };
-		38F741D31B4CCF3A00F2FC79 /* UIColor+CreateMethods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIColor+CreateMethods.h"; path = "../../../Downloads/AMSlideMenu-master 3/AMSlideMenuDemo-with Storyboard/AMSlideMenu/Categories/UIColor+CreateMethods.h"; sourceTree = "<group>"; };
-		38F741D41B4CCF4300F2FC79 /* UIColor+CreateMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+CreateMethods.m"; path = "../../../Downloads/AMSlideMenu-master 3/AMSlideMenuDemo-with Storyboard/AMSlideMenu/Categories/UIColor+CreateMethods.m"; sourceTree = "<group>"; };
 		38F741EE1B4CCFDD00F2FC79 /* LoadingWheel13l.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoadingWheel13l.png; sourceTree = "<group>"; };
 		38FD7C2E1B22771600E576B3 /* SpecsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpecsCell.h; path = ../SpecsCell.h; sourceTree = "<group>"; };
 		38FD7C2F1B22771600E576B3 /* SpecsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpecsCell.m; path = ../SpecsCell.m; sourceTree = "<group>"; };
+		AA12FBFD1B56155B00EE5E5C /* ExhaustIconPause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ExhaustIconPause@2x.png"; path = "../../Autohub Material/UI Pictures/UI Icons/Exhaust Icons/ExhaustIconPause@2x.png"; sourceTree = "<group>"; };
+		AA12FBFF1B56156100EE5E5C /* wheels10@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wheels10@2x.png"; path = "../../Autohub Material/UI Pictures/UI Icons/wheels10@2x.png"; sourceTree = "<group>"; };
+		AA12FC011B56156B00EE5E5C /* MakesIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "MakesIcon@2x.png"; path = "../../Autohub Material/UI Pictures/UI Icons/MakesIcon@2x.png"; sourceTree = "<group>"; };
+		AA12FC031B56158300EE5E5C /* browser100@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "browser100@2x.png"; path = "../../Autohub Material/UI Pictures/UI Icons/browser100@2x.png"; sourceTree = "<group>"; };
+		AA12FC051B56159400EE5E5C /* lines7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "lines7@2x.png"; path = "../../Autohub Material/UI Pictures/UI Icons/lines7@2x.png"; sourceTree = "<group>"; };
+		AA12FC071B56159C00EE5E5C /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star.png; path = "../../Autohub Material/UI Pictures/UI Icons/star.png"; sourceTree = "<group>"; };
+		AA12FC091B5615DC00EE5E5C /* SearchBar4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SearchBar4@2x.png"; path = "../../SearchBar4@2x.png"; sourceTree = "<group>"; };
+		AA12FC0B1B5615E100EE5E5C /* SearchBar6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SearchBar6@2x.png"; path = "../../SearchBar6@2x.png"; sourceTree = "<group>"; };
+		AA12FC0D1B56160300EE5E5C /* Horsepower Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Horsepower Icon@2x.png"; path = "../../Autohub Material/UI Pictures/UI Icons/Horsepower Icon@2x.png"; sourceTree = "<group>"; };
+		AA12FC0F1B56160B00EE5E5C /* DriveTypeIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "DriveTypeIcon@2x.png"; path = "../../Autohub Material/UI Pictures/UI Icons/DriveTypeIcon@2x.png"; sourceTree = "<group>"; };
+		AA12FC111B56162700EE5E5C /* SpecsDiputePage6+@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SpecsDiputePage6+@2x.png"; path = "../../Autohub Material/UI Pictures/Specs Disptue Pages/SpecsDiputePage6+@2x.png"; sourceTree = "<group>"; };
+		AA12FC131B56164200EE5E5C /* SpecsDisputePage6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SpecsDisputePage6@2x.png"; path = "../../Autohub Material/UI Pictures/Specs Disptue Pages/SpecsDisputePage6@2x.png"; sourceTree = "<group>"; };
+		AA12FC151B56164B00EE5E5C /* SearchBar6+@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SearchBar6+@2x.png"; path = "../../SearchBar6+@2x.png"; sourceTree = "<group>"; };
+		AA12FC171B56165600EE5E5C /* UIColor+CreateMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+CreateMethods.h"; path = "../../UIColor+CreateMethods.h"; sourceTree = "<group>"; };
+		AA12FC181B56165600EE5E5C /* UIColor+CreateMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+CreateMethods.m"; path = "../../UIColor+CreateMethods.m"; sourceTree = "<group>"; };
+		AA12FC1A1B56166E00EE5E5C /* ExhaustIconPlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ExhaustIconPlay@2x.png"; path = "../../Autohub Material/UI Pictures/UI Icons/Exhaust Icons/ExhaustIconPlay@2x.png"; sourceTree = "<group>"; };
+		AA12FC1C1B56167500EE5E5C /* FavoritesIcon2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "FavoritesIcon2@2x.png"; path = "../../Autohub Material/UI Pictures/UI Icons/FavoritesIcon2@2x.png"; sourceTree = "<group>"; };
+		AA12FC1E1B56168100EE5E5C /* TopTensIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "TopTensIcon@2x.png"; path = "../../Autohub Material/UI Pictures/UI Icons/TopTensIcon@2x.png"; sourceTree = "<group>"; };
+		AA12FC201B56168700EE5E5C /* SearchIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SearchIcon@2x.png"; path = "../../Autohub Material/UI Pictures/UI Icons/SearchIcon@2x.png"; sourceTree = "<group>"; };
+		AA12FC221B56168D00EE5E5C /* NewsIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "NewsIcon@2x.png"; path = "../../Autohub Material/UI Pictures/UI Icons/NewsIcon@2x.png"; sourceTree = "<group>"; };
+		AA12FC241B5616AA00EE5E5C /* SpecsDisputePage4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SpecsDisputePage4@2x.png"; path = "../../Autohub Material/UI Pictures/Specs Disptue Pages/SpecsDisputePage4@2x.png"; sourceTree = "<group>"; };
+		AA12FC261B5616C900EE5E5C /* SpecsDisputePage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SpecsDisputePage@2x.png"; path = "../../Autohub Material/UI Pictures/Specs Disptue Pages/SpecsDisputePage@2x.png"; sourceTree = "<group>"; };
+		AA12FC281B56173E00EE5E5C /* 0-60icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "0-60icon@2x.png"; path = "../../Autohub Material/UI Pictures/UI Icons/0-60icon@2x.png"; sourceTree = "<group>"; };
+		AA12FC2A1B56174600EE5E5C /* calendar112@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "calendar112@2x.png"; path = "../../Autohub Material/UI Pictures/UI Icons/calendar112@2x.png"; sourceTree = "<group>"; };
+		AA12FC2C1B56174B00EE5E5C /* EngineIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "EngineIcon@2x.png"; path = "../../Autohub Material/UI Pictures/UI Icons/EngineIcon@2x.png"; sourceTree = "<group>"; };
+		AA12FC2E1B56176400EE5E5C /* fuelEconomyIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fuelEconomyIcon@2x.png"; path = "../../Autohub Material/UI Pictures/UI Icons/fuelEconomyIcon@2x.png"; sourceTree = "<group>"; };
+		AA12FC2F1B56176400EE5E5C /* PriceIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "PriceIcon@2x.png"; path = "../../Autohub Material/UI Pictures/UI Icons/PriceIcon@2x.png"; sourceTree = "<group>"; };
+		AA12FC301B56176400EE5E5C /* TopTensIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "TopTensIcon@2x.png"; path = "../../Autohub Material/UI Pictures/UI Icons/TopTensIcon@2x.png"; sourceTree = "<group>"; };
+		AA12FC311B56176400EE5E5C /* TransmissionIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "TransmissionIcon@2x.png"; path = "../../Autohub Material/UI Pictures/UI Icons/TransmissionIcon@2x.png"; sourceTree = "<group>"; };
+		AA12FC321B56176400EE5E5C /* WeightIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "WeightIcon@2x.png"; path = "../../Autohub Material/UI Pictures/UI Icons/WeightIcon@2x.png"; sourceTree = "<group>"; };
+		AA12FC381B56177600EE5E5C /* blue button 2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blue button 2@2x.png"; path = "../../Autohub Material/UI Pictures/Interface Elements/blue button 2@2x.png"; sourceTree = "<group>"; };
+		AA12FC3A1B56179200EE5E5C /* ExhaustButtonStart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ExhaustButtonStart@2x.png"; path = "../../Autohub Material/UI Pictures/Interface Elements/ExhaustButtonStart@2x.png"; sourceTree = "<group>"; };
+		AA12FC3C1B56179B00EE5E5C /* LoadingWheelBackground5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "LoadingWheelBackground5@2x.png"; path = "../../Autohub Material/UI Pictures/LoadingWheelBackground5@2x.png"; sourceTree = "<group>"; };
+		AA12FC3E1B5617D000EE5E5C /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = ../SWRevealViewController.m; sourceTree = "<group>"; };
+		AA12FC401B5617DE00EE5E5C /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = ../SWRevealViewController.h; sourceTree = "<group>"; };
 		AA3E760519F0A32A00C1F870 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		AA3E760719F0A33000C1F870 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		AA3E760919F0A33900C1F870 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -460,8 +457,6 @@
 		387A289C1B30F14D00152F55 /* SlideOutMenuFiles */ = {
 			isa = PBXGroup;
 			children = (
-				3872C8F91B54A67F006E77D0 /* SWRevealViewController.h */,
-				3872C8FA1B54A691006E77D0 /* SWRevealViewController.m */,
 			);
 			name = SlideOutMenuFiles;
 			path = ../../../Downloads/SlideOutMenu/SlideOutMenuFiles;
@@ -531,6 +526,8 @@
 		AA55467E1979F2CD00E7CF12 = {
 			isa = PBXGroup;
 			children = (
+				AA12FC401B5617DE00EE5E5C /* SWRevealViewController.h */,
+				AA12FC3E1B5617D000EE5E5C /* SWRevealViewController.m */,
 				38CB1F671B1267D300919D15 /* GoogleMobileAdsSdkiOS-7.0.0 */,
 				AA5546901979F2CE00E7CF12 /* Carhub */,
 				AA5546AF1979F2CE00E7CF12 /* CarhubTests */,
@@ -648,44 +645,41 @@
 			isa = PBXGroup;
 			children = (
 				38C8E9501B2DEB3C005AE74A /* wheelgif */,
-				380BC5341B55B29400081B43 /* ExhaustIconPause@2x.png */,
-				380BC5321B55B24C00081B43 /* wheels10@2x.png */,
-				380BC5301B55B1F200081B43 /* MakesIcon@2x.png */,
-				38F741B51B4CCE7300F2FC79 /* browser100@2x.png */,
-				380BC52E1B55B1B700081B43 /* lines7@2x.png */,
-				380BC52A1B55B04500081B43 /* star.png */,
-				3872C9061B54A75A006E77D0 /* SearchBar4@2x.png */,
-				3872C9081B54A780006E77D0 /* SearchBar6@2x.png */,
-				3872C8FE1B54A6D2006E77D0 /* Horsepower Icon@2x.png */,
-				380BC52C1B55B06600081B43 /* DriveTypeIcon@2x.png */,
-				3872C9041B54A705006E77D0 /* SpecsDiputePage6+@2x.png */,
-				3872C9001B54A6E0006E77D0 /* SpecsDisputePage6@2x.png */,
-				3872C8FC1B54A6C8006E77D0 /* SearchBar6+@2x.png */,
-				3872C8F81B54A637006E77D0 /* UIColor+CreateMethods.h */,
-				3872C8F61B54A631006E77D0 /* UIColor+CreateMethods.m */,
+				AA12FBFD1B56155B00EE5E5C /* ExhaustIconPause@2x.png */,
+				AA12FBFF1B56156100EE5E5C /* wheels10@2x.png */,
+				AA12FC011B56156B00EE5E5C /* MakesIcon@2x.png */,
+				AA12FC031B56158300EE5E5C /* browser100@2x.png */,
+				AA12FC051B56159400EE5E5C /* lines7@2x.png */,
+				AA12FC071B56159C00EE5E5C /* star.png */,
+				AA12FC091B5615DC00EE5E5C /* SearchBar4@2x.png */,
+				AA12FC0B1B5615E100EE5E5C /* SearchBar6@2x.png */,
+				AA12FC0D1B56160300EE5E5C /* Horsepower Icon@2x.png */,
+				AA12FC0F1B56160B00EE5E5C /* DriveTypeIcon@2x.png */,
+				AA12FC111B56162700EE5E5C /* SpecsDiputePage6+@2x.png */,
+				AA12FC131B56164200EE5E5C /* SpecsDisputePage6@2x.png */,
+				AA12FC151B56164B00EE5E5C /* SearchBar6+@2x.png */,
+				AA12FC171B56165600EE5E5C /* UIColor+CreateMethods.h */,
+				AA12FC181B56165600EE5E5C /* UIColor+CreateMethods.m */,
 				38F741B91B4CCE8600F2FC79 /* outline-star-64.png */,
-				38DA14AB1B4DD0BE00979686 /* ExhaustIconPlay@2x.png */,
-				3872C8DA1B54A594006E77D0 /* FavoritesIcon2@2x.png */,
-				38F741C31B4CCEC800F2FC79 /* TopTensIcon@2x.png */,
-				3872C8DC1B54A5B5006E77D0 /* SearchIcon@2x.png */,
-				3872C8DE1B54A5BE006E77D0 /* NewsIcon@2x.png */,
-				38F741CB1B4CCF0500F2FC79 /* garage-50@2x.png */,
-				38F741CF1B4CCF1800F2FC79 /* SpecsDisputePage4@2x.png */,
-				38F741D11B4CCF2100F2FC79 /* SpecsDisputePage@2x.png */,
-				38F741D31B4CCF3A00F2FC79 /* UIColor+CreateMethods.h */,
-				38F741D41B4CCF4300F2FC79 /* UIColor+CreateMethods.m */,
+				AA12FC1A1B56166E00EE5E5C /* ExhaustIconPlay@2x.png */,
+				AA12FC1C1B56167500EE5E5C /* FavoritesIcon2@2x.png */,
+				AA12FC1E1B56168100EE5E5C /* TopTensIcon@2x.png */,
+				AA12FC201B56168700EE5E5C /* SearchIcon@2x.png */,
+				AA12FC221B56168D00EE5E5C /* NewsIcon@2x.png */,
+				AA12FC241B5616AA00EE5E5C /* SpecsDisputePage4@2x.png */,
+				AA12FC261B5616C900EE5E5C /* SpecsDisputePage@2x.png */,
 				38E169201B1BBD1E00240372 /* searchbar2@2x.png */,
-				3872C8E01B54A5CB006E77D0 /* 0-60icon@2x.png */,
-				3872C8E21B54A5D4006E77D0 /* calendar112@2x.png */,
-				3872C8E41B54A5DD006E77D0 /* EngineIcon@2x.png */,
-				3872C8E61B54A5E9006E77D0 /* fuelEconomyIcon@2x.png */,
-				3872C8E81B54A5F2006E77D0 /* PriceIcon@2x.png */,
-				3872C8EA1B54A5FA006E77D0 /* TransmissionIcon@2x.png */,
-				3872C8EC1B54A602006E77D0 /* WeightIcon@2x.png */,
-				3872C8EE1B54A60A006E77D0 /* TopSpeedIcon@2x.png */,
-				3872C8F01B54A611006E77D0 /* blue button 2@2x.png */,
-				3872C8F21B54A61A006E77D0 /* DarkerTabBarColor@2x.png */,
-				3872C8F41B54A624006E77D0 /* LoadingWheelBackground5@2x.png */,
+				AA12FC281B56173E00EE5E5C /* 0-60icon@2x.png */,
+				AA12FC2A1B56174600EE5E5C /* calendar112@2x.png */,
+				AA12FC2C1B56174B00EE5E5C /* EngineIcon@2x.png */,
+				AA12FC2E1B56176400EE5E5C /* fuelEconomyIcon@2x.png */,
+				AA12FC2F1B56176400EE5E5C /* PriceIcon@2x.png */,
+				AA12FC301B56176400EE5E5C /* TopTensIcon@2x.png */,
+				AA12FC311B56176400EE5E5C /* TransmissionIcon@2x.png */,
+				AA12FC321B56176400EE5E5C /* WeightIcon@2x.png */,
+				AA12FC381B56177600EE5E5C /* blue button 2@2x.png */,
+				AA12FC3A1B56179200EE5E5C /* ExhaustButtonStart@2x.png */,
+				AA12FC3C1B56179B00EE5E5C /* LoadingWheelBackground5@2x.png */,
 				3852E3391ACCBCE600A028C5 /* Solid Star@2x.png */,
 				3852E3371ACCB94B00A028C5 /* Star Outline@2x.png */,
 				AA6299F71A5741D1009ACD4F /* eurostile.TTF */,
@@ -814,69 +808,69 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA6299F81A5741D1009ACD4F /* eurostile.TTF in Resources */,
+				AA12FC141B56164200EE5E5C /* SpecsDisputePage6@2x.png in Resources */,
 				AAB744E2198318BF00A8545A /* MainStoryboard4.storyboard in Resources */,
 				3852E3381ACCB94B00A028C5 /* Star Outline@2x.png in Resources */,
-				3872C8DD1B54A5B5006E77D0 /* SearchIcon@2x.png in Resources */,
 				388DDABF1AC777740062C16E /* Koenigsegg logo@2x.png in Resources */,
+				AA12FC021B56156B00EE5E5C /* MakesIcon@2x.png in Resources */,
 				38D7BD4D1A7754CA00E22B40 /* adfreepageiphone4.jpg in Resources */,
 				AACCB2F61B2F85F500000E13 /* LoadingWheel15.png in Resources */,
-				3872C8EB1B54A5FA006E77D0 /* TransmissionIcon@2x.png in Resources */,
 				AA58E0161B4DDBDF00E6219D /* MainStoryboard6+.storyboard in Resources */,
-				380BC52F1B55B1B700081B43 /* lines7@2x.png in Resources */,
-				380BC52B1B55B04500081B43 /* star.png in Resources */,
+				AA12FC081B56159C00EE5E5C /* star.png in Resources */,
 				388DDAA51AC776AF0062C16E /* dark blue button@2x.png in Resources */,
 				AA88E5C31A56508A005B1E43 /* Tabbarcolor.png in Resources */,
-				3872C8E51B54A5DD006E77D0 /* EngineIcon@2x.png in Resources */,
 				AACCB2E81B2F85F500000E13 /* LoadingWheel2.png in Resources */,
+				AA12FC391B56177600EE5E5C /* blue button 2@2x.png in Resources */,
 				385C1405197B3FDA003BBB09 /* MainStoryboard.storyboard in Resources */,
 				388DDA9B1AC776650062C16E /* AdfreePage@2x.jpg in Resources */,
+				AA12FC2D1B56174B00EE5E5C /* EngineIcon@2x.png in Resources */,
 				AACCB2EA1B2F85F500000E13 /* LoadingWheel4.png in Resources */,
+				AA12FC041B56158300EE5E5C /* browser100@2x.png in Resources */,
 				AACCB2F81B2F85F500000E13 /* LoadingWheel17.png in Resources */,
-				380BC5311B55B1F200081B43 /* MakesIcon@2x.png in Resources */,
+				AA12FC1F1B56168100EE5E5C /* TopTensIcon@2x.png in Resources */,
 				AA5546A31979F2CE00E7CF12 /* Images.xcassets in Resources */,
+				AA12FC1D1B56167500EE5E5C /* FavoritesIcon2@2x.png in Resources */,
 				AACCB2F31B2F85F500000E13 /* LoadingWheel13.png in Resources */,
-				3872C8DB1B54A594006E77D0 /* FavoritesIcon2@2x.png in Resources */,
-				380BC5331B55B24C00081B43 /* wheels10@2x.png in Resources */,
-				3872C8E71B54A5E9006E77D0 /* fuelEconomyIcon@2x.png in Resources */,
-				380BC52D1B55B06600081B43 /* DriveTypeIcon@2x.png in Resources */,
-				3872C8E11B54A5CB006E77D0 /* 0-60icon@2x.png in Resources */,
-				3872C8F11B54A611006E77D0 /* blue button 2@2x.png in Resources */,
-				3872C8ED1B54A602006E77D0 /* WeightIcon@2x.png in Resources */,
-				380BC5351B55B29400081B43 /* ExhaustIconPause@2x.png in Resources */,
+				AA12FC2B1B56174600EE5E5C /* calendar112@2x.png in Resources */,
+				AA12FC0E1B56160300EE5E5C /* Horsepower Icon@2x.png in Resources */,
+				AA12FBFE1B56155B00EE5E5C /* ExhaustIconPause@2x.png in Resources */,
+				AA12FC0C1B5615E100EE5E5C /* SearchBar6@2x.png in Resources */,
+				AA12FC361B56176400EE5E5C /* TransmissionIcon@2x.png in Resources */,
+				AA12FC001B56156100EE5E5C /* wheels10@2x.png in Resources */,
+				AA12FC3D1B56179B00EE5E5C /* LoadingWheelBackground5@2x.png in Resources */,
+				AA12FC231B56168D00EE5E5C /* NewsIcon@2x.png in Resources */,
+				AA12FC1B1B56166E00EE5E5C /* ExhaustIconPlay@2x.png in Resources */,
+				AA12FC3B1B56179200EE5E5C /* ExhaustButtonStart@2x.png in Resources */,
 				381DDFF119C7AF460055DB4E /* PurchaseViewController.xib in Resources */,
-				38DA14AC1B4DD0BE00979686 /* ExhaustIconPlay@2x.png in Resources */,
-				38F741CC1B4CCF0500F2FC79 /* garage-50@2x.png in Resources */,
-				3872C8F31B54A61A006E77D0 /* DarkerTabBarColor@2x.png in Resources */,
-				38F741B61B4CCE7300F2FC79 /* browser100@2x.png in Resources */,
-				38F741D21B4CCF2100F2FC79 /* SpecsDisputePage@2x.png in Resources */,
-				3872C8FD1B54A6C8006E77D0 /* SearchBar6+@2x.png in Resources */,
+				AA12FC291B56173E00EE5E5C /* 0-60icon@2x.png in Resources */,
+				AA12FC351B56176400EE5E5C /* TopTensIcon@2x.png in Resources */,
+				AA12FC341B56176400EE5E5C /* PriceIcon@2x.png in Resources */,
+				AA12FC251B5616AA00EE5E5C /* SpecsDisputePage4@2x.png in Resources */,
+				AA12FC061B56159400EE5E5C /* lines7@2x.png in Resources */,
 				388DDAA31AC776A30062C16E /* box-outgoing-7@2x.png in Resources */,
 				388DDAB71AC7772D0062C16E /* Green Buy Button@2x.png in Resources */,
-				3872C9011B54A6E0006E77D0 /* SpecsDisputePage6@2x.png in Resources */,
+				AA12FC331B56176400EE5E5C /* fuelEconomyIcon@2x.png in Resources */,
+				AA12FC0A1B5615DC00EE5E5C /* SearchBar4@2x.png in Resources */,
+				AA12FC211B56168700EE5E5C /* SearchIcon@2x.png in Resources */,
 				AACCB2E91B2F85F500000E13 /* LoadingWheel3.png in Resources */,
-				3872C9071B54A75A006E77D0 /* SearchBar4@2x.png in Resources */,
 				38E169211B1BBD1E00240372 /* searchbar2@2x.png in Resources */,
 				AACCB2EB1B2F85F500000E13 /* LoadingWheel5.png in Resources */,
 				388DDAD91AC778710062C16E /* SSC Logo@2x.png in Resources */,
-				3872C8FF1B54A6D2006E77D0 /* Horsepower Icon@2x.png in Resources */,
-				3872C8F51B54A624006E77D0 /* LoadingWheelBackground5@2x.png in Resources */,
 				AA58E0141B4DDBB300E6219D /* MainStoryboard6.storyboard in Resources */,
 				388DDAD11AC778320062C16E /* Radical Logo@2x.png in Resources */,
-				3872C8EF1B54A60A006E77D0 /* TopSpeedIcon@2x.png in Resources */,
-				3872C8DF1B54A5BE006E77D0 /* NewsIcon@2x.png in Resources */,
+				AA12FC121B56162700EE5E5C /* SpecsDiputePage6+@2x.png in Resources */,
 				388DDA9F1AC776890062C16E /* Ariel Logo@2x.png in Resources */,
 				AAED757319EF6EED00FCE06F /* peugeot logo@2x.png in Resources */,
 				AA5546951979F2CE00E7CF12 /* InfoPlist.strings in Resources */,
+				AA12FC271B5616C900EE5E5C /* SpecsDisputePage@2x.png in Resources */,
 				AACCB2F51B2F85F500000E13 /* LoadingWheel14.png in Resources */,
-				3872C9051B54A705006E77D0 /* SpecsDiputePage6+@2x.png in Resources */,
-				3872C8E91B54A5F2006E77D0 /* PriceIcon@2x.png in Resources */,
-				3872C8E31B54A5D4006E77D0 /* calendar112@2x.png in Resources */,
+				AA12FC101B56160B00EE5E5C /* DriveTypeIcon@2x.png in Resources */,
 				AAED756F19EF6EED00FCE06F /* ferrari logo@2x.png in Resources */,
 				3852E33A1ACCBCE600A028C5 /* Solid Star@2x.png in Resources */,
-				3872C9091B54A780006E77D0 /* SearchBar6@2x.png in Resources */,
 				AA88E5C11A56507E005B1E43 /* darkishgrey.jpg in Resources */,
+				AA12FC371B56176400EE5E5C /* WeightIcon@2x.png in Resources */,
 				38F741BA1B4CCE8600F2FC79 /* outline-star-64.png in Resources */,
-				38F741C41B4CCEC800F2FC79 /* TopTensIcon@2x.png in Resources */,
+				AA12FC161B56164B00EE5E5C /* SearchBar6+@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -912,6 +906,7 @@
 				3851C1C81B2127FB002A0474 /* UIImage+WebP.m in Sources */,
 				38774D3319C5E5F300C22A70 /* NewsLabel.m in Sources */,
 				385C141D197BBC32003BBB09 /* DetailViewController.m in Sources */,
+				AA12FC3F1B5617D000EE5E5C /* SWRevealViewController.m in Sources */,
 				38D5196B1A8FF9AE001140EF /* STKCoreFoundationDataSource.m in Sources */,
 				AAED753E19EF6EA900FCE06F /* iRate.m in Sources */,
 				38AEE96319A8284200792503 /* NewsViewController.m in Sources */,
@@ -932,6 +927,7 @@
 				3851C1BE1B2127FB002A0474 /* SDImageCache.m in Sources */,
 				3851C1BF1B2127FB002A0474 /* SDWebImageCompat.m in Sources */,
 				3851C1C41B2127FB002A0474 /* SDWebImagePrefetcher.m in Sources */,
+				AA12FC191B56165600EE5E5C /* UIColor+CreateMethods.m in Sources */,
 				3851C1C71B2127FB002A0474 /* UIImage+MultiFormat.m in Sources */,
 				3851C1C01B2127FB002A0474 /* SDWebImageDecoder.m in Sources */,
 				38D519681A8FF9AE001140EF /* NSMutableArray+STKAudioPlayer.m in Sources */,
@@ -945,9 +941,7 @@
 				38D519701A8FF9AE001140EF /* STKQueueEntry.m in Sources */,
 				385C1403197B3F76003BBB09 /* Make.m in Sources */,
 				38A09C20197F62C700254457 /* CompareViewController.m in Sources */,
-				3872C8F71B54A631006E77D0 /* UIColor+CreateMethods.m in Sources */,
 				AA5546971979F2CE00E7CF12 /* main.m in Sources */,
-				3872C8FB1B54A691006E77D0 /* SWRevealViewController.m in Sources */,
 				3851C1CB1B2127FB002A0474 /* UIView+WebCacheOperation.m in Sources */,
 				38BABF5F19A96B210054B1EC /* FavoritesViewController.m in Sources */,
 				38D5196E1A8FF9AE001140EF /* STKHTTPDataSource.m in Sources */,
