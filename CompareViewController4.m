@@ -1,30 +1,26 @@
 //
-//  CompareViewController2.m
+//  CompareViewController.m
 //  Carhub
 //
 //  Created by Christopher Clark on 10/17/14.
 //  Copyright (c) 2014 Ham Applications. All rights reserved.
 //
 
-#import "CompareViewController2.h"
+#import "CompareViewController4.h"
 #import "AppDelegate.h"
 #import "ImageViewController.h"
-#import "SDWebImage/UIImageView+WebCache.h"
+#import "UIImageView+WebCache.h"
 #import "STKAudioPlayer.h"
 #import "SWRevealViewController.h"
 
-@interface CompareViewController2 ()
+@interface CompareViewController4 ()
 
 @end
 
 STKAudioPlayer * audioPlayer1;
 STKAudioPlayer * audioPlayer2;
 
-@implementation CompareViewController2
-
-- (AppDelegate *) appdelegate {
-    return (AppDelegate *)[[UIApplication sharedApplication]delegate];
-}
+@implementation CompareViewController4
 
 @synthesize CarYearsMadeLabel, CarPriceLabel, CarEngineLabel, CarTransmissionLabel, CarDriveTypeLabel, CarHorsepowerLabel, CarZeroToSixtyLabel, CarTopSpeedLabel, CarWeightLabel, CarFuelEconomyLabel, firstCar, secondCar, CarTitleLabel, CarDriveTypeLabel2, CarEngineLabel2, CarFuelEconomyLabel2, CarHorsepowerLabel2, CarPriceLabel2, CarTitleLabel2, CarTopSpeedLabel2, CarTransmissionLabel2, CarWeightLabel2, CarYearsMadeLabel2, CarZeroToSixtyLabel2, isPlaying1, isPlaying2;
 
@@ -43,7 +39,7 @@ STKAudioPlayer * audioPlayer2;
     
     UIImage* tabBarBackground = [UIImage imageNamed:@"DarkerTabBarColor.png"];
     [toolbar setBackgroundImage:tabBarBackground forToolbarPosition:UIToolbarPositionBottom barMetrics:UIBarMetricsDefault];
-    [toolbar setFrame:CGRectMake(0, 436, 320, 44)];
+    [toolbar setFrame:CGRectMake(0, 692, 415, 44)];
     
     isPlaying1 = false;
     isPlaying2 = false;
@@ -51,15 +47,14 @@ STKAudioPlayer * audioPlayer2;
     audioPlayer2 = [[STKAudioPlayer alloc]init];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(revertExhaustButton1) name:@"RevertExhaustButton1" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(revertExhaustButton2) name:@"RevertExhaustButton2" object:nil];
-
+    
     [self getCars];
     [self setLabels];
     
-    self.view.backgroundColor = [UIColor whiteColor];
-    
     [scroller setScrollEnabled:YES];
-    [scroller setContentSize:CGSizeMake(320, 795)];
+    [scroller setContentSize:CGSizeMake(375, 830)];
     
+    self.view.backgroundColor = [UIColor whiteColor];
     [firstimageview setAlpha:1.0];
     [firstimageview sd_setImageWithURL:[NSURL URLWithString:firstCar.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]];
     
@@ -166,6 +161,7 @@ STKAudioPlayer * audioPlayer2;
     CarFuelEconomyLabel2.text = secondCar.CarFuelEconomy;
 }
 
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -173,10 +169,12 @@ STKAudioPlayer * audioPlayer2;
 {
     if ([[segue identifier] isEqualToString:@"compareimage1"])
     {
+        //Get the object for the selected row
         [[segue destinationViewController] getfirstModel:firstCar];
     }
     if ([[segue identifier] isEqualToString:@"compareimage2"])
     {
+        //Get the object for the selected row
         [[segue destinationViewController] getsecondModel:secondCar];
     }
 }

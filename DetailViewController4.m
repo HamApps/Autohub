@@ -1,13 +1,12 @@
 //
-//  DetailViewController.m
+//  DetailViewController3.m
 //  Carhub
 //
-//  Created by Christopher Clark on 7/20/14.
-//  Copyright (c) 2014 Ham Applications. All rights reserved.
+//  Created by Christopher Clark on 7/13/15.
+//  Copyright (c) 2015 Ham Applications. All rights reserved.
 //
 
-#import "DetailViewController.h"
-#import "BackgroundLayer.h"
+#import "DetailViewController4.h"
 #import "CompareViewController.h"
 #import "AppDelegate.h"
 #import "FavoritesViewController.h"
@@ -15,16 +14,16 @@
 #import "Model.h"
 #import "STKAudioPlayer.h"
 #import "ImageViewController.h"
-#import "SDWebImage/UIImageView+WebCache.h"
+#import "UIImageView+WebCache.h"
 #import "SpecsCell.h"
 #import "SWRevealViewController.h"
 
-@interface DetailViewController ()
+@interface DetailViewController4 ()
 
 @end
 STKAudioPlayer * audioPlayer;
 
-@implementation DetailViewController
+@implementation DetailViewController4
 
 @synthesize CarYearsMadeLabel, CarPriceLabel, CarEngineLabel, CarTransmissionLabel, CarDriveTypeLabel, CarHorsepowerLabel, CarZeroToSixtyLabel, CarTopSpeedLabel, CarWeightLabel, isPlaying, CarFuelEconomyLabel, savedArray, currentCar;
 
@@ -43,14 +42,7 @@ STKAudioPlayer * audioPlayer;
     
     UIImage* tabBarBackground = [UIImage imageNamed:@"DarkerTabBarColor.png"];
     [toolbar setBackgroundImage:tabBarBackground forToolbarPosition:UIToolbarPositionBottom barMetrics:UIBarMetricsDefault];
-    [toolbar setFrame:CGRectMake(0, 524, 320, 44)];
-    
-    SpecsTableView = [[UITableView alloc]init];
-    SpecsTableView.dataSource = self;
-    SpecsTableView.delegate = self;
-    [SpecsTableView registerClass:[SpecsCell class] forCellReuseIdentifier:@"SpecsCell"];
-    [SpecsTableView reloadData];
-    [self.view addSubview:SpecsTableView];
+    [toolbar setFrame:CGRectMake(0, 692, 415, 44)];
     
     isPlaying = false;
     
@@ -64,7 +56,7 @@ STKAudioPlayer * audioPlayer;
         [saveButton setBackgroundImage:[UIImage imageNamed:@"outline-star-64.png"] forState:UIControlStateNormal];
     
     [scroller setScrollEnabled:YES];
-    [scroller setContentSize:CGSizeMake(320, 720)];
+    [scroller setContentSize:CGSizeMake(320, 780)];
     
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = [[currentCar.CarMake stringByAppendingString:@" "] stringByAppendingString:currentCar.CarModel];
@@ -85,43 +77,19 @@ STKAudioPlayer * audioPlayer;
     [audioPlayer stop];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 10;
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"SpecsCell";
-    SpecsCell *cell = (SpecsCell *)[SpecsTableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    if (cell == nil)
-    {
-        cell = [[SpecsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    self.view.backgroundColor = [UIColor whiteColor];
-    cell.SpecName.text = @"Years Made";
-    
-    return cell;
-}
-
 -(IBAction)Sound{
     if(!([currentCar.CarExhaust isEqual:@""])){
-    if(isPlaying == false){
-    isPlaying = true;
-    [exhaustButton setBackgroundImage:[UIImage imageNamed:@"ExhaustIconPause.png"] forState:UIControlStateNormal];
-    [audioPlayer resume];
-    NSString * soundurl = [@"http://www.pl0x.net/CarSounds/" stringByAppendingString:currentCar.CarExhaust];
-    [audioPlayer play:soundurl];
-    }else{
-        isPlaying = false;
-        [exhaustButton setBackgroundImage:[UIImage imageNamed:@"ExhaustIconPlay.png"] forState:UIControlStateNormal];
-        [audioPlayer stop];
-    }
+        if(isPlaying == false){
+            isPlaying = true;
+            [exhaustButton setBackgroundImage:[UIImage imageNamed:@"ExhaustIconPause.png"] forState:UIControlStateNormal];
+            [audioPlayer resume];
+            NSString * soundurl = [@"http://www.pl0x.net/CarSounds/" stringByAppendingString:currentCar.CarExhaust];
+            [audioPlayer play:soundurl];
+        }else{
+            isPlaying = false;
+            [exhaustButton setBackgroundImage:[UIImage imageNamed:@"ExhaustIconPlay.png"] forState:UIControlStateNormal];
+            [audioPlayer stop];
+        }
     }
 }
 
@@ -213,7 +181,7 @@ STKAudioPlayer * audioPlayer;
     CarFuelEconomyLabel.text = currentCar.CarFuelEconomy;
 }
 
- #pragma mark - Navigation
+#pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     // Get the new view controller using [segue destinationViewController].

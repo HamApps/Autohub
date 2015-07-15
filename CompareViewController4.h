@@ -1,15 +1,15 @@
 //
-//  CompareViewController2.h
+//  CompareViewController.h
 //  Carhub
 //
-//  Created by Christopher Clark on 7/26/14.
+//  Created by Christopher Clark on 7/22/14.
 //  Copyright (c) 2014 Ham Applications. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "Model.h"
 
-@interface CompareViewController2 : UIViewController
+@interface CompareViewController4 : UIViewController
 {
     IBOutlet UIImageView *firstimageview;
     IBOutlet UIImageView *secondimageview;

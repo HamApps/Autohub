@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Model.h"
 
-@interface SearchViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>{
+@interface SearchViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate >{
     IBOutlet UIScrollView * scroller;
     NSArray *PriceData;
 }

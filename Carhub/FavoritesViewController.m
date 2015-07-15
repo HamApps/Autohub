@@ -117,7 +117,7 @@
     [cell.CarImage sd_setImageWithURL:[NSURL URLWithString:modelObject.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]
                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageurl){
                                 [cell.CarImage setAlpha:0.0];
-                                [UIImageView animateWithDuration:.5 animations:^{
+                                [UIImageView animateWithDuration:0 animations:^{
                                     [cell.CarImage setAlpha:1.0];
                                 }];
                             }];
@@ -153,7 +153,7 @@
     [self.tableView reloadData];
 }
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
 }
 

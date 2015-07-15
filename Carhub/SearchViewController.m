@@ -9,6 +9,7 @@
 #import "SearchViewController.h"
 #import "Model.h"
 #import "SearchModelController.h"
+#import "SearchTabViewController.h"
 #import "Make.h"
 #import "AppDelegate.h"
 #import "SWRevealViewController.h"

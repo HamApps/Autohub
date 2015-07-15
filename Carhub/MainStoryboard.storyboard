@@ -95,7 +95,6 @@
             <string>EurostileRegular</string>
             <string>EurostileRegular</string>
             <string>EurostileRegular</string>
-            <string>EurostileRegular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -576,6 +575,37 @@ EEZ1ZWwxA
                                     </label>
                                 </subviews>
                             </scrollView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="fpj-oF-AZP">
+                                <rect key="frame" x="0.0" y="364" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem style="plain" id="o6h-DF-oDH">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="TVS-g6-qgr">
+                                            <rect key="frame" x="16" y="7" width="80" height="80"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="Sound1" destination="GCP-Ir-q3y" eventType="touchUpInside" id="eAM-vS-ci1"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
+                                    <barButtonItem width="115" style="plain" systemItem="fixedSpace" id="xEf-Gx-5ea"/>
+                                    <barButtonItem style="plain" id="CIH-xW-csI">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" id="VJL-D7-mFJ">
+                                            <rect key="frame" x="248" y="-8" width="80" height="80"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="Sound2" destination="GCP-Ir-q3y" eventType="touchUpInside" id="Eqf-2D-Z2b"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -613,9 +643,12 @@ EEZ1ZWwxA
                         <outlet property="CarYearsMadeLabel2" destination="Igw-o7-EIA" id="AtD-4i-bgS"/>
                         <outlet property="CarZeroToSixtyLabel" destination="kNy-Yn-GQ0" id="939-z5-r78"/>
                         <outlet property="CarZeroToSixtyLabel2" destination="VR0-dV-sxD" id="t5f-b2-uIR"/>
+                        <outlet property="exhaustButton1" destination="TVS-g6-qgr" id="N8c-Vy-zZV"/>
+                        <outlet property="exhaustButton2" destination="VJL-D7-mFJ" id="Ntl-6E-jW9"/>
                         <outlet property="firstimageview" destination="Vw2-kS-xJ3" id="VgY-Ib-EGT"/>
                         <outlet property="scroller" destination="KlZ-Su-xnA" id="SIC-ap-Gh6"/>
                         <outlet property="secondimageview" destination="avH-c9-6eo" id="YOQ-cx-OJi"/>
+                        <outlet property="toolbar" destination="fpj-oF-AZP" id="x7V-eq-zzo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tf5-cs-VXd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -842,18 +875,6 @@ EEZ1ZWwxA
                                             <segue destination="6kx-mZ-18w" kind="push" identifier="pushimageview" id="Qdr-UW-Q4c"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="60N-vi-cMJ">
-                                        <rect key="frame" x="77" y="728" width="166" height="34"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="16"/>
-                                        <state key="normal" title="Manufacturer Website" backgroundImage="blue button 2.png">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="Website" destination="CBs-NP-Au8" eventType="touchUpInside" id="o0v-gs-09v"/>
-                                        </connections>
-                                    </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0-60icon.png" id="IPq-qO-Qn7">
                                         <rect key="frame" x="4" y="512" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -861,6 +882,50 @@ EEZ1ZWwxA
                                 </subviews>
                                 <inset key="contentInset" minX="0.0" minY="0.0" maxX="0.0" maxY="50"/>
                             </scrollView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="hyM-cC-9P7">
+                                <rect key="frame" x="0.0" y="595" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem style="plain" id="QSr-xt-jR6">
+                                        <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Cqd-Pl-zPX">
+                                            <rect key="frame" x="16" y="5" width="34" height="34"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" backgroundImage="browser100.png">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="Website" destination="CBs-NP-Au8" eventType="touchUpInside" id="lX7-yu-pjj"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
+                                    <barButtonItem width="80" style="plain" systemItem="fixedSpace" id="Ukc-ee-Uaq"/>
+                                    <barButtonItem style="plain" id="5Sa-P7-ZPY">
+                                        <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="TE5-5U-iP9">
+                                            <rect key="frame" x="132" y="3" width="38" height="38"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="Save" destination="CBs-NP-Au8" eventType="touchUpInside" id="YEv-cw-7pY"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
+                                    <barButtonItem width="58" style="plain" systemItem="fixedSpace" id="zht-cq-ePj"/>
+                                    <barButtonItem style="plain" id="yT1-ns-jqZ">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GGW-ZU-uXZ">
+                                            <rect key="frame" x="248" y="-8" width="80" height="80"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="Sound" destination="CBs-NP-Au8" eventType="touchUpInside" id="Nga-9V-spv"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -885,8 +950,11 @@ EEZ1ZWwxA
                         <outlet property="CarWeightLabel" destination="EFi-ej-YWQ" id="MFh-df-Qwd"/>
                         <outlet property="CarYearsMadeLabel" destination="vhP-lT-R4w" id="TFM-lV-dWA"/>
                         <outlet property="CarZeroToSixtyLabel" destination="6kU-4v-VVe" id="MVS-1S-hnn"/>
+                        <outlet property="exhaustButton" destination="GGW-ZU-uXZ" id="vlU-xQ-VBm"/>
                         <outlet property="imageview" destination="8l7-hj-Ona" id="bLQ-tu-sFd"/>
+                        <outlet property="saveButton" destination="TE5-5U-iP9" id="nr0-fI-KdW"/>
                         <outlet property="scroller" destination="c76-Vg-7gh" id="7zK-4h-8MZ"/>
+                        <outlet property="toolbar" destination="hyM-cC-9P7" id="kuK-Zw-Fwx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gue-qh-23V" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1959,6 +2027,7 @@ EEZ1ZWwxA
         <image name="TransmissionIcon.png" width="32" height="32"/>
         <image name="WeightIcon.png" width="32" height="32"/>
         <image name="blue button 2.png" width="154" height="46"/>
+        <image name="browser100.png" width="32" height="32"/>
         <image name="calendar112.png" width="32" height="32"/>
         <image name="dark blue button.png" width="154" height="46"/>
         <image name="ferrari logo.png" width="1000" height="1600"/>
