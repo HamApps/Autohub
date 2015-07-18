@@ -32,7 +32,8 @@
 @property (nonatomic, strong) NSMutableArray * zt60Array;
 @property (nonatomic, strong) NSMutableArray * topspeedArray;
 @property (nonatomic, strong) NSMutableArray * nurbArray;
-@property (nonatomic, strong) NSMutableArray * expensiveArray;
+@property (nonatomic, strong) NSMutableArray * newexpensiveArray;
+@property (nonatomic, strong) NSMutableArray * auctionexpensiveArray;
 @property (nonatomic, strong) NSMutableArray * fuelArray;
 @property (nonatomic, strong) NSMutableArray * horsepowerArray;
 @property (nonatomic, strong) NSMutableArray * topTensjson;

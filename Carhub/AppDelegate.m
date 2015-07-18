@@ -17,13 +17,12 @@
 #define getModelDataURL @"http://pl0x.net/CarHubJSON3.php"
 #define getMakeDataURL @"http://pl0x.net/CarMakesJSON.php"
 #define getNewsDataURL @"http://pl0x.net/CarNewsJSON.php"
-
 #define getTopTensDataURL @"http://pl0x.net/CombinedTopTens.php"
 
 
 @implementation AppDelegate
 
-@synthesize favoritesarray, modelArray, modeljsonArray, makeimageArray, makejsonArray, AlphabeticalArray, newsArray, newsjsonArray, makeimageArray2, makejsonArray2, AlphabeticalArray2, zt60Array, topspeedArray, nurbArray, expensiveArray, fuelArray, horsepowerArray, toptensArray, topTensjson;
+@synthesize favoritesarray, modelArray, modeljsonArray, makeimageArray, makejsonArray, AlphabeticalArray, newsArray, newsjsonArray, makeimageArray2, makejsonArray2, AlphabeticalArray2, zt60Array, topspeedArray, nurbArray, newexpensiveArray, fuelArray, horsepowerArray, toptensArray, topTensjson, auctionexpensiveArray;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 
@@ -298,31 +297,22 @@
     }
 }
 
-//Top Tens Data********************************************************************************************************************************************************************************************
-//*********************************************************************************************************************************************************************************************************
-//*********************************************************************************************************************************************************************************************************
-
 - (void) retrieveTopTensData;
 {
     NSURL * url = [NSURL URLWithString:getTopTensDataURL];
     NSData * data = [NSData dataWithContentsOfURL:url];
     
     topTensjson = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-    
-    //Set up our arrray
     toptensArray = [[NSMutableArray alloc] init];
     
-    //Loop through ourjsonArray
     for (int i=0; i < topTensjson.count; i++)
     {
-        //Create our object
         NSString * nRank = [[topTensjson objectAtIndex:i] objectForKey:@"Rank"];
         NSString * nName = [[topTensjson objectAtIndex:i] objectForKey:@"Car Name"];
         NSString * nValue = [[topTensjson objectAtIndex:i] objectForKey:@"Value"];
         NSString * nURL = [[topTensjson objectAtIndex:i] objectForKey:@"ImageURL"];
         NSString * nType = [[topTensjson objectAtIndex:i] objectForKey:@"TopTenType"];
         
-        //Add the city object to our cities array
         [toptensArray addObject:[[TopTens alloc]initWithCarRank:nRank andCarName:nName andCarValue:nValue andCarURL:nURL andTopTenType:nType]];
     }
 }
@@ -335,7 +325,8 @@
     zt60Array = [[NSMutableArray alloc]init];
     topspeedArray = [[NSMutableArray alloc]init];
     nurbArray = [[NSMutableArray alloc]init];
-    expensiveArray = [[NSMutableArray alloc]init];
+    newexpensiveArray = [[NSMutableArray alloc]init];
+    auctionexpensiveArray = [[NSMutableArray alloc]init];
     horsepowerArray = [[NSMutableArray alloc]init];
     fuelArray = [[NSMutableArray alloc]init];
     
@@ -367,13 +358,21 @@
             
             [nurbArray addObject:[[TopTens alloc]initWithCarRank:nRank andCarName:nName andCarValue:nValue andCarURL:nURL andTopTenType:nType]];
         }
-        if([nType isEqualToString:@"Expensive"]){
+        if([nType isEqualToString:@"NewExpensive"]){
             NSString * nRank = [[topTensjson objectAtIndex:i] objectForKey:@"Rank"];
             NSString * nName = [[topTensjson objectAtIndex:i] objectForKey:@"Car Name"];
             NSString * nValue = [[topTensjson objectAtIndex:i] objectForKey:@"Value"];
             NSString * nURL = [[topTensjson objectAtIndex:i] objectForKey:@"ImageURL"];
             
-            [expensiveArray addObject:[[TopTens alloc]initWithCarRank:nRank andCarName:nName andCarValue:nValue andCarURL:nURL andTopTenType:nType]];
+            [newexpensiveArray addObject:[[TopTens alloc]initWithCarRank:nRank andCarName:nName andCarValue:nValue andCarURL:nURL andTopTenType:nType]];
+        }
+        if([nType isEqualToString:@"AuctionExpensive"]){
+            NSString * nRank = [[topTensjson objectAtIndex:i] objectForKey:@"Rank"];
+            NSString * nName = [[topTensjson objectAtIndex:i] objectForKey:@"Car Name"];
+            NSString * nValue = [[topTensjson objectAtIndex:i] objectForKey:@"Value"];
+            NSString * nURL = [[topTensjson objectAtIndex:i] objectForKey:@"ImageURL"];
+            
+            [auctionexpensiveArray addObject:[[TopTens alloc]initWithCarRank:nRank andCarName:nName andCarValue:nValue andCarURL:nURL andTopTenType:nType]];
         }
         if([nType isEqualToString:@"Horsepower"]){
             NSString * nRank = [[topTensjson objectAtIndex:i] objectForKey:@"Rank"];

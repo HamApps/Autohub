@@ -46,8 +46,10 @@
         [topTensArray addObjectsFromArray:appdel.topspeedArray];
     if([currentTopTen isEqualToString:@"Nürburgring Lap Times"])
         [topTensArray addObjectsFromArray:appdel.nurbArray];
-    if([currentTopTen isEqualToString:@"Most Expensive"])
-        [topTensArray addObjectsFromArray:appdel.expensiveArray];
+    if([currentTopTen isEqualToString:@"Most Expensive (New Cars)"])
+        [topTensArray addObjectsFromArray:appdel.newexpensiveArray];
+    if([currentTopTen isEqualToString:@"Most Expensive (Auction)"])
+        [topTensArray addObjectsFromArray:appdel.auctionexpensiveArray];
     if([currentTopTen isEqualToString:@"Best Fuel Economy"])
         [topTensArray addObjectsFromArray:appdel.fuelArray];
     if([currentTopTen isEqualToString:@"Highest Horsepower"])
