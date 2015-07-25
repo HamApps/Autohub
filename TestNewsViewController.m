@@ -17,28 +17,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //[self.view bringSubviewToFront:self.loadingWheel];
-    self.loadingWheel.animationImages = [NSArray arrayWithObjects: [UIImage imageNamed:@"LoadingWheel.png"],[UIImage imageNamed:@"LoadingWheel1.png"], [UIImage imageNamed:@"LoadingWheel2.png"], [UIImage imageNamed:@"LoadingWheel3.png"], [UIImage imageNamed:@"LoadingWheel4.png"], [UIImage imageNamed:@"LoadingWheel5.png"], [UIImage imageNamed:@"LoadingWheel6.png"], [UIImage imageNamed:@"LoadingWheel7.png"], [UIImage imageNamed:@"LoadingWheel8.png"], [UIImage imageNamed:@"LoadingWheel9.png"], [UIImage imageNamed:@"LoadingWheel10.png"], [UIImage imageNamed:@"LoadingWheel11.png"], [UIImage imageNamed:@"LoadingWheel12.png"], [UIImage imageNamed:@"LoadingWheel13.png"], [UIImage imageNamed:@"LoadingWheel13l"], [UIImage imageNamed:@"LoadingWheel14.png"], [UIImage imageNamed:@"LoadingWheel15.png"], [UIImage imageNamed:@"LoadingWheel16.png"],  nil];
+    [self.view bringSubviewToFront:self.loadingWheel];
+    self.loadingWheel.animationImages = [NSArray arrayWithObjects: [UIImage imageNamed:@"LoadingWheelBackground1.png"], [UIImage imageNamed:@"LoadingWheelBackground2.png"], [UIImage imageNamed:@"LoadingWheelBackground3.png"], [UIImage imageNamed:@"LoadingWheelBackground4.png"], [UIImage imageNamed:@"LoadingWheelBackgroundS.png"], [UIImage imageNamed:@"LoadingWheelBackground6.png"], [UIImage imageNamed:@"LoadingWheelBackground7.png"], [UIImage imageNamed:@"LoadingWheelBackground8.png"], [UIImage imageNamed:@"LoadingWheelBackground9.png"], [UIImage imageNamed:@"LoadingWheelBackground10.png"], [UIImage imageNamed:@"LoadingWheelBackground11.png"], [UIImage imageNamed:@"LoadingWheelBackground12.png"], [UIImage imageNamed:@"LoadingWheelBackground13.png"], [UIImage imageNamed:@"LoadingWheelBackground14.png"], [UIImage imageNamed:@"LoadingWheelBackground15.png"], [UIImage imageNamed:@"LoadingWheelBackground16.png"], [UIImage imageNamed:@"LoadingWheelBackground17.png"], [UIImage imageNamed:@"LoadingWheelBackground18.png"], nil];
     self.loadingWheel.animationDuration = 0.65f;
     self.loadingWheel.animationRepeatCount = 0;
     [self.loadingWheel startAnimating];
     
     [self.webView setDelegate:self];
-    //NSURL *url = [NSURL URLWithString:_currentnews.NewsArticleURL];
-    NSURL *url = [NSURL URLWithString:@"http://www.pl0x.net/AutohubNews/?p=32"];
+    NSURL *url = [NSURL URLWithString:_currentnews.NewsArticleURL];
     [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
-    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"LoadingWheelBackground5.png"]];
-
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    //[self.loadingWheel stopAnimating];
+    NSLog(@"meow");
+    [self.loadingWheel stopAnimating];
+    if (self.webView.alpha ==0)
+    {
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.7];
     [self.webView setAlpha:1];
     [UIView commitAnimations];
-    [self.loadingWheel stopAnimating];
+    }
 }
 
 - (void)getNews:(id)newsObject;

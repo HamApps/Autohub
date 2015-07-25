@@ -58,7 +58,7 @@ STKAudioPlayer * audioPlayer2;
     self.view.backgroundColor = [UIColor whiteColor];
     
     [scroller setScrollEnabled:YES];
-    [scroller setContentSize:CGSizeMake(320, 795)];
+    [scroller setContentSize:CGSizeMake(320, 830)];
     
     [firstimageview setAlpha:1.0];
     [firstimageview sd_setImageWithURL:[NSURL URLWithString:firstCar.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]];

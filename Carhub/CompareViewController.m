@@ -52,7 +52,7 @@ STKAudioPlayer * audioPlayer2;
     [self setLabels];
     
     [scroller setScrollEnabled:YES];
-    [scroller setContentSize:CGSizeMake(320, 910)];
+    [scroller setContentSize:CGSizeMake(320, 970)];
     
     self.view.backgroundColor = [UIColor whiteColor];
     [firstimageview setAlpha:1.0];
