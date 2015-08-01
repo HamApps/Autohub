@@ -109,7 +109,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="toptens" rowHeight="140" id="gxa-Ow-F5Z" customClass="TopTensCell">
-                                <rect key="frame" x="0.0" y="22" width="320" height="140"/>
+                                <rect key="frame" x="0.0" y="86" width="320" height="140"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gxa-Ow-F5Z" id="uZ4-Qb-aPm">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="139"/>
@@ -174,7 +174,7 @@
             <objects>
                 <viewController id="dyO-Xs-Ifc" customClass="DisputeInfoViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5K0-9c-PuS">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SpecsDisputePage.png" id="fMk-nG-cIj">
@@ -217,7 +217,7 @@
             <objects>
                 <viewController id="6kx-mZ-18w" customClass="ImageViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uEv-Mx-ANm">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="772"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="587"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="6YB-dk-eEi">
@@ -248,7 +248,7 @@
             <objects>
                 <viewController id="GCP-Ir-q3y" customClass="CompareViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H2F-DA-Dmd">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="772"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="723"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="KlZ-Su-xnA">
@@ -577,7 +577,7 @@ EEZ1ZWwxA
                                 </subviews>
                             </scrollView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="fpj-oF-AZP">
-                                <rect key="frame" x="0.0" y="364" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="315" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem style="plain" id="o6h-DF-oDH">
@@ -661,11 +661,11 @@ EEZ1ZWwxA
             <objects>
                 <viewController id="CBs-NP-Au8" customClass="DetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ny4-h9-Sve">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="700"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="587"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="c76-Vg-7gh">
-                                <rect key="frame" x="0.0" y="131" width="320" height="569"/>
+                                <rect key="frame" x="0.0" y="18" width="320" height="569"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="8l7-hj-Ona">
@@ -884,7 +884,7 @@ EEZ1ZWwxA
                                 <inset key="contentInset" minX="0.0" minY="0.0" maxX="0.0" maxY="50"/>
                             </scrollView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="hyM-cC-9P7">
-                                <rect key="frame" x="0.0" y="595" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="482" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem style="plain" id="QSr-xt-jR6">
@@ -912,7 +912,7 @@ EEZ1ZWwxA
                                             </connections>
                                         </button>
                                     </barButtonItem>
-                                    <barButtonItem width="58" style="plain" systemItem="fixedSpace" id="zht-cq-ePj"/>
+                                    <barButtonItem width="52" style="plain" systemItem="fixedSpace" id="zht-cq-ePj"/>
                                     <barButtonItem style="plain" id="yT1-ns-jqZ">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GGW-ZU-uXZ">
                                             <rect key="frame" x="248" y="-8" width="80" height="80"/>
@@ -1421,21 +1421,21 @@ EEZ1ZWwxA
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MakeReuseID" id="Q5L-db-HvE" customClass="MakeCell">
-                                <rect key="frame" x="0.0" y="0.0" width="110" height="108"/>
+                                <rect key="frame" x="0.0" y="0.0" width="109.66" height="108"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="110" height="108"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5iO-RK-T6h">
-                                            <rect key="frame" x="1" y="84" width="108" height="25"/>
+                                            <rect key="frame" x="3" y="83" width="102" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="16"/>
+                                            <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="8pC-Po-6hc">
-                                            <rect key="frame" x="11" y="7" width="87" height="81"/>
+                                            <rect key="frame" x="14" y="6" width="85" height="81"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
                                     </subviews>
@@ -1455,7 +1455,7 @@ EEZ1ZWwxA
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="yXG-4d-P0A">
-                        <barButtonItem key="leftBarButtonItem" image="HomeButon.png" id="d6Z-Pp-5jJ">
+                        <barButtonItem key="leftBarButtonItem" image="lines7.png" id="d6Z-Pp-5jJ">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="compose" id="UIe-yK-F3f">
@@ -2023,7 +2023,6 @@ EEZ1ZWwxA
         <image name="Ariel Logo.png" width="125" height="125"/>
         <image name="EngineIcon.png" width="256" height="256"/>
         <image name="FavoritesIcon2.png" width="32" height="32"/>
-        <image name="HomeButon.png" width="25" height="25"/>
         <image name="Horsepower Icon.png" width="150" height="133"/>
         <image name="Koenigsegg logo.png" width="265" height="275"/>
         <image name="MakesIcon.png" width="32" height="32"/>
@@ -2054,12 +2053,12 @@ EEZ1ZWwxA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="r54-US-OFB"/>
-        <segue reference="bHd-zc-cKp"/>
-        <segue reference="7e7-5m-ct1"/>
         <segue reference="30L-8O-aJ4"/>
-        <segue reference="Pfn-2j-Oxg"/>
-        <segue reference="qca-ln-oDM"/>
+        <segue reference="FsZ-hi-um9"/>
+        <segue reference="2uW-oU-10V"/>
+        <segue reference="bHd-zc-cKp"/>
+        <segue reference="r54-US-OFB"/>
         <segue reference="lZH-q4-y63"/>
+        <segue reference="Qdr-UW-Q4c"/>
     </inferredMetricsTieBreakers>
 </document>

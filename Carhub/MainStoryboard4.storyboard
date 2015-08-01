@@ -426,7 +426,7 @@
                                             </connections>
                                         </button>
                                     </barButtonItem>
-                                    <barButtonItem width="58" style="plain" systemItem="fixedSpace" id="KJi-3W-ck1"/>
+                                    <barButtonItem width="54" style="plain" systemItem="fixedSpace" id="KJi-3W-ck1"/>
                                     <barButtonItem style="plain" id="6qf-xP-lM7">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8DA-Ed-3el">
                                             <rect key="frame" x="248" y="-8" width="80" height="80"/>
@@ -1178,7 +1178,7 @@ EEZ1ZWwxA
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MakeReuseID" id="LC1-mc-mYT" customClass="MakeCell">
-                                <rect key="frame" x="0.0" y="64" width="107" height="105"/>
+                                <rect key="frame" x="0.0" y="64" width="106.66" height="105"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="107" height="105"/>
@@ -1192,7 +1192,7 @@ EEZ1ZWwxA
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="fpq-Qp-R7y">
-                                            <rect key="frame" x="8" y="6" width="89" height="80"/>
+                                            <rect key="frame" x="10" y="6" width="88" height="80"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
                                     </subviews>
@@ -2007,7 +2007,7 @@ EEZ1ZWwxA
         <image name="browser100.png" width="32" height="32"/>
         <image name="calendar112.png" width="32" height="32"/>
         <image name="fuelEconomyIcon.png" width="32" height="32"/>
-        <image name="lines7.png" width="25" height="25"/>
+        <image name="lines7.png" width="32" height="32"/>
         <image name="wheels10.png" width="32" height="32"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -2016,12 +2016,12 @@ EEZ1ZWwxA
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="B34-lZ-zbJ"/>
+        <segue reference="Hky-Id-KAL"/>
         <segue reference="U55-Bs-jxO"/>
         <segue reference="yVH-B1-Ypj"/>
-        <segue reference="Hky-Id-KAL"/>
-        <segue reference="B34-lZ-zbJ"/>
-        <segue reference="i42-Cl-RJo"/>
-        <segue reference="AbF-w6-vZq"/>
+        <segue reference="Kpt-H6-pwv"/>
+        <segue reference="CS9-r1-biV"/>
         <segue reference="BhA-J0-YLz"/>
     </inferredMetricsTieBreakers>
 </document>
