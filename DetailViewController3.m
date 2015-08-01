@@ -71,6 +71,8 @@ STKAudioPlayer * audioPlayer;
     isPlaying = false;
     if(!([currentCar.CarExhaust isEqual:@""]))
         [exhaustButton setBackgroundImage:[UIImage imageNamed:@"ExhaustIconPlay.png"] forState:UIControlStateNormal];
+    else
+        [exhaustButton setBackgroundImage:[UIImage imageNamed:@"ExhaustIconPlayFade4.png"] forState:UIControlStateNormal];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

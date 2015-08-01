@@ -74,10 +74,14 @@ STKAudioPlayer * audioPlayer2;
 - (void)viewWillAppear:(BOOL)animated {
     isPlaying1 = false;
     isPlaying2 = false;
-    if(!([firstCar.CarExhaust isEqual:@""]))
+    if(firstCar != NULL && !([firstCar.CarExhaust isEqual:@""]))
         [exhaustButton1 setBackgroundImage:[UIImage imageNamed:@"ExhaustIconPlay.png"] forState:UIControlStateNormal];
-    if(!([secondCar.CarExhaust isEqual:@""]))
+    else if(firstCar != NULL)
+        [exhaustButton1 setBackgroundImage:[UIImage imageNamed:@"ExhaustIconPlayFade4.png"] forState:UIControlStateNormal];
+    if(secondCar != NULL && !([secondCar.CarExhaust isEqual:@""]))
         [exhaustButton2 setBackgroundImage:[UIImage imageNamed:@"ExhaustIconPlay.png"] forState:UIControlStateNormal];
+    else if(secondCar != NULL)
+        [exhaustButton2 setBackgroundImage:[UIImage imageNamed:@"ExhaustIconPlayFade4.png"] forState:UIControlStateNormal];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -120,13 +124,15 @@ STKAudioPlayer * audioPlayer2;
 - (void)revertExhaustButton1
 {
     isPlaying1 = false;
-    [exhaustButton1 setBackgroundImage:[UIImage imageNamed:@"ExhaustIconPlay.png"] forState:UIControlStateNormal];
+    if(firstCar != NULL && !([firstCar.CarExhaust isEqual:@""]))
+        [exhaustButton1 setBackgroundImage:[UIImage imageNamed:@"ExhaustIconPlay.png"] forState:UIControlStateNormal];
 }
 
 - (void)revertExhaustButton2
 {
     isPlaying2 = false;
-    [exhaustButton2 setBackgroundImage:[UIImage imageNamed:@"ExhaustIconPlay.png"] forState:UIControlStateNormal];
+    if(secondCar != NULL && !([secondCar.CarExhaust isEqual:@""]))
+        [exhaustButton2 setBackgroundImage:[UIImage imageNamed:@"ExhaustIconPlay.png"] forState:UIControlStateNormal];
 }
 
 #pragma mark -

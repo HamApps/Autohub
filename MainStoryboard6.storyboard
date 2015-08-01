@@ -176,7 +176,7 @@
             <objects>
                 <viewController id="dyO-Xs-Ifc" customClass="DisputeInfoViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5K0-9c-PuS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SpecsDisputePage6.png" id="hYj-TS-srV">
@@ -2052,7 +2052,7 @@ EEZ1ZWwxA
         <image name="dark blue button.png" width="154" height="46"/>
         <image name="ferrari logo.png" width="1000" height="1600"/>
         <image name="fuelEconomyIcon.png" width="32" height="32"/>
-        <image name="lines7.png" width="25" height="25"/>
+        <image name="lines7.png" width="32" height="32"/>
         <image name="peugeot logo.png" width="640" height="451"/>
         <image name="wheels10.png" width="32" height="32"/>
     </resources>
@@ -2062,12 +2062,12 @@ EEZ1ZWwxA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="2uW-oU-10V"/>
-        <segue reference="lZH-q4-y63"/>
-        <segue reference="L58-Vy-HHD"/>
         <segue reference="r54-US-OFB"/>
         <segue reference="7e7-5m-ct1"/>
         <segue reference="30L-8O-aJ4"/>
-        <segue reference="Qdr-UW-Q4c"/>
+        <segue reference="IKm-l5-xV9"/>
+        <segue reference="Pfn-2j-Oxg"/>
+        <segue reference="C6b-Pf-jq5"/>
+        <segue reference="L58-Vy-HHD"/>
     </inferredMetricsTieBreakers>
 </document>
