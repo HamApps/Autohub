@@ -110,7 +110,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="toptens" rowHeight="140" id="gxa-Ow-F5Z" customClass="TopTensCell">
-                                <rect key="frame" x="0.0" y="22" width="375" height="140"/>
+                                <rect key="frame" x="0.0" y="86" width="375" height="140"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gxa-Ow-F5Z" id="uZ4-Qb-aPm">
                                     <rect key="frame" x="0.0" y="0.0" width="342" height="139"/>
@@ -1315,23 +1315,19 @@ EEZ1ZWwxA
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ariel Logo.png" id="2M3-QO-I6J">
-                                <rect key="frame" x="33" y="589" width="66" height="66"/>
+                                <rect key="frame" x="14" y="589" width="68" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Koenigsegg logo.png" id="g2K-VZ-3wO">
-                                <rect key="frame" x="90" y="595" width="50" height="52"/>
+                                <rect key="frame" x="76" y="591" width="56" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Radical Logo.png" id="9g6-Xq-UKz">
-                                <rect key="frame" x="140" y="590" width="50" height="62"/>
+                                <rect key="frame" x="134" y="590" width="53" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ferrari logo.png" id="Egn-CH-hsr">
-                                <rect key="frame" x="193" y="594" width="33" height="53"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="peugeot logo.png" id="usd-Jb-uIW">
-                                <rect key="frame" x="231" y="600" width="59" height="42"/>
+                                <rect key="frame" x="189" y="594" width="34" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0tT-Xa-zTf">
@@ -1343,10 +1339,6 @@ EEZ1ZWwxA
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SSC Logo.png" id="9ls-4e-Dhj">
-                                <rect key="frame" x="293" y="595" width="35" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="tYq-h5-vLd">
                                 <rect key="frame" x="28" y="276" width="319" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1383,6 +1375,14 @@ EEZ1ZWwxA
                                     <segue destination="RqE-iD-y1H" kind="push" identifier="pushhorsepower" id="RxO-oc-qbF"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BMW Logo.png" id="C5y-Vi-22e">
+                                <rect key="frame" x="288" y="589" width="66" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Lamborghini Logo.png" id="pYo-xB-J0c">
+                                <rect key="frame" x="229" y="590" width="56" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                     </view>
                     <navigationItem key="navigationItem" title="Top Tens" id="m2g-dL-1wE">
@@ -2030,15 +2030,16 @@ EEZ1ZWwxA
     <resources>
         <image name="0-60icon.png" width="32" height="32"/>
         <image name="Ariel Logo.png" width="125" height="125"/>
+        <image name="BMW Logo.png" width="1000" height="1000"/>
         <image name="EngineIcon.png" width="256" height="256"/>
         <image name="FavoritesIcon2.png" width="32" height="32"/>
         <image name="Horsepower Icon.png" width="150" height="133"/>
         <image name="Koenigsegg logo.png" width="265" height="275"/>
+        <image name="Lamborghini Logo.png" width="448" height="512"/>
         <image name="MakesIcon.png" width="32" height="32"/>
         <image name="NewsIcon.png" width="32" height="32"/>
         <image name="PriceIcon.png" width="32" height="32"/>
         <image name="Radical Logo.png" width="64" height="82"/>
-        <image name="SSC Logo.png" width="89" height="118"/>
         <image name="SearchBar6.png" width="375" height="50"/>
         <image name="SearchIcon.png" width="32" height="32"/>
         <image name="SpecsDisputePage6.png" width="375" height="667"/>
@@ -2053,7 +2054,6 @@ EEZ1ZWwxA
         <image name="ferrari logo.png" width="1000" height="1600"/>
         <image name="fuelEconomyIcon.png" width="32" height="32"/>
         <image name="lines7.png" width="32" height="32"/>
-        <image name="peugeot logo.png" width="640" height="451"/>
         <image name="wheels10.png" width="32" height="32"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -2062,12 +2062,12 @@ EEZ1ZWwxA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="L58-Vy-HHD"/>
         <segue reference="7e7-5m-ct1"/>
         <segue reference="30L-8O-aJ4"/>
         <segue reference="Qdr-UW-Q4c"/>
-        <segue reference="4l5-TJ-NEk"/>
         <segue reference="IKm-l5-xV9"/>
         <segue reference="r54-US-OFB"/>
+        <segue reference="L58-Vy-HHD"/>
+        <segue reference="l8b-EC-7zU"/>
     </inferredMetricsTieBreakers>
 </document>
