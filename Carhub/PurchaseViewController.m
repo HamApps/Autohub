@@ -28,10 +28,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    [appDelegate setShouldRotate:NO];
     [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
     _buyButton.enabled = NO;
     [self getProductInfo: _homeViewController];
 }
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

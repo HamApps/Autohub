@@ -7,6 +7,7 @@
 //
 
 #import "InAppDemoViewController.h"
+#import "AppDelegate.h"
 
 @interface InAppDemoViewController ()
 
@@ -26,6 +27,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    [appDelegate setShouldRotate:NO];
     
     _purchaseController = [[PurchaseViewController alloc]init];
     

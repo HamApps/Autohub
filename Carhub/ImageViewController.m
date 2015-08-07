@@ -9,6 +9,7 @@
 #import "ImageViewController.h"
 #import "SDWebImage/UIImageView+WebCache.h"
 #import "SWRevealViewController.h"
+#import "AppDelegate.h"
 
 @interface ImageViewController ()
 
@@ -30,6 +31,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    [appDelegate setShouldRotate:NO];
     
     self.barButton.target = self.revealViewController;
     self.barButton.action = @selector(revealToggle:);

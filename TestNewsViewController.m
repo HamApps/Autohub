@@ -8,6 +8,7 @@
 
 #import "TestNewsViewController.h"
 #import "SWRevealViewController.h"
+#import "AppDelegate.h"
 
 @interface TestNewsViewController ()
 
@@ -17,6 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self.view bringSubviewToFront:self.loadingWheel];
     self.loadingWheel.animationImages = [NSArray arrayWithObjects: [UIImage imageNamed:@"LoadingWheelBackground1.png"], [UIImage imageNamed:@"LoadingWheelBackground2.png"], [UIImage imageNamed:@"LoadingWheelBackground3.png"], [UIImage imageNamed:@"LoadingWheelBackground4.png"], [UIImage imageNamed:@"LoadingWheelBackgroundS.png"], [UIImage imageNamed:@"LoadingWheelBackground6.png"], [UIImage imageNamed:@"LoadingWheelBackground7.png"], [UIImage imageNamed:@"LoadingWheelBackground8.png"], [UIImage imageNamed:@"LoadingWheelBackground9.png"], [UIImage imageNamed:@"LoadingWheelBackground10.png"], [UIImage imageNamed:@"LoadingWheelBackground11.png"], [UIImage imageNamed:@"LoadingWheelBackground12.png"], [UIImage imageNamed:@"LoadingWheelBackground13.png"], [UIImage imageNamed:@"LoadingWheelBackground14.png"], [UIImage imageNamed:@"LoadingWheelBackground15.png"], [UIImage imageNamed:@"LoadingWheelBackground16.png"], [UIImage imageNamed:@"LoadingWheelBackground17.png"], [UIImage imageNamed:@"LoadingWheelBackground18.png"], nil];
     self.loadingWheel.animationDuration = 0.65f;
@@ -30,8 +32,9 @@
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    NSLog(@"meow");
     [self.loadingWheel stopAnimating];
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    [appDelegate setShouldRotate:YES];
     if (self.webView.alpha ==0)
     {
     [UIView beginAnimations:nil context:NULL];

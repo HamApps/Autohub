@@ -8,6 +8,7 @@
 
 #import "NavigationViewController.h"
 #import "SWRevealViewController.h"
+#import "AppDelegate.h"
 
 @interface NavigationViewController ()
 
@@ -19,6 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    [appDelegate setShouldRotate:NO];
     menu = @[@"Home",@"Top Tens", @"Auto News", @"Search", @"Favorites"];
 }
 

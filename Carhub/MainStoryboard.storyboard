@@ -1421,7 +1421,7 @@ EEZ1ZWwxA
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MakeReuseID" id="Q5L-db-HvE" customClass="MakeCell">
-                                <rect key="frame" x="0.0" y="0.0" width="110" height="108"/>
+                                <rect key="frame" x="0.0" y="0.0" width="109.66" height="108"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="110" height="108"/>
@@ -1435,7 +1435,7 @@ EEZ1ZWwxA
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="8pC-Po-6hc">
-                                            <rect key="frame" x="12" y="2" width="80" height="84"/>
+                                            <rect key="frame" x="12" y="1" width="78" height="84"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
                                     </subviews>
@@ -2053,12 +2053,12 @@ EEZ1ZWwxA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="2uW-oU-10V"/>
-        <segue reference="r54-US-OFB"/>
-        <segue reference="l8b-EC-7zU"/>
-        <segue reference="bHd-zc-cKp"/>
-        <segue reference="FsZ-hi-um9"/>
         <segue reference="Qdr-UW-Q4c"/>
+        <segue reference="FsZ-hi-um9"/>
+        <segue reference="2uW-oU-10V"/>
+        <segue reference="bHd-zc-cKp"/>
+        <segue reference="r54-US-OFB"/>
+        <segue reference="pFn-SU-d5h"/>
         <segue reference="30L-8O-aJ4"/>
     </inferredMetricsTieBreakers>
 </document>

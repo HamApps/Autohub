@@ -14,6 +14,7 @@
 #import "DetailViewController.h"
 #import "SDWebImage/UIImageView+WebCache.h"
 #import "SWRevealViewController.h"
+#import "AppDelegate.h"
 
 @interface NewTopTensViewController ()
 
@@ -33,6 +34,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    [appDelegate setShouldRotate:NO];
     
     //Set which Top Ten was picked
     AppDelegate *appdel = (AppDelegate *)[[UIApplication sharedApplication] delegate];

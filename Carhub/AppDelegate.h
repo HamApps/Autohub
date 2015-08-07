@@ -12,6 +12,8 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
+@property (assign, nonatomic) BOOL shouldRotate;
+
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) ADBannerView *UIiAD;
 @property (nonatomic, retain) NSMutableArray * favoritesarray;

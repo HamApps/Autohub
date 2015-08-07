@@ -37,6 +37,9 @@
 {
     [super viewDidLoad];
     
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    [appDelegate setShouldRotate:NO];
+    
     self.barButton.target = self.revealViewController;
     self.barButton.action = @selector(revealToggle:);
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
@@ -44,6 +47,10 @@
     [self makeAppDelMakeArray];
     self.title = @"Makes";
     self.view.backgroundColor = [UIColor whiteColor];
+}
+
+- (BOOL)shouldAutorotate {
+    return NO;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView

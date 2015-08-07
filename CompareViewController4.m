@@ -36,6 +36,8 @@ STKAudioPlayer * audioPlayer2;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    [appDelegate setShouldRotate:NO];
     
     UIImage* tabBarBackground = [UIImage imageNamed:@"DarkerTabBarColor.png"];
     [toolbar setBackgroundImage:tabBarBackground forToolbarPosition:UIToolbarPositionBottom barMetrics:UIBarMetricsDefault];

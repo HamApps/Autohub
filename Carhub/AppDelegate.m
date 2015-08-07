@@ -14,6 +14,7 @@
 #define k_Save @"Saveitem"
 #import "TopTensViewController.h"
 #import "TopTensViewController2.h"
+#import "TestNewsViewController.h"
 #define getModelDataURL @"http://pl0x.net/CarHubJSON3.php"
 #define getMakeDataURL @"http://pl0x.net/CarMakesJSON.php"
 #define getNewsDataURL @"http://pl0x.net/CarNewsJSON.php"
@@ -93,6 +94,7 @@
     
     return YES;
 }
+
 - (UIStoryboard *)grabStoryboard {
     
     UIStoryboard *storyboard;
@@ -126,7 +128,14 @@
     
     return storyboard;
 }
-							
+
+-(NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window{
+    if (self.shouldRotate)
+        return UIInterfaceOrientationMaskAllButUpsideDown;
+    else
+        return UIInterfaceOrientationMaskPortrait;
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

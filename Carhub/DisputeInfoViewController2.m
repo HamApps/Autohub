@@ -8,6 +8,7 @@
 
 #import "DisputeInfoViewController2.h"
 #import "SWRevealViewController.h"
+#import "AppDelegate.h"
 
 @interface DisputeInfoViewController2 ()
 
@@ -27,6 +28,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    [appDelegate setShouldRotate:NO];
     
     self.barButton.target = self.revealViewController;
     self.barButton.action = @selector(revealToggle:);
@@ -34,6 +37,10 @@
     self.title = @"Info Dispute";
     self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"whiteback.jpg"]];
     // Do any additional setup after loading the view.
+}
+
+- (BOOL)shouldAutorotate {
+    return NO;
 }
 
 - (void)didReceiveMemoryWarning

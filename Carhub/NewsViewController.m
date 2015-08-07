@@ -32,7 +32,6 @@
 }
 
 - (void)viewDidLoad
-
 {
     [super viewDidLoad];
     
@@ -44,6 +43,15 @@
     
     //Load Data
     [self makeAppDelNewsArray];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationPortrait];
+    [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
+    
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    [appDelegate setShouldRotate:NO];
 }
 
 - (void)didReceiveMemoryWarning

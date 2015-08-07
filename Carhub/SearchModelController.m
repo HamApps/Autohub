@@ -14,6 +14,7 @@
 #import "SearchViewController.h"
 #import "SDWebImage/UIImageView+WebCache.h"
 #import "SWRevealViewController.h"
+#import "AppDelegate.h"
 
 @interface SearchModelController ()
 
@@ -34,6 +35,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    [appDelegate setShouldRotate:NO];
     self.title = @"Results";
     
     self.view.backgroundColor = [UIColor whiteColor];
