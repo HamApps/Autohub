@@ -94,7 +94,6 @@
             <string>EurostileRegular</string>
             <string>EurostileRegular</string>
             <string>EurostileRegular</string>
-            <string>EurostileRegular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -925,7 +924,7 @@ EEZ1ZWwxA
             <objects>
                 <viewController id="wEG-mh-v4Y" customClass="DisputeInfoViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Fa-7L-6D0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SpecsDisputePage4.png" id="glX-MP-UQY">
@@ -1178,7 +1177,7 @@ EEZ1ZWwxA
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MakeReuseID" id="LC1-mc-mYT" customClass="MakeCell">
-                                <rect key="frame" x="0.0" y="64" width="106.66" height="105"/>
+                                <rect key="frame" x="0.0" y="64" width="107" height="105"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="107" height="105"/>
@@ -1192,7 +1191,7 @@ EEZ1ZWwxA
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="fpq-Qp-R7y">
-                                            <rect key="frame" x="10" y="6" width="87" height="80"/>
+                                            <rect key="frame" x="10" y="6" width="86" height="80"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
                                     </subviews>
@@ -1236,45 +1235,36 @@ EEZ1ZWwxA
         <scene sceneID="c9s-94-8FC">
             <objects>
                 <tableViewController id="dGI-oC-jtU" customClass="NewsViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="257" sectionHeaderHeight="22" sectionFooterHeight="22" id="hfx-a7-YQc">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="115" sectionHeaderHeight="22" sectionFooterHeight="22" id="hfx-a7-YQc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="sectionIndexBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewsCell" rowHeight="257" id="kJd-i7-T8J" customClass="CarViewCell">
-                                <rect key="frame" x="0.0" y="22" width="320" height="257"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewsCell" rowHeight="115" id="kJd-i7-T8J" customClass="CarViewCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="115"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kJd-i7-T8J" id="OhE-ak-DA2">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="256"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="114"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bK3-Za-x79">
-                                            <rect key="frame" x="8" y="184" width="267" height="42"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="18"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="joC-yu-9oK">
-                                            <rect key="frame" x="-14" y="-4" width="343" height="189"/>
+                                        <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="joC-yu-9oK">
+                                            <rect key="frame" x="8" y="8" width="168" height="98"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fpW-Y9-Co3">
-                                            <rect key="frame" x="8" y="223" width="299" height="29"/>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Ferrari Makes Flying Bike Free to Italian Public" selectable="NO" id="afe-U6-7Of">
+                                            <rect key="frame" x="174" y="8" width="113" height="98"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="13"/>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="16"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
                                     </subviews>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="CarImage" destination="joC-yu-9oK" id="Xdd-Ws-pcc"/>
-                                    <outlet property="CarName" destination="bK3-Za-x79" id="sSr-Hf-Kd2"/>
-                                    <outlet property="NewsDescription" destination="fpW-Y9-Co3" id="6Os-Hw-7iw"/>
                                     <segue destination="L5y-Ep-AYh" kind="push" identifier="pushNewsDetailView" id="9py-EX-exG"/>
                                 </connections>
                             </tableViewCell>
@@ -1555,7 +1545,7 @@ EEZ1ZWwxA
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="toptens" rowHeight="140" id="ere-P6-81h" customClass="TopTensCell">
-                                <rect key="frame" x="0.0" y="22" width="320" height="140"/>
+                                <rect key="frame" x="0.0" y="86" width="320" height="140"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ere-P6-81h" id="OzI-eG-woe">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="139"/>
@@ -2016,12 +2006,12 @@ EEZ1ZWwxA
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="B34-lZ-zbJ"/>
-        <segue reference="Hky-Id-KAL"/>
-        <segue reference="U55-Bs-jxO"/>
         <segue reference="yVH-B1-Ypj"/>
+        <segue reference="Hky-Id-KAL"/>
         <segue reference="Kpt-H6-pwv"/>
+        <segue reference="B34-lZ-zbJ"/>
         <segue reference="CS9-r1-biV"/>
-        <segue reference="BhA-J0-YLz"/>
+        <segue reference="qzu-56-WGF"/>
+        <segue reference="U55-Bs-jxO"/>
     </inferredMetricsTieBreakers>
 </document>
