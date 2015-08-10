@@ -1514,6 +1514,7 @@ EEZ1ZWwxA
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="CarImage" destination="Ehi-HI-9bU" id="Pqq-X2-Dtk"/>
+                                    <outlet property="NewsText" destination="fXh-71-GIC" id="sUt-QB-HDj"/>
                                     <segue destination="WH2-cE-2Q3" kind="push" identifier="pushNewsDetailView" id="f8p-c2-nf9"/>
                                 </connections>
                             </tableViewCell>

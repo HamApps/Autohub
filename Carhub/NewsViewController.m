@@ -77,6 +77,15 @@
     News * newsObject;
     newsObject = [newsArray objectAtIndex:indexPath.row];
     
+    cell.NewsText.dataDetectorTypes = UIDataDetectorTypeAll;
+    cell.NewsText.editable = NO;
+    cell.NewsText.userInteractionEnabled = YES;
+    
+    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget: self action: @selector(forwardToDidSelect:)];
+    
+    cell.tag = indexPath.row;
+    [cell.NewsText addGestureRecognizer: tap];
+    
     if (cell == nil) {
         cell = [[CarViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                   reuseIdentifier:CellIdentifier];
@@ -90,10 +99,8 @@
                                 [cell.CarImage setAlpha:1.0];
                                 }];
                             }];
-    cell.CarName.text = newsObject.NewsTitle;
-    cell.NewsDescription.text = newsObject.NewsDescription;
+    cell.NewsText.text = newsObject.NewsTitle;
 
-    
     //Accessory
     /*
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -104,6 +111,11 @@
     */
     
     return cell;
+}
+
+- (void) forwardToDidSelect: (UITapGestureRecognizer *) tap
+{
+    [self performSegueWithIdentifier:@"pushNewsDetailView" sender:self];
 }
 
 #pragma mark - Navigation
@@ -118,6 +130,7 @@
         //Get the object for the selected row
         News * object = [newsArray objectAtIndex:indexPath.row];
         [[segue destinationViewController] getNews:object];
+        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
     
 }
