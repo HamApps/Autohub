@@ -94,7 +94,6 @@
             <string>EurostileRegular</string>
             <string>EurostileRegular</string>
             <string>EurostileRegular</string>
-            <string>EurostileRegular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -108,7 +107,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="toptens" rowHeight="140" id="gxa-Ow-F5Z" customClass="TopTensCell">
-                                <rect key="frame" x="0.0" y="22" width="320" height="140"/>
+                                <rect key="frame" x="0.0" y="86" width="320" height="140"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gxa-Ow-F5Z" id="uZ4-Qb-aPm">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="139"/>
@@ -225,7 +224,7 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="v1r-e4-Pup">
                                         <rect key="frame" x="20" y="0.0" width="320" height="492"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
                             </scrollView>
@@ -577,7 +576,7 @@ EEZ1ZWwxA
                             </scrollView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="fpj-oF-AZP">
                                 <rect key="frame" x="0.0" y="315" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <barButtonItem style="plain" id="o6h-DF-oDH">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="TVS-g6-qgr">
@@ -665,11 +664,11 @@ EEZ1ZWwxA
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="c76-Vg-7gh">
                                 <rect key="frame" x="0.0" y="18" width="320" height="569"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="8l7-hj-Ona">
                                         <rect key="frame" x="33" y="42" width="254" height="121"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <gestureRecognizers/>
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vhP-lT-R4w">
@@ -880,11 +879,10 @@ EEZ1ZWwxA
                                         </connections>
                                     </button>
                                 </subviews>
-                                <inset key="contentInset" minX="0.0" minY="0.0" maxX="0.0" maxY="50"/>
                             </scrollView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="hyM-cC-9P7">
                                 <rect key="frame" x="0.0" y="482" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <barButtonItem style="plain" id="QSr-xt-jR6">
                                         <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Cqd-Pl-zPX">
@@ -987,7 +985,7 @@ EEZ1ZWwxA
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="mGR-ql-8Di">
                                             <rect key="frame" x="60" y="42" width="207" height="128"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4TE-hC-UoX">
                                             <rect key="frame" x="21" y="13" width="284" height="21"/>
@@ -1045,7 +1043,7 @@ EEZ1ZWwxA
                         <subviews>
                             <webView contentMode="scaleToFill" id="0HU-al-K7O">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </webView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="q2h-Gq-3qH">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -1420,7 +1418,7 @@ EEZ1ZWwxA
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MakeReuseID" id="Q5L-db-HvE" customClass="MakeCell">
-                                <rect key="frame" x="0.0" y="0.0" width="109.66" height="108"/>
+                                <rect key="frame" x="0.0" y="0.0" width="110" height="108"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="110" height="108"/>
@@ -1435,7 +1433,7 @@ EEZ1ZWwxA
                                         </label>
                                         <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="8pC-Po-6hc">
                                             <rect key="frame" x="12" y="1" width="78" height="84"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1474,43 +1472,63 @@ EEZ1ZWwxA
             </objects>
             <point key="canvasLocation" x="-2458" y="2003"/>
         </scene>
-        <!--News View Controller-->
-        <scene sceneID="lja-bM-FRz">
+        <!--Table View Controller-->
+        <scene sceneID="qdf-SK-oa4">
             <objects>
-                <tableViewController id="qK2-03-eSg" customClass="NewsViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="118" sectionHeaderHeight="22" sectionFooterHeight="22" id="om6-IM-DiC">
+                <tableViewController id="cf2-v1-vl4" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="12d-NK-Vdp">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewsCell" rowHeight="118" id="rin-NX-m50" customClass="CarViewCell">
-                                <rect key="frame" x="0.0" y="22" width="320" height="118"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="NewsHome" rowHeight="200" id="Dhn-yY-Smn">
+                                <rect key="frame" x="0.0" y="22" width="320" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rin-NX-m50" id="2uY-Ex-T79">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="117"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dhn-yY-Smn" id="hWI-Vl-yVL">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="199"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Ehi-HI-9bU">
-                                            <rect key="frame" x="8" y="8" width="168" height="98"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Ferrari Makes Flying Bike Free to Italian Pubic" id="67E-h5-Fhu">
-                                            <rect key="frame" x="184" y="8" width="109" height="101"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view contentMode="scaleToFill" id="aKk-Yi-Usd">
+                                            <rect key="frame" x="10" y="5" width="300" height="190"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Ehi-HI-9bU">
+                                                    <rect key="frame" x="28" y="8" width="245" height="113"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Ferrari Makes Cool New Bike for Italians" selectable="NO" id="z1r-Cy-cM7">
+                                                    <rect key="frame" x="47" y="126" width="207" height="56"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="17"/>
-                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        </textView>
+                                        </view>
                                     </subviews>
-                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="CarImage" destination="Ehi-HI-9bU" id="Pqq-X2-Dtk"/>
-                                    <outlet property="NewsText" destination="67E-h5-Fhu" id="bvH-qn-LWZ"/>
-                                    <segue destination="WH2-cE-2Q3" kind="push" identifier="pushNewsDetailView" id="f8p-c2-nf9"/>
-                                </connections>
+                                <color key="backgroundColor" red="0.96105312901274131" green="0.96105312901274131" blue="0.96105312901274131" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
                         </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="cf2-v1-vl4" id="sdM-Nq-ygs"/>
+                            <outlet property="delegate" destination="cf2-v1-vl4" id="HVE-ks-fqH"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ubD-a6-KhZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2871" y="3584"/>
+        </scene>
+        <!--News View Controller-->
+        <scene sceneID="lja-bM-FRz">
+            <objects>
+                <tableViewController id="qK2-03-eSg" customClass="NewsViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="98" sectionHeaderHeight="22" sectionFooterHeight="22" id="om6-IM-DiC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.89552163770000004" green="0.89552163770000004" blue="0.89552163770000004" alpha="1" colorSpace="calibratedRGB"/>
                         <connections>
                             <outlet property="dataSource" destination="qK2-03-eSg" id="N4Q-6V-oGO"/>
                             <outlet property="delegate" destination="qK2-03-eSg" id="Qt2-da-Lrv"/>
@@ -1547,7 +1565,7 @@ EEZ1ZWwxA
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="hGb-W6-lxo">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="1633"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transmission:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TrI-Yt-SSz">
                                         <rect key="frame" x="38" y="749" width="101" height="21"/>
@@ -1572,7 +1590,7 @@ EEZ1ZWwxA
                                     </label>
                                     <pickerView contentMode="scaleToFill" id="pMP-UP-drP">
                                         <rect key="frame" x="123" y="339" width="197" height="162"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <outlet property="dataSource" destination="ZNI-ag-FsV" id="lMg-Md-F2N"/>
                                             <outlet property="delegate" destination="ZNI-ag-FsV" id="lXI-Ai-APh"/>
@@ -1580,7 +1598,7 @@ EEZ1ZWwxA
                                     </pickerView>
                                     <pickerView contentMode="scaleToFill" id="vge-29-c4H">
                                         <rect key="frame" x="123" y="509" width="197" height="162"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <outlet property="dataSource" destination="ZNI-ag-FsV" id="c9Q-5H-NsR"/>
                                             <outlet property="delegate" destination="ZNI-ag-FsV" id="vbO-aM-0ny"/>
@@ -1609,7 +1627,7 @@ EEZ1ZWwxA
                                     </label>
                                     <pickerView contentMode="scaleToFill" id="UUt-n7-SmB">
                                         <rect key="frame" x="123" y="679" width="196" height="162"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <outlet property="dataSource" destination="ZNI-ag-FsV" id="tLc-gt-obr"/>
                                             <outlet property="delegate" destination="ZNI-ag-FsV" id="xEq-Hu-xvr"/>
@@ -1617,7 +1635,7 @@ EEZ1ZWwxA
                                     </pickerView>
                                     <pickerView contentMode="scaleToFill" id="rnJ-3q-9c3">
                                         <rect key="frame" x="123" y="849" width="196" height="162"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <outlet property="dataSource" destination="ZNI-ag-FsV" id="zrx-3T-7h9"/>
                                             <outlet property="delegate" destination="ZNI-ag-FsV" id="cpC-aF-0FG"/>
@@ -1625,7 +1643,7 @@ EEZ1ZWwxA
                                     </pickerView>
                                     <pickerView contentMode="scaleToFill" id="Q8u-rS-15q">
                                         <rect key="frame" x="123" y="1019" width="196" height="162"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <outlet property="dataSource" destination="ZNI-ag-FsV" id="QH1-Cy-WZz"/>
                                             <outlet property="delegate" destination="ZNI-ag-FsV" id="s7R-Wq-tJA"/>
@@ -1645,7 +1663,7 @@ EEZ1ZWwxA
                                     </button>
                                     <pickerView contentMode="scaleToFill" id="rYk-3r-O3H">
                                         <rect key="frame" x="0.0" y="62" width="160" height="162"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <outlet property="dataSource" destination="ZNI-ag-FsV" id="EXO-TL-ua4"/>
                                             <outlet property="delegate" destination="ZNI-ag-FsV" id="iet-Eb-M9o"/>
@@ -1700,7 +1718,7 @@ EEZ1ZWwxA
                                     </label>
                                     <pickerView contentMode="scaleToFill" id="L35-uk-A67">
                                         <rect key="frame" x="123" y="1189" width="196" height="162"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <outlet property="dataSource" destination="ZNI-ag-FsV" id="VLi-99-oZa"/>
                                             <outlet property="delegate" destination="ZNI-ag-FsV" id="MhH-kf-qTg"/>
@@ -1708,7 +1726,7 @@ EEZ1ZWwxA
                                     </pickerView>
                                     <pickerView contentMode="scaleToFill" id="FXT-8z-Wm8">
                                         <rect key="frame" x="160" y="62" width="160" height="162"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <outlet property="dataSource" destination="ZNI-ag-FsV" id="6Dr-eb-If3"/>
                                             <outlet property="delegate" destination="ZNI-ag-FsV" id="4bu-ZM-N8E"/>
@@ -1737,7 +1755,7 @@ EEZ1ZWwxA
                                     </label>
                                     <pickerView contentMode="scaleToFill" id="EOr-Un-6ix">
                                         <rect key="frame" x="123" y="1354" width="196" height="162"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <outlet property="dataSource" destination="ZNI-ag-FsV" id="y5A-lN-nCR"/>
                                             <outlet property="delegate" destination="ZNI-ag-FsV" id="mQn-GA-6GD"/>
@@ -1808,7 +1826,7 @@ EEZ1ZWwxA
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="c2r-my-vNV">
                                             <rect key="frame" x="60" y="42" width="207" height="128"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HfH-Cw-Ynz">
                                             <rect key="frame" x="20" y="13" width="287" height="21"/>
@@ -1884,7 +1902,7 @@ EEZ1ZWwxA
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="kgy-h2-oWQ">
                                             <rect key="frame" x="60" y="42" width="207" height="128"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JJS-rl-qjO">
                                             <rect key="frame" x="22" y="13" width="283" height="21"/>
@@ -1961,7 +1979,7 @@ EEZ1ZWwxA
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="tV1-iz-rNm">
                                             <rect key="frame" x="60" y="42" width="207" height="128"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="03q-pj-yCZ">
                                             <rect key="frame" x="21" y="13" width="284" height="21"/>
