@@ -36,6 +36,8 @@
     [super viewDidLoad];
     AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
     [appDelegate setShouldRotate:NO];
+    self.view.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:.9 alpha:1];
+    self.tableView.separatorColor = [UIColor clearColor];
     
     //Set which Top Ten was picked
     AppDelegate *appdel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -67,6 +69,10 @@
     return topTensArray.count;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 150;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 

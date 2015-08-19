@@ -14,5 +14,6 @@
 @property (strong, nonatomic) IBOutlet UILabel * CarName;
 @property (strong, nonatomic) IBOutlet UILabel * CarValue;
 @property (strong, nonatomic) IBOutlet UIImageView * CarImage;
+@property (weak, nonatomic) IBOutlet UIView *cardView;
 
 @end

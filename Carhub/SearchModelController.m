@@ -37,9 +37,9 @@
     [super viewDidLoad];
     AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
     [appDelegate setShouldRotate:NO];
+    self.view.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:.9 alpha:1];
+    self.tableView.separatorColor = [UIColor clearColor];
     self.title = @"Results";
-    
-    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)filterContentForSearchText:(NSString *)searchText scope:(NSString *)scope
@@ -95,12 +95,6 @@
         modelObject = [self.ModelArray objectAtIndex:indexPath.row];
     }
     cell.CarName.text = modelObject.CarModel;
-    //Accessory stuff
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    cell.layer.borderWidth=1.0f;
-    cell.layer.borderColor=[UIColor blackColor].CGColor;
-    cell.CarName.layer.borderWidth=1.0f;
-    cell.CarName.layer.borderColor=[UIColor whiteColor].CGColor;
     
     //Load and fade image
     [cell.CarImage sd_setImageWithURL:[NSURL URLWithString:modelObject.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]

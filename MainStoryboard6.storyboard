@@ -109,7 +109,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="toptens" rowHeight="140" id="gxa-Ow-F5Z" customClass="TopTensCell">
-                                <rect key="frame" x="0.0" y="22" width="375" height="140"/>
+                                <rect key="frame" x="0.0" y="86" width="375" height="140"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gxa-Ow-F5Z" id="uZ4-Qb-aPm">
                                     <rect key="frame" x="0.0" y="0.0" width="342" height="139"/>

@@ -37,6 +37,8 @@
     [super viewDidLoad];
     AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
     [appDelegate setShouldRotate:NO];
+    self.view.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:.9 alpha:1];
+    self.tableView.separatorColor = [UIColor clearColor];
 
     self.title = currentMake.MakeName;
     
@@ -96,10 +98,6 @@
     }
     
     //UI Stuff
-    self.view.backgroundColor = [UIColor whiteColor];
-    cell.backgroundColor = [UIColor whiteColor];
-    cell.layer.borderWidth=1.0f;
-    cell.layer.borderColor=[UIColor blackColor].CGColor;
     cell.CarName.layer.borderWidth=1.0f;
     cell.CarName.layer.borderColor=[UIColor whiteColor].CGColor;
     

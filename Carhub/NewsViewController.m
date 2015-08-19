@@ -14,6 +14,7 @@
 #import "TestNewsViewController.h"
 #import "SDWebImage/UIImageView+WebCache.h"
 #import "SWRevealViewController.h"
+#import "NewsCell.h"
 
 @interface NewsViewController ()
 
@@ -34,6 +35,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.tableView.separatorColor = [UIColor clearColor];
     
     self.barButton.target = self.revealViewController;
     self.barButton.action = @selector(revealToggle:);
@@ -70,36 +73,42 @@
     return newsArray.count;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 210;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"NewsCell";
-    CarViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    NewsCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     News * newsObject;
     newsObject = [newsArray objectAtIndex:indexPath.row];
     
-    cell.NewsText.dataDetectorTypes = UIDataDetectorTypeAll;
-    cell.NewsText.editable = NO;
-    cell.NewsText.userInteractionEnabled = YES;
+    cell.newsDescription.dataDetectorTypes = UIDataDetectorTypeAll;
+    cell.newsDescription.editable = NO;
+    cell.newsDescription.userInteractionEnabled = YES;
     
     UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget: self action: @selector(forwardToDidSelect:)];
     
     cell.tag = indexPath.row;
-    [cell.NewsText addGestureRecognizer: tap];
+    [cell.newsDescription addGestureRecognizer: tap];
     
     if (cell == nil) {
-        cell = [[CarViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+        cell = [[NewsCell alloc] initWithStyle:UITableViewCellStyleDefault
                                   reuseIdentifier:CellIdentifier];
     }
     
     //Load and fade image
-    [cell.CarImage sd_setImageWithURL:[NSURL URLWithString:newsObject.NewsImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/newsimage.php"]]
+    [cell.newsImage sd_setImageWithURL:[NSURL URLWithString:newsObject.NewsImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/newsimage.php"]]
                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageurl){
-                                [cell.CarImage setAlpha:0.0];
+                                [cell.newsImage setAlpha:0.0];
                                 [UIImageView animateWithDuration:.5 animations:^{
-                                [cell.CarImage setAlpha:1.0];
+                                [cell.newsImage setAlpha:1.0];
                                 }];
                             }];
-    cell.NewsText.text = newsObject.NewsTitle;
+    cell.newsDescription.text = newsObject.NewsTitle;
+    cell.cardView.frame = CGRectMake(10, 5, 300, 200);
 
     //Accessory
     /*
