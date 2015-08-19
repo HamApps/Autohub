@@ -28,9 +28,9 @@
 {
     [self.cardView setAlpha:1];
     self.cardView.layer.masksToBounds = NO;
-    self.cardView.layer.cornerRadius = 1;
+    self.cardView.layer.cornerRadius = 2;
     self.cardView.layer.shadowOffset = CGSizeMake(-.2f, .2f);
-    self.cardView.layer.shadowRadius = 1;
+    self.cardView.layer.shadowRadius = 2;
     UIBezierPath *path = [UIBezierPath bezierPathWithRect:self.cardView.bounds];
     self.cardView.layer.shadowPath = path.CGPath;
     self.cardView.layer.shadowOpacity = 0.2;

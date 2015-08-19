@@ -224,7 +224,7 @@
             <objects>
                 <viewController id="6kx-mZ-18w" customClass="ImageViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uEv-Mx-ANm">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="587"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="700"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="6YB-dk-eEi">
@@ -255,7 +255,7 @@
             <objects>
                 <viewController id="GCP-Ir-q3y" customClass="CompareViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H2F-DA-Dmd">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="723"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="772"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="KlZ-Su-xnA">
@@ -668,7 +668,7 @@ EEZ1ZWwxA
             <objects>
                 <viewController id="CBs-NP-Au8" customClass="DetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ny4-h9-Sve">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="587"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="700"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="c76-Vg-7gh">
@@ -966,7 +966,7 @@ EEZ1ZWwxA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gue-qh-23V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1569" y="1967"/>
+            <point key="canvasLocation" x="-1573" y="2069"/>
         </scene>
         <!--Model View Controller-->
         <scene sceneID="bX0-Sc-ttr">
@@ -1436,10 +1436,10 @@ EEZ1ZWwxA
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MakeReuseID" id="Q5L-db-HvE" customClass="MakeCell">
-                                <rect key="frame" x="0.0" y="0.0" width="110" height="108"/>
+                                <rect key="frame" x="0.0" y="0.0" width="109.66" height="108"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="110" height="108"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="109.66" height="108"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5iO-RK-T6h">
@@ -1549,6 +1549,7 @@ EEZ1ZWwxA
                                     <outlet property="cardView" destination="aKk-Yi-Usd" id="WJB-Oz-Q7K"/>
                                     <outlet property="newsDescription" destination="z1r-Cy-cM7" id="xfp-QF-jwZ"/>
                                     <outlet property="newsImage" destination="Ehi-HI-9bU" id="5T1-Vw-DIL"/>
+                                    <segue destination="WH2-cE-2Q3" kind="push" identifier="pushNewsDetailView" id="PNQ-iK-XLz"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1871,6 +1872,7 @@ EEZ1ZWwxA
                                     <outlet property="CarImage" destination="9eB-4m-ar6" id="YmE-hO-Rtl"/>
                                     <outlet property="CarName" destination="oJd-fo-ygh" id="BpZ-g3-CVB"/>
                                     <outlet property="cardView" destination="Xhh-nq-yWy" id="nWH-jq-a5e"/>
+                                    <segue destination="CBs-NP-Au8" kind="push" identifier="pushDetailView" id="CYd-9h-VXa"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1905,7 +1907,7 @@ EEZ1ZWwxA
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-2028" y="5024"/>
+            <point key="canvasLocation" x="-2117" y="5006"/>
         </scene>
         <!--Search Tab View Controller-->
         <scene sceneID="3P7-iW-cmN">
@@ -1955,6 +1957,7 @@ EEZ1ZWwxA
                                     <outlet property="CarImage" destination="syc-Q1-wyp" id="84e-cM-zUK"/>
                                     <outlet property="CarName" destination="nQ8-D4-cLF" id="WR2-kW-pwY"/>
                                     <outlet property="cardView" destination="qP4-tF-jty" id="6Nx-dd-IE4"/>
+                                    <segue destination="CBs-NP-Au8" kind="push" identifier="pushDetailView" id="5qv-lY-E9H"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1990,7 +1993,7 @@ EEZ1ZWwxA
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-1634" y="5024"/>
+            <point key="canvasLocation" x="-1619" y="5141"/>
         </scene>
         <!--Favorites View Controller-->
         <scene sceneID="7fh-7O-iPO">
@@ -2040,6 +2043,7 @@ EEZ1ZWwxA
                                     <outlet property="CarImage" destination="skn-V3-rcB" id="5cI-ff-v92"/>
                                     <outlet property="CarName" destination="NQg-0B-uPI" id="5Li-Vj-z2I"/>
                                     <outlet property="cardView" destination="g5z-17-9Pb" id="4Mx-qv-l61"/>
+                                    <segue destination="CBs-NP-Au8" kind="push" identifier="pushDetailView" id="Vxi-jp-g1y"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -2113,10 +2117,10 @@ EEZ1ZWwxA
     <inferredMetricsTieBreakers>
         <segue reference="2uW-oU-10V"/>
         <segue reference="r54-US-OFB"/>
-        <segue reference="G1w-b8-9S3"/>
-        <segue reference="bHd-zc-cKp"/>
-        <segue reference="FsZ-hi-um9"/>
+        <segue reference="X7T-2L-qVf"/>
+        <segue reference="5qv-lY-E9H"/>
         <segue reference="30L-8O-aJ4"/>
         <segue reference="Qdr-UW-Q4c"/>
+        <segue reference="bHd-zc-cKp"/>
     </inferredMetricsTieBreakers>
 </document>

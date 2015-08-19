@@ -97,10 +97,6 @@
         modelObject = [self.ModelArray objectAtIndex:indexPath.row];
     }
     
-    //UI Stuff
-    cell.CarName.layer.borderWidth=1.0f;
-    cell.CarName.layer.borderColor=[UIColor whiteColor].CGColor;
-    
     //Load and fade image
     [cell.CarImage sd_setImageWithURL:[NSURL URLWithString:modelObject.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]
                 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageurl){

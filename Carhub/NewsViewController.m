@@ -36,6 +36,7 @@
 {
     [super viewDidLoad];
     
+    self.view.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:.9 alpha:1];
     self.tableView.separatorColor = [UIColor clearColor];
     
     self.barButton.target = self.revealViewController;
@@ -108,16 +109,14 @@
                                 }];
                             }];
     cell.newsDescription.text = newsObject.NewsTitle;
-    cell.cardView.frame = CGRectMake(10, 5, 300, 200);
-
-    //Accessory
-    /*
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    cell.layer.borderWidth=1.0f;
-    cell.layer.borderColor=[UIColor blackColor].CGColor;
-    cell.CarName.layer.borderWidth=1.0f;
-    cell.CarName.layer.borderColor=[UIColor whiteColor].CGColor;
-    */
+    
+    int height = [UIScreen mainScreen].bounds.size.height;
+    if (height == 667)
+        cell.cardView.frame = CGRectMake(10, 5, 355, 200);
+    else if (height == 736)
+        cell.cardView.frame = CGRectMake(10, 5, 394, 200);
+    else
+        cell.cardView.frame = CGRectMake(10, 5, 300, 200);
     
     return cell;
 }
