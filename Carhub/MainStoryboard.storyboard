@@ -1436,10 +1436,10 @@ EEZ1ZWwxA
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MakeReuseID" id="Q5L-db-HvE" customClass="MakeCell">
-                                <rect key="frame" x="0.0" y="0.0" width="109.66" height="108"/>
+                                <rect key="frame" x="0.0" y="0.0" width="110" height="108"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="109.66" height="108"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="110" height="108"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5iO-RK-T6h">
@@ -1536,7 +1536,7 @@ EEZ1ZWwxA
                                                     <rect key="frame" x="47" y="126" width="207" height="56"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                             </subviews>
@@ -1907,7 +1907,7 @@ EEZ1ZWwxA
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-2117" y="5006"/>
+            <point key="canvasLocation" x="-2017" y="5006"/>
         </scene>
         <!--Search Tab View Controller-->
         <scene sceneID="3P7-iW-cmN">
@@ -2116,9 +2116,9 @@ EEZ1ZWwxA
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="30L-8O-aJ4"/>
-        <segue reference="Vxi-jp-g1y"/>
-        <segue reference="2uW-oU-10V"/>
+        <segue reference="CYd-9h-VXa"/>
         <segue reference="r54-US-OFB"/>
+        <segue reference="2uW-oU-10V"/>
         <segue reference="bHd-zc-cKp"/>
         <segue reference="kJU-Vh-YHm"/>
         <segue reference="Qdr-UW-Q4c"/>

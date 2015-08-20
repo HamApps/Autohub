@@ -86,10 +86,6 @@
     News * newsObject;
     newsObject = [newsArray objectAtIndex:indexPath.row];
     
-    cell.newsDescription.dataDetectorTypes = UIDataDetectorTypeAll;
-    cell.newsDescription.editable = NO;
-    cell.newsDescription.userInteractionEnabled = YES;
-    
     UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget: self action: @selector(forwardToDidSelect:)];
     
     cell.tag = indexPath.row;
@@ -108,6 +104,7 @@
                                 [cell.newsImage setAlpha:1.0];
                                 }];
                             }];
+    
     cell.newsDescription.text = newsObject.NewsTitle;
     
     int height = [UIScreen mainScreen].bounds.size.height;
@@ -117,7 +114,7 @@
         cell.cardView.frame = CGRectMake(10, 5, 394, 200);
     else
         cell.cardView.frame = CGRectMake(10, 5, 300, 200);
-    
+
     return cell;
 }
 
