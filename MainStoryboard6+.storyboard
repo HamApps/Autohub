@@ -1523,7 +1523,7 @@ EEZ1ZWwxA
                                                     <rect key="frame" x="49" y="8" width="319" height="113"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Ferrari Makes Cool New Bike for Italians" selectable="NO" id="fZb-tt-ajO">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Ferrari Makes Cool New Bike for Italians" selectable="NO" id="fZb-tt-ajO">
                                                     <rect key="frame" x="104" y="126" width="207" height="56"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2000,7 +2000,7 @@ EEZ1ZWwxA
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ModelCell" rowHeight="183" id="bFD-d0-qST" customClass="CarViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ModelCell" rowHeight="183" id="bFD-d0-qST" customClass="FavCell">
                                 <rect key="frame" x="0.0" y="130" width="414" height="183"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bFD-d0-qST" id="OWg-xf-DTY">
@@ -2105,12 +2105,12 @@ EEZ1ZWwxA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="imD-vs-7C4"/>
-        <segue reference="N1f-HF-UaB"/>
+        <segue reference="Z0M-jc-iXA"/>
         <segue reference="nmc-uc-8vV"/>
         <segue reference="zJ5-Um-jCP"/>
         <segue reference="r54-US-OFB"/>
-        <segue reference="X7T-2L-qVf"/>
+        <segue reference="kJU-Vh-YHm"/>
+        <segue reference="imD-vs-7C4"/>
         <segue reference="Qdr-UW-Q4c"/>
         <segue reference="IKm-l5-xV9"/>
     </inferredMetricsTieBreakers>

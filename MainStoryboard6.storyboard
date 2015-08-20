@@ -95,6 +95,7 @@
             <string>EurostileRegular</string>
             <string>EurostileRegular</string>
             <string>EurostileRegular</string>
+            <string>EurostileRegular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -1524,11 +1525,11 @@ EEZ1ZWwxA
                                                     <rect key="frame" x="55" y="8" width="245" height="113"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Ferrari Makes Cool New Bike for Italians" selectable="NO" id="cjJ-Wi-BvZ">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Ferrari Makes Cool New Bike for Italians" selectable="NO" id="cjJ-Wi-BvZ">
                                                     <rect key="frame" x="74" y="126" width="207" height="56"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                             </subviews>
@@ -2000,7 +2001,7 @@ EEZ1ZWwxA
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ModelCell" rowHeight="183" id="bzx-BZ-19r" customClass="CarViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ModelCell" rowHeight="183" id="bzx-BZ-19r" customClass="FavCell">
                                 <rect key="frame" x="0.0" y="130" width="375" height="183"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bzx-BZ-19r" id="7kj-mf-NmN">
@@ -2009,7 +2010,7 @@ EEZ1ZWwxA
                                     <subviews>
                                         <view contentMode="scaleToFill" id="h4i-F2-MbI">
                                             <rect key="frame" x="10" y="5" width="355" height="173"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BOu-2s-juW">
                                                     <rect key="frame" x="35" y="8" width="284" height="21"/>
@@ -2105,11 +2106,11 @@ EEZ1ZWwxA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="30L-8O-aJ4"/>
+        <segue reference="FG8-5V-DUk"/>
         <segue reference="kJU-Vh-YHm"/>
         <segue reference="r54-US-OFB"/>
         <segue reference="L58-Vy-HHD"/>
-        <segue reference="k5R-sg-ljL"/>
-        <segue reference="30L-8O-aJ4"/>
         <segue reference="Qdr-UW-Q4c"/>
         <segue reference="IKm-l5-xV9"/>
     </inferredMetricsTieBreakers>

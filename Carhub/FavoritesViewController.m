@@ -8,7 +8,7 @@
 
 #import "FavoritesViewController.h"
 #import "DetailViewController.h"
-#import "CarViewCell.h"
+#import "FavCell.h"
 #import "Model.h"
 #import "AppDelegate.h"
 #import <QuartzCore/QuartzCore.h>
@@ -95,16 +95,18 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"ModelCell";
-    CarViewCell *cell = (CarViewCell *)[self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    FavCell *cell = (FavCell *)[self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell==nil) {
-        cell = [[CarViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[FavCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
     Model * modelObject;
     if(tableView == self.searchDisplayController.searchResultsTableView){
         modelObject = [self.searchArray objectAtIndex:indexPath.row];
+        self.searchDisplayController.searchResultsTableView.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:.9 alpha:1];
+        self.searchDisplayController.searchResultsTableView.separatorColor = [UIColor clearColor];
     } else {
         modelObject = [self.ModelArray objectAtIndex:indexPath.row];
     }
@@ -119,7 +121,22 @@
                             }];
     cell.CarName.text = modelObject.CarFullName;
     
+    [cell.cardView setAlpha:1];
+    cell.cardView.layer.masksToBounds = NO;
+    cell.cardView.layer.cornerRadius = 2;
+    cell.cardView.layer.shadowOffset = CGSizeMake(-.2f, .2f);
+    cell.cardView.layer.shadowRadius = 2;
+    UIBezierPath *path = [UIBezierPath bezierPathWithRect:cell.cardView.bounds];
+    cell.cardView.layer.shadowPath = path.CGPath;
+    cell.cardView.layer.shadowOpacity = 0;
+    cell.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:.9 alpha:1];
+    
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 -(void)loadSavedCars;

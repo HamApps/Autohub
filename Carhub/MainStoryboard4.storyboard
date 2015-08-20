@@ -1192,7 +1192,7 @@ EEZ1ZWwxA
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MakeReuseID" id="LC1-mc-mYT" customClass="MakeCell">
-                                <rect key="frame" x="0.0" y="64" width="107" height="105"/>
+                                <rect key="frame" x="0.0" y="64" width="106.66" height="105"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="107" height="105"/>
@@ -1271,7 +1271,7 @@ EEZ1ZWwxA
                                                     <rect key="frame" x="28" y="8" width="245" height="113"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Ferrari Makes Cool New Bike for Italians" selectable="NO" id="qES-lS-Oao">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Ferrari Makes Cool New Bike for Italians" selectable="NO" id="qES-lS-Oao">
                                                     <rect key="frame" x="47" y="126" width="207" height="56"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1740,7 +1740,7 @@ EEZ1ZWwxA
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ModelCell" rowHeight="183" id="1uD-eN-0Zl" customClass="CarViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ModelCell" rowHeight="183" id="1uD-eN-0Zl" customClass="FavCell">
                                 <rect key="frame" x="0.0" y="130" width="320" height="183"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1uD-eN-0Zl" id="GbT-2X-sIU">

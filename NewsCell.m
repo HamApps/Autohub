@@ -35,6 +35,13 @@
     self.cardView.layer.shadowPath = path.CGPath;
     self.cardView.layer.shadowOpacity = 0.2;
     self.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:.9 alpha:1];
+    
+    self.newsDescription.dataDetectorTypes = UIDataDetectorTypeAll;
+    self.newsDescription.userInteractionEnabled = YES;
+    self.newsDescription.selectable = NO;
+    self.newsDescription.editable = YES;
+    [self.newsDescription setFont:[UIFont fontWithName:@"Eurostile" size:18.0f]];
+    self.newsDescription.editable = NO;
 }
 
 - (void)awakeFromNib {

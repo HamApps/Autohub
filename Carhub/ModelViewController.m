@@ -93,6 +93,8 @@
     
     if(tableView == self.searchDisplayController.searchResultsTableView){
     modelObject = [self.searchArray objectAtIndex:indexPath.row];
+    self.searchDisplayController.searchResultsTableView.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:.9 alpha:1];
+    self.searchDisplayController.searchResultsTableView.separatorColor = [UIColor clearColor];
     } else {
         modelObject = [self.ModelArray objectAtIndex:indexPath.row];
     }
@@ -108,6 +110,11 @@
     cell.CarName.text = modelObject.CarModel;
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (void)getMake:(id)makeObject;

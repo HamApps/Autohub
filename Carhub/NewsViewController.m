@@ -121,6 +121,11 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 - (void) forwardToDidSelect: (UITapGestureRecognizer *) tap
 {
     [self performSegueWithIdentifier:@"pushNewsDetailView" sender:self];

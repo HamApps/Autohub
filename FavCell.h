@@ -1,14 +1,14 @@
 //
-//  CarViewCell.h
+//  FavCell.h
 //  Carhub
 //
-//  Created by Christopher Clark on 7/20/14.
-//  Copyright (c) 2014 Ham Applications. All rights reserved.
+//  Created by Christopher Clark on 8/19/15.
+//  Copyright (c) 2015 Ham Applications. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface CarViewCell : UITableViewCell
+@interface FavCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UILabel * CarName;
 @property (strong, nonatomic) IBOutlet UIImageView * CarImage;
