@@ -39,6 +39,7 @@
     
     AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
     [appDelegate setShouldRotate:NO];
+    self.view.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:.9 alpha:1];
     
     self.barButton.target = self.revealViewController;
     self.barButton.action = @selector(revealToggle:);
@@ -71,8 +72,7 @@
     makeObject = [makeimageArray objectAtIndex:indexPath.item];
     
     //UI stuff
-    cell.layer.borderWidth=0.6f;
-    cell.layer.borderColor=[UIColor lightGrayColor].CGColor;
+    cell.layer.borderColor=[UIColor clearColor].CGColor;
     
     //Load and fade image
     [cell.MakeImageView sd_setImageWithURL:[NSURL URLWithString:makeObject.MakeImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image2.php"]]

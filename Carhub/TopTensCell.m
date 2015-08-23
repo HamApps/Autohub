@@ -24,7 +24,7 @@
     self.cardView.layer.shadowRadius = 2;
     UIBezierPath *path = [UIBezierPath bezierPathWithRect:self.cardView.bounds];
     self.cardView.layer.shadowPath = path.CGPath;
-    self.cardView.layer.shadowOpacity = 0.2;
+    self.cardView.layer.shadowOpacity = 0.75;
     self.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:.9 alpha:1];
 }
 
