@@ -183,7 +183,7 @@
             <objects>
                 <viewController id="dyO-Xs-Ifc" customClass="DisputeInfoViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5K0-9c-PuS">
-                        <rect key="frame" x="0.0" y="64" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SpecsDiputePage6+.png" id="fMk-nG-cIj">
@@ -1462,7 +1462,7 @@ EEZ1ZWwxA
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="dZI-bz-bxd">
-                                                    <rect key="frame" x="11" y="0.0" width="106" height="106"/>
+                                                    <rect key="frame" x="13" y="8" width="103" height="98"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
@@ -2116,11 +2116,11 @@ EEZ1ZWwxA
     <inferredMetricsTieBreakers>
         <segue reference="2uW-oU-10V"/>
         <segue reference="ee9-cf-bRT"/>
+        <segue reference="lZH-q4-y63"/>
         <segue reference="r54-US-OFB"/>
         <segue reference="Bdx-4B-Avh"/>
         <segue reference="imD-vs-7C4"/>
         <segue reference="Qdr-UW-Q4c"/>
-        <segue reference="kJU-Vh-YHm"/>
         <segue reference="zJ5-Um-jCP"/>
     </inferredMetricsTieBreakers>
 </document>

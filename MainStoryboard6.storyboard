@@ -184,7 +184,7 @@
             <objects>
                 <viewController id="dyO-Xs-Ifc" customClass="DisputeInfoViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5K0-9c-PuS">
-                        <rect key="frame" x="0.0" y="64" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SpecsDisputePage6.png" id="hYj-TS-srV">
@@ -1457,7 +1457,7 @@ EEZ1ZWwxA
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="3jr-9O-FHc">
-                                                    <rect key="frame" x="7" y="0.0" width="102" height="96"/>
+                                                    <rect key="frame" x="12" y="7" width="93" height="88"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="d45-6D-uoq">
@@ -2119,8 +2119,8 @@ EEZ1ZWwxA
         <segue reference="30L-8O-aJ4"/>
         <segue reference="Qdr-UW-Q4c"/>
         <segue reference="IKm-l5-xV9"/>
+        <segue reference="lZH-q4-y63"/>
         <segue reference="L58-Vy-HHD"/>
         <segue reference="r54-US-OFB"/>
-        <segue reference="kJU-Vh-YHm"/>
     </inferredMetricsTieBreakers>
 </document>
