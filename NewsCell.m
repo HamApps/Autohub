@@ -33,14 +33,21 @@
     self.cardView.layer.shadowRadius = 2;
     UIBezierPath *path = [UIBezierPath bezierPathWithRect:self.cardView.bounds];
     self.cardView.layer.shadowPath = path.CGPath;
-    self.cardView.layer.shadowOpacity = 0.2;
+    self.cardView.layer.shadowOpacity = 0.75;
     self.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:.9 alpha:1];
     
     self.newsDescription.dataDetectorTypes = UIDataDetectorTypeAll;
     self.newsDescription.userInteractionEnabled = YES;
     self.newsDescription.selectable = NO;
     self.newsDescription.editable = YES;
-    [self.newsDescription setFont:[UIFont fontWithName:@"Eurostile" size:18.0f]];
+    
+    int height = [UIScreen mainScreen].bounds.size.height;
+    if (height == 480 || height == 568)
+        [self.newsDescription setFont:[UIFont fontWithName:@"Eurostile" size:16.0f]];
+    if (height == 667)
+        [self.newsDescription setFont:[UIFont fontWithName:@"Eurostile" size:16.0f]];
+    if (height == 736)
+        [self.newsDescription setFont:[UIFont fontWithName:@"Eurostile" size:18.0f]];
     self.newsDescription.editable = NO;
 }
 

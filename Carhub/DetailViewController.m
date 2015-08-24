@@ -66,7 +66,7 @@ STKAudioPlayer * audioPlayer;
         [saveButton setBackgroundImage:[UIImage imageNamed:@"outline-star-64.png"] forState:UIControlStateNormal];
     
     [scroller setScrollEnabled:YES];
-    [scroller setContentSize:CGSizeMake(320, 720)];
+    [scroller setContentSize:CGSizeMake(320, 780)];
     
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = [[currentCar.CarMake stringByAppendingString:@" "] stringByAppendingString:currentCar.CarModel];

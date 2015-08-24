@@ -32,7 +32,6 @@
 		3848C9E11B8569E00025C0E4 /* LoadingWheelBackground3.png in Resources */ = {isa = PBXBuildFile; fileRef = 3848C9CE1B8569E00025C0E4 /* LoadingWheelBackground3.png */; };
 		3848C9E21B8569E00025C0E4 /* LoadingWheelBackground4.png in Resources */ = {isa = PBXBuildFile; fileRef = 3848C9CF1B8569E00025C0E4 /* LoadingWheelBackground4.png */; };
 		3848C9E31B8569E00025C0E4 /* LoadingWheelBackground6.png in Resources */ = {isa = PBXBuildFile; fileRef = 3848C9D01B8569E00025C0E4 /* LoadingWheelBackground6.png */; };
-		3848C9E41B8569E00025C0E4 /* LoadingWheelBackground6.psd in Resources */ = {isa = PBXBuildFile; fileRef = 3848C9D11B8569E00025C0E4 /* LoadingWheelBackground6.psd */; };
 		3848C9E51B8569E00025C0E4 /* LoadingWheelBackground7.png in Resources */ = {isa = PBXBuildFile; fileRef = 3848C9D21B8569E00025C0E4 /* LoadingWheelBackground7.png */; };
 		3848C9E61B8569E00025C0E4 /* LoadingWheelBackground8.png in Resources */ = {isa = PBXBuildFile; fileRef = 3848C9D31B8569E00025C0E4 /* LoadingWheelBackground8.png */; };
 		3848C9E71B8569E00025C0E4 /* LoadingWheelBackground9.png in Resources */ = {isa = PBXBuildFile; fileRef = 3848C9D41B8569E00025C0E4 /* LoadingWheelBackground9.png */; };
@@ -61,8 +60,6 @@
 		38774D3319C5E5F300C22A70 /* NewsLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38774D3219C5E5F300C22A70 /* NewsLabel.m */; };
 		387A28A21B30F42E00152F55 /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 387A28A11B30F42E00152F55 /* NavigationViewController.m */; };
 		388886801AA17C2D00ECCEE1 /* SearchTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3888867F1AA17C2D00ECCEE1 /* SearchTabViewController.m */; };
-		388B04311B83F27D000636CB /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 388B042E1B83F27D000636CB /* SWRevealViewController.m */; };
-		388B04321B83F27D000636CB /* TopTensViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 388B04301B83F27D000636CB /* TopTensViewController.m */; };
 		388B04351B83F4D6000636CB /* NewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 388B04341B83F4D6000636CB /* NewsCell.m */; };
 		38A09C20197F62C700254457 /* CompareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A09C1F197F62C700254457 /* CompareViewController.m */; };
 		38A667D919858E69008B2A69 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A667D819858E69008B2A69 /* ImageViewController.m */; };
@@ -152,6 +149,8 @@
 		AA5546B61979F2CE00E7CF12 /* CarhubTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA5546B51979F2CE00E7CF12 /* CarhubTests.m */; };
 		AA58E0141B4DDBB300E6219D /* MainStoryboard6.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA58E0131B4DDBB300E6219D /* MainStoryboard6.storyboard */; };
 		AA58E0161B4DDBDF00E6219D /* MainStoryboard6+.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA58E0151B4DDBDF00E6219D /* MainStoryboard6+.storyboard */; };
+		AA8EA6181B8A706F00DD4FF3 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA8EA6151B8A706F00DD4FF3 /* SWRevealViewController.m */; };
+		AA8EA6191B8A706F00DD4FF3 /* TopTensViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA8EA6171B8A706F00DD4FF3 /* TopTensViewController.m */; };
 		AAB744D61983167800A8545A /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 385C1404197B3FDA003BBB09 /* MainStoryboard.storyboard */; };
 		AAB744E2198318BF00A8545A /* MainStoryboard4.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAB744E1198318BF00A8545A /* MainStoryboard4.storyboard */; };
 		AAB744E3198318BF00A8545A /* MainStoryboard4.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAB744E1198318BF00A8545A /* MainStoryboard4.storyboard */; };
@@ -204,7 +203,6 @@
 		3848C9CE1B8569E00025C0E4 /* LoadingWheelBackground3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoadingWheelBackground3.png; sourceTree = "<group>"; };
 		3848C9CF1B8569E00025C0E4 /* LoadingWheelBackground4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoadingWheelBackground4.png; sourceTree = "<group>"; };
 		3848C9D01B8569E00025C0E4 /* LoadingWheelBackground6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoadingWheelBackground6.png; sourceTree = "<group>"; };
-		3848C9D11B8569E00025C0E4 /* LoadingWheelBackground6.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = LoadingWheelBackground6.psd; sourceTree = "<group>"; };
 		3848C9D21B8569E00025C0E4 /* LoadingWheelBackground7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoadingWheelBackground7.png; sourceTree = "<group>"; };
 		3848C9D31B8569E00025C0E4 /* LoadingWheelBackground8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoadingWheelBackground8.png; sourceTree = "<group>"; };
 		3848C9D41B8569E00025C0E4 /* LoadingWheelBackground9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoadingWheelBackground9.png; sourceTree = "<group>"; };
@@ -257,10 +255,6 @@
 		387A28A11B30F42E00152F55 /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
 		3888867E1AA17C2D00ECCEE1 /* SearchTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchTabViewController.h; path = ../SearchTabViewController.h; sourceTree = "<group>"; };
 		3888867F1AA17C2D00ECCEE1 /* SearchTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchTabViewController.m; path = ../SearchTabViewController.m; sourceTree = "<group>"; };
-		388B042D1B83F27D000636CB /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = "../../sw and topten/SWRevealViewController.h"; sourceTree = "<group>"; };
-		388B042E1B83F27D000636CB /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = "../../sw and topten/SWRevealViewController.m"; sourceTree = "<group>"; };
-		388B042F1B83F27D000636CB /* TopTensViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopTensViewController.h; path = "../../sw and topten/TopTensViewController.h"; sourceTree = "<group>"; };
-		388B04301B83F27D000636CB /* TopTensViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopTensViewController.m; path = "../../sw and topten/TopTensViewController.m"; sourceTree = "<group>"; };
 		388B04331B83F4D6000636CB /* NewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsCell.h; path = ../NewsCell.h; sourceTree = "<group>"; };
 		388B04341B83F4D6000636CB /* NewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsCell.m; path = ../NewsCell.m; sourceTree = "<group>"; };
 		38A09C1E197F62C700254457 /* CompareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompareViewController.h; sourceTree = "<group>"; };
@@ -384,6 +378,10 @@
 		AA5546B51979F2CE00E7CF12 /* CarhubTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CarhubTests.m; sourceTree = "<group>"; };
 		AA58E0131B4DDBB300E6219D /* MainStoryboard6.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainStoryboard6.storyboard; path = ../MainStoryboard6.storyboard; sourceTree = "<group>"; };
 		AA58E0151B4DDBDF00E6219D /* MainStoryboard6+.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "MainStoryboard6+.storyboard"; path = "../MainStoryboard6+.storyboard"; sourceTree = "<group>"; };
+		AA8EA6141B8A706F00DD4FF3 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = "../../Autohub Material/Random Files/SWRevealViewController.h"; sourceTree = "<group>"; };
+		AA8EA6151B8A706F00DD4FF3 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = "../../Autohub Material/Random Files/SWRevealViewController.m"; sourceTree = "<group>"; };
+		AA8EA6161B8A706F00DD4FF3 /* TopTensViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopTensViewController.h; path = "../../Autohub Material/Random Files/TopTensViewController.h"; sourceTree = "<group>"; };
+		AA8EA6171B8A706F00DD4FF3 /* TopTensViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopTensViewController.m; path = "../../Autohub Material/Random Files/TopTensViewController.m"; sourceTree = "<group>"; };
 		AAB744E1198318BF00A8545A /* MainStoryboard4.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard4.storyboard; sourceTree = "<group>"; };
 		AAED753C19EF6EA900FCE06F /* iRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRate.h; sourceTree = "<group>"; };
 		AAED753D19EF6EA900FCE06F /* iRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRate.m; sourceTree = "<group>"; };
@@ -435,7 +433,6 @@
 				3848C9CE1B8569E00025C0E4 /* LoadingWheelBackground3.png */,
 				3848C9CF1B8569E00025C0E4 /* LoadingWheelBackground4.png */,
 				3848C9D01B8569E00025C0E4 /* LoadingWheelBackground6.png */,
-				3848C9D11B8569E00025C0E4 /* LoadingWheelBackground6.psd */,
 				3848C9D21B8569E00025C0E4 /* LoadingWheelBackground7.png */,
 				3848C9D31B8569E00025C0E4 /* LoadingWheelBackground8.png */,
 				3848C9D41B8569E00025C0E4 /* LoadingWheelBackground9.png */,
@@ -573,10 +570,10 @@
 				AA58E0151B4DDBDF00E6219D /* MainStoryboard6+.storyboard */,
 				38D2B8C819A58EBA004D0687 /* MakeViewController.h */,
 				38D2B8C919A58EBA004D0687 /* MakeViewController.m */,
-				388B042D1B83F27D000636CB /* SWRevealViewController.h */,
-				388B042E1B83F27D000636CB /* SWRevealViewController.m */,
-				388B042F1B83F27D000636CB /* TopTensViewController.h */,
-				388B04301B83F27D000636CB /* TopTensViewController.m */,
+				AA8EA6141B8A706F00DD4FF3 /* SWRevealViewController.h */,
+				AA8EA6151B8A706F00DD4FF3 /* SWRevealViewController.m */,
+				AA8EA6161B8A706F00DD4FF3 /* TopTensViewController.h */,
+				AA8EA6171B8A706F00DD4FF3 /* TopTensViewController.m */,
 				387A28A01B30F42E00152F55 /* NavigationViewController.h */,
 				387A28A11B30F42E00152F55 /* NavigationViewController.m */,
 				380689B01B1D621000CD4425 /* TestNewsViewController.h */,
@@ -815,7 +812,6 @@
 				38C649A51B73102500713406 /* ferrari logo@2x.png in Resources */,
 				3848C9E81B8569E00025C0E4 /* LoadingWheelBackgroundS.png in Resources */,
 				38C649BF1B73102500713406 /* TransmissionIcon@2x.png in Resources */,
-				3848C9E41B8569E00025C0E4 /* LoadingWheelBackground6.psd in Resources */,
 				AA58E0161B4DDBDF00E6219D /* MainStoryboard6+.storyboard in Resources */,
 				38C649A81B73102500713406 /* InfoPlist.strings in Resources */,
 				38C649BC1B73102500713406 /* star.png in Resources */,
@@ -939,6 +935,7 @@
 				38CCEA851984356600A157EA /* DisputeInfoViewController.m in Sources */,
 				38D5196D1A8FF9AE001140EF /* STKDataSourceWrapper.m in Sources */,
 				3851C1C91B2127FB002A0474 /* UIImageView+HighlightedWebCache.m in Sources */,
+				AA8EA6181B8A706F00DD4FF3 /* SWRevealViewController.m in Sources */,
 				380BC53E1B56085D00081B43 /* CompareViewController4.m in Sources */,
 				38D2B8CA19A58EBA004D0687 /* MakeViewController.m in Sources */,
 				38E41D071A9123E700EA6135 /* TopTens.m in Sources */,
@@ -955,14 +952,13 @@
 				381DDFE919C7AE1F0055DB4E /* InAppDemoViewController.m in Sources */,
 				3851C1BD1B2127FB002A0474 /* NSData+ImageContentType.m in Sources */,
 				38D2B8D319A58FB5004D0687 /* ModelViewController.m in Sources */,
-				388B04311B83F27D000636CB /* SWRevealViewController.m in Sources */,
 				38E522AC1A9134EC003F1099 /* NewTopTensViewController.m in Sources */,
 				3851C1C21B2127FB002A0474 /* SDWebImageDownloaderOperation.m in Sources */,
 				380BC53B1B5607C400081B43 /* DetailViewController4.m in Sources */,
+				AA8EA6191B8A706F00DD4FF3 /* TopTensViewController.m in Sources */,
 				383F2F0519836923001A9E92 /* CompareViewController2.m in Sources */,
 				3851C1C11B2127FB002A0474 /* SDWebImageDownloader.m in Sources */,
 				38AEE96019A81C1D00792503 /* SearchViewController.m in Sources */,
-				388B04321B83F27D000636CB /* TopTensViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1012,8 +1008,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1052,8 +1048,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1075,8 +1071,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/GoogleMobileAdsSdkiOS-7.0.0",
@@ -1101,8 +1097,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/GoogleMobileAdsSdkiOS-7.0.0",
@@ -1125,8 +1121,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Carhub.app/Carhub";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1152,8 +1148,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Carhub.app/Carhub";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1187,8 +1183,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1210,8 +1206,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/GoogleMobileAdsSdkiOS-7.0.0",
@@ -1234,8 +1230,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Carhub.app/Carhub";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

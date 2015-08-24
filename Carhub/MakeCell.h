@@ -12,6 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *MakeImageView;
 @property (weak, nonatomic) IBOutlet UILabel *MakeNameLabel;
-
+@property (weak, nonatomic) IBOutlet UIView *cardView;
 
 @end
