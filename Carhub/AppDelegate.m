@@ -11,6 +11,7 @@
 #import "Make.h"
 #import "News.h"
 #import "TopTens.h"
+#import "Post.h"
 #define k_Save @"Saveitem"
 #import "TopTensViewController.h"
 #import "TopTensViewController2.h"
@@ -19,11 +20,12 @@
 #define getMakeDataURL @"http://pl0x.net/CarMakesJSON.php"
 #define getNewsDataURL @"http://pl0x.net/CarNewsJSON.php"
 #define getTopTensDataURL @"http://pl0x.net/CombinedTopTens.php"
+#define getPostDataURL @"http://pl0x.net/PostJSON.php"
 
 
 @implementation AppDelegate
 
-@synthesize favoritesarray, modelArray, modeljsonArray, makeimageArray, makejsonArray, AlphabeticalArray, newsArray, newsjsonArray, makeimageArray2, makejsonArray2, AlphabeticalArray2, zt60Array, topspeedArray, nurbArray, newexpensiveArray, fuelArray, horsepowerArray, toptensArray, topTensjson, auctionexpensiveArray;
+@synthesize favoritesarray, modelArray, modeljsonArray, makeimageArray, makejsonArray, AlphabeticalArray, newsArray, newsjsonArray, makeimageArray2, makejsonArray2, AlphabeticalArray2, zt60Array, topspeedArray, nurbArray, newexpensiveArray, fuelArray, horsepowerArray, toptensArray, topTensjson, auctionexpensiveArray, postArray, postjsonArray;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 
@@ -56,6 +58,10 @@
     [self splitTopTensArrays];
     
     NSLog(@"Done 6");
+    
+    [self retrievePostData];
+    
+    NSLog(@"Done 7");
     
     
     
@@ -323,6 +329,27 @@
         NSString * nType = [[topTensjson objectAtIndex:i] objectForKey:@"TopTenType"];
         
         [toptensArray addObject:[[TopTens alloc]initWithCarRank:nRank andCarName:nName andCarValue:nValue andCarURL:nURL andTopTenType:nType]];
+    }
+}
+     
+- (void) retrievePostData;
+{
+    NSURL * url = [NSURL URLWithString:getPostDataURL];
+    NSData * data = [NSData dataWithContentsOfURL:url];
+    
+    postjsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+    postArray = [[NSMutableArray alloc] init];
+    NSLog(@"postjsonarray %@", postjsonArray);
+    
+    for (int i=0; i < postjsonArray.count; i++)
+    {
+        NSNumber * uCount = [NSNumber numberWithDouble:[[[postjsonArray objectAtIndex:i]objectForKey:@"upCount"]integerValue]];
+        NSNumber * dCount = [NSNumber numberWithDouble:[[[postjsonArray objectAtIndex:i]objectForKey:@"downCount"]integerValue]];
+        NSString * pImageURL = [[postjsonArray objectAtIndex:i] objectForKey:@"postImage"];
+        NSString * pDescription = [[postjsonArray objectAtIndex:i] objectForKey:@"postDescription"];
+        NSString * pTitle = [[postjsonArray objectAtIndex:i] objectForKey:@"postTitle"];
+        
+        [postArray addObject:[[Post alloc]initWithupCount:uCount anddownCount:dCount andpostImageURL:pImageURL andpostDescription:pDescription andpostTitle:pTitle]];
     }
 }
 

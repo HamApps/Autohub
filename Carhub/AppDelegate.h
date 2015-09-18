@@ -24,6 +24,9 @@
 @property (nonatomic, strong) NSMutableArray * makeimageArray;
 @property (nonatomic, strong) NSArray * AlphabeticalArray;
 
+@property (nonatomic, strong) NSMutableArray * postjsonArray;
+@property (nonatomic, strong) NSMutableArray * postArray;
+
 @property (nonatomic, strong) NSMutableArray * makejsonArray2;
 @property (nonatomic, strong) NSMutableArray * makeimageArray2;
 @property (nonatomic, strong) NSArray * AlphabeticalArray2;

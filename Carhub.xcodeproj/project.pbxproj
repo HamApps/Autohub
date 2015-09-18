@@ -70,6 +70,9 @@
 		38AEE96319A8284200792503 /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AEE96219A8284200792503 /* NewsViewController.m */; };
 		38AEE96619A82B4B00792503 /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AEE96519A82B4B00792503 /* News.m */; };
 		38BABF5F19A96B210054B1EC /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BABF5E19A96B210054B1EC /* FavoritesViewController.m */; };
+		38BEA5B21BA51A1900CCAE2B /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BEA5B11BA51A1900CCAE2B /* PostViewController.m */; };
+		38BEA5B51BA52AC000CCAE2B /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BEA5B41BA52AC000CCAE2B /* Post.m */; };
+		38BEA5B71BA5379600CCAE2B /* ForumIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38BEA5B61BA5379600CCAE2B /* ForumIcon@2x.png */; };
 		38C0784819B4291C00DEC284 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C0784719B4291C00DEC284 /* Model.m */; };
 		38C649951B73102500713406 /* 0-60icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38C649651B73102500713406 /* 0-60icon@2x.png */; };
 		38C649961B73102500713406 /* Ariel Logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38C649661B73102500713406 /* Ariel Logo@2x.png */; };
@@ -135,6 +138,8 @@
 		38E41D071A9123E700EA6135 /* TopTens.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E41D061A9123E700EA6135 /* TopTens.m */; };
 		38E522AC1A9134EC003F1099 /* NewTopTensViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E522AB1A9134EC003F1099 /* NewTopTensViewController.m */; };
 		38E522AF1A913803003F1099 /* TopTensCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E522AE1A913803003F1099 /* TopTensCell.m */; };
+		38E884FC1BA4E57300F66F81 /* ForumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E884FB1BA4E57300F66F81 /* ForumViewController.m */; };
+		38E884FF1BA4E63D00F66F81 /* ForumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E884FE1BA4E63D00F66F81 /* ForumCell.m */; };
 		38FD7C301B22771600E576B3 /* SpecsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FD7C2F1B22771600E576B3 /* SpecsCell.m */; };
 		AA3E760619F0A32A00C1F870 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA3E760519F0A32A00C1F870 /* AdSupport.framework */; };
 		AA3E760819F0A33000C1F870 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA3E760719F0A33000C1F870 /* AudioToolbox.framework */; };
@@ -275,6 +280,11 @@
 		38AEE96519A82B4B00792503 /* News.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = News.m; sourceTree = "<group>"; };
 		38BABF5D19A96B210054B1EC /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesViewController.h; sourceTree = "<group>"; };
 		38BABF5E19A96B210054B1EC /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
+		38BEA5B01BA51A1900CCAE2B /* PostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostViewController.h; path = ../PostViewController.h; sourceTree = "<group>"; };
+		38BEA5B11BA51A1900CCAE2B /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostViewController.m; path = ../PostViewController.m; sourceTree = "<group>"; };
+		38BEA5B31BA52AC000CCAE2B /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Post.h; path = ../Post.h; sourceTree = "<group>"; };
+		38BEA5B41BA52AC000CCAE2B /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Post.m; path = ../Post.m; sourceTree = "<group>"; };
+		38BEA5B61BA5379600CCAE2B /* ForumIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ForumIcon@2x.png"; path = "../../../Downloads/ForumIcon@2x.png"; sourceTree = "<group>"; };
 		38C0784619B4291C00DEC284 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		38C0784719B4291C00DEC284 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 		38C649651B73102500713406 /* 0-60icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "0-60icon@2x.png"; path = "../../The Real Supporting Files/0-60icon@2x.png"; sourceTree = "<group>"; };
@@ -362,6 +372,10 @@
 		38E522AB1A9134EC003F1099 /* NewTopTensViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTopTensViewController.m; sourceTree = "<group>"; };
 		38E522AD1A913803003F1099 /* TopTensCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopTensCell.h; sourceTree = "<group>"; };
 		38E522AE1A913803003F1099 /* TopTensCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopTensCell.m; sourceTree = "<group>"; };
+		38E884FA1BA4E57300F66F81 /* ForumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForumViewController.h; path = ../ForumViewController.h; sourceTree = "<group>"; };
+		38E884FB1BA4E57300F66F81 /* ForumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ForumViewController.m; path = ../ForumViewController.m; sourceTree = "<group>"; };
+		38E884FD1BA4E63D00F66F81 /* ForumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForumCell.h; path = ../ForumCell.h; sourceTree = "<group>"; };
+		38E884FE1BA4E63D00F66F81 /* ForumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ForumCell.m; path = ../ForumCell.m; sourceTree = "<group>"; };
 		38FD7C2E1B22771600E576B3 /* SpecsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpecsCell.h; path = ../SpecsCell.h; sourceTree = "<group>"; };
 		38FD7C2F1B22771600E576B3 /* SpecsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpecsCell.m; path = ../SpecsCell.m; sourceTree = "<group>"; };
 		AA3E760519F0A32A00C1F870 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
@@ -583,6 +597,10 @@
 				380689B11B1D621000CD4425 /* TestNewsViewController.m */,
 				38D2B8D119A58FB5004D0687 /* ModelViewController.h */,
 				38D2B8D219A58FB5004D0687 /* ModelViewController.m */,
+				38E884FA1BA4E57300F66F81 /* ForumViewController.h */,
+				38E884FB1BA4E57300F66F81 /* ForumViewController.m */,
+				38BEA5B01BA51A1900CCAE2B /* PostViewController.h */,
+				38BEA5B11BA51A1900CCAE2B /* PostViewController.m */,
 				38BABF5D19A96B210054B1EC /* FavoritesViewController.h */,
 				38BABF5E19A96B210054B1EC /* FavoritesViewController.m */,
 				382B4ABA19BE82CB00DD268D /* SearchModelController.h */,
@@ -630,6 +648,8 @@
 				38E522AE1A913803003F1099 /* TopTensCell.m */,
 				38595D9B197C4D4200AA0BF9 /* CarViewCell.h */,
 				38595D9C197C4D4200AA0BF9 /* CarViewCell.m */,
+				38E884FD1BA4E63D00F66F81 /* ForumCell.h */,
+				38E884FE1BA4E63D00F66F81 /* ForumCell.m */,
 				3848C9BF1B8568E80025C0E4 /* FavCell.h */,
 				3848C9C01B8568E80025C0E4 /* FavCell.m */,
 				38FD7C2E1B22771600E576B3 /* SpecsCell.h */,
@@ -646,6 +666,8 @@
 				38E41D061A9123E700EA6135 /* TopTens.m */,
 				38AEE96419A82B4B00792503 /* News.h */,
 				38AEE96519A82B4B00792503 /* News.m */,
+				38BEA5B31BA52AC000CCAE2B /* Post.h */,
+				38BEA5B41BA52AC000CCAE2B /* Post.m */,
 			);
 			path = Carhub;
 			sourceTree = "<group>";
@@ -655,6 +677,7 @@
 			children = (
 				3848C9C21B8569E00025C0E4 /* LoadingWheel */,
 				38C649651B73102500713406 /* 0-60icon@2x.png */,
+				38BEA5B61BA5379600CCAE2B /* ForumIcon@2x.png */,
 				38C649661B73102500713406 /* Ariel Logo@2x.png */,
 				38C649671B73102500713406 /* blue button 2@2x.png */,
 				38C649681B73102500713406 /* BMW Logo@2x.png */,
@@ -846,6 +869,7 @@
 				3848C9E21B8569E00025C0E4 /* LoadingWheelBackground4.png in Resources */,
 				38C649B41B73102500713406 /* SearchBar4@2x.png in Resources */,
 				38C649A91B73102500713406 /* Koenigsegg logo@2x.png in Resources */,
+				38BEA5B71BA5379600CCAE2B /* ForumIcon@2x.png in Resources */,
 				3848C9D71B8569E00025C0E4 /* LoadingWheelBackground10.png in Resources */,
 				38C649A41B73102500713406 /* FavoritesIcon2@2x.png in Resources */,
 				38C649A61B73102500713406 /* fuelEconomyIcon@2x.png in Resources */,
@@ -914,6 +938,7 @@
 				385C141D197BBC32003BBB09 /* DetailViewController.m in Sources */,
 				38D5196B1A8FF9AE001140EF /* STKCoreFoundationDataSource.m in Sources */,
 				AAED753E19EF6EA900FCE06F /* iRate.m in Sources */,
+				38BEA5B21BA51A1900CCAE2B /* PostViewController.m in Sources */,
 				38AEE96319A8284200792503 /* NewsViewController.m in Sources */,
 				38CCEA8D19844AB900A157EA /* DisputeInfoViewController2.m in Sources */,
 				38D5196A1A8FF9AE001140EF /* STKAutoRecoveringHTTPDataSource.m in Sources */,
@@ -956,13 +981,16 @@
 				3851C1BD1B2127FB002A0474 /* NSData+ImageContentType.m in Sources */,
 				38D2B8D319A58FB5004D0687 /* ModelViewController.m in Sources */,
 				388B04311B83F27D000636CB /* SWRevealViewController.m in Sources */,
+				38E884FC1BA4E57300F66F81 /* ForumViewController.m in Sources */,
 				38E522AC1A9134EC003F1099 /* NewTopTensViewController.m in Sources */,
+				38BEA5B51BA52AC000CCAE2B /* Post.m in Sources */,
 				3851C1C21B2127FB002A0474 /* SDWebImageDownloaderOperation.m in Sources */,
 				380BC53B1B5607C400081B43 /* DetailViewController4.m in Sources */,
 				383F2F0519836923001A9E92 /* CompareViewController2.m in Sources */,
 				3851C1C11B2127FB002A0474 /* SDWebImageDownloader.m in Sources */,
 				38AEE96019A81C1D00792503 /* SearchViewController.m in Sources */,
 				388B04321B83F27D000636CB /* TopTensViewController.m in Sources */,
+				38E884FF1BA4E63D00F66F81 /* ForumCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
