@@ -11,9 +11,11 @@
 #import "Model.h"
 #import "SDWebImage/UIImageView+WebCache.h"
 
-@interface MakeViewController : UICollectionViewController
+@interface MakeViewController : UICollectionViewController<UIWebViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *barButton;
+
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 @property (nonatomic, strong) NSMutableArray * makeimageArray;
 @property (nonatomic, strong) NSMutableArray * modelArray;

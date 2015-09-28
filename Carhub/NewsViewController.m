@@ -21,7 +21,7 @@
 @end
 
 @implementation NewsViewController
-@synthesize jsonArray, newsArray;
+@synthesize newsArray;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -36,6 +36,10 @@
 {
     [super viewDidLoad];
     
+    [self.webView setDelegate:self];
+    NSURL *url = [NSURL URLWithString:@"http://www.pl0x.net/AutohubNews/2016-acura-nsx-spied-testing-on-nurburgring/"];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
+    
     self.view.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:.9 alpha:1];
     self.tableView.separatorColor = [UIColor clearColor];
     
@@ -47,6 +51,12 @@
     
     //Load Data
     [self makeAppDelNewsArray];
+}
+
+-(void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    [self.webView setAlpha:1];
+    NSLog(@"Did it!");
 }
 
 - (void)viewWillAppear:(BOOL)animated

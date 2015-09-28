@@ -96,6 +96,7 @@
             <string>EurostileRegular</string>
             <string>EurostileRegular</string>
             <string>EurostileRegular</string>
+            <string>EurostileRegular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -109,7 +110,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="toptens" rowHeight="150" id="QeW-iB-33N" customClass="TopTensCell">
-                                <rect key="frame" x="0.0" y="86" width="375" height="150"/>
+                                <rect key="frame" x="0.0" y="22" width="375" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QeW-iB-33N" id="6VN-kM-Mgi">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="149"/>
@@ -184,7 +185,7 @@
             <objects>
                 <viewController id="dyO-Xs-Ifc" customClass="DisputeInfoViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5K0-9c-PuS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SpecsDisputePage6.png" id="hYj-TS-srV">
@@ -1247,6 +1248,28 @@ EEZ1ZWwxA
                                     <segue destination="zS1-Di-EFh" kind="custom" customClass="SWRevealViewControllerSegue" id="qD5-9E-QrP"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Race Results" id="JKK-e8-0nL">
+                                <rect key="frame" x="0.0" y="297" width="375" height="55"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JKK-e8-0nL" id="Twl-Se-YBb">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FavoritesIcon2.png" id="C6V-Du-661">
+                                            <rect key="frame" x="15" y="3" width="42" height="42"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Race Results" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Nyb-qC-5km">
+                                            <rect key="frame" x="75" y="16" width="174" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="20"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="esI-Zb-Dcc" id="5ws-Wk-q35"/>
@@ -1518,6 +1541,11 @@ EEZ1ZWwxA
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <webView key="tableFooterView" alpha="0.0" contentMode="scaleToFill" id="Z4U-Dg-21i">
+                            <rect key="frame" x="0.0" y="222" width="375" height="0.0"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </webView>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="NewsCell" rowHeight="200" id="dwX-os-aLJ" customClass="NewsCell">
                                 <rect key="frame" x="0.0" y="22" width="375" height="200"/>
@@ -1574,6 +1602,7 @@ EEZ1ZWwxA
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="barButton" destination="C3K-sX-UcC" id="JlT-sd-fAF"/>
+                        <outlet property="webView" destination="Z4U-Dg-21i" id="yjC-Rq-pds"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ail-W5-lgG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2115,12 +2144,12 @@ EEZ1ZWwxA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Qdr-UW-Q4c"/>
-        <segue reference="FG8-5V-DUk"/>
+        <segue reference="2uW-oU-10V"/>
         <segue reference="r54-US-OFB"/>
         <segue reference="L58-Vy-HHD"/>
+        <segue reference="kJU-Vh-YHm"/>
+        <segue reference="FG8-5V-DUk"/>
+        <segue reference="Qdr-UW-Q4c"/>
         <segue reference="30L-8O-aJ4"/>
-        <segue reference="IKm-l5-xV9"/>
-        <segue reference="lZH-q4-y63"/>
     </inferredMetricsTieBreakers>
 </document>

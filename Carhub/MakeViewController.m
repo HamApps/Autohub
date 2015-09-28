@@ -37,6 +37,10 @@
 {
     [super viewDidLoad];
     
+    [self.webView setDelegate:self];
+    NSURL *url = [NSURL URLWithString:@"http://www.pl0x.net/AutohubNews/2016-acura-nsx-spied-testing-on-nurburgring/"];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
+    
     AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
     [appDelegate setShouldRotate:NO];
     self.view.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:.9 alpha:1];
@@ -48,6 +52,12 @@
     [self makeAppDelMakeArray];
     self.title = @"Makes";
     self.view.backgroundColor = [UIColor whiteColor];
+}
+
+-(void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    [self.webView setAlpha:1];
+    NSLog(@"Did it!");
 }
 
 - (BOOL)shouldAutorotate {

@@ -32,17 +32,33 @@
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    [self.loadingWheel stopAnimating];
-    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-    [appDelegate setShouldRotate:YES];
-    if (self.webView.alpha ==0)
-    {
+    [self.view bringSubviewToFront:self.webView];
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.7];
     [self.webView setAlpha:1];
     [UIView commitAnimations];
-    }
+    
+    NSLog(@"Did it!");
+    [self.loadingWheel stopAnimating];
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    [appDelegate setShouldRotate:YES];
+    
 }
+
+/*-(void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    if (self.webView.alpha ==0)
+    {
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:0.7];
+        [self.webView setAlpha:1];
+        [UIView commitAnimations];
+    }
+
+    [self.loadingWheel stopAnimating];
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    [appDelegate setShouldRotate:YES];
+}*/
 
 - (void)getNews:(id)newsObject;
 {

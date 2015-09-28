@@ -8,6 +8,14 @@
 
 #import "PostViewController.h"
 
+#define kPostURL @"http://pl0x.net/PostDatasheet.php"
+#define kUpCount @"upCount"
+#define kDownCount @"downCount"
+#define kPostImageURL @"postImage"
+#define kTitle @"postTitle"
+#define kDescription @"postDescription"
+#define kId @"id"
+
 @interface PostViewController ()
 
 @end
@@ -31,6 +39,7 @@
         [postString appendString:[NSString stringWithFormat:@"&%@=%@", kPostImageURL, @""]];
         [postString appendString:[NSString stringWithFormat:@"&%@=%@", kDescription, description]];
         [postString appendString:[NSString stringWithFormat:@"&%@=%@", kTitle, title]];
+        //[postString appendString:[NSString stringWithFormat:@"&%@=%@", kId, ID]];
         
         [postString setString:[postString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
         

@@ -43,6 +43,8 @@
 @property (nonatomic, strong) NSMutableArray * horsepowerArray;
 @property (nonatomic, strong) NSMutableArray * topTensjson;
 @property (nonatomic, strong) NSMutableArray * toptensArray;
+@property (nonatomic, strong) NSMutableArray * raceTypejson;
+@property (nonatomic, strong) NSMutableArray * raceTypeArray;
 
 //+ (void)initialize;
 - (void)enablepurchase;

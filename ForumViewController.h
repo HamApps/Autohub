@@ -17,4 +17,7 @@
 @property (nonatomic, strong) NSArray * postArray;
 @property (nonatomic, strong) NSArray * searchArray;
 
+- (IBAction)increaseUpCount:(id)sender;
+- (IBAction)increaseDownCount:(id)sender;
+
 @end

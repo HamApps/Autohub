@@ -11,7 +11,7 @@
 #import "Make.h"
 #import "News.h"
 #import "TopTens.h"
-#import "Post.h"
+#import "RaceType.h"
 #define k_Save @"Saveitem"
 #import "TopTensViewController.h"
 #import "TopTensViewController2.h"
@@ -20,12 +20,12 @@
 #define getMakeDataURL @"http://pl0x.net/CarMakesJSON.php"
 #define getNewsDataURL @"http://pl0x.net/CarNewsJSON.php"
 #define getTopTensDataURL @"http://pl0x.net/CombinedTopTens.php"
-#define getPostDataURL @"http://pl0x.net/PostJSON.php"
+#define getRaceTypeDataURL @"http://pl0x.net/RaceTypeJSON.php"
 
 
 @implementation AppDelegate
 
-@synthesize favoritesarray, modelArray, modeljsonArray, makeimageArray, makejsonArray, AlphabeticalArray, newsArray, newsjsonArray, makeimageArray2, makejsonArray2, AlphabeticalArray2, zt60Array, topspeedArray, nurbArray, newexpensiveArray, fuelArray, horsepowerArray, toptensArray, topTensjson, auctionexpensiveArray, postArray, postjsonArray;
+@synthesize favoritesarray, modelArray, modeljsonArray, makeimageArray, makejsonArray, AlphabeticalArray, newsArray, newsjsonArray, makeimageArray2, makejsonArray2, AlphabeticalArray2, zt60Array, topspeedArray, nurbArray, newexpensiveArray, fuelArray, horsepowerArray, toptensArray, topTensjson, auctionexpensiveArray, postArray, postjsonArray, raceTypeArray, raceTypejson;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 
@@ -59,11 +59,9 @@
     
     NSLog(@"Done 6");
     
-    [self retrievePostData];
+    [self retrieveRaceTypeData];
     
     NSLog(@"Done 7");
-    
-    
     
     // show the storyboard
     
@@ -95,8 +93,6 @@
             self.window.rootViewController = viewController;
             [self.window makeKeyAndVisible];
         }
-    
-    
     
     return YES;
 }
@@ -312,6 +308,28 @@
     }
 }
 
+- (void) retrieveRaceTypeData;
+{
+    NSURL * url = [NSURL URLWithString:getRaceTypeDataURL];
+    NSData * data = [NSData dataWithContentsOfURL:url];
+    
+    raceTypejson = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+    
+    //Set up our arrray
+    raceTypeArray = [[NSMutableArray alloc] init];
+    
+    //Loop through ourjsonArray
+    for (int i=0; i < raceTypejson.count; i++)
+    {
+        //Create our city object
+        NSString * nRaceType = [[raceTypejson objectAtIndex:i] objectForKey:@"RaceType"];
+        NSString * nImageURL = [[raceTypejson objectAtIndex:i] objectForKey:@"ImageURL"];
+        
+        //Add the city object to our cities array
+        [raceTypeArray addObject:[[RaceType alloc]initWithRaceType:nRaceType andTypeImageURL:nImageURL]];
+    }
+}
+
 - (void) retrieveTopTensData;
 {
     NSURL * url = [NSURL URLWithString:getTopTensDataURL];
@@ -329,27 +347,6 @@
         NSString * nType = [[topTensjson objectAtIndex:i] objectForKey:@"TopTenType"];
         
         [toptensArray addObject:[[TopTens alloc]initWithCarRank:nRank andCarName:nName andCarValue:nValue andCarURL:nURL andTopTenType:nType]];
-    }
-}
-     
-- (void) retrievePostData;
-{
-    NSURL * url = [NSURL URLWithString:getPostDataURL];
-    NSData * data = [NSData dataWithContentsOfURL:url];
-    
-    postjsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-    postArray = [[NSMutableArray alloc] init];
-    NSLog(@"postjsonarray %@", postjsonArray);
-    
-    for (int i=0; i < postjsonArray.count; i++)
-    {
-        NSNumber * uCount = [NSNumber numberWithDouble:[[[postjsonArray objectAtIndex:i]objectForKey:@"upCount"]integerValue]];
-        NSNumber * dCount = [NSNumber numberWithDouble:[[[postjsonArray objectAtIndex:i]objectForKey:@"downCount"]integerValue]];
-        NSString * pImageURL = [[postjsonArray objectAtIndex:i] objectForKey:@"postImage"];
-        NSString * pDescription = [[postjsonArray objectAtIndex:i] objectForKey:@"postDescription"];
-        NSString * pTitle = [[postjsonArray objectAtIndex:i] objectForKey:@"postTitle"];
-        
-        [postArray addObject:[[Post alloc]initWithupCount:uCount anddownCount:dCount andpostImageURL:pImageURL andpostDescription:pDescription andpostTitle:pTitle]];
     }
 }
 

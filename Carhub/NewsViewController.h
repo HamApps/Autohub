@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "Model.h"
 
-@interface NewsViewController : UITableViewController
+@interface NewsViewController : UITableViewController<UIWebViewDelegate>
 
-@property (nonatomic, strong) NSMutableArray * jsonArray;
 @property (nonatomic, strong) NSMutableArray * newsArray;
+
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *barButton;
 
