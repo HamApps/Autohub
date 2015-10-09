@@ -86,7 +86,13 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    int height = [UIScreen mainScreen].bounds.size.height;
+    if (height == 667)
+        return 240;
+    else if (height == 736)
+        return 260;
     return 210;
+
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -119,9 +125,9 @@
     
     int height = [UIScreen mainScreen].bounds.size.height;
     if (height == 667)
-        cell.cardView.frame = CGRectMake(10, 5, 355, 200);
+        cell.cardView.frame = CGRectMake(10, 5, 355, 230);
     else if (height == 736)
-        cell.cardView.frame = CGRectMake(10, 5, 394, 200);
+        cell.cardView.frame = CGRectMake(10, 5, 394, 250);
     else
         cell.cardView.frame = CGRectMake(10, 5, 300, 200);
 
