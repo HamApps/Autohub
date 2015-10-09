@@ -16,11 +16,11 @@
 #import "TopTensViewController.h"
 #import "TopTensViewController2.h"
 #import "TestNewsViewController.h"
-#define getModelDataURL @"http://pl0x.net/CarHubJSON3.php"
+#define getModelDataURL @"http://www.pl0x.net/CarHubJSON3.php"
 #define getMakeDataURL @"http://pl0x.net/CarMakesJSON.php"
 #define getNewsDataURL @"http://pl0x.net/CarNewsJSON.php"
 #define getTopTensDataURL @"http://pl0x.net/CombinedTopTens.php"
-#define getRaceTypeDataURL @"http://pl0x.net/RaceTypeJSON.php"
+#define getRaceTypeDataURL1 @"http://pl0x.net/RaceTypeJSON.php"
 
 
 @implementation AppDelegate
@@ -308,10 +308,15 @@
     }
 }
 
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 - (void) retrieveRaceTypeData;
 {
-    NSURL * url = [NSURL URLWithString:getRaceTypeDataURL];
+    NSURL * url = [NSURL URLWithString:getRaceTypeDataURL1];
     NSData * data = [NSData dataWithContentsOfURL:url];
+
     
     raceTypejson = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
     

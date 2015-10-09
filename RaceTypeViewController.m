@@ -12,6 +12,8 @@
 #import "NewsCell.h"
 #import "AppDelegate.h"
 #import "SWRevealViewController.h"
+#import "CarViewCell.h"
+#import "RaceType.h"
 
 @interface RaceTypeViewController ()
 
@@ -45,26 +47,51 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return raceTypeArray.count;
 }
 
-/*
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 183;
+}
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    // Configure the cell...
+    static NSString *CellIdentifier = @"ModelCell";
+    CarViewCell *cell = (CarViewCell *)[self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (cell==nil) {
+        cell = [[CarViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
+    
+    RaceType * raceTypeObject;
+    
+    raceTypeObject = [self.raceTypeArray objectAtIndex:indexPath.row];
+    
+    NSLog(@"race type array: %@", raceTypeObject);
+
+
+    //Load and fade image
+    [cell.CarImage sd_setImageWithURL:[NSURL URLWithString:raceTypeObject.TypeImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]
+                            completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageurl){
+                                [cell.CarImage setAlpha:0.0];
+                                [UIImageView animateWithDuration:.5 animations:^{
+                                    [cell.CarImage setAlpha:1.0];
+                                }];
+                            }];
+    cell.CarName.text = raceTypeObject.RaceTypeString;
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
