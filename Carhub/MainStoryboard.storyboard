@@ -95,6 +95,7 @@
             <string>EurostileRegular</string>
             <string>EurostileRegular</string>
             <string>EurostileRegular</string>
+            <string>EurostileRegular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -1472,6 +1473,10 @@ EEZ1ZWwxA
                                             <rect key="frame" x="4" y="4" width="100" height="100"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
+                                                <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="8pC-Po-6hc">
+                                                    <rect key="frame" x="10" y="5" width="81" height="76"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5iO-RK-T6h">
                                                     <rect key="frame" x="-1" y="80" width="102" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1479,7 +1484,7 @@ EEZ1ZWwxA
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="8pC-Po-6hc">
+                                                <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="8pC-Po-6hd">
                                                     <rect key="frame" x="11" y="0.0" width="78" height="84"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -1534,7 +1539,7 @@ EEZ1ZWwxA
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.89552163770000004" green="0.89552163770000004" blue="0.89552163770000004" alpha="1" colorSpace="calibratedRGB"/>
                         <webView key="tableFooterView" alpha="0.0" contentMode="scaleToFill" id="W81-X4-AVh">
-                            <rect key="frame" x="0.0" y="222" width="320" height="0.0"/>
+                            <rect key="frame" x="0.0" y="247" width="320" height="0.0"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </webView>
@@ -1554,7 +1559,7 @@ EEZ1ZWwxA
                                                     <rect key="frame" x="28" y="129" width="245" height="53"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Ehi-HI-9bU">
@@ -2135,7 +2140,6 @@ EEZ1ZWwxA
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="barButton" destination="33o-zR-UXj" id="A9l-wB-HGG"/>
-                        <outlet property="searchBar" destination="wNu-uI-PbA" id="4sA-7e-U2k"/>
                         <outlet property="searchDisplayController" destination="DFv-DR-Ffw" id="yvi-HC-8ee"/>
                     </connections>
                 </tableViewController>
@@ -2143,7 +2147,6 @@ EEZ1ZWwxA
                 <searchDisplayController id="DFv-DR-Ffw">
                     <connections>
                         <outlet property="delegate" destination="6Vq-kC-ecf" id="L0N-1r-B7D"/>
-                        <outlet property="searchBar" destination="wNu-uI-PbA" id="HbI-ex-ObZ"/>
                         <outlet property="searchContentsController" destination="6Vq-kC-ecf" id="tOc-GP-opD"/>
                         <outlet property="searchResultsDataSource" destination="6Vq-kC-ecf" id="vDf-M8-V0V"/>
                         <outlet property="searchResultsDelegate" destination="6Vq-kC-ecf" id="uTc-wn-DfP"/>
@@ -2181,7 +2184,7 @@ EEZ1ZWwxA
                                                     <rect key="frame" x="28" y="129" width="245" height="53"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="4mw-4h-ie2">
@@ -2261,7 +2264,6 @@ EEZ1ZWwxA
         <segue reference="kJU-Vh-YHm"/>
         <segue reference="bHd-zc-cKp"/>
         <segue reference="qHV-ed-jCq"/>
-        <segue reference="30L-8O-aJ4"/>
         <segue reference="Qdr-UW-Q4c"/>
         <segue reference="30L-8O-aJ4"/>
     </inferredMetricsTieBreakers>

@@ -14,25 +14,30 @@
 #import "SWRevealViewController.h"
 #import "CarViewCell.h"
 #import "RaceType.h"
+#import "RaceViewController.h"
 
 @interface RaceTypeViewController ()
 
 @end
 
 @implementation RaceTypeViewController
-@synthesize raceTypeArray;
+@synthesize raceTypeArray, raceTypeID;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:.9 alpha:1];
-    self.tableView.separatorColor = [UIColor clearColor];
+    
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    [appDelegate setShouldRotate:NO];
     
     self.barButton.target = self.revealViewController;
     self.barButton.action = @selector(revealToggle:);
-    self.title = @"Race Types";
-    
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+
+    self.view.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:.9 alpha:1];
+    self.tableView.separatorColor = [UIColor clearColor];
+    
+    self.title = @"Race Types";
     
     //Load Data
     [self makeAppDelRaceTypeArray];
@@ -127,15 +132,21 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
+    NSIndexPath * indexPath = [self.tableView indexPathForCell:sender];
+    raceTypeID = [raceTypeArray objectAtIndex:indexPath.row];
+    
+    if ([[segue identifier] isEqualToString:@"pushRaceView"])
+    {
+        [[segue destinationViewController] getRaceTypeID:raceTypeID];
+    }
 }
-*/
+
 
 - (void) makeAppDelRaceTypeArray;
 {

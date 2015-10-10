@@ -121,6 +121,8 @@
 		38D2B8CA19A58EBA004D0687 /* MakeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D2B8C919A58EBA004D0687 /* MakeViewController.m */; };
 		38D2B8CD19A58F56004D0687 /* MakeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D2B8CC19A58F56004D0687 /* MakeCell.m */; };
 		38D2B8D319A58FB5004D0687 /* ModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D2B8D219A58FB5004D0687 /* ModelViewController.m */; };
+		38D4CDAE1BC86BA500126BA2 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D4CDAB1BC86BA500126BA2 /* SWRevealViewController.m */; settings = {ASSET_TAGS = (); }; };
+		38D4CDAF1BC86BA500126BA2 /* TopTensViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D4CDAD1BC86BA500126BA2 /* TopTensViewController.m */; settings = {ASSET_TAGS = (); }; };
 		38D519681A8FF9AE001140EF /* NSMutableArray+STKAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D519561A8FF9AE001140EF /* NSMutableArray+STKAudioPlayer.m */; };
 		38D519691A8FF9AE001140EF /* STKAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D519581A8FF9AE001140EF /* STKAudioPlayer.m */; };
 		38D5196A1A8FF9AE001140EF /* STKAutoRecoveringHTTPDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D5195A1A8FF9AE001140EF /* STKAutoRecoveringHTTPDataSource.m */; };
@@ -153,8 +155,6 @@
 		AA5546B61979F2CE00E7CF12 /* CarhubTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA5546B51979F2CE00E7CF12 /* CarhubTests.m */; };
 		AA58E0141B4DDBB300E6219D /* MainStoryboard6.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA58E0131B4DDBB300E6219D /* MainStoryboard6.storyboard */; };
 		AA58E0161B4DDBDF00E6219D /* MainStoryboard6+.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA58E0151B4DDBDF00E6219D /* MainStoryboard6+.storyboard */; };
-		AA8EA6181B8A706F00DD4FF3 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA8EA6151B8A706F00DD4FF3 /* SWRevealViewController.m */; };
-		AA8EA6191B8A706F00DD4FF3 /* TopTensViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA8EA6171B8A706F00DD4FF3 /* TopTensViewController.m */; };
 		AAB744D61983167800A8545A /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 385C1404197B3FDA003BBB09 /* MainStoryboard.storyboard */; };
 		AAB744E2198318BF00A8545A /* MainStoryboard4.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAB744E1198318BF00A8545A /* MainStoryboard4.storyboard */; };
 		AAB744E3198318BF00A8545A /* MainStoryboard4.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAB744E1198318BF00A8545A /* MainStoryboard4.storyboard */; };
@@ -336,6 +336,10 @@
 		38D2B8CC19A58F56004D0687 /* MakeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MakeCell.m; sourceTree = "<group>"; };
 		38D2B8D119A58FB5004D0687 /* ModelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelViewController.h; sourceTree = "<group>"; };
 		38D2B8D219A58FB5004D0687 /* ModelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelViewController.m; sourceTree = "<group>"; };
+		38D4CDAA1BC86BA500126BA2 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = "../../The Real Supporting Files/Random/SWRevealViewController.h"; sourceTree = "<group>"; };
+		38D4CDAB1BC86BA500126BA2 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = "../../The Real Supporting Files/Random/SWRevealViewController.m"; sourceTree = "<group>"; };
+		38D4CDAC1BC86BA500126BA2 /* TopTensViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopTensViewController.h; path = "../../The Real Supporting Files/Random/TopTensViewController.h"; sourceTree = "<group>"; };
+		38D4CDAD1BC86BA500126BA2 /* TopTensViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopTensViewController.m; path = "../../The Real Supporting Files/Random/TopTensViewController.m"; sourceTree = "<group>"; };
 		38D519551A8FF9AE001140EF /* NSMutableArray+STKAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+STKAudioPlayer.h"; sourceTree = "<group>"; };
 		38D519561A8FF9AE001140EF /* NSMutableArray+STKAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+STKAudioPlayer.m"; sourceTree = "<group>"; };
 		38D519571A8FF9AE001140EF /* STKAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STKAudioPlayer.h; sourceTree = "<group>"; };
@@ -389,10 +393,6 @@
 		AA5546B51979F2CE00E7CF12 /* CarhubTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CarhubTests.m; sourceTree = "<group>"; };
 		AA58E0131B4DDBB300E6219D /* MainStoryboard6.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainStoryboard6.storyboard; path = ../MainStoryboard6.storyboard; sourceTree = "<group>"; };
 		AA58E0151B4DDBDF00E6219D /* MainStoryboard6+.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "MainStoryboard6+.storyboard"; path = "../MainStoryboard6+.storyboard"; sourceTree = "<group>"; };
-		AA8EA6141B8A706F00DD4FF3 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = "../../Autohub Material/Random Files/SWRevealViewController.h"; sourceTree = "<group>"; };
-		AA8EA6151B8A706F00DD4FF3 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = "../../Autohub Material/Random Files/SWRevealViewController.m"; sourceTree = "<group>"; };
-		AA8EA6161B8A706F00DD4FF3 /* TopTensViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopTensViewController.h; path = "../../Autohub Material/Random Files/TopTensViewController.h"; sourceTree = "<group>"; };
-		AA8EA6171B8A706F00DD4FF3 /* TopTensViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopTensViewController.m; path = "../../Autohub Material/Random Files/TopTensViewController.m"; sourceTree = "<group>"; };
 		AAB744E1198318BF00A8545A /* MainStoryboard4.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard4.storyboard; sourceTree = "<group>"; };
 		AAED753C19EF6EA900FCE06F /* iRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRate.h; sourceTree = "<group>"; };
 		AAED753D19EF6EA900FCE06F /* iRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRate.m; sourceTree = "<group>"; };
@@ -581,10 +581,10 @@
 				AA58E0151B4DDBDF00E6219D /* MainStoryboard6+.storyboard */,
 				38D2B8C819A58EBA004D0687 /* MakeViewController.h */,
 				38D2B8C919A58EBA004D0687 /* MakeViewController.m */,
-				AA8EA6141B8A706F00DD4FF3 /* SWRevealViewController.h */,
-				AA8EA6151B8A706F00DD4FF3 /* SWRevealViewController.m */,
-				AA8EA6161B8A706F00DD4FF3 /* TopTensViewController.h */,
-				AA8EA6171B8A706F00DD4FF3 /* TopTensViewController.m */,
+				38D4CDAA1BC86BA500126BA2 /* SWRevealViewController.h */,
+				38D4CDAB1BC86BA500126BA2 /* SWRevealViewController.m */,
+				38D4CDAC1BC86BA500126BA2 /* TopTensViewController.h */,
+				38D4CDAD1BC86BA500126BA2 /* TopTensViewController.m */,
 				387A28A01B30F42E00152F55 /* NavigationViewController.h */,
 				387A28A11B30F42E00152F55 /* NavigationViewController.m */,
 				380689B01B1D621000CD4425 /* TestNewsViewController.h */,
@@ -939,6 +939,7 @@
 				38D5196C1A8FF9AE001140EF /* STKDataSource.m in Sources */,
 				387A28A21B30F42E00152F55 /* NavigationViewController.m in Sources */,
 				38C0784819B4291C00DEC284 /* Model.m in Sources */,
+				38D4CDAE1BC86BA500126BA2 /* SWRevealViewController.m in Sources */,
 				382B4ABC19BE82CB00DD268D /* SearchModelController.m in Sources */,
 				380BC5381B55FEA200081B43 /* CompareViewController3.m in Sources */,
 				38D2B8CD19A58F56004D0687 /* MakeCell.m in Sources */,
@@ -955,7 +956,6 @@
 				38CCEA851984356600A157EA /* DisputeInfoViewController.m in Sources */,
 				38D5196D1A8FF9AE001140EF /* STKDataSourceWrapper.m in Sources */,
 				3851C1C91B2127FB002A0474 /* UIImageView+HighlightedWebCache.m in Sources */,
-				AA8EA6181B8A706F00DD4FF3 /* SWRevealViewController.m in Sources */,
 				380BC53E1B56085D00081B43 /* CompareViewController4.m in Sources */,
 				38D2B8CA19A58EBA004D0687 /* MakeViewController.m in Sources */,
 				38E41D071A9123E700EA6135 /* TopTens.m in Sources */,
@@ -974,13 +974,12 @@
 				3851C1BD1B2127FB002A0474 /* NSData+ImageContentType.m in Sources */,
 				38D2B8D319A58FB5004D0687 /* ModelViewController.m in Sources */,
 				38E522AC1A9134EC003F1099 /* NewTopTensViewController.m in Sources */,
+				38D4CDAF1BC86BA500126BA2 /* TopTensViewController.m in Sources */,
 				3851C1C21B2127FB002A0474 /* SDWebImageDownloaderOperation.m in Sources */,
 				380BC53B1B5607C400081B43 /* DetailViewController4.m in Sources */,
-				AA8EA6191B8A706F00DD4FF3 /* TopTensViewController.m in Sources */,
 				383F2F0519836923001A9E92 /* CompareViewController2.m in Sources */,
 				3851C1C11B2127FB002A0474 /* SDWebImageDownloader.m in Sources */,
 				38AEE96019A81C1D00792503 /* SearchViewController.m in Sources */,
-				388B04321B83F27D000636CB /* TopTensViewController.m in Sources */,
 				38E884FF1BA4E63D00F66F81 /* ForumCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

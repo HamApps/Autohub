@@ -80,6 +80,8 @@
     MakeCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MakeReuseID" forIndexPath:indexPath];
     Make * makeObject;
     makeObject = [makeimageArray objectAtIndex:indexPath.item];
+
+    cell.layer.borderColor=[UIColor clearColor].CGColor;
     
     //UI stuff
     cell.layer.borderColor=[UIColor clearColor].CGColor;
