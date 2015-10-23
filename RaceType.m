@@ -19,7 +19,6 @@
         RaceTypeString = nType;
         TypeImageURL = nImageURL;
     }
-    
     return self;
 }
 
