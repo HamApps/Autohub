@@ -8,12 +8,23 @@
 
 #import <UIKit/UIKit.h>
 #import "RaceType.h"
+#import "CustomPageControl.h"
+#import "Race.h"
 
-@interface RaceTypeViewController : UITableViewController
+@interface RaceTypeViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate, UIWebViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray * raceTypeArray;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *barButton;
+@property (nonatomic, strong) NSMutableArray * recentRacesArray;
 @property (strong, nonatomic) RaceType *raceTypeID;
+@property (strong, nonatomic) Race *recentRace;
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *barButton;
+@property (weak, nonatomic) IBOutlet UITableView *TableView;
+@property (weak, nonatomic) IBOutlet UIView *CardView1;
+@property (weak, nonatomic) IBOutlet UIView *CardView2;
+@property (weak, nonatomic) IBOutlet UICollectionView *RecentRacesCV;
+@property (weak, nonatomic) IBOutlet UICollectionView *RaceClassCV;
+@property (weak, nonatomic) IBOutlet CustomPageControl *pageControl1;
+@property (weak, nonatomic) IBOutlet CustomPageControl *pageControl2;
 
 @end

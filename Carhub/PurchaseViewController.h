@@ -20,6 +20,8 @@
 @property (strong, nonatomic) IBOutlet UITextView *productDescription;
 @property (strong, nonatomic) UIImage * purchaseimage;
 @property (strong, nonatomic) UIImage * initialimage;
+
 - (IBAction)buyProduct:(id)sender;
 - (void)getProductInfo:(UIViewController *)viewController;
+
 @end

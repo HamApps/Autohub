@@ -13,5 +13,9 @@
 @property (strong, nonatomic) IBOutlet UILabel * CarName;
 @property (strong, nonatomic) IBOutlet UIImageView * CarImage;
 @property (weak, nonatomic) IBOutlet UIView *cardView;
+@property (weak, nonatomic) IBOutlet UIView *innerCardView;
+@property (strong, nonatomic) UIView *lineView;
+
+@property (nonatomic) UITableViewCellStateMask cellEditingState;
 
 @end

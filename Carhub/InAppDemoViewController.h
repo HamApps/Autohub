@@ -15,4 +15,5 @@
 @property (strong, nonatomic) IBOutlet UIButton *level2Button;
 @property (strong, nonatomic) PurchaseViewController *purchaseController;
 -(void)enableLevel2;
+
 @end

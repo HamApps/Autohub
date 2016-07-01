@@ -15,6 +15,7 @@
 #import "SDWebImage/UIImageView+WebCache.h"
 #import "SWRevealViewController.h"
 #import "AppDelegate.h"
+#import "UIImageView+UIActivityIndicatorForSDWebImage.h"
 
 @interface SearchModelController ()
 
@@ -37,9 +38,19 @@
     [super viewDidLoad];
     AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
     [appDelegate setShouldRotate:NO];
-    self.view.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:.9 alpha:1];
+    self.view.backgroundColor = [UIColor whiteColor];
     self.tableView.separatorColor = [UIColor clearColor];
     self.title = @"Results";
+    if([self.tableView numberOfRowsInSection:0] == 0)
+    {
+        UILabel *noDataLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, self.tableView.bounds.size.height)];
+        noDataLabel.text = @"No Results";
+        noDataLabel.textColor = [UIColor blackColor];
+        noDataLabel.font = [UIFont fontWithName:@"MavenProRegular" size:18];
+        noDataLabel.textAlignment = NSTextAlignmentCenter;
+        self.tableView.backgroundView = noDataLabel;
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    }
 }
 
 - (void)filterContentForSearchText:(NSString *)searchText scope:(NSString *)scope
@@ -58,7 +69,6 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
     return 1;
 }
 
@@ -91,21 +101,15 @@
     Model * modelObject;
     if(tableView == self.searchDisplayController.searchResultsTableView){
         modelObject = [self.searchArray objectAtIndex:indexPath.row];
-        self.searchDisplayController.searchResultsTableView.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:.9 alpha:1];
+        self.searchDisplayController.searchResultsTableView.backgroundColor = [UIColor whiteColor];
         self.searchDisplayController.searchResultsTableView.separatorColor = [UIColor clearColor];
     } else {
         modelObject = [self.ModelArray objectAtIndex:indexPath.row];
     }
     cell.CarName.text = modelObject.CarModel;
     
-    //Load and fade image
-    [cell.CarImage sd_setImageWithURL:[NSURL URLWithString:modelObject.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]
-                            completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageurl){
-                                [cell.CarImage setAlpha:0.0];
-                                [UIImageView animateWithDuration:.5 animations:^{
-                                    [cell.CarImage setAlpha:1.0];
-                                }];
-                            }];
+    [cell setUpCarImageWithModel:modelObject];
+    
     return cell;
 }
 

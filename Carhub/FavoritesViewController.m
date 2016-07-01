@@ -15,6 +15,7 @@
 #import "Model.h"
 #import "SDWebImage/UIImageView+WebCache.h"
 #import "SWRevealViewController.h"
+#import "UIImageView+UIActivityIndicatorForSDWebImage.h"
 
 @interface FavoritesViewController ()
 
@@ -39,7 +40,7 @@
     [super viewDidLoad];
     AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
     [appDelegate setShouldRotate:NO];
-    self.view.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:.9 alpha:1];
+    self.view.backgroundColor = [UIColor whiteColor];
     self.tableView.separatorColor = [UIColor clearColor];
     
     [self loadSavedCars];
@@ -49,6 +50,7 @@
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     
     editButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style: UIBarButtonItemStyleBordered target:self action:@selector(enterEditMode:)];
+    editButton.tintColor = [UIColor blackColor];
     [self.navigationItem setRightBarButtonItem:editButton];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTableViewData) name:@"ReloadRootViewControllerTable" object:nil];
     
@@ -96,6 +98,7 @@
 {
     static NSString *CellIdentifier = @"ModelCell";
     FavCell *cell = (FavCell *)[self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    __weak FavCell *cell2 = cell;
     
     if (cell==nil) {
         cell = [[FavCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
@@ -105,31 +108,30 @@
     Model * modelObject;
     if(tableView == self.searchDisplayController.searchResultsTableView){
         modelObject = [self.searchArray objectAtIndex:indexPath.row];
-        self.searchDisplayController.searchResultsTableView.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:.9 alpha:1];
+        self.searchDisplayController.searchResultsTableView.backgroundColor = [UIColor whiteColor];
         self.searchDisplayController.searchResultsTableView.separatorColor = [UIColor clearColor];
     } else {
         modelObject = [self.ModelArray objectAtIndex:indexPath.row];
     }
+    
+    NSURL *imageURL;
+    if([modelObject.CarImageURL containsString:@"carno"])
+        imageURL = [NSURL URLWithString:modelObject.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]];
+    else
+        imageURL = [NSURL URLWithString:modelObject.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/CarPictures/"]];
 
-    //Load and fade image
-    [cell.CarImage sd_setImageWithURL:[NSURL URLWithString:modelObject.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]
+    [cell.CarImage setImageWithURL:imageURL
                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageurl){
-                                [cell.CarImage setAlpha:0.0];
-                                [UIImageView animateWithDuration:0 animations:^{
-                                    [cell.CarImage setAlpha:1.0];
+                                [cell2.CarImage setAlpha:0.0];
+                                [UIImageView animateWithDuration:0.5 animations:^{
+                                    [cell2.CarImage setAlpha:1.0];
                                 }];
-                            }];
+                            }
+       usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    
     cell.CarName.text = modelObject.CarFullName;
     
-    [cell.cardView setAlpha:1];
-    cell.cardView.layer.masksToBounds = NO;
-    cell.cardView.layer.cornerRadius = 2;
-    cell.cardView.layer.shadowOffset = CGSizeMake(-.2f, .2f);
-    cell.cardView.layer.shadowRadius = 2;
-    UIBezierPath *path = [UIBezierPath bezierPathWithRect:cell.cardView.bounds];
-    cell.cardView.layer.shadowPath = path.CGPath;
-    cell.cardView.layer.shadowOpacity = 0;
-    cell.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:.9 alpha:1];
+    cell.lineView = [[UIView alloc] initWithFrame:CGRectMake(0, cell.cardView.bounds.origin.y+35, CGRectGetWidth(cell.cardView.bounds), 1.5)];
     
     return cell;
 }
@@ -168,12 +170,17 @@
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
+    NSLog(@"its editing");
 }
 
 - (IBAction)enterEditMode:(id)sender {
     if ([self.tableView isEditing]) {
         [self.tableView setEditing:NO animated:YES];
         [self.editButton setTitle:@"Edit"];
+        for(int i = 0;i<[self.tableView numberOfRowsInSection:0];i++)
+        {
+            NSLog(@"isntediting");
+        }
     }
     else {
         [self.editButton setTitle:@"Done"];
@@ -183,6 +190,7 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSLog(@"hello");
         [self.tableView beginUpdates];
         [ModelArray removeObjectAtIndex:indexPath.row];
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -201,6 +209,21 @@
         [self.tableView reloadData];
         });
     }
+}
+
+- (NSString *)tableView:(UITableView *)tableView
+titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return @"Delete";
+}
+
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return UITableViewCellEditingStyleDelete;
+}
+
+- (BOOL)tableView:(UITableView *)tableview shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

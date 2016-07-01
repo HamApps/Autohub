@@ -15,13 +15,15 @@
 #import "AppDelegate.h"
 #import "SDWebImage/UIImageView+WebCache.h"
 #import "SWRevealViewController.h"
+#import "UIImageView+UIActivityIndicatorForSDWebImage.h"
+#import "NewMakesViewController.h"
 
 @interface ModelViewController ()
 
 @end
 
 @implementation ModelViewController
-@synthesize currentMake, ModelArray, searchArray, appdelmodelArray;
+@synthesize currentMake, ModelArray, searchArray, appdelmodelArray, currentClass, currentSubclass, searchBar;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -33,18 +35,15 @@
 }
 
 - (void)viewDidLoad
-{
+{    
     [super viewDidLoad];
     AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
     [appDelegate setShouldRotate:NO];
-    self.view.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:.9 alpha:1];
+    self.view.backgroundColor = [UIColor whiteColor];
     self.tableView.separatorColor = [UIColor clearColor];
-
-    self.title = currentMake.MakeName;
     
     //Load Model Data
     [self makeAppDelModelArray];
-    [self filterModelArray];
 }
 
 - (void)filterContentForSearchText:(NSString *)searchText scope:(NSString *)scope
@@ -83,6 +82,7 @@
 {
     static NSString *CellIdentifier = @"ModelCell";
     CarViewCell *cell = (CarViewCell *)[self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    __weak CarViewCell *cell2 = cell;
 
     if (cell==nil) {
         cell = [[CarViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
@@ -93,39 +93,81 @@
     
     if(tableView == self.searchDisplayController.searchResultsTableView){
     modelObject = [self.searchArray objectAtIndex:indexPath.row];
-    self.searchDisplayController.searchResultsTableView.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:.9 alpha:1];
+    self.searchDisplayController.searchResultsTableView.backgroundColor = [UIColor whiteColor];
     self.searchDisplayController.searchResultsTableView.separatorColor = [UIColor clearColor];
     } else {
         modelObject = [self.ModelArray objectAtIndex:indexPath.row];
     }
     
+    NSURL *imageURL;
+    if([modelObject.CarImageURL containsString:@"carno"])
+        imageURL = [NSURL URLWithString:modelObject.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]];
+    else
+        imageURL = [NSURL URLWithString:modelObject.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/CarPictures/"]];
+    
     //Load and fade image
-    [cell.CarImage sd_setImageWithURL:[NSURL URLWithString:modelObject.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]
+    [cell.CarImage setImageWithURL:imageURL
                 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageurl){
-                        [cell.CarImage setAlpha:0.0];
+                        [cell2.CarImage setAlpha:0.0];
                         [UIImageView animateWithDuration:.5 animations:^{
-                        [cell.CarImage setAlpha:1.0];
+                        [cell2.CarImage setAlpha:1.0];
                     }];
-                }];
+                }
+       usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    
     cell.CarName.text = modelObject.CarModel;
     
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
-
 - (void)getMake:(id)makeObject;
 {
     currentMake = makeObject;
+    [self makeAppDelModelArray];
+    [self filterToClassArray];
+    self.title = currentMake.MakeName;
 }
 
-- (void)filterModelArray
+- (void)getClass:(id)classObject;
+{
+    currentClass = classObject;
+    [self makeAppDelModelArray];
+    [self filterToSubClassArray];
+    self.title = currentClass;
+    NSLog(@"in here");
+    
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"UINavigationBarBackIndicatorDefault.png"] style:UIBarButtonItemStyleDone target:self action:@selector(returnToMakes)];
+    backButton.tintColor = [UIColor blackColor];
+    [self.navigationItem setLeftBarButtonItem: backButton];
+}
+
+- (void)getSubclass:(id)subclassObject;
+{
+    currentSubclass = subclassObject;
+    [self makeAppDelModelArray];
+    [self filterToModelArray];
+    self.title = currentSubclass;
+    NSLog(@"CURRENTSUBCLASS %@", currentSubclass);
+}
+
+- (void)filterToClassArray
 {
     NSPredicate *MakePredicate = [NSPredicate predicateWithFormat:@"CarMake == %@", currentMake.MakeName];
     ModelArray = [appdelmodelArray filteredArrayUsingPredicate:MakePredicate];
+    NSPredicate *AnotherPredicate = [NSPredicate predicateWithFormat:@"isClass == %@", [NSNumber numberWithInt:1]];
+    ModelArray = [ModelArray filteredArrayUsingPredicate:AnotherPredicate];
+}
+
+- (void)filterToSubClassArray
+{
+    NSPredicate *ClassPredicate = [NSPredicate predicateWithFormat:@"CarClass == %@", currentClass];
+    ModelArray = [appdelmodelArray filteredArrayUsingPredicate:ClassPredicate];
+}
+
+- (void)filterToModelArray
+{
+    NSPredicate *SubclassPredicate = [NSPredicate predicateWithFormat:@"CarSubclass == %@", currentSubclass];
+    ModelArray = [appdelmodelArray filteredArrayUsingPredicate:SubclassPredicate];
 }
 
 - (void) makeAppDelModelArray;
@@ -133,6 +175,37 @@
     appdelmodelArray = [[NSMutableArray alloc]init];
     AppDelegate *appdel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [appdelmodelArray addObjectsFromArray:appdel.modelArray];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    Model * pushingObject;
+    if (self.searchDisplayController.active)
+        pushingObject = [searchArray objectAtIndex:indexPath.row];
+    else
+        pushingObject = [ModelArray objectAtIndex:indexPath.row];
+        
+    if([pushingObject.isModel isEqualToNumber:[NSNumber numberWithInt:1]])
+    {
+        NSLog(@"detail");
+        [self performSegueWithIdentifier:@"pushDetailView" sender:self];
+    }
+    else if([pushingObject.isSubclass isEqualToNumber:[NSNumber numberWithInt:1]])
+    {
+        currentSubclass = pushingObject.CarModel;
+        [self performSegueWithIdentifier:@"pushModels" sender:self];
+    }
+    else if([pushingObject.isClass isEqualToNumber:[NSNumber numberWithInt:1]])
+    {
+        currentClass = pushingObject.CarModel;
+        [self performSegueWithIdentifier:@"pushSubclasses" sender:self];
+    }
+}
+
+-(void)returnToMakes
+{
+    [self performSegueWithIdentifier:@"backToMakes" sender:self];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -151,6 +224,16 @@
         }
         
         [[segue destinationViewController] getModel:object];
+    }
+    
+    if([[segue identifier] isEqualToString:@"pushSubclasses"])
+    {
+        [[segue destinationViewController] getClass: currentClass];
+    }
+    
+    if([[segue identifier] isEqualToString:@"pushModels"])
+    {
+        [[segue destinationViewController] getSubclass: currentSubclass];
     }
 }
 

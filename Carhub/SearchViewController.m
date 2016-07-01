@@ -20,7 +20,7 @@
 
 @implementation SearchViewController
 
-@synthesize PriceData, Pricepicker, enginePicker, EngineData, EngineDisData, HorsepowerData, horsepowerPicker, DriveTypeData, driveTypePicker, ZeroToSixtyData, zeroToSixtyPicker, TransmissionData, transmissionPicker, specsArray, carArray, ModelArray, DriveTypeArray1, PriceArray1, EngineArray1, EngineDisArray1, HorsepowerArray1, ZerotoSixtyArray1, TransmissionArray1, ZeroToSixtyPredicate, PricePredicate, EnginePredicate, HorsepowerPredicate, TransmissionPredicate, DriveTypePredicate, finalArray, makejsonArray, AlphabeticalArray, makeimageArray, MakePicker, ModelPicker, MakePredicate, cModel, testArray, ModelPredicate, finalModelArray, appdelmodeljsonArray, FEPredicate, FuelEconomyArray1, FuelEconomyData, FuelEconomyPicker;
+@synthesize priceData, Pricepicker, enginePicker, engineData, horsepowerData, horsepowerPicker, driveTypeData, driveTypePicker, zeroToSixtyData, zeroToSixtyPicker, transmissionData, transmissionPicker, specsArray, carArray, ModelArray, DriveTypeArray1, PriceArray1, EngineArray1, EngineDisArray1, HorsepowerArray1, ZerotoSixtyArray1, TransmissionArray1, ZeroToSixtyPredicate, PricePredicate, EnginePredicate, HorsepowerPredicate, TransmissionPredicate, DriveTypePredicate, finalArray, AlphabeticalArray, makeimageArray, MakePicker, ModelPicker, MakePredicate, cModel, testArray, ModelPredicate, finalModelArray, FEPredicate, FuelEconomyArray1, fuelEconomyData, FuelEconomyPicker, scroller;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -55,35 +55,31 @@
     
     //Contents of price picker
     NSArray * pricearray = [[NSArray alloc] initWithObjects:@"Any", @"$0-5,000",@"$5,000-10,000",@"$10,000-20,000",@"$20,000-30,000", @"$30,000-40,000", @"$40,000-50,000", @"$50,000-65,000", @"$65,000-80,000", @"$80,000-100,000", @"$100,000-150,000", @"$150,000-200,000", @"$200,000-500,000", @"$500,000+",  nil];
-    self.PriceData = pricearray;
+    self.priceData = pricearray;
     
     //Contents of engine picker
     NSArray * enginearray = [[NSArray alloc] initWithObjects:@"Any", @"Electric/Hybrid", @"3 Cylinder", @"4 Cylinder", @"5 Cylinder", @"6 Cylinder", @"8 Cylinder", @"10 Cylinder", @"12 Cylinder", @"16 Cylinder", @"Rotary", nil];
-    self.EngineData = enginearray;
-    
-    //Contents of engine displacement picker
-    NSArray * enginedisarray = [[NSArray alloc] initWithObjects:@"Any", @"0-1.0L", @"1.1-2.0L", @"2.1-3.0L", @"3.1-4.5L", @"4.6- 6.0", @"6.1-8.0L", @"8.1L+", nil];
-    self.EngineDisData = enginedisarray;
+    self.engineData = enginearray;
     
     //Contents of Transmission picker
     NSArray * transmissionarray = [[NSArray alloc] initWithObjects:@"Any", @"Automatic", @"Manual", @"CVT", nil];
-    self.TransmissionData = transmissionarray;
+    self.transmissionData = transmissionarray;
     
     //Contents of Drive Type picker
     NSArray * drivetypearray = [[NSArray alloc] initWithObjects:@"Any", @"4WD", @"AWD", @"FWD", @"RWD", nil];
-    self.DriveTypeData = drivetypearray;
+    self.driveTypeData = drivetypearray;
     
     //Contents of Horsepower picker
     NSArray * horsepowerarray = [[NSArray alloc] initWithObjects:@"Any", @"0-99", @"100-200", @"201-300", @"301-400", @"401-500", @"501-600", @"601-700", @"700+", nil];
-    self.HorsepowerData = horsepowerarray;
+    self.horsepowerData = horsepowerarray;
     
     //Contents of 0-60 picker
     NSArray * zerotosixtyarray = [[NSArray alloc] initWithObjects:@"Any", @"2-3.0 secs", @"3.1-4.0 secs", @"4.1-5.0 secs", @"5.1-5.5 secs", @"5.6-6.0 secs", @"6.1-6.5 secs", @"6.6-7.0 secs", @"7.1-8.0 secs", @"8.1-9.0 secs", @"9.1-10.0 secs", @"10.1+ secs", nil];
-    self.ZeroToSixtyData = zerotosixtyarray;
+    self.zeroToSixtyData = zerotosixtyarray;
     
     //Contents of FE picker
     NSArray * fueleconomyarray = [[NSArray alloc] initWithObjects:@"Any", @"0-10", @"11-20", @"21-30", @"31-40", @"41-50", @"51+", nil];
-    self.FuelEconomyData = fueleconomyarray;
+    self.fuelEconomyData = fueleconomyarray;
 }
 
 - (void)didReceiveMemoryWarning
@@ -97,19 +93,19 @@
 
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
     if([pickerView isEqual:Pricepicker])
-        return [PriceData count];
+        return [priceData count];
     if([pickerView isEqual:enginePicker])
-        return [EngineData count];
+        return [engineData count];
     if([pickerView isEqual:transmissionPicker])
-        return [TransmissionData count];
+        return [transmissionData count];
     if([pickerView isEqual:driveTypePicker])
-        return [DriveTypeData count];
+        return [driveTypeData count];
     if([pickerView isEqual:horsepowerPicker])
-        return [HorsepowerData count];
+        return [horsepowerData count];
     if([pickerView isEqual:zeroToSixtyPicker])
-        return [ZeroToSixtyData count];
+        return [zeroToSixtyData count];
     if([pickerView isEqual:FuelEconomyPicker])
-        return [FuelEconomyData count];
+        return [fuelEconomyData count];
     if([pickerView isEqual:MakePicker])
         return [makeimageArray count];
     if([pickerView isEqual:ModelPicker])
@@ -128,7 +124,7 @@
         }
         label.textAlignment = NSTextAlignmentCenter;
         label.font = [UIFont systemFontOfSize:16];
-        label.text = [PriceData objectAtIndex:row];
+        label.text = [priceData objectAtIndex:row];
         return label;
     }
     
@@ -140,7 +136,7 @@
         }
         label.textAlignment = NSTextAlignmentCenter;
         label.font = [UIFont systemFontOfSize:16];
-        label.text = [EngineData objectAtIndex:row];
+        label.text = [engineData objectAtIndex:row];
         return label;
     }
     
@@ -152,7 +148,7 @@
         }
         label.textAlignment = NSTextAlignmentCenter;
         label.font = [UIFont systemFontOfSize:16];
-        label.text = [TransmissionData objectAtIndex:row];
+        label.text = [transmissionData objectAtIndex:row];
         return label;
     }
     
@@ -164,7 +160,7 @@
         }
         label.textAlignment = NSTextAlignmentCenter;
         label.font = [UIFont systemFontOfSize:16];
-        label.text = [DriveTypeData objectAtIndex:row];
+        label.text = [driveTypeData objectAtIndex:row];
         return label;
     }
     
@@ -176,7 +172,7 @@
         }
         label.textAlignment = NSTextAlignmentCenter;
         label.font = [UIFont systemFontOfSize:16];
-        label.text = [HorsepowerData objectAtIndex:row];
+        label.text = [horsepowerData objectAtIndex:row];
         return label;
     }
     
@@ -188,7 +184,7 @@
         }
         label.textAlignment = NSTextAlignmentCenter;
         label.font = [UIFont systemFontOfSize:16];
-        label.text = [ZeroToSixtyData objectAtIndex:row];
+        label.text = [zeroToSixtyData objectAtIndex:row];
         return label;
     }
     
@@ -200,7 +196,7 @@
         }
         label.textAlignment = NSTextAlignmentCenter;
         label.font = [UIFont systemFontOfSize:16];
-        label.text = [FuelEconomyData objectAtIndex:row];
+        label.text = [fuelEconomyData objectAtIndex:row];
         return label;
     }
 
@@ -233,19 +229,19 @@
 
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
     if([pickerView isEqual:Pricepicker])
-        return [PriceData objectAtIndex:row];
+        return [priceData objectAtIndex:row];
     else if([pickerView isEqual:enginePicker])
-        return [EngineData objectAtIndex:row];
+        return [engineData objectAtIndex:row];
     else if([pickerView isEqual:transmissionPicker])
-        return [TransmissionData objectAtIndex:row];
+        return [transmissionData objectAtIndex:row];
     else if([pickerView isEqual:driveTypePicker])
-        return [DriveTypeData objectAtIndex:row];
+        return [driveTypeData objectAtIndex:row];
     else if([pickerView isEqual:horsepowerPicker])
-        return [HorsepowerData objectAtIndex:row];
+        return [horsepowerData objectAtIndex:row];
     else if([pickerView isEqual:zeroToSixtyPicker])
-        return [ZeroToSixtyData objectAtIndex:row];
+        return [zeroToSixtyData objectAtIndex:row];
     else if([pickerView isEqual:FuelEconomyPicker])
-        return [FuelEconomyData objectAtIndex:row];
+        return [fuelEconomyData objectAtIndex:row];
     else if([pickerView isEqual:MakePicker])
         return [makeimageArray objectAtIndex:row];
     else if([pickerView isEqual:ModelPicker])
@@ -548,7 +544,6 @@
 - (void) makeAppDelModelArray;
 {
     specsArray = [[NSMutableArray alloc]init];
-    appdelmodeljsonArray = [[NSMutableArray alloc]init];
     AppDelegate *appdel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [specsArray addObjectsFromArray:appdel.modelArray];
     makeimageArray = [[NSMutableArray alloc]init];
@@ -597,7 +592,8 @@
     FuelEconomyArray1 = [FuelEconomyArray1 sortedArrayUsingDescriptors:[NSArray arrayWithObject:alphasort]];
 }
 
-- (IBAction)UseModelPredicates {
+- (IBAction)UseModelPredicates
+{
     if (ModelPredicate == nil)
     {
      ModelPredicate = [NSPredicate predicateWithFormat:@"CarPrice.length > 10000000000"];

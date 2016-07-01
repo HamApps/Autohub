@@ -15,6 +15,7 @@
 #import "SDWebImage/UIImageView+WebCache.h"
 #import "SWRevealViewController.h"
 #import "AppDelegate.h"
+#import "UIImageView+UIActivityIndicatorForSDWebImage.h"
 
 @interface NewTopTensViewController ()
 
@@ -36,7 +37,7 @@
     [super viewDidLoad];
     AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
     [appDelegate setShouldRotate:NO];
-    self.view.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:.9 alpha:1];
+    self.view.backgroundColor = [UIColor whiteColor];
     self.tableView.separatorColor = [UIColor clearColor];
     
     //Set which Top Ten was picked
@@ -45,7 +46,7 @@
     self.title = currentTopTen;
     [self makeAppDelModelArray];
 
-    if([currentTopTen isEqualToString:@"Fastest 0-60's"])
+    if([currentTopTen isEqualToString:@"0-60 Times"])
         [topTensArray addObjectsFromArray:appdel.zt60Array];
     if([currentTopTen isEqualToString:@"Top Speeds"])
         [topTensArray addObjectsFromArray:appdel.topspeedArray];
@@ -71,13 +72,14 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 150;
+    return 212;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     static NSString *CellIdentifier = @"toptens";
     TopTensCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    __weak TopTensCell *cell2 = cell;
     TopTens * toptensObject = [topTensArray objectAtIndex:indexPath.row];
     
     if (cell == nil) {
@@ -88,16 +90,57 @@
     cell.CarName.text = toptensObject.CarName;
     cell.CarValue.text = toptensObject.CarValue;
     
-    //Load and fade image
-    [cell.CarImage sd_setImageWithURL:[NSURL URLWithString:toptensObject.CarURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]
+    CALayer * circle = [cell.CarRank layer];
+    [circle setMasksToBounds:YES];
+    [circle setCornerRadius:13.0];
+    [circle setBorderWidth:1.5];
+    
+    if ([toptensObject.CarRank isEqualToString:@"1"])
+        [circle setBorderColor:[[UIColor colorWithRed:(227/255.0) green:(205/255.0) blue:(79/255.0) alpha:1] CGColor]];
+    else if ([toptensObject.CarRank isEqualToString:@"2"])
+        [circle setBorderColor:[[UIColor colorWithRed:(175/255.0) green:(182/255.0) blue:(187/255.0) alpha:1] CGColor]];
+    else if ([toptensObject.CarRank isEqualToString:@"3"])
+        [circle setBorderColor:[[UIColor colorWithRed:(192/255.0) green:(108/255.0) blue:(39/255.0) alpha:1] CGColor]];
+    else
+        [circle setBorderColor:[[UIColor colorWithRed:(0/255.0) green:(0/255.0) blue:(0/255.0) alpha:1] CGColor]];
+    
+    NSURL *imageURL;
+    if([toptensObject.CarURL containsString:@"carno"])
+        imageURL = [NSURL URLWithString:toptensObject.CarURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]];
+    else
+        imageURL = [NSURL URLWithString:toptensObject.CarURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/CarPictures/"]];
+    
+    [cell.CarImage setImageWithURL:imageURL
             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageurl){
-                    [cell.CarImage setAlpha:0.0];
+                    [cell2.CarImage setAlpha:0.0];
                     [UIImageView animateWithDuration:.5 animations:^{
-                    [cell.CarImage setAlpha:1.0];
+                    [cell2.CarImage setAlpha:1.0];
             }];
-        }];
+        }
+       usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     
     return cell;
+}
+
+- (void)reloadData
+{
+    // Reload table data
+    [self.tableView reloadData];
+    [self.tableView numberOfRowsInSection:topTensArray.count];
+    NSLog(@"made it");
+    // End the refreshing
+    if (self.refreshControl) {
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"MMM d, h:mm a"];
+        NSString *title = [NSString stringWithFormat:@"Last update: %@", [formatter stringFromDate:[NSDate date]]];
+        NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObject:[UIColor whiteColor]
+                                                                    forKey:NSForegroundColorAttributeName];
+        NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:title attributes:attrsDictionary];
+        self.refreshControl.attributedTitle = attributedTitle;
+        
+        [self.refreshControl endRefreshing];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

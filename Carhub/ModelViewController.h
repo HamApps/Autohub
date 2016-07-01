@@ -17,10 +17,13 @@
 @property (nonatomic, strong) NSMutableArray * appdelmodelArray;
 @property (nonatomic, strong) NSArray * ModelArray;
 @property (nonatomic, strong) NSArray * searchArray;
-@property (nonatomic, strong) NSMutableDictionary *cachedImages;
 @property (nonatomic, strong) NSArray * AlphabeticalArray;
 @property (nonatomic, strong) Make * currentMake;
+@property (nonatomic, strong) NSString * currentClass;
+@property (nonatomic, strong) NSString * currentSubclass;
 
 - (void) getMake:(id)makeObject;
+- (void)getSubclass:(id)subclassObject;
+- (void)getClass:(id)classObject;
 
 @end

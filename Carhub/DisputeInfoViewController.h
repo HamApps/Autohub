@@ -15,4 +15,8 @@
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *barButton;
 
+@property (strong, nonatomic) IBOutlet UIButton *instagramButton;
+@property (strong, nonatomic) IBOutlet UIButton *twitterButton;
+@property (strong, nonatomic) IBOutlet UIButton *facebookButton;
+
 @end

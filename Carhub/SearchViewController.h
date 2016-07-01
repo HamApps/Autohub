@@ -9,10 +9,41 @@
 #import <UIKit/UIKit.h>
 #import "Model.h"
 
-@interface SearchViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate >{
-    IBOutlet UIScrollView * scroller;
-    NSArray *PriceData;
-}
+@interface SearchViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate, UITableViewDataSource, UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UIButton *btnOutlet;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIButton *btnOutlet2;
+@property (weak, nonatomic) IBOutlet UITableView *tableView2;
+@property (weak, nonatomic) IBOutlet UIButton *btnOutlet3;
+@property (weak, nonatomic) IBOutlet UITableView *tableView3;
+@property (weak, nonatomic) IBOutlet UIButton *btnOutlet4;
+@property (weak, nonatomic) IBOutlet UITableView *tableView4;
+@property (weak, nonatomic) IBOutlet UIButton *btnOutlet5;
+@property (weak, nonatomic) IBOutlet UITableView *tableView5;
+@property (weak, nonatomic) IBOutlet UIButton *btnOutlet6;
+@property (weak, nonatomic) IBOutlet UITableView *tableView6;
+@property (weak, nonatomic) IBOutlet UIButton *btnOutlet7;
+@property (weak, nonatomic) IBOutlet UITableView *tableView7;
+
+@property (nonatomic, strong) NSArray * priceData;
+@property (nonatomic, strong) NSArray * engineData;
+@property (nonatomic, strong) NSArray * transmissionData;
+@property (nonatomic, strong) NSArray * driveTypeData;
+@property (nonatomic, strong) NSArray * horsepowerData;
+@property (nonatomic, strong) NSArray * zeroToSixtyData;
+@property (nonatomic, strong) NSArray * fuelEconomyData;
+@property (nonatomic, strong) NSArray * tableViewArray;
+
+- (IBAction)btnAction:(id)sender;
+- (IBAction)btnAction2:(id)sender;
+- (IBAction)btnAction3:(id)sender;
+- (IBAction)btnAction4:(id)sender;
+- (IBAction)btnAction5:(id)sender;
+- (IBAction)btnAction6:(id)sender;
+- (IBAction)btnAction7:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UIScrollView * scroller;
 
 @property (nonatomic, strong) NSMutableArray * specsArray;
 @property (nonatomic, strong) NSMutableArray * carArray;
@@ -20,7 +51,6 @@
 @property (nonatomic, strong) NSArray * testArray;
 
 @property (nonatomic, strong) NSMutableArray * ModelArray;
-@property (nonatomic, strong) NSMutableArray * appdelmodeljsonArray;
 
 @property (nonatomic, retain) NSArray * PriceArray1;
 @property (nonatomic, retain) NSArray * EngineArray1;
@@ -57,17 +87,6 @@
 @property (strong, nonatomic) NSPredicate *MakePredicate;
 @property (strong, nonatomic) NSPredicate *ModelPredicate;
 
-@property (retain, nonatomic) NSArray *PriceData;
-@property (retain, nonatomic) NSArray *EngineData;
-@property (retain, nonatomic) NSArray *EngineDisData;
-@property (retain, nonatomic) NSArray *TransmissionData;
-@property (retain, nonatomic) NSArray *DriveTypeData;
-@property (retain, nonatomic) NSArray *HorsepowerData;
-@property (retain, nonatomic) NSArray *ZeroToSixtyData;
-@property (retain, nonatomic) NSArray *FuelEconomyData;
-@property (retain, nonatomic) NSArray *MakeData;
-
-@property (nonatomic, strong) NSMutableArray * makejsonArray;
 @property (nonatomic, strong) NSMutableArray * makeimageArray;
 @property (nonatomic, strong) NSArray * AlphabeticalArray;
 

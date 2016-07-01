@@ -19,13 +19,15 @@
 {
     [self.cardView setAlpha:1];
     self.cardView.layer.masksToBounds = NO;
-    self.cardView.layer.cornerRadius = 2;
+    self.cardView.layer.cornerRadius = 10;
     self.cardView.layer.shadowOffset = CGSizeMake(-.2f, .2f);
-    self.cardView.layer.shadowRadius = 2;
-    UIBezierPath *path = [UIBezierPath bezierPathWithRect:self.cardView.bounds];
-    self.cardView.layer.shadowPath = path.CGPath;
-    self.cardView.layer.shadowOpacity = 0.75;
-    self.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:.9 alpha:1];
+    self.cardView.layer.shadowRadius = 1;
+    self.cardView.layer.shadowOpacity = .75;
+    self.backgroundColor = [UIColor whiteColor];
+    
+    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, self.cardView.bounds.origin.y+35, self.cardView.bounds.size.width, 1.5)];
+    lineView.backgroundColor = [UIColor colorWithRed:227/255.0 green:227/255.0 blue:227/255.0 alpha:1];
+    [self.cardView addSubview:lineView];
 }
 
 - (void)awakeFromNib {

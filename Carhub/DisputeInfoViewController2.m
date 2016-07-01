@@ -64,7 +64,7 @@
     
     MFMailComposeViewController *mailController = [[MFMailComposeViewController alloc]init];
     [mailController setMailComposeDelegate:self];
-    NSString *email = @"hamapplications@gmail.com";
+    NSString *email = @"autohubapp@gmail.com";
     NSArray *emailArray = [[NSArray alloc]initWithObjects:email, nil];
     NSString *message = [[self myTextView]text];
     [mailController setMessageBody:message isHTML:NO];

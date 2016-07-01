@@ -10,12 +10,11 @@
 #import "Model.h"
 #import "CarViewCell.h"
 #import "DetailViewController.h"
-#import "DetailViewController2.h"
-#import "DetailViewController3.h"
 #import <QuartzCore/QuartzCore.h>
 #import "AppDelegate.h"
 #import "MakeViewController.h"
 #import "SWRevealViewController.h"
+#import "UIImageView+UIActivityIndicatorForSDWebImage.h"
 
 @interface SearchTabViewController ()
 
@@ -28,7 +27,7 @@
     [super viewDidLoad];
     AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
     [appDelegate setShouldRotate:NO];
-    self.view.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:.9 alpha:1];
+    self.view.backgroundColor = [UIColor whiteColor];
     self.tableView.separatorColor = [UIColor clearColor];
     
     self.searchDisplayController.active = YES;
@@ -79,22 +78,17 @@
     
     Model * modelObject;
     
-    if(tableView == self.searchDisplayController.searchResultsTableView){
+    if(tableView == self.searchDisplayController.searchResultsTableView)
+    {
         modelObject = [self.searchArray objectAtIndex:indexPath.row];
-        self.searchDisplayController.searchResultsTableView.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:.9 alpha:1];
+        self.searchDisplayController.searchResultsTableView.backgroundColor = [UIColor whiteColor];
         self.searchDisplayController.searchResultsTableView.separatorColor = [UIColor clearColor];
-    } else {
+    }else{
         modelObject = [self.ModelArray objectAtIndex:indexPath.row];
     }
     
-    //Load and fade image
-    [cell.CarImage sd_setImageWithURL:[NSURL URLWithString:modelObject.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]
-                            completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageurl){
-                                [cell.CarImage setAlpha:0.0];
-                                [UIImageView animateWithDuration:.5 animations:^{
-                                    [cell.CarImage setAlpha:1.0];
-                                }];
-                            }];
+    [cell setUpCarImageWithModel:modelObject];
+    
     cell.CarName.text = modelObject.CarFullName;
     
     return cell;

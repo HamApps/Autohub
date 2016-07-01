@@ -110,6 +110,9 @@
  *                       indicating if the image was retrived from the local cache or from the network.
  *                       The fourth parameter is the original image url.
  */
+
+//- (void)sd_setImageWithURL:(NSURL *)url completed:(SDWebImageCompletionBlock)completedBlock usingActivityIndicatorStyle:(UIActivityIndicatorViewStyle)activityStyle;
+
 - (void)sd_setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholder completed:(SDWebImageCompletionBlock)completedBlock;
 
 /**
@@ -181,7 +184,7 @@
 
 @interface UIImageView (WebCacheDeprecated)
 
-- (NSURL *)imageURL __deprecated_msg("Use `sd_imageURL`");
+/*- (NSURL *)imageURL __deprecated_msg("Use `sd_imageURL`");
 
 - (void)setImageWithURL:(NSURL *)url __deprecated_msg("Method deprecated. Use `sd_setImageWithURL:`");
 - (void)setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholder __deprecated_msg("Method deprecated. Use `sd_setImageWithURL:placeholderImage:`");
@@ -196,6 +199,6 @@
 
 - (void)cancelCurrentArrayLoad __deprecated_msg("Use `sd_cancelCurrentAnimationImagesLoad`");
 
-- (void)cancelCurrentImageLoad __deprecated_msg("Use `sd_cancelCurrentImageLoad`");
+- (void)cancelCurrentImageLoad __deprecated_msg("Use `sd_cancelCurrentImageLoad`");*/
 
 @end

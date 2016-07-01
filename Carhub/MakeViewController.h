@@ -11,14 +11,18 @@
 #import "Model.h"
 #import "SDWebImage/UIImageView+WebCache.h"
 
-@interface MakeViewController : UICollectionViewController<UIWebViewDelegate>
+@interface MakeViewController : UICollectionViewController
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *barButton;
 
-@property (weak, nonatomic) IBOutlet UIWebView *webView;
-
 @property (nonatomic, strong) NSMutableArray * makeimageArray;
+@property (nonatomic, strong) NSMutableArray * searchmakeimageArray;
 @property (nonatomic, strong) NSMutableArray * modelArray;
 @property (nonatomic, strong) Make * currentMake;
+
+@property (nonatomic) BOOL searchBarActive;
+@property (nonatomic) float searchBarBoundsY;
+
+@property (nonatomic,strong) UISearchBar *searchBar;
 
 @end

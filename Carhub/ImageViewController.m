@@ -17,8 +17,6 @@
 
 @implementation ImageViewController
 
--(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{ return imageview;}
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -37,7 +35,11 @@
     self.barButton.target = self.revealViewController;
     self.barButton.action = @selector(revealToggle:);
 
-    scrollView.maximumZoomScale = 3.0; scrollView.minimumZoomScale = 0.6; scrollView.clipsToBounds = YES; scrollView.delegate = self; [scrollView addSubview:imageview];
+    scrollView.maximumZoomScale = 3.0;
+    scrollView.minimumZoomScale = 1.0;
+    scrollView.clipsToBounds = YES;
+    scrollView.delegate = self;
+    [scrollView addSubview:imageview];
     
     [imageview setAlpha:1.0];
     [imageview sd_setImageWithURL:[NSURL URLWithString:_currentCar.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]]];
@@ -46,6 +48,12 @@
     [doubleTap setNumberOfTapsRequired:2];
     [scrollView addGestureRecognizer:doubleTap];
 }
+
+-(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
+{
+    return imageview;
+}
+
 
 - (void)handleDoubleTap:(UIGestureRecognizer *)gestureRecognizer {
     if(scrollView.zoomScale == scrollView.maximumZoomScale)

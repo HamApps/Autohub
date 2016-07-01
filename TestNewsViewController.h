@@ -18,4 +18,6 @@
 
 - (void)getNews:(id)newsObject;
 
+- (void)preloadNewsView:(News *)firstNewsObject;
+
 @end

@@ -6,19 +6,20 @@
 //  Copyright (c) 2014 Ham Applications. All rights reserved.
 //
 
-#import <GoogleMobileAds/GADInterstitial.h>
 #import "TopTensViewController.h"
 #import "NewTopTensViewController.h"
 #import "AppDelegate.h"
 #import "FavoritesViewController.h"
 #import "DetailViewController.h"
+#import "SWRevealViewController.h"
+#import "UIImageView+UIActivityIndicatorForSDWebImage.h"
 
 @interface TopTensViewController ()
 
 @end
 
 @implementation TopTensViewController
-@synthesize zeroToSixtyButton, topSpeedButton, nurburgringButton, mostExpensiveButton, fuelEconomyButton, horsepowerButton;
+@synthesize zeroToSixtyButton, topSpeedButton, nurburgringButton, nExpensiveButton, auctionExpensiveButton, fuelEconomyButton, horsepowerButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,10 +33,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    [appDelegate setShouldRotate:NO];
     
     self.view.backgroundColor = [UIColor whiteColor];
-
-    [super viewDidLoad];
+    
+    self.barButton.target = self.revealViewController;
+    self.barButton.action = @selector(revealToggle:);
+    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,35 +52,37 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"push0-60"])
     {
-        NSString * toptenid = zeroToSixtyButton.titleLabel.text;
+        NSString * toptenid = @"0-60 Times";
         [[segue destinationViewController] getTopTenID:toptenid];
     }
     if ([[segue identifier] isEqualToString:@"pushtopspeed"])
     {
-        NSString * toptenid = topSpeedButton.titleLabel.text;
+        NSString * toptenid = @"Top Speeds";
         [[segue destinationViewController] getTopTenID:toptenid];
     }
     if ([[segue identifier] isEqualToString:@"pushNurb"])
     {
-        NSString * toptenid = nurburgringButton.titleLabel.text;
+        NSString * toptenid = @"Nürburgring Lap Times";
         [[segue destinationViewController] getTopTenID:toptenid];
     }
-
-    if ([[segue identifier] isEqualToString:@"pushexpensive"])
+    if ([[segue identifier] isEqualToString:@"pushnewexpensive"])
     {
-        NSString * toptenid = mostExpensiveButton.titleLabel.text;
+        NSString * toptenid = @"Most Expensive (New Cars)";
         [[segue destinationViewController] getTopTenID:toptenid];
     }
-
+    if ([[segue identifier] isEqualToString:@"pushauctionexpensive"])
+    {
+        NSString * toptenid = @"Most Expensive (Auction)";
+        [[segue destinationViewController] getTopTenID:toptenid];
+    }
     if ([[segue identifier] isEqualToString:@"pushfuel"])
     {
-        NSString * toptenid = fuelEconomyButton.titleLabel.text;
+        NSString * toptenid = @"Best Fuel Economy";
         [[segue destinationViewController] getTopTenID:toptenid];
     }
-
     if ([[segue identifier] isEqualToString:@"pushhorsepower"])
     {
-        NSString * toptenid = horsepowerButton.titleLabel.text;
+        NSString * toptenid = @"Highest Horsepower";
         [[segue destinationViewController] getTopTenID:toptenid];
     }
 }

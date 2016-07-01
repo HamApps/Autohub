@@ -14,4 +14,6 @@
 @property (weak, nonatomic) IBOutlet UIView *cardView;
 @property (strong, nonatomic) IBOutlet UILabel * newsDescription;
 
+-(void)cardSetup;
+
 @end

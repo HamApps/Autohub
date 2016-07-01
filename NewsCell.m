@@ -21,22 +21,28 @@
 
 -(void)layoutSubviews
 {
-    [self cardSetup];
+
 }
 
 -(void)cardSetup
 {
     [self.cardView setAlpha:1];
     self.cardView.layer.masksToBounds = NO;
-    self.cardView.layer.cornerRadius = 2;
+    self.cardView.layer.cornerRadius = 10;
     self.cardView.layer.shadowOffset = CGSizeMake(-.2f, .2f);
-    self.cardView.layer.shadowRadius = 2;
-    UIBezierPath *path = [UIBezierPath bezierPathWithRect:self.cardView.bounds];
-    self.cardView.layer.shadowPath = path.CGPath;
-    self.cardView.layer.shadowOpacity = 0.75;
-    self.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:.9 alpha:1];
+    self.cardView.layer.shadowRadius = 1.5;
+    self.cardView.layer.shadowOpacity = .5;
+    self.backgroundColor = [UIColor whiteColor];
+    CALayer * layer = [self.newsImage layer];
+    layer.masksToBounds = YES;
     
-    [self.newsDescription setFont:[UIFont fontWithName:@"Eurostile" size:18.0f]];
+    UIBezierPath *maskPath;
+    maskPath = [UIBezierPath bezierPathWithRoundedRect:self.newsImage.bounds byRoundingCorners:(UIRectCornerTopLeft|UIRectCornerTopRight) cornerRadii:CGSizeMake(10.0, 10.0)];
+    
+    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+    maskLayer.frame = self.bounds;
+    maskLayer.path = maskPath.CGPath;
+    self.newsImage.layer.mask = maskLayer;
 }
 
 - (void)awakeFromNib {

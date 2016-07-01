@@ -2,30 +2,46 @@
 //  NewMakesViewController.h
 //  Carhub
 //
-//  Created by Christopher Clark on 2/28/15.
-//  Copyright (c) 2015 Ham Applications. All rights reserved.
+//  Created by Christoper Clark on 1/23/16.
+//  Copyright © 2016 Ham Applications. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+#import "iCarousel.h"
 #import "Make.h"
 #import "Model.h"
+#import "DetailViewController.h"
+#import "CarViewCell.h"
 
-@interface NewMakesViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, UISearchDisplayDelegate, UISearchBarDelegate>
+@interface NewMakesViewController : UIViewController<iCarouselDataSource, iCarouselDelegate, UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, strong) IBOutlet UISearchBar *searchBar;
+@property (nonatomic, strong) IBOutlet UIView *upperView;
+@property (nonatomic, strong) IBOutlet iCarousel *carousel;
+@property (nonatomic, strong) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) UIView * lineView;
+@property (nonatomic, strong) IBOutlet UIImageView *circleScroller;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *barButton;
 
-@property (nonatomic, strong) NSMutableArray * makejsonArray;
 @property (nonatomic, strong) NSMutableArray * makeimageArray;
-@property (nonatomic, strong) NSMutableArray * modelArray;
+
 @property (nonatomic, strong) NSMutableArray * appdelmodelArray;
+@property (nonatomic, strong) NSMutableArray * ModelArray;
 @property (nonatomic, strong) NSArray * searchArray;
-
+@property (nonatomic, strong) NSArray * AlphabeticalArray;
 @property (nonatomic, strong) Make * currentMake;
+@property (nonatomic, strong) Model *pushingObject;
+@property (nonatomic, strong) NSString * currentClass;
+@property (nonatomic, strong) NSString * currentSubclass;
 
-- (void)getfirstModel:(id)firstcarObject1;
-- (void)getsecondModel:(id)secondcarObject1;
+@property (nonatomic, strong) DetailViewController *detailView;
+@property (nonatomic, strong) CarViewCell *detailCell;
+@property (nonatomic, strong) CarViewCell *cellToSlide;
 
-@property(nonatomic, strong) Model * firstCar1;
-@property(nonatomic, strong) Model * secondCar1;
+@property (nonatomic, strong) UIImageView *detailImageView;
+
+@property CGRect initialCellFrame;
+@property CGRect initialCellFrame2;
+
+-(void)revertToMakesPage;
 
 @end

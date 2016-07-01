@@ -22,7 +22,7 @@
     [super viewDidLoad];
     AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
     [appDelegate setShouldRotate:NO];
-    menu = @[@"Home",@"Top Tens", @"Auto News", @"Search", @"Favorites", @"Race Results"];
+    menu = @[@"Home", @"News", @"Makes", @"Top Tens", @"Search", @"Favorites", @"Race Results", @"Settings"];
 }
 
 #pragma mark - Table view data source

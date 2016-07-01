@@ -9,17 +9,17 @@
 #import "Make.h"
 
 @implementation Make
-@synthesize MakeName, MakeImageURL;
+@synthesize MakeName, MakeImageURL, MakeCountry;
 
-- (id)initWithMakeName:(NSString *)mName andMakeImageURL:(NSString *)mImageURL
+- (id)initWithMakeName:(NSString *)mName andMakeImageURL:(NSString *)mImageURL andMakeCountry:(NSString *)mCountry
 {
     self = [super init];
     if (self)
     {
         MakeName = mName;
         MakeImageURL = mImageURL;
+        MakeCountry = mCountry;
     }
-    
     return self;
 }
 
