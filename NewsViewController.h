@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "News.h"
 #import "NewsCell.h"
+#import "HeadlineCell.h"
 
 @interface NewsViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
@@ -20,7 +21,8 @@
 
 @property (nonatomic, strong) News *selectedNews;
 @property (nonatomic, strong) NewsCell *selectedCell;
-
+@property (nonatomic, strong) HeadlineCell *selectedHeadlineCell;
+@property (nonatomic, strong) HeadlineCell *headlineCell;
 
 //Refresh Control Stuff
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
@@ -30,5 +32,7 @@
 @property (nonatomic, strong) UIImageView *compass_spinner;
 @property (assign) BOOL isRefreshIconsOverlap;
 @property (assign) BOOL isRefreshAnimating;
+@property (assign) BOOL shouldKeepSpinning;
+@property CGRect initialHeadlineFrame;
 
 @end

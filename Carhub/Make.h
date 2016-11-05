@@ -13,10 +13,11 @@
 @property (strong, nonatomic) NSString * MakeName;
 @property (strong, nonatomic) NSString * MakeImageURL;
 @property (strong, nonatomic) NSString * MakeCountry;
+@property (strong, nonatomic) NSNumber * ZoomScale;
 
 #pragma mark -
 #pragma mark Class Methods
 
-- (id)initWithMakeName: (NSString *)mName andMakeImageURL: (NSString *)mImageURL andMakeCountry: (NSString *)mCountry;
+- (id)initWithMakeName: (NSString *)mName andMakeImageURL: (NSString *)mImageURL andMakeCountry: (NSString *)mCountry andZoomScale: (NSNumber *)mZoomScale;
 
 @end

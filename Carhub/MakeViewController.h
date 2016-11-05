@@ -10,8 +10,9 @@
 #import "Make.h"
 #import "Model.h"
 #import "SDWebImage/UIImageView+WebCache.h"
+#import "MakeCell.h"
 
-@interface MakeViewController : UICollectionViewController
+@interface MakeViewController : UICollectionViewController<UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *barButton;
 
@@ -20,9 +21,12 @@
 @property (nonatomic, strong) NSMutableArray * modelArray;
 @property (nonatomic, strong) Make * currentMake;
 
+@property (nonatomic, strong) MakeCell *selectedCell;
+
+@property (nonatomic,strong) UISearchBar *searchBar;
 @property (nonatomic) BOOL searchBarActive;
 @property (nonatomic) float searchBarBoundsY;
 
-@property (nonatomic,strong) UISearchBar *searchBar;
+@property BOOL shouldHaveBackButton;
 
 @end

@@ -8,161 +8,101 @@
 
 #import "RaceViewController.h"
 #import "AppDelegate.h"
-#import "CarViewCell.h"
+#import "RaceTypeCell.h"
 #import "Race.h"
+#import "RaceSeason.h"
 #import "UIImageView+WebCache.h"
 #import "SWRevealViewController.h"
-#import "RaceResultsViewController.h"
 #import "UIImageView+UIActivityIndicatorForSDWebImage.h"
+#import "PageItemController.h"
+#import <Google/Analytics.h>
 
 @interface RaceViewController ()
 
 @end
 
 @implementation RaceViewController
-@synthesize currentRaceType, currentRaceTypeArray, currentRaceID;
+@synthesize currentRaceType, raceSeasonArray, currentRaceID;
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    NSLog(@"currentRaceType: %@", currentRaceType.RaceTypeString);
     
-    AppDelegate *appdel = [UIApplication sharedApplication].delegate;
-    [appdel setShouldRotate:NO];
     self.view.backgroundColor = [UIColor whiteColor];
     self.tableView.separatorColor = [UIColor clearColor];
     
-    //Set which RaceType was picked
-    currentRaceTypeArray = [[NSMutableArray alloc]init];
+    self.title = currentRaceType.RaceTypeString;
     
-    if([currentRaceType.RaceTypeString isEqualToString:@"Formula 1"])
-        [currentRaceTypeArray addObjectsFromArray:appdel.formulaOneArray];
-    if([currentRaceType.RaceTypeString isEqualToString:@"Nascar"])
-        [currentRaceTypeArray addObjectsFromArray:appdel.nascarArray];
-    if([currentRaceType.RaceTypeString isEqualToString:@"IndyCar"])
-        [currentRaceTypeArray addObjectsFromArray:appdel.indyCarArray];
-    if([currentRaceType.RaceTypeString isEqualToString:@"FIA World Endurance Championships"])
-        [currentRaceTypeArray addObjectsFromArray:appdel.fiaArray];
-    if([currentRaceType.RaceTypeString isEqualToString:@"WRC"])
-        [currentRaceTypeArray addObjectsFromArray:appdel.wrcArray];
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:self.title];
+    [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    }
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return currentRaceTypeArray.count;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return raceSeasonArray.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"SeasonCell";
+    RaceTypeCell *cell = (RaceTypeCell *)[self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    static NSString *CellIdentifier = @"ModelCell";
-    CarViewCell *cell = (CarViewCell *)[self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    __weak CarViewCell *cell2 = cell;
-    
-    if (cell==nil) {
-        cell = [[CarViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    if (cell==nil)
+    {
+        cell = [[RaceTypeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    Race * raceObject;
+    RaceSeason * seasonObject;
+    seasonObject = [raceSeasonArray objectAtIndex:indexPath.row];
+    cell.currentRaceSeason = seasonObject;
     
-    raceObject = [currentRaceTypeArray objectAtIndex:indexPath.row];
+    cell.controller = self;
     
-    NSLog(@"race type array: %@", raceObject);
-    
-    NSURL *imageURL;
-    if([raceObject.RaceImageURL containsString:@"raceno"])
-        imageURL = [NSURL URLWithString:raceObject.RaceImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/raceimage.php"]];
-    else
-        imageURL = [NSURL URLWithString:raceObject.RaceImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/OtherPictures/"]];
-    
-    [cell.CarImage setImageWithURL:imageURL
-                            completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageurl){
-                                [cell2.CarImage setAlpha:0.0];
-                                [UIImageView animateWithDuration:.5 animations:^{
-                                    [cell2.CarImage setAlpha:1.0];
-                                }];
-                            }
-       usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    cell.CarName.text = raceObject.RaceName;
+    cell.seasonLabel.text = seasonObject.SeasonName;
     
     return cell;
 }
 
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
-
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
- } else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }
- }
- */
-
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
- }
- */
-
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
-
 #pragma mark - Navigation
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+-(void)pushRaceWithRaceObject:(Race *)raceObject
 {
-    currentRaceID = [currentRaceTypeArray objectAtIndex:indexPath.row];
-    NSString *raceType = currentRaceID.RaceType;
-    NSLog(@"currentraceid.racename: %@", currentRaceID.RaceName);
-    
-    if([raceType isEqualToString:@"Formula 1"])
-        [self performSegueWithIdentifier:@"pushFormula1" sender:self];
-    if([raceType isEqualToString:@"Nascar"])
-        [self performSegueWithIdentifier:@"pushNascar" sender:self];
-    if([raceType isEqualToString:@"IndyCar"])
-        [self performSegueWithIdentifier:@"pushIndyCar" sender:self];
-    if([raceType isEqualToString:@"FIA World Endurance Championships"])
-        [self performSegueWithIdentifier:@"pushFIA" sender:self];
-    if([raceType isEqualToString:@"WRC"])
-        [self performSegueWithIdentifier:@"pushWRC" sender:self];
+    currentRaceID = raceObject;
+    if([currentRaceID.RaceType isEqualToString:@"Formula 1"] || [currentRaceID.RaceType isEqualToString:@"Supercars Championship"])
+        [self performSegueWithIdentifier:@"pushResults1" sender:self];
+    if([currentRaceID.RaceType isEqualToString:@"NASCAR"])
+        [self performSegueWithIdentifier:@"pushResults2" sender:self];
+    if([currentRaceID.RaceType isEqualToString:@"FIA World Endurance Championship"])
+        [self performSegueWithIdentifier:@"pushResults3" sender:self];
+    if([currentRaceID.RaceType isEqualToString:@"IndyCar"])
+        [self performSegueWithIdentifier:@"pushResults4" sender:self];
+    if([currentRaceID.RaceType isEqualToString:@"DTM"])
+        [self performSegueWithIdentifier:@"pushResults5" sender:self];
+    if([currentRaceID.RaceType isEqualToString:@"WRC"] || [currentRaceID.RaceType isEqualToString:@"Formula E"])
+        [self performSegueWithIdentifier:@"pushResults6" sender:self];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-
-    NSLog(@"currentraceid.racename: %@", currentRaceID.RaceName);
-
-    
-    if ([[segue identifier] isEqualToString:@"pushFormula1"] || [[segue identifier] isEqualToString:@"pushNascar"] || [[segue identifier] isEqualToString:@"pushIndyCar"] || [[segue identifier] isEqualToString:@"pushFIA"] || [[segue identifier] isEqualToString:@"pushWRC"])
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"pushResults1"] || [[segue identifier] isEqualToString:@"pushResults2"] || [[segue identifier] isEqualToString:@"pushResults3"] || [[segue identifier] isEqualToString:@"pushResults4"] || [[segue identifier] isEqualToString:@"pushResults5"] || [[segue identifier] isEqualToString:@"pushResults6"])
     {
         [[segue destinationViewController] getRaceResults:currentRaceID];
     }
@@ -171,6 +111,11 @@
 -(void)getRaceTypeID:(id)RaceTypeID
 {
     currentRaceType = RaceTypeID;
+    
+    AppDelegate *appdel = (AppDelegate *)[UIApplication sharedApplication].delegate;
+
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.SeasonClass contains %@", currentRaceType.RaceTypeString];
+    raceSeasonArray = [[appdel.raceSeasonArray filteredArrayUsingPredicate:predicate]mutableCopy];
 }
 
 @end

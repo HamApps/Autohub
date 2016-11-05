@@ -43,7 +43,6 @@
     cellTableView.dataSource = self;
     [self addSubview:cellTableView]; // add it cell
     cellTableView.frame = CGRectMake(0, 44, self.bounds.size.width, self.bounds.size.height-44);//set the frames for tableview
-    NSLog(@"layoutsub");
 }
 
 //manage datasource and  delegate for submenu tableview
@@ -59,7 +58,6 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"cellforrow");
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
     if(cell == nil)
     {
@@ -69,7 +67,7 @@
     cell.textLabel.text = [self.dataArray objectAtIndex:indexPath.row];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if([cell.textLabel.text isEqualToString:[defaults objectForKey:@"Currency"]] || [cell.textLabel.text isEqualToString:[defaults objectForKey:@"Horsepower"]] || [cell.textLabel.text isEqualToString:[defaults objectForKey:@"Top Speed"]] || [cell.textLabel.text isEqualToString:[defaults objectForKey:@"Weight"]] || [cell.textLabel.text isEqualToString:[defaults objectForKey:@"Fuel Economy"]] || [cell.textLabel.text isEqualToString:[defaults objectForKey:@"Makes Layout Preference"]])
+    if([cell.textLabel.text isEqualToString:[defaults objectForKey:@"Currency"]] || [cell.textLabel.text isEqualToString:[defaults objectForKey:@"Horsepower"]] || [cell.textLabel.text isEqualToString:[defaults objectForKey:@"Torque"]] || [cell.textLabel.text isEqualToString:[defaults objectForKey:@"Top Speed"]] || [cell.textLabel.text isEqualToString:[defaults objectForKey:@"Weight"]] || [cell.textLabel.text isEqualToString:[defaults objectForKey:@"Fuel Economy"]] || [cell.textLabel.text isEqualToString:[defaults objectForKey:@"Makes Layout Preference"]])
     {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
@@ -88,16 +86,26 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    SettingsCell *settingsCell = (SettingsCell *)cell.superview.superview.superview;
+    SettingsCell *settingsCell = self;
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if([settingsCell.settingLabel.text isEqual: @"Currency"])
     {
         [defaults setObject:cell.textLabel.text forKey:@"Currency"];
+        [defaults setObject:@"Any" forKey:@"Price Setting"];
+        [defaults setObject:@"Any" forKey:@"Converted Price Setting"];
     }
     if([settingsCell.settingLabel.text isEqual: @"Horsepower"])
     {
         [defaults setObject:cell.textLabel.text forKey:@"Horsepower"];
+        [defaults setObject:@"Any" forKey:@"Horsepower Setting"];
+        [defaults setObject:@"Any" forKey:@"Converted Horsepower Setting"];
+    }
+    if([settingsCell.settingLabel.text isEqual: @"Torque"])
+    {
+        [defaults setObject:cell.textLabel.text forKey:@"Torque"];
+        [defaults setObject:@"Any" forKey:@"Torque Setting"];
+        [defaults setObject:@"Any" forKey:@"Converted Torque Setting"];
     }
     if([settingsCell.settingLabel.text isEqual: @"Top Speed"])
     {
@@ -110,6 +118,8 @@
     if([settingsCell.settingLabel.text isEqual: @"Fuel Economy"])
     {
         [defaults setObject:cell.textLabel.text forKey:@"Fuel Economy"];
+        [defaults setObject:@"Any" forKey:@"Fuel Economy Setting"];
+        [defaults setObject:@"Any" forKey:@"Converted Fuel Economy Setting"];
     }
     if([settingsCell.settingLabel.text isEqual: @"Makes Layout Preference"])
     {
@@ -122,7 +132,6 @@
         if(indexPath.row == 1)
             [[NSNotificationCenter defaultCenter] postNotificationName:@"pushPrivacy" object:nil];
     }
-
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"closeCellTable" object:nil];
 }

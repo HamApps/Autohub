@@ -12,6 +12,7 @@
 @interface HomepageCell : UICollectionViewCell <UIScrollViewDelegate, UIWebViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *CellImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *evoxImageView;
 @property (weak, nonatomic) IBOutlet UILabel *DescriptionLabel;
 @property (weak, nonatomic) IBOutlet UIView *cardView;
 
@@ -23,13 +24,13 @@
 @property (strong, nonatomic) UIView *hiddenEvoxTrimmingView;
 @property (strong, nonatomic) UIImageView *hiddenImageView;
 
+@property (strong, nonatomic) NSString *htmlString;
 @property(assign) BOOL hasCalled;
 @property(assign) BOOL isEvox;
 
 @property (nonatomic, strong) Model *cellModel;
 
 -(void)setUpCarImageWithModel:(Model *)currentCar;
-
-
+-(void)removeActvityIndicators;
 
 @end

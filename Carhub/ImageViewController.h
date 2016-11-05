@@ -9,15 +9,20 @@
 #import <UIKit/UIKit.h>
 #import "Model.h"
 
-@interface ImageViewController : UIViewController<UIScrollViewDelegate>{
-    IBOutlet UIScrollView *scrollView;
-    IBOutlet UIImageView* imageview;
-}
-@property(nonatomic, strong) Model * currentCar;
+@interface ImageViewController : UIViewController<UIScrollViewDelegate, UIWebViewDelegate, UIGestureRecognizerDelegate>
 
-- (void)getfirstModel:(id)firstcarObject;
-- (void)getsecondModel:(id)secondcarObject;
+@property(nonatomic, strong) IBOutlet UIScrollView *scrollView;
+@property(nonatomic, strong) IBOutlet UIImageView* imageview;
+@property(nonatomic, strong) IBOutlet UIWebView *webView;
+
+@property(nonatomic, strong) Model * currentCar;
+@property(nonatomic, strong) NSURL * imageURL;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *barButton;
+
+@property(assign) BOOL isNewsImage;
+
+- (void)getModel:(id)modelObject;
+- (void)getArticleImage:(id)articleImageURL;
 
 @end

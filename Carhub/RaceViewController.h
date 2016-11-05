@@ -13,9 +13,10 @@
 @interface RaceViewController : UITableViewController
 
 @property (nonatomic, strong) RaceType *currentRaceType;
-@property (nonatomic, strong) NSMutableArray * currentRaceTypeArray;
+@property (nonatomic, strong) NSMutableArray * raceSeasonArray;
 @property (strong, nonatomic) Race *currentRaceID;
 
 -(void)getRaceTypeID:(id)RaceTypeID;
+-(void)pushRaceWithRaceObject:(Race *)raceObject;
 
 @end

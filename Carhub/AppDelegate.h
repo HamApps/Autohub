@@ -10,10 +10,10 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (assign, nonatomic) BOOL shouldRotate;
-
 @property (assign, nonatomic) BOOL hasLoaded;
-
+@property (assign, nonatomic) BOOL hasInternet;
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) UIStoryboard *activeStoryboard;
 @property (strong, nonatomic) ADBannerView *UIiAD;
 @property (nonatomic, strong) NSMutableArray * currencyjsonArray;
 @property (nonatomic, strong) NSMutableArray * currencyArray;
@@ -43,21 +43,19 @@
 @property (nonatomic, strong) NSMutableArray * raceTypeArray;
 @property (nonatomic, strong) NSMutableArray * raceListjson;
 @property (nonatomic, strong) NSMutableArray * raceListArray;
-@property (nonatomic, strong) NSMutableArray * formulaOneArray;
-@property (nonatomic, strong) NSMutableArray * nascarArray;
-@property (nonatomic, strong) NSMutableArray * indyCarArray;
-@property (nonatomic, strong) NSMutableArray * fiaArray;
-@property (nonatomic, strong) NSMutableArray * wrcArray;
+@property (nonatomic, strong) NSMutableArray * raceSeasonjson;
+@property (nonatomic, strong) NSMutableArray * raceSeasonArray;
 @property (nonatomic, strong) NSMutableArray * raceResultsjson;
 @property (nonatomic, strong) NSMutableArray * raceResultsArray;
 @property (nonatomic, strong) NSMutableArray * homePagejson;
 @property (nonatomic, strong) NSMutableArray * homePageArray;
 
 //App Delegate Methods to call
--(void)performInitialLoad;
 - (void) splitTopTensArrays;
 - (void) retrieveHomePageData;
 - (void) retrievenewsData;
 - (void) enablepurchase;
+- (void) updateAllData;
+- (BOOL) isInternetConnectionAvailable;
 
 @end

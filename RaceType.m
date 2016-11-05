@@ -9,15 +9,16 @@
 #import "RaceType.h"
 
 @implementation RaceType
-@synthesize RaceTypeString, TypeImageURL;
+@synthesize RaceTypeString, TypeImageURL, TypeZoomScale;
 
--(id)initWithRaceType:(NSString *)nType andTypeImageURL:(NSString *)nImageURL
+-(id)initWithRaceType:(NSString *)nType andTypeImageURL:(NSString *)nImageURL andTypeZoomScale:(NSNumber *)nTypeZoomScale
 {
     self = [super init];
     if (self)
     {
         RaceTypeString = nType;
         TypeImageURL = nImageURL;
+        TypeZoomScale = nTypeZoomScale;
     }
     return self;
 }

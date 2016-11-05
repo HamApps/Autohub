@@ -12,8 +12,8 @@
 
 @property (strong, nonatomic) NSString * RaceTypeString;
 @property (strong, nonatomic) NSString * TypeImageURL;
+@property (strong, nonatomic) NSNumber * TypeZoomScale;
 
-
-- (id)initWithRaceType:(NSString *)nType andTypeImageURL:(NSString *)nImageURL;
+- (id)initWithRaceType:(NSString *)nType andTypeImageURL:(NSString *)nImageURL andTypeZoomScale:(NSNumber *)nTypeZoomScale;
 
 @end

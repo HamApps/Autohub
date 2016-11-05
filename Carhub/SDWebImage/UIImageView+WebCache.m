@@ -9,6 +9,7 @@
 #import "UIImageView+WebCache.h"
 #import "objc/runtime.h"
 #import "UIView+WebCacheOperation.h"
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
 static char imageURLKey;
 

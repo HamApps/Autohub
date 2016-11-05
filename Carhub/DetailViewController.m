@@ -8,8 +8,8 @@
 
 #import "DetailViewController.h"
 #import "BackgroundLayer.h"
-#import "CompareViewController.h"
 #import "AppDelegate.h"
+#import "ModelViewController.h"
 #import "FavoritesViewController.h"
 #import "TopTensViewController.h"
 #import "Model.h"
@@ -21,10 +21,20 @@
 #import "CircleProgressBar.h"
 #import <AVFoundation/AVFoundation.h>
 #import <QuartzCore/QuartzCore.h>
-#import "UIImage+Resize.h"
 #import "SDImageCache.h"
 #import "NewMakesViewController.h"
 #import "Currency.h"
+#import "NewMakesViewController.h"
+#import "TestViewController.h"
+#import "NewTopTensViewController.h"
+#import "SpecsCollectionCell.h"
+#import "SpecsToolbarHeader.h"
+#import "Make.h"
+#import "UIImage+ImageEffects.h"
+#import "FXBlurView.h"
+#import "SearchModelController.h"
+#import "SearchTabViewController.h"
+#import <Google/Analytics.h>
 
 @interface DetailViewController ()
 
@@ -32,7 +42,7 @@
 
 @implementation DetailViewController
 
-@synthesize saveButton, exhaustButton, savedArray, currentCar, SpecsTableView, carNameLabel, toolBarBackground, upperView, currentTime, circleProgressBar, exhaustDuration, avPlayer, exhaustTimer, exhaustTracker, activityIndicator, isPlaying, hasCalled, hiddenImageScroller, hiddenWebView, hiddenEvoxTrimmingView, hiddenImageView, shouldLoadImage, shouldHaveSpecName, firstCar, secondCar, firstImageView, firstImageScroller, secondImageView, secondImageScroller, hiddenWebView2, hiddenImageView2, hiddenImageScroller2, hiddenEvoxTrimmingView2, hasCalled1, hasCalled2, activityIndicator1, activityIndicator2, firstCarNameLabel, secondCarNameLabel, exhaustLabel, favoriteLabel, websiteLabel, compareLabel, compareButton, websiteButton, changeCar1Button, changeCar2Button, exhaustButton1, exhaustButton2, isplaying1, isplaying2, shouldRevertToDetail, specImageDetailCenter, currencySymbol, hpUnit, speedUnit, weightUnit, fuelEconomyUnit;
+@synthesize savedArray, currentCar, activityIndicator, isPlaying, hasCalled, shouldLoadImage, shouldAnimateCell, firstCar, secondCar, activityIndicator1, activityIndicator2, isplaying1, isplaying2, shouldRevertToDetail, specImageDetailCenter, currencySymbol, hpUnit, speedUnit, weightUnit, fuelEconomyUnit, cameFromMakes, cameFromTopTens, cameFromFavorites, specsCollectionView, borderView, initialBorderFrame, makeImageView, blurView, torqueUnit, shouldBeCompare, cellWidth, shouldBeDetail, makeImageView1, makeImageView2, cameFromModel, cameFromHome, cameFromSearchTab, cameFromSearchModel, detailImageScroller, avAudioPlayer, avAudioPlayer1, avAudioPlayer2, hasLoaded, hasLoaded1, hasLoaded2, exhaustButton1, exhaustButton2, makeImageContainer, shouldFadeMakeImage, specsHeaderView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -49,210 +59,573 @@
 {
     [super viewDidLoad];
     
-    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-    [appDelegate setShouldRotate:NO];
+    NSError *error = nil;
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&error];
+    [[AVAudioSession sharedInstance] setActive:YES error:&error];
     
-    [firstCarNameLabel setAlpha:0.0];
-    [secondCarNameLabel setAlpha:0.0];
-    [changeCar1Button setAlpha:0.0];
-    [exhaustButton1 setAlpha:0.0];
-    [exhaustButton2 setAlpha:0.0];
-    [changeCar2Button setAlpha:0.0];
+    activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    activityIndicator1 = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    activityIndicator2 = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    
+    specsCollectionView.dataSource = self;
+    specsCollectionView.delegate = self;
+    
+    shouldBeDetail = YES;
+    shouldFadeMakeImage = YES;
+    cellWidth = specsCollectionView.frame.size.width/2;
+    
+    if(cameFromMakes)
+    {
+        NewMakesViewController *superView = (NewMakesViewController *)self.parentViewController;
+        detailImageScroller = superView.detailImageScroller;
+    }
+    if(cameFromModel)
+    {
+        ModelViewController *superView = (ModelViewController *)self.parentViewController;
+        detailImageScroller = superView.detailImageScroller;
+    }
+    if(cameFromTopTens)
+    {
+        NewTopTensViewController *superView = (NewTopTensViewController *)self.parentViewController;
+        detailImageScroller = superView.detailImageScroller;
+    }
+    if(cameFromFavorites)
+    {
+        FavoritesViewController *superView = (FavoritesViewController *)self.parentViewController;
+        detailImageScroller = superView.detailImageScroller;
+    }
+    if(cameFromSearchModel)
+    {
+        SearchModelController *superView = (SearchModelController *)self.parentViewController;
+        detailImageScroller = superView.detailImageScroller;
+    }
+    if(cameFromSearchTab)
+    {
+        SearchTabViewController *superView = (SearchTabViewController *)self.parentViewController;
+        detailImageScroller = superView.detailImageScroller;
+    }
+    
+    if(detailImageScroller != nil)
+    {
+        UITapGestureRecognizer *tapImage = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tappedImage:)];
+        [detailImageScroller addGestureRecognizer:tapImage];
+    }
     
     self.view.backgroundColor = [UIColor whiteColor];
-    self.title = [[currentCar.CarMake stringByAppendingString:@" "] stringByAppendingString:currentCar.CarModel];
-    carNameLabel.text = currentCar.CarFullName;
-    [upperView sendSubviewToBack:toolBarBackground];
     
-    shouldHaveSpecName = YES;
-    [SpecsTableView reloadData];
-    [self setUpStars];
-    [self setUpExhaustProgressWheel];
+    [self setTitleLabelWithString:currentCar.CarMake andView:self];
+    
+    [specsCollectionView reloadData];
+    
+    CALayer *layer = borderView.layer;
+    [layer setMasksToBounds:NO];
+    [specsCollectionView.layer setMasksToBounds:NO];
+    [layer setCornerRadius:8.0];
+    layer.shadowOffset = CGSizeMake(-.2f, .2f);
+    layer.shadowRadius = 1.5;
+    layer.shadowOpacity = .5;
+    
+    specsCollectionView.backgroundColor = [UIColor clearColor];
+    specsCollectionView.backgroundView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    initialBorderFrame = borderView.frame;
+    
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    if(!([currentCar.CarExhaust isEqual:@""]))
-        [exhaustButton setBackgroundImage:[UIImage imageNamed:@"arrows.png"] forState:UIControlStateNormal];
-    else
-        [exhaustButton setBackgroundImage:[UIImage imageNamed:@"mute.png"] forState:UIControlStateNormal];
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [specsCollectionView reloadData];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
 {
-    NSLog(@"viewwilldisappear");
-    [avPlayer removeObserver:self forKeyPath:@"status"];
-    avPlayer = NULL;
-    [circleProgressBar setProgress:1 animated:NO];
-    exhaustTracker = 0;
-    [exhaustTimer invalidate];
-    exhaustTimer = nil;
+    [specsCollectionView reloadData];
+    
+    avAudioPlayer = nil;
     hasCalled = NO;
 }
 
-- (void)setUpStars
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkStar) name:@"ChangeStar" object:nil];
-    if([self isSaved:currentCar] == true)
-        [saveButton setBackgroundImage:[UIImage imageNamed:@"FavoriteFilled.png"] forState:UIControlStateNormal];
+    if(scrollView == specsCollectionView)
+    {
+        float scrollViewHeight = scrollView.frame.size.height;
+        float scrollContentSizeHeight = scrollView.contentSize.height;
+        float scrollOffset = scrollView.contentOffset.y;
+        
+        CGPoint currentPosition = scrollView.contentOffset;
+        
+        if(currentPosition.y > 0)
+        {
+            [borderView setFrame:CGRectMake(7, initialBorderFrame.origin.y - currentPosition.y, borderView.frame.size.width, initialBorderFrame.size.height + currentPosition.y)];
+        }
+        
+        if(currentPosition.y <= 0)
+        {
+            [borderView setFrame:CGRectMake(7, initialBorderFrame.origin.y - currentPosition.y, borderView.frame.size.width, initialBorderFrame.size.height - currentPosition.y)];
+        }
+        
+        if (scrollOffset + scrollViewHeight >= scrollContentSizeHeight-2)
+        {
+            [borderView setFrame:CGRectMake(7, borderView.frame.origin.y, borderView.frame.size.width, borderView.frame.size.height - 20)];
+        }
+    }
+}
+
+-(void)setUpMakeBackgroundImage
+{
+    if([currentCar.RemoveLogo isEqualToNumber:[NSNumber numberWithInteger:1]])
+        return;
+    
+    [UIImageView animateWithDuration:0.5 animations:^{
+        [makeImageView1 sd_cancelCurrentImageLoad];
+        [makeImageView2 sd_cancelCurrentImageLoad];
+        [makeImageView1 setAlpha:0.0];
+        [makeImageView2 setAlpha:0.0];
+    }];
+    
+    blurView.blurRadius = 8;
+    
+    AppDelegate *appdel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    Make *makeToUse;
+    for(int i=0; i<appdel.makeimageArray2.count; i++)
+    {
+        Make *currentMake = [appdel.makeimageArray2 objectAtIndex:i];
+        if([currentCar.CarMake isEqualToString:currentMake.MakeName])
+        {
+            makeToUse = currentMake;
+            break;
+        }
+    }
+    
+    NSURL *imageURL;
+    if([makeToUse.MakeImageURL containsString:@"carno"])
+        imageURL = [NSURL URLWithString:makeToUse.MakeImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image2.php"]];
     else
-        [saveButton setBackgroundImage:[UIImage imageNamed:@"star.png"] forState:UIControlStateNormal];
+        imageURL = [NSURL URLWithString:makeToUse.MakeImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/CarPictures/"]];
+    
+    [makeImageView sd_setImageWithURL:imageURL
+                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageurl){
+                                 
+                                 if(shouldFadeMakeImage)
+                                 {
+                                    [makeImageContainer setAlpha:0];
+                                    [makeImageView setAlpha:0];
+                                    [UIImageView animateWithDuration:0.5 animations:^{
+                                        [makeImageView setAlpha:1];
+                                        [makeImageContainer setAlpha:1];
+                                        shouldFadeMakeImage = NO;
+                                    }];
+                                 }else{
+                                     [makeImageView setAlpha:1];
+                                 }
+                             }];
 }
 
-- (void)setUpExhaustProgressWheel
+-(void)setUpCompareMakeBackgroundImages
 {
-    circleProgressBar.progressBarWidth = 5;
-    circleProgressBar.progressBarTrackColor = [UIColor whiteColor];
-    circleProgressBar.progressBarProgressColor = [UIColor blackColor];
-    circleProgressBar.startAngle = -90;
-    circleProgressBar.alpha = 0;
+    [UIImageView animateWithDuration:0.5 animations:^{
+        [makeImageView sd_cancelCurrentImageLoad];
+        [makeImageView setAlpha:0.0];
+    }];
+    
+    blurView.blurRadius = 8;
+    
+    AppDelegate *appdel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    Make *makeToUse1;
+    Make *makeToUse2;
+    
+    for(int i=0; i<appdel.makeimageArray2.count; i++)
+    {
+        Make *currentMake = [appdel.makeimageArray2 objectAtIndex:i];
+        if([firstCar.CarMake isEqualToString:currentMake.MakeName])
+        {
+            makeToUse1 = currentMake;
+            break;
+        }
+    }
+    
+    for(int i=0; i<appdel.makeimageArray2.count; i++)
+    {
+        Make *currentMake = [appdel.makeimageArray2 objectAtIndex:i];
+        if([secondCar.CarMake isEqualToString:currentMake.MakeName])
+        {
+            makeToUse2 = currentMake;
+            break;
+        }
+    }
+    
+    if(makeToUse1 == makeToUse2)
+    {
+        [self setUpMakeBackgroundImage];
+        return;
+    }
+    
+    if([firstCar.RemoveLogo isEqualToNumber:[NSNumber numberWithInteger:0]])
+    {
+        NSURL *imageURL1;
+        if([makeToUse1.MakeImageURL containsString:@"carno"])
+            imageURL1 = [NSURL URLWithString:makeToUse1.MakeImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image2.php"]];
+        else
+            imageURL1 = [NSURL URLWithString:makeToUse1.MakeImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/CarPictures/"]];
+        
+        [makeImageView1 sd_setImageWithURL:imageURL1
+                                 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageurl){
+                                     
+                                     [makeImageContainer setAlpha:0];
+                                     [makeImageView1 setAlpha:0];
+                                     [UIImageView animateWithDuration:0.5 animations:^{
+                                         [makeImageView1 setAlpha:1];
+                                         [makeImageContainer setAlpha:1];
+                                     }];
+                                     
+                                 }];
+    }
+    
+    if([secondCar.RemoveLogo isEqualToNumber:[NSNumber numberWithInteger:0]])
+    {
+        NSURL *imageURL2;
+        if([makeToUse2.MakeImageURL containsString:@"carno"])
+            imageURL2 = [NSURL URLWithString:makeToUse2.MakeImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image2.php"]];
+        else
+            imageURL2 = [NSURL URLWithString:makeToUse2.MakeImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/CarPictures/"]];
+        
+        [makeImageView2 sd_setImageWithURL:imageURL2
+                                 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageurl){
+                                     
+                                     [makeImageContainer setAlpha:0];
+                                     [makeImageView2 setAlpha:0];
+                                     [UIImageView animateWithDuration:0.5 animations:^{
+                                         [makeImageView2 setAlpha:1];
+                                         [makeImageContainer setAlpha:1];
+                                     }];
+                                     
+                                 }];
+    }
 }
 
-#pragma Image Loading Methods
-
-
-#pragma mark Table View Methods
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+-(IBAction)Website
 {
-    return 11;
+    [[UIApplication sharedApplication] openURL: [NSURL URLWithString:currentCar.CarWebsite]];
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+#pragma mark Collection View Methods
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return 12;
+}
+
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
     return 1;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
-    return 75;
+    UICollectionReusableView *reusableview = nil;
+    
+    if (kind == UICollectionElementKindSectionHeader)
+    {
+        SpecsToolbarHeader *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
+        specsHeaderView = headerView;
+        
+        exhaustButton1 = headerView.exhaustButton;
+        exhaustButton2 = headerView.saveButton;
+
+        if(shouldBeCompare)
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self setUpCompareMakeBackgroundImages];
+            });
+            
+            [headerView.exhaustButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
+            [headerView.compareButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
+            [headerView.websiteButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
+            [headerView.saveButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
+            
+            [headerView.exhaustButton addTarget:self action:@selector(Sound1:) forControlEvents:UIControlEventTouchUpInside];
+            [headerView.compareButton addTarget:self action:@selector(changeCar1) forControlEvents:UIControlEventTouchUpInside];
+            [headerView.websiteButton addTarget:self action:@selector(changeCar2) forControlEvents:UIControlEventTouchUpInside];
+            [headerView.saveButton addTarget:self action:@selector(Sound2:) forControlEvents:UIControlEventTouchUpInside];
+            
+            [headerView setCompareImagesWithFirstModel:firstCar andSecondModel:secondCar];
+            [headerView.detailImageScroller setAlpha:0];
+            [headerView.carNameLabel setAlpha:0];
+            
+            [headerView.firstCarNameLabel setText:firstCar.CarModel];
+            [headerView.secondCarNameLabel setText:secondCar.CarModel];
+            [headerView.firstCarNameLabel setAlpha:1];
+            [headerView.secondCarNameLabel setAlpha:1];
+            
+            if(!isplaying1)
+                [headerView.exhaustButton setBackgroundImage:[self resizeImage:[UIImage imageNamed:@"Play.png"]reSize:headerView.compareButton.frame.size] forState:UIControlStateNormal];
+            [headerView.compareButton setBackgroundImage:[self resizeImage:[UIImage imageNamed:@"ChangeCar1"]reSize:headerView.compareButton.frame.size] forState:UIControlStateNormal];
+            [headerView.websiteButton setBackgroundImage:[self resizeImage:[UIImage imageNamed:@"ChangeCar2"]reSize:headerView.compareButton.frame.size] forState:UIControlStateNormal];
+            if(!isplaying2)
+                [headerView.saveButton setBackgroundImage:[self resizeImage:[UIImage imageNamed:@"Play.png"]reSize:headerView.compareButton.frame.size] forState:UIControlStateNormal];
+            
+            if([firstCar.CarExhaust isEqualToString:@""])
+                [headerView.exhaustButton setAlpha:.35];
+            else if(!hasLoaded1)
+            {
+                [headerView.exhaustButton setBackgroundImage:[self resizeImage:[UIImage imageNamed:@"Circle.png"]reSize:headerView.compareButton.frame.size] forState:UIControlStateNormal];
+                if(firstCar != NULL)
+                    [headerView startExhaustLoadingWheel];
+            }
+            
+            if([secondCar.CarExhaust isEqualToString:@""])
+                [headerView.saveButton setAlpha:.35];
+            else if(!hasLoaded2)
+            {
+                [headerView.saveButton setBackgroundImage:[self resizeImage:[UIImage imageNamed:@"Circle.png"]reSize:headerView.compareButton.frame.size] forState:UIControlStateNormal];
+                if(secondCar != NULL)
+                    [headerView startExhaustLoadingWheel2];
+            }
+        
+            [headerView.exhaustLabel setText:@"Exhaust 1"];
+            [headerView.compareLabel setText:@"Change Car 1"];
+            [headerView.websiteLabel setText:@"Change Car 2"];
+            [headerView.favoriteLabel setText:@"Exhaust 2"];
+            
+            UITapGestureRecognizer *tapImage1 = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tappedImage1:)];
+            [headerView.pushCar1ImageButton addGestureRecognizer:tapImage1];
+            UITapGestureRecognizer *tapImage2 = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tappedImage2:)];
+            [headerView.pushCar2ImageButton addGestureRecognizer:tapImage2];
+            
+            [headerView bringSubviewToFront:headerView.pushCar2ImageButton];
+            [headerView bringSubviewToFront:headerView.pushCar1ImageButton];
+            
+            for (UIGestureRecognizer *recognizer in headerView.pushDetailImageButton.gestureRecognizers)
+                [headerView.pushDetailImageButton removeGestureRecognizer:recognizer];
+        }
+        else
+        {
+            [self performSelectorOnMainThread:@selector(setUpMakeBackgroundImage) withObject:nil waitUntilDone:NO];
+
+            
+            [headerView.exhaustButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
+            [headerView.compareButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
+            [headerView.websiteButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
+            [headerView.saveButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
+            
+            [headerView.exhaustButton addTarget:self action:@selector(Sound:) forControlEvents:UIControlEventTouchUpInside];
+            [headerView.compareButton addTarget:self action:@selector(Compare) forControlEvents:UIControlEventTouchUpInside];
+            [headerView.websiteButton addTarget:self action:@selector(Website) forControlEvents:UIControlEventTouchUpInside];
+            [headerView.saveButton addTarget:self action:@selector(Save) forControlEvents:UIControlEventTouchUpInside];
+            
+            if(!isPlaying)
+                [headerView.exhaustButton setBackgroundImage:[self resizeImage:[UIImage imageNamed:@"Play.png"]reSize:headerView.compareButton.frame.size] forState:UIControlStateNormal];
+            [headerView.compareButton setBackgroundImage:[self resizeImage:[UIImage imageNamed:@"Compare.png"]reSize:headerView.compareButton.frame.size] forState:UIControlStateNormal];
+            [headerView.websiteButton setBackgroundImage:[self resizeImage:[UIImage imageNamed:@"Website.png"]reSize:headerView.compareButton.frame.size] forState:UIControlStateNormal];
+            [headerView.saveButton setBackgroundImage:[self resizeImage:[UIImage imageNamed:@"Favorite.png"]reSize:headerView.compareButton.frame.size] forState:UIControlStateNormal];
+            
+            if([currentCar.CarExhaust isEqualToString:@""])
+                [headerView.exhaustButton setAlpha:.35];
+            else if(!hasLoaded)
+            {
+                [headerView.exhaustButton setBackgroundImage:[self resizeImage:[UIImage imageNamed:@"Circle.png"]reSize:headerView.exhaustButton.frame.size] forState:UIControlStateNormal];
+                [headerView startExhaustLoadingWheel];
+            }
+            
+            [headerView.exhaustLabel setText:@"Exhaust"];
+            [headerView.compareLabel setText:@"Compare"];
+            [headerView.websiteLabel setText:@"Website"];
+            [headerView.favoriteLabel setText:@"Favorite"];
+            
+            if([self isSaved:currentCar] == true)
+                [headerView.saveButton setBackgroundImage:[self resizeImage:[UIImage imageNamed:@"FavoriteFilled.png"]reSize:headerView.compareButton.frame.size] forState:UIControlStateNormal];
+            else
+                [headerView.saveButton setBackgroundImage:[self resizeImage:[UIImage imageNamed:@"Favorite.png"]reSize:headerView.compareButton.frame.size] forState:UIControlStateNormal];
+            
+            [headerView.carNameLabel setText:currentCar.CarModel];
+            [headerView.carNameLabel setAlpha:1];
+            [headerView.firstCarNameLabel setAlpha:0];
+            [headerView.secondCarNameLabel setAlpha:0];
+            
+            if(shouldLoadImage)
+                [headerView setUpDetailCarImageWithModel:currentCar];
+            
+            [headerView.firstImageScroller setAlpha:0];
+            [headerView.secondImageScroller setAlpha:0];
+            
+            UITapGestureRecognizer *tapImage = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tappedImage:)];
+            [headerView.pushDetailImageButton addGestureRecognizer:tapImage];
+            
+            [headerView bringSubviewToFront:headerView.pushDetailImageButton];
+            
+            for (UIGestureRecognizer *recognizer in headerView.pushCar1ImageButton.gestureRecognizers)
+                [headerView.pushCar1ImageButton removeGestureRecognizer:recognizer];
+            for (UIGestureRecognizer *recognizer in headerView.pushCar2ImageButton.gestureRecognizers)
+                [headerView.pushCar2ImageButton removeGestureRecognizer:recognizer];
+        }
+        reusableview = headerView;
+    }
+    
+    if(reusableview == nil)
+        reusableview = [[UICollectionReusableView alloc] init];
+    
+    return reusableview;
 }
 
--(void) tableView:(UITableView *) tableView willDisplayCell:(UITableViewCell *) cell forRowAtIndexPath:(NSIndexPath *)indexPath
+-(void)tappedImage:(UITapGestureRecognizer *)sender
 {
-    static NSString *CellIdentifier = @"SpecsCell";
-    SpecsCell *cell2 = (SpecsCell *)[SpecsTableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    if(shouldRevertToDetail)
-    {
-        if(!cell2.hasRevertedToDetail)
-        {
-            [self revertCellToDetail:cell2];
-            cell2.hasRevertedToDetail = YES;
-        }
-    }
-    
-    if(shouldHaveSpecName == NO)
-    {
-        if(!cell2.hasConvertedToCompare)
-        {
-            [self convertCellToCompare:cell2];
-            cell2.hasConvertedToCompare = YES;
-        }
-    }
+    [self performSegueWithIdentifier:@"pushImageView" sender:self];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+-(void)tappedImage1:(UITapGestureRecognizer *)sender
+{
+    [self performSegueWithIdentifier:@"pushImageView1" sender:self];
+}
+
+-(void)tappedImage2:(UITapGestureRecognizer *)sender
+{
+    [self performSegueWithIdentifier:@"pushImageView2" sender:self];
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGFloat cellHeight = 0.0;
+    int height = [UIScreen mainScreen].bounds.size.height;
+
+    if (height == 480) {
+        cellHeight = 95;
+    } else if (height == 568) {
+        cellHeight = 95;
+    } if (height == 667) {
+        cellHeight = 112;
+    } if (height == 736) {
+        cellHeight = 124;
+    }
+    
+    if(shouldBeDetail)
+    {
+        if(indexPath.row == 10 || indexPath.row == 11)
+            return CGSizeMake(cellWidth, cellHeight+5);
+    }
+    else if(shouldBeCompare)
+    {
+        if(indexPath.row == 11)
+            return CGSizeMake(cellWidth, cellHeight+5);
+    }
+    
+    return CGSizeMake(cellWidth, cellHeight);
+}
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"SpecsCell";
-    SpecsCell *cell = (SpecsCell *)[SpecsTableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    if (cell == nil)
-    {
-        cell = [[SpecsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    self.view.backgroundColor = [UIColor whiteColor];
+    SpecsCollectionCell *cell = [specsCollectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    Model *leftCar = firstCar;
+    Model *leftCar;
     Model *rightCar;
     
-    if(shouldRevertToDetail)
+    if(shouldBeCompare)
     {
-        if(!cell.hasRevertedToDetail)
+        if(shouldAnimateCell == YES)
         {
-            [self revertCellToDetail:cell];
-            cell.hasRevertedToDetail = YES;
+            [self convertCellToCompare:cell];
+        }
+        else
+            [self convertCellToCompareImmediate:cell];
+
+        leftCar = firstCar;
+        rightCar = secondCar;
+    }
+    else
+    {
+        if(shouldBeDetail)
+        {
+            if(shouldAnimateCell == YES)
+                [self revertCellToDetail:cell];
+            else
+                [self revertCellToDetailImmediate:cell];
+            
+            leftCar = firstCar;
+            rightCar = secondCar;
+        }
+        
+        leftCar = currentCar;
+        if(indexPath.row % 2 == 0)
+        {
+            [cell.middleCellDivider setAlpha:1];
+            [cell.leftCellDivider setAlpha:1];
+            [cell.rightCellDivider setAlpha:0];
+        }
+        else
+        {
+            [cell.rightCellDivider setAlpha:1];
+            [cell.middleCellDivider setAlpha:0];
+            [cell.leftCellDivider setAlpha:0];
+        }
+        
+        if(indexPath.row == 10 || indexPath.row == 11)
+        {
+            [cell.rightCellDivider setAlpha:0];
+            [cell.leftCellDivider setAlpha:0];
         }
     }
     
-    if(shouldHaveSpecName == NO)
-    {
-        if(!cell.hasConvertedToCompare)
-        {
-            [self convertCellToCompare:cell];
-            cell.hasConvertedToCompare = YES;
-        }
-        rightCar = secondCar;
-
-    }else{
-        rightCar = currentCar;
-    }
-
     if(indexPath.row == 0)
     {
-        cell.SpecImage.image = [UIImage imageNamed:@"YearsMade.png"];
-        cell.SpecName.text = @"Years Made";
-        if(leftCar != NULL)
-            cell.CarValue.text = leftCar.CarYearsMade;
-        else
-            cell.CarValue.text = @"";
+        cell.specImage.image = [self resizeImage:[UIImage imageNamed:@"YearsMade.png"]reSize:cell.specImage.frame.size];
+        cell.comparespecImage.image = [self resizeImage:[UIImage imageNamed:@"YearsMade.png"]reSize:cell.comparespecImage.frame.size];
+        cell.specLabel.text = @"Years Made";
+        cell.compareSpecLabel.text = @"Years Made";
+        
         if(rightCar != NULL)
-            cell.CarValue2.text = rightCar.CarYearsMade;
+            cell.specValueLabel2.text = rightCar.CarYearsMade;
         else
-            cell.CarValue2.text = @"";
-
+            cell.specValueLabel2.text = @"";
+        
+        if(leftCar != NULL)
+            cell.specValueLabel.text = leftCar.CarYearsMade;
+        else
+            cell.specValueLabel.text = @"";
     }
     if(indexPath.row == 1)
     {
-        cell.SpecImage.image = [UIImage imageNamed:@"Price.png"];
-        cell.SpecName.text = @"Market Price";
-        
-        if(leftCar != NULL)
-        {
-            NSNumber *convertedPriceLow = [self determineCarPrice:leftCar.CarPriceLow];
-            NSNumber *convertedPriceHigh = [self determineCarPrice:leftCar.CarPriceHigh];
-            
-            NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-            [numberFormatter setNumberStyle: NSNumberFormatterDecimalStyle];
-            [numberFormatter setMaximumFractionDigits:0];
-            
-            NSString *priceLowString = [numberFormatter stringFromNumber:convertedPriceLow];
-            NSString *priceHighString = [numberFormatter stringFromNumber:convertedPriceHigh];
-            NSString *combinedPriceString = [[[currencySymbol stringByAppendingString:priceLowString]stringByAppendingString:@" - " ] stringByAppendingString:priceHighString];
-            NSString *singlePriceString = [currencySymbol stringByAppendingString:priceLowString];
-            
-            if(![convertedPriceLow isEqual:convertedPriceHigh])
-                cell.CarValue.text = combinedPriceString;
-            else
-                cell.CarValue.text = singlePriceString;
-        }
-        else
-            cell.CarValue.text = @"";
+        cell.specImage.image = [self resizeImage:[UIImage imageNamed:@"DriveType.png"]reSize:cell.specImage.frame.size];
+        cell.comparespecImage.image = [self resizeImage:[UIImage imageNamed:@"DriveType.png"]reSize:cell.comparespecImage.frame.size];
+        cell.specLabel.text = @"Drive Type";
+        cell.compareSpecLabel.text = @"Drive Type";
         
         if(rightCar != NULL)
-        {
-            NSNumber *convertedPriceLow = [self determineCarPrice:rightCar.CarPriceLow];
-            NSNumber *convertedPriceHigh = [self determineCarPrice:rightCar.CarPriceHigh];
-            
-            NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-            [numberFormatter setNumberStyle: NSNumberFormatterDecimalStyle];
-            [numberFormatter setMaximumFractionDigits:0];
-            
-            NSString *priceLowString = [numberFormatter stringFromNumber:convertedPriceLow];
-            NSString *priceHighString = [numberFormatter stringFromNumber:convertedPriceHigh];
-            NSString *combinedPriceString = [[[currencySymbol stringByAppendingString:priceLowString]stringByAppendingString:@" - " ] stringByAppendingString:priceHighString];
-            NSString *singlePriceString = [currencySymbol stringByAppendingString:priceLowString];
-            
-            if(![convertedPriceLow isEqual:convertedPriceHigh])
-                cell.CarValue2.text = combinedPriceString;
-            else
-                cell.CarValue2.text = singlePriceString;
-        }
+            cell.specValueLabel2.text = rightCar.CarDriveType;
         else
-            cell.CarValue2.text = @"";
+            cell.specValueLabel2.text = @"";
+        
+        if(leftCar != NULL)
+            cell.specValueLabel.text = leftCar.CarDriveType;
+        else
+            cell.specValueLabel.text = @"";
+        
     }
     if(indexPath.row == 2)
     {
-        cell.SpecImage.image = [UIImage imageNamed:@"Price.png"];
-        cell.SpecName.text = @"MSRP";
+        cell.specImage.image = [self resizeImage:[UIImage imageNamed:@"Price.png"]reSize:cell.specImage.frame.size];
+        cell.comparespecImage.image = [self resizeImage:[UIImage imageNamed:@"Price.png"]reSize:cell.comparespecImage.frame.size];
+        cell.specLabel.text = @"Starting MSRP";
+        cell.compareSpecLabel.text = @"Starting MSRP";
+        
+        if(rightCar != NULL)
+         {
+             NSNumber *convertedMSRP = [self determineCarPrice:rightCar.CarMSRP];
+             NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+             [numberFormatter setNumberStyle: NSNumberFormatterDecimalStyle];
+             [numberFormatter setMaximumFractionDigits:0];
+             NSString *msrpString = [numberFormatter stringFromNumber:convertedMSRP];
+             NSString *finalMSRP = [currencySymbol stringByAppendingString:msrpString];
+             
+             if([msrpString  isEqualToString: @"0"])
+                 cell.specValueLabel2.text = @"N/A";
+             else
+                 cell.specValueLabel2.text = finalMSRP;
+         }
+         else
+             cell.specValueLabel2.text = @"";
         
         if(leftCar != NULL)
         {
@@ -261,282 +634,501 @@
             [numberFormatter setNumberStyle: NSNumberFormatterDecimalStyle];
             [numberFormatter setMaximumFractionDigits:0];
             NSString *msrpString = [numberFormatter stringFromNumber:convertedMSRP];
-            NSLog(@"currencySymbol, msrpString: %@, %@", currencySymbol, msrpString);
-            msrpString = [currencySymbol stringByAppendingString:msrpString];
+            NSString *finalMSRP = [currencySymbol stringByAppendingString:msrpString];
             
-            cell.CarValue.text = msrpString;
+            if([msrpString  isEqualToString: @"0"])
+                cell.specValueLabel.text = @"N/A";
+            else
+                cell.specValueLabel.text = finalMSRP;
         }
         else
-            cell.CarValue.text = @"";
-        
-        if(rightCar != NULL)
-        {
-            NSNumber *convertedMSRP = [self determineCarPrice:rightCar.CarMSRP];
-            NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-            [numberFormatter setNumberStyle: NSNumberFormatterDecimalStyle];
-            [numberFormatter setMaximumFractionDigits:0];
-            NSString *msrpString = [numberFormatter stringFromNumber:convertedMSRP];
-            NSLog(@"currencySymbol, msrpString: %@, %@", currencySymbol, msrpString);
-            msrpString = [currencySymbol stringByAppendingString:msrpString];
-            
-            cell.CarValue2.text = msrpString;
-        }
-        else
-            cell.CarValue2.text = @"";
+            cell.specValueLabel.text = @"";
     }
     if(indexPath.row == 3)
     {
-        cell.SpecImage.image = [UIImage imageNamed:@"Engine.png"];
-        cell.SpecName.text = @"Engine";
-        if(leftCar != NULL)
-            cell.CarValue.text = leftCar.CarEngine;
-        else
-            cell.CarValue.text = @"";
+        cell.specImage.image = [self resizeImage:[UIImage imageNamed:@"Price.png"]reSize:cell.specImage.frame.size];
+        cell.comparespecImage.image = [self resizeImage:[UIImage imageNamed:@"Price.png"]reSize:cell.comparespecImage.frame.size];
+        cell.specLabel.text = @"Market Value";
+        cell.compareSpecLabel.text = @"Market Value";
+        
         if(rightCar != NULL)
-            cell.CarValue2.text = rightCar.CarEngine;
+        {
+            if([rightCar.CarPrice isEqualToString:@"N/A"] || ([rightCar.CarPriceLow isEqual:[NSNumber numberWithInt:0]] || [rightCar.CarPriceHigh isEqual:[NSNumber numberWithInt:0]]))
+                cell.specValueLabel2.text = @"N/A";
+            else
+            {
+                NSNumber *convertedPriceLow = [self determineCarPrice:rightCar.CarPriceLow];
+                NSNumber *convertedPriceHigh = [self determineCarPrice:rightCar.CarPriceHigh];
+                
+                NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+                [numberFormatter setNumberStyle: NSNumberFormatterDecimalStyle];
+                [numberFormatter setMaximumFractionDigits:0];
+                
+                NSString *priceLowString = [numberFormatter stringFromNumber:convertedPriceLow];
+                NSString *priceHighString = [numberFormatter stringFromNumber:convertedPriceHigh];
+                NSString *combinedPriceString = [[[currencySymbol stringByAppendingString:priceLowString]stringByAppendingString:@" - " ] stringByAppendingString:priceHighString];
+                NSString *singlePriceString = [currencySymbol stringByAppendingString:priceLowString];
+                
+                if(![convertedPriceLow isEqual:convertedPriceHigh])
+                    cell.specValueLabel2.text = combinedPriceString;
+                else
+                    cell.specValueLabel2.text = singlePriceString;
+            }
+        }
         else
-            cell.CarValue2.text = @"";
+            cell.specValueLabel2.text = @"";
+        
+        if(leftCar != NULL)
+        {
+            if([leftCar.CarPrice isEqualToString:@"N/A"] || ([leftCar.CarPriceLow isEqual:[NSNumber numberWithInt:0]] || [leftCar.CarPriceHigh isEqual:[NSNumber numberWithInt:0]]))
+                cell.specValueLabel.text = @"N/A";
+            else
+            {
+                NSNumber *convertedPriceLow = [self determineCarPrice:leftCar.CarPriceLow];
+                NSNumber *convertedPriceHigh = [self determineCarPrice:leftCar.CarPriceHigh];
+                
+                NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+                [numberFormatter setNumberStyle: NSNumberFormatterDecimalStyle];
+                [numberFormatter setMaximumFractionDigits:0];
+                
+                NSString *priceLowString = [numberFormatter stringFromNumber:convertedPriceLow];
+                NSString *priceHighString = [numberFormatter stringFromNumber:convertedPriceHigh];
+                NSString *combinedPriceString = [[[currencySymbol stringByAppendingString:priceLowString]stringByAppendingString:@" - " ] stringByAppendingString:priceHighString];
+                NSString *singlePriceString = [currencySymbol stringByAppendingString:priceLowString];
+                
+                if(![convertedPriceLow isEqual:convertedPriceHigh])
+                    cell.specValueLabel.text = combinedPriceString;
+                else
+                    cell.specValueLabel.text = singlePriceString;
+            }
+        }
+        else
+            cell.specValueLabel.text = @"";
     }
     if(indexPath.row == 4)
     {
-        cell.SpecImage.image = [UIImage imageNamed:@"Transmission&Settings.png"];
-        cell.SpecName.text = @"Transmission";
-        if(leftCar != NULL)
-            cell.CarValue.text = leftCar.CarTransmission;
-        else
-            cell.CarValue.text = @"";
+        cell.specImage.image = [self resizeImage:[UIImage imageNamed:@"Engine.png"]reSize:cell.specImage.frame.size];
+        cell.comparespecImage.image = [self resizeImage:[UIImage imageNamed:@"Engine.png"]reSize:cell.comparespecImage.frame.size];
+        cell.specLabel.text = @"Engine";
+        cell.compareSpecLabel.text = @"Engine";
+        
         if(rightCar != NULL)
-            cell.CarValue2.text = rightCar.CarTransmission;
+            cell.specValueLabel2.text = rightCar.CarEngine;
+         else
+             cell.specValueLabel2.text = @"";
+        
+        if(leftCar != NULL)
+            cell.specValueLabel.text = leftCar.CarEngine;
         else
-            cell.CarValue2.text = @"";
+            cell.specValueLabel.text = @"";
     }
     if(indexPath.row == 5)
     {
-        cell.SpecImage.image = [UIImage imageNamed:@"DriveType.png"];
-        cell.SpecName.text = @"Drive Time";
-        if(leftCar != NULL)
-            cell.CarValue.text = leftCar.CarDriveType;
-        else
-            cell.CarValue.text = @"";
+        cell.specImage.image = [self resizeImage:[UIImage imageNamed:@"Transmission&Settings.png"]reSize:cell.specImage.frame.size];
+        cell.comparespecImage.image = [self resizeImage:[UIImage imageNamed:@"Transmission&Settings.png"]reSize:cell.comparespecImage.frame.size];
+        cell.specLabel.text = @"Transmission";
+        cell.compareSpecLabel.text = @"Transmission";
+
         if(rightCar != NULL)
-            cell.CarValue2.text = rightCar.CarDriveType;
+            cell.specValueLabel2.text = rightCar.CarTransmission;
+         else
+             cell.specValueLabel2.text = @"";
+        if(leftCar != NULL)
+            cell.specValueLabel.text = leftCar.CarTransmission;
         else
-            cell.CarValue2.text = @"";
+            cell.specValueLabel.text = @"";
     }
     if(indexPath.row == 6)
     {
-        cell.SpecImage.image = [UIImage imageNamed:@"Horsepower.png"];
-        cell.SpecName.text = @"Horsepower";
+        cell.specImage.image = [self resizeImage:[UIImage imageNamed:@"Horsepower.png"]reSize:cell.specImage.frame.size];
+        cell.comparespecImage.image = [self resizeImage:[UIImage imageNamed:@"Horsepower.png"]reSize:cell.comparespecImage.frame.size];
+        cell.specLabel.text = @"Power";
+        cell.compareSpecLabel.text = @"Power";
         
+        if(rightCar!= NULL)
+         {
+             if([rightCar.CarHorsepower isEqualToString:@"N/A"] || ([rightCar.CarHorsepowerLow isEqual:[NSNumber numberWithInt:0]] || [rightCar.CarHorsepowerHigh isEqual:[NSNumber numberWithInt:0]]))
+                 cell.specValueLabel2.text = @"N/A";
+             else
+             {
+                 NSNumber *convertedHPLow = [self determineHorsepower:rightCar.CarHorsepowerLow];
+                 NSNumber *convertedHPHigh = [self determineHorsepower:rightCar.CarHorsepowerHigh];
+         
+                 convertedHPLow = [NSNumber numberWithInt:(int)roundf([convertedHPLow doubleValue])];
+                 convertedHPHigh = [NSNumber numberWithInt:(int)roundf([convertedHPHigh doubleValue])];
+         
+                 NSString *hpLowString = [convertedHPLow stringValue];
+                 NSString *hpHighString = [convertedHPHigh stringValue];
+         
+                 NSString *combinedHPString = [[[hpLowString stringByAppendingString:@" - " ] stringByAppendingString:hpHighString] stringByAppendingString:hpUnit];
+                 NSString *singleHPString = [hpLowString stringByAppendingString:hpUnit];
+         
+                 if(![convertedHPLow isEqual:convertedHPHigh])
+                     cell.specValueLabel2.text = combinedHPString;
+                 else
+                    cell.specValueLabel2.text = singleHPString;
+             }
+         }
+         else
+             cell.specValueLabel2.text = @"";
         if(leftCar != NULL)
         {
-            NSNumber *convertedHPLow = [self determineHorsepower:leftCar.CarHorsepowerLow];
-            NSNumber *convertedHPHigh = [self determineHorsepower:leftCar.CarHorsepowerHigh];
-            
-            convertedHPLow = [NSNumber numberWithInt:(int)roundf([convertedHPLow doubleValue])];
-            convertedHPHigh = [NSNumber numberWithInt:(int)roundf([convertedHPHigh doubleValue])];
-            
-            NSString *hpLowString = [convertedHPLow stringValue];
-            NSString *hpHighString = [convertedHPHigh stringValue];
-            
-            NSString *combinedHPString = [[[hpLowString stringByAppendingString:@" - " ] stringByAppendingString:hpHighString] stringByAppendingString:hpUnit];
-            NSString *singleHPString = [hpLowString stringByAppendingString:hpUnit];
-            
-            if(![convertedHPLow isEqual:convertedHPHigh])
-                cell.CarValue.text = combinedHPString;
+             if([leftCar.CarHorsepower isEqualToString:@"N/A"] || ([leftCar.CarHorsepowerLow isEqual:[NSNumber numberWithInt:0]] || [leftCar.CarHorsepowerHigh isEqual:[NSNumber numberWithInt:0]]))
+                 cell.specValueLabel.text = @"N/A";
             else
-                cell.CarValue.text = singleHPString;
-
+            {
+                NSNumber *convertedHPLow = [self determineHorsepower:leftCar.CarHorsepowerLow];
+                NSNumber *convertedHPHigh = [self determineHorsepower:leftCar.CarHorsepowerHigh];
+            
+                convertedHPLow = [NSNumber numberWithInt:(int)roundf([convertedHPLow doubleValue])];
+                convertedHPHigh = [NSNumber numberWithInt:(int)roundf([convertedHPHigh doubleValue])];
+            
+                NSString *hpLowString = [convertedHPLow stringValue];
+                NSString *hpHighString = [convertedHPHigh stringValue];
+            
+                NSString *combinedHPString = [[[hpLowString stringByAppendingString:@" - " ] stringByAppendingString:hpHighString] stringByAppendingString:hpUnit];
+                NSString *singleHPString = [hpLowString stringByAppendingString:hpUnit];
+            
+                if(![convertedHPLow isEqual:convertedHPHigh])
+                    cell.specValueLabel.text = combinedHPString;
+                else
+                    cell.specValueLabel.text = singleHPString;
+            }
         }
         else
-            cell.CarValue.text = @"";
-        if(rightCar != NULL)
-        {
-            NSNumber *convertedHPLow = [self determineHorsepower:rightCar.CarHorsepowerLow];
-            NSNumber *convertedHPHigh = [self determineHorsepower:rightCar.CarHorsepowerHigh];
-            
-            convertedHPLow = [NSNumber numberWithInt:(int)roundf([convertedHPLow doubleValue])];
-            convertedHPHigh = [NSNumber numberWithInt:(int)roundf([convertedHPHigh doubleValue])];
-            
-            NSString *hpLowString = [convertedHPLow stringValue];
-            NSString *hpHighString = [convertedHPHigh stringValue];
-            
-            NSString *combinedHPString = [[[hpLowString stringByAppendingString:@" - " ] stringByAppendingString:hpHighString] stringByAppendingString:hpUnit];
-            NSString *singleHPString = [hpLowString stringByAppendingString:hpUnit];
-            
-            if(![convertedHPLow isEqual:convertedHPHigh])
-                cell.CarValue2.text = combinedHPString;
-            else
-                cell.CarValue2.text = singleHPString;
-        }
-        else
-            cell.CarValue2.text = @"";
+            cell.specValueLabel.text = @"";
     }
     if(indexPath.row == 7)
     {
-        cell.SpecImage.image = [UIImage imageNamed:@"0-60.png"];
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        if([[defaults objectForKey:@"Top Speed"] isEqualToString:@"MPH"])
-            cell.SpecName.text = @"0-60";
+        cell.specImage.image = [self resizeImage:[UIImage imageNamed:@"Torque.png"]reSize:cell.specImage.frame.size];
+        cell.comparespecImage.image = [self resizeImage:[UIImage imageNamed:@"Torque.png"]reSize:cell.comparespecImage.frame.size];
+        cell.specLabel.text = @"Torque";
+        cell.compareSpecLabel.text = @"Torque";
+        
+        if(rightCar != NULL)
+        {
+            if([rightCar.CarTorque isEqualToString:@"N/A"] || ([rightCar.CarTorqueLow isEqual:[NSNumber numberWithInt:0]] || [rightCar.CarTorqueHigh isEqual:[NSNumber numberWithInt:0]]))
+                cell.specValueLabel2.text = @"N/A";
+            else
+            {
+                NSNumber *convertedTorqueLow = [self determineTorque:rightCar.CarTorqueLow];
+                NSNumber *convertedTorqueHigh = [self determineTorque:rightCar.CarTorqueHigh];
+            
+                convertedTorqueLow = [NSNumber numberWithInt:(int)roundf([convertedTorqueLow doubleValue])];
+                convertedTorqueHigh = [NSNumber numberWithInt:(int)roundf([convertedTorqueHigh doubleValue])];
+            
+                NSString *torqueLowString = [convertedTorqueLow stringValue];
+                NSString *torqueHighString = [convertedTorqueHigh stringValue];
+            
+                NSString *combinedTorqueString = [[[torqueLowString stringByAppendingString:@" - " ] stringByAppendingString:torqueHighString] stringByAppendingString:torqueUnit];
+                NSString *singleTorqueString = [torqueLowString stringByAppendingString:torqueUnit];
+            
+                if(![convertedTorqueLow isEqual:convertedTorqueHigh])
+                    cell.specValueLabel2.text = combinedTorqueString;
+                else
+                    cell.specValueLabel2.text = singleTorqueString;
+            }
+        }
         else
-            cell.SpecName.text = @"0-100";
+            cell.specValueLabel2.text = @"";
         
         if(leftCar != NULL)
-            cell.CarValue.text = leftCar.CarZeroToSixty;
+        {
+            if([leftCar.CarTorque isEqualToString:@"N/A"] || ([leftCar.CarTorqueLow isEqual:[NSNumber numberWithInt:0]] || [leftCar.CarTorqueHigh isEqual:[NSNumber numberWithInt:0]]))
+                cell.specValueLabel.text = @"N/A";
+            else
+            {
+                NSNumber *convertedTorqueLow = [self determineTorque:leftCar.CarTorqueLow];
+                NSNumber *convertedTorqueHigh = [self determineTorque:leftCar.CarTorqueHigh];
+            
+                convertedTorqueLow = [NSNumber numberWithInt:(int)roundf([convertedTorqueLow doubleValue])];
+                convertedTorqueHigh = [NSNumber numberWithInt:(int)roundf([convertedTorqueHigh doubleValue])];
+            
+                NSString *torqueLowString = [convertedTorqueLow stringValue];
+                NSString *torqueHighString = [convertedTorqueHigh stringValue];
+            
+                NSString *combinedTorqueString = [[[torqueLowString stringByAppendingString:@" - " ] stringByAppendingString:torqueHighString] stringByAppendingString:torqueUnit];
+                NSString *singleTorqueString = [torqueLowString stringByAppendingString:torqueUnit];
+            
+                if(![convertedTorqueLow isEqual:convertedTorqueHigh])
+                    cell.specValueLabel.text = combinedTorqueString;
+                else
+                    cell.specValueLabel.text = singleTorqueString;
+            }
+        }
         else
-            cell.CarValue.text = @"";
-        if(rightCar != NULL)
-            cell.CarValue2.text = rightCar.CarZeroToSixty;
-        else
-            cell.CarValue2.text = @"";
+            cell.specValueLabel.text = @"";
     }
     if(indexPath.row == 8)
     {
-        cell.SpecImage.image = [UIImage imageNamed:@"TopSpeed.png"];
-        cell.SpecName.text = @"Top Speed";
-        if(leftCar != NULL)
+        cell.specImage.image = [self resizeImage:[UIImage imageNamed:@"0-60.png"]reSize:cell.specImage.frame.size];
+        cell.comparespecImage.image = [self resizeImage:[UIImage imageNamed:@"0-60.png"]reSize:cell.comparespecImage.frame.size];
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        if([[defaults objectForKey:@"Top Speed"] isEqualToString:@"MPH"])
         {
-            NSNumber *convertedSpeed = [self determineSpeed:[NSNumber numberWithDouble:[leftCar.CarTopSpeed doubleValue]]];
-            convertedSpeed = [NSNumber numberWithInt:(int)roundf([convertedSpeed doubleValue])];
-            NSString *topSpeedString = [convertedSpeed stringValue];
-            topSpeedString = [topSpeedString stringByAppendingString:speedUnit];
-            cell.CarValue.text = topSpeedString;
+            cell.specLabel.text = @"0-60 Time";
+            cell.compareSpecLabel.text = @"0-60 Time";
         }
         else
-            cell.CarValue.text = @"";
+        {
+            cell.specLabel.text = @"0-100 Time";
+            cell.compareSpecLabel.text = @"0-100 Time";
+        }
+        
         if(rightCar != NULL)
         {
-            NSNumber *convertedSpeed = [self determineSpeed:[NSNumber numberWithDouble:[rightCar.CarTopSpeed doubleValue]]];
-            convertedSpeed = [NSNumber numberWithInt:(int)roundf([convertedSpeed doubleValue])];
-            NSString *topSpeedString = [convertedSpeed stringValue];
-            topSpeedString = [topSpeedString stringByAppendingString:speedUnit];
-            cell.CarValue2.text = topSpeedString;
+            if([rightCar.CarZeroToSixty isEqualToString:@""])
+                cell.specValueLabel2.text = @"N/A";
+            else
+                cell.specValueLabel2.text = rightCar.CarZeroToSixty;
+        }
+         else
+             cell.specValueLabel2.text = @"";
+        
+        if(leftCar != NULL)
+        {
+            if([leftCar.CarZeroToSixty isEqualToString:@""])
+                cell.specValueLabel.text = @"N/A";
+            else
+                cell.specValueLabel.text = leftCar.CarZeroToSixty;
         }
         else
-            cell.CarValue2.text = @"";
+            cell.specValueLabel.text = @"";
     }
     if(indexPath.row == 9)
     {
-        cell.SpecImage.image = [UIImage imageNamed:@"Weight.png"];
-        cell.SpecName.text = @"Weight";
+        cell.specImage.image = [self resizeImage:[UIImage imageNamed:@"TopSpeed.png"]reSize:cell.specImage.frame.size];
+        cell.comparespecImage.image = [self resizeImage:[UIImage imageNamed:@"TopSpeed.png"]reSize:cell.comparespecImage.frame.size];
+        cell.specLabel.text = @"Top Speed";
+        cell.compareSpecLabel.text = @"Top Speed";
+        
+        if(rightCar != NULL)
+         {
+             if([rightCar.CarTopSpeed isEqualToString:@"N/A"])
+                 cell.specValueLabel2.text = @"N/A";
+             else
+             {
+                 if([rightCar.CarTopSpeedLow isEqualToString:@""] || [rightCar.CarTopSpeedHigh isEqualToString:@""])
+                 {
+                     NSNumber *convertedSpeed = [self determineSpeed:[NSNumber numberWithDouble:[rightCar.CarTopSpeed doubleValue]]];
+                     convertedSpeed = [NSNumber numberWithInt:(int)roundf([convertedSpeed doubleValue])];
+                     NSString *topSpeedString = [convertedSpeed stringValue];
+                     topSpeedString = [topSpeedString stringByAppendingString:speedUnit];
+                     cell.specValueLabel2.text = topSpeedString;
+                 }
+                 else
+                 {
+                     NSNumber *convertedSpeedLow = [self determineSpeed:[NSNumber numberWithDouble:[rightCar.CarTopSpeedLow doubleValue]]];
+                     NSNumber *convertedSpeedHigh = [self determineSpeed:[NSNumber numberWithDouble:[rightCar.CarTopSpeedHigh doubleValue]]];
+                     
+                     NSString *speedLowString;
+                     NSString *speedHighString;
+                     
+                     convertedSpeedLow = [NSNumber numberWithInt:(int)roundf([convertedSpeedLow doubleValue])];
+                     convertedSpeedHigh = [NSNumber numberWithInt:(int)roundf([convertedSpeedHigh doubleValue])];
+                     speedLowString = [convertedSpeedLow stringValue];
+                     speedHighString = [convertedSpeedHigh stringValue];
+                     
+                     NSString *combinedSpeedString = [[[speedLowString stringByAppendingString:@" - " ] stringByAppendingString:speedHighString] stringByAppendingString:speedUnit];
+                     NSString *singleSpeedString = [speedLowString stringByAppendingString:speedUnit];
+                     
+                     if(![convertedSpeedLow isEqual:convertedSpeedHigh])
+                         cell.specValueLabel2.text = combinedSpeedString;
+                     else
+                         cell.specValueLabel2.text = singleSpeedString;
+                 }
+             }
+         }
+         else
+             cell.specValueLabel2.text = @"";
         if(leftCar != NULL)
         {
-            NSNumber *convertedWeightLow = [self determineWeight:leftCar.CarWeightLow];
-            NSNumber *convertedWeightHigh = [self determineWeight:leftCar.CarWeightHigh];
-            
-            convertedWeightLow = [NSNumber numberWithInt:(int)roundf([convertedWeightLow doubleValue])];
-            convertedWeightHigh = [NSNumber numberWithInt:(int)roundf([convertedWeightHigh doubleValue])];
-            
-            NSString *weightLowString = [convertedWeightLow stringValue];
-            NSString *weightHighString = [convertedWeightHigh stringValue];
-            
-            NSString *combinedWeightString = [[[weightLowString stringByAppendingString:@" - " ] stringByAppendingString:weightHighString] stringByAppendingString:weightUnit];
-            NSString *singleWeightString = [weightLowString stringByAppendingString:weightUnit];
-            
-            if(![convertedWeightLow isEqual:convertedWeightHigh])
-                cell.CarValue.text = combinedWeightString;
+            if([leftCar.CarTopSpeed isEqualToString:@"N/A"])
+                cell.specValueLabel.text = @"N/A";
             else
-                cell.CarValue.text = singleWeightString;
+            {
+                if([leftCar.CarTopSpeedLow isEqualToString:@""] || [leftCar.CarTopSpeedHigh isEqualToString:@""])
+                {
+                    NSNumber *convertedSpeed = [self determineSpeed:[NSNumber numberWithDouble:[leftCar.CarTopSpeed doubleValue]]];
+                    convertedSpeed = [NSNumber numberWithInt:(int)roundf([convertedSpeed doubleValue])];
+                    NSString *topSpeedString = [convertedSpeed stringValue];
+                    topSpeedString = [topSpeedString stringByAppendingString:speedUnit];
+                    cell.specValueLabel.text = topSpeedString;
+                }
+                else
+                {
+                    NSNumber *convertedSpeedLow = [self determineSpeed:[NSNumber numberWithDouble:[leftCar.CarTopSpeedLow doubleValue]]];
+                    NSNumber *convertedSpeedHigh = [self determineSpeed:[NSNumber numberWithDouble:[leftCar.CarTopSpeedHigh doubleValue]]];
+                    
+                    NSString *speedLowString;
+                    NSString *speedHighString;
+                    
+                    convertedSpeedLow = [NSNumber numberWithInt:(int)roundf([convertedSpeedLow doubleValue])];
+                    convertedSpeedHigh = [NSNumber numberWithInt:(int)roundf([convertedSpeedHigh doubleValue])];
+                    speedLowString = [convertedSpeedLow stringValue];
+                    speedHighString = [convertedSpeedHigh stringValue];
+                    
+                    NSString *combinedSpeedString = [[[speedLowString stringByAppendingString:@" - " ] stringByAppendingString:speedHighString] stringByAppendingString:speedUnit];
+                    NSString *singleSpeedString = [speedLowString stringByAppendingString:speedUnit];
+                    
+                    if(![convertedSpeedLow isEqual:convertedSpeedHigh])
+                        cell.specValueLabel.text = combinedSpeedString;
+                    else
+                        cell.specValueLabel.text = singleSpeedString;
+                }
+            }
         }
         else
-            cell.CarValue.text = @"";
-        if(rightCar != NULL)
-        {
-            NSNumber *convertedWeightLow = [self determineWeight:rightCar.CarWeightLow];
-            NSNumber *convertedWeightHigh = [self determineWeight:rightCar.CarWeightHigh];
-            
-            convertedWeightLow = [NSNumber numberWithInt:(int)roundf([convertedWeightLow doubleValue])];
-            convertedWeightHigh = [NSNumber numberWithInt:(int)roundf([convertedWeightHigh doubleValue])];
-            
-            NSString *weightLowString = [convertedWeightLow stringValue];
-            NSString *weightHighString = [convertedWeightHigh stringValue];
-            
-            NSString *combinedWeightString = [[[weightLowString stringByAppendingString:@" - " ] stringByAppendingString:weightHighString] stringByAppendingString:weightUnit];
-            NSString *singleWeightString = [weightLowString stringByAppendingString:weightUnit];
-            
-            if(![convertedWeightLow isEqual:convertedWeightHigh])
-                cell.CarValue2.text = combinedWeightString;
-            else
-                cell.CarValue2.text = singleWeightString;
-        }
-        else
-            cell.CarValue2.text = @"";
+            cell.specValueLabel.text = @"";
     }
     if(indexPath.row == 10)
     {
-        cell.SpecImage.image = [UIImage imageNamed:@"FuelEconomy.png"];
-        cell.SpecName.text = @"Fuel Economy";
-        if(leftCar != NULL)
-        {
-            NSNumber *convertedFELow = [self determineFuelEconomy:leftCar.CarFuelEconomyLow];
-            NSNumber *convertedFEHigh = [self determineFuelEconomy:leftCar.CarFuelEconomyHigh];
-            
-            NSString *FELowString;
-            NSString *FEHighString;
-            
-            if([fuelEconomyUnit isEqualToString:@" L/100 km"])
-            {
-                NSLog(@"l/100");
-                
-                NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-                [numberFormatter setPositiveFormat:@"0.##"];
-                
-                FELowString = [numberFormatter stringFromNumber:convertedFELow];
-                FEHighString = [numberFormatter stringFromNumber:convertedFEHigh];
-            }
-            else
-            {
-                convertedFELow = [NSNumber numberWithInt:(int)roundf([convertedFELow doubleValue])];
-                convertedFEHigh = [NSNumber numberWithInt:(int)roundf([convertedFEHigh doubleValue])];
-                FELowString = [convertedFELow stringValue];
-                FEHighString = [convertedFEHigh stringValue];
-            }
-            NSString *combinedFEString = [[[FELowString stringByAppendingString:@" - " ] stringByAppendingString:FEHighString] stringByAppendingString:fuelEconomyUnit];
-            NSString *singleFEString = [FELowString stringByAppendingString:fuelEconomyUnit];
-            
-            if(![convertedFELow isEqual:convertedFEHigh])
-                cell.CarValue.text = combinedFEString;
-            else
-                cell.CarValue.text = singleFEString;
-        }
-        else
-            cell.CarValue.text = @"";
+        cell.specImage.image = [self resizeImage:[UIImage imageNamed:@"FuelEconomy.png"]reSize:cell.specImage.frame.size];
+        cell.comparespecImage.image = [self resizeImage:[UIImage imageNamed:@"FuelEconomy.png"]reSize:cell.comparespecImage.frame.size];
+        cell.specLabel.text = @"Fuel Economy";
+        cell.compareSpecLabel.text = @"Fuel Economy";
+        
         if(rightCar != NULL)
         {
-            NSNumber *convertedFELow = [self determineFuelEconomy:rightCar.CarFuelEconomyLow];
-            NSNumber *convertedFEHigh = [self determineFuelEconomy:rightCar.CarFuelEconomyHigh];
-            
-            NSString *FELowString;
-            NSString *FEHighString;
-            
-            if([fuelEconomyUnit isEqualToString:@" L/100 km"])
-            {
-                NSLog(@"l/100");
-                
-                NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-                [numberFormatter setPositiveFormat:@"0.##"];
-                
-                FELowString = [numberFormatter stringFromNumber:convertedFELow];
-                FEHighString = [numberFormatter stringFromNumber:convertedFEHigh];
-            }
+            if([rightCar.CarFuelEconomy isEqualToString:@"N/A"] || ([rightCar.CarFuelEconomyLow isEqual:[NSNumber numberWithInt:0]] || [rightCar.CarFuelEconomyHigh isEqual:[NSNumber numberWithInt:0]]))
+                cell.specValueLabel2.text = @"N/A";
             else
             {
-                convertedFELow = [NSNumber numberWithInt:(int)roundf([convertedFELow doubleValue])];
-                convertedFEHigh = [NSNumber numberWithInt:(int)roundf([convertedFEHigh doubleValue])];
-                FELowString = [convertedFELow stringValue];
-                FEHighString = [convertedFEHigh stringValue];
-            }
-            NSString *combinedFEString = [[[FELowString stringByAppendingString:@" - " ] stringByAppendingString:FEHighString] stringByAppendingString:fuelEconomyUnit];
-            NSString *singleFEString = [FELowString stringByAppendingString:fuelEconomyUnit];
+                NSNumber *convertedFELow = [self determineFuelEconomy:rightCar.CarFuelEconomyLow];
+                NSNumber *convertedFEHigh = [self determineFuelEconomy:rightCar.CarFuelEconomyHigh];
+         
+                NSString *FELowString;
+                NSString *FEHighString;
+         
+                if([fuelEconomyUnit isEqualToString:@" L/100 km"])
+                {
+                    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+                    [numberFormatter setPositiveFormat:@"0.##"];
+                
+                    FELowString = [numberFormatter stringFromNumber:convertedFELow];
+                    FEHighString = [numberFormatter stringFromNumber:convertedFEHigh];
+                }
+                else
+                {
+                    convertedFELow = [NSNumber numberWithInt:(int)roundf([convertedFELow doubleValue])];
+                    convertedFEHigh = [NSNumber numberWithInt:(int)roundf([convertedFEHigh doubleValue])];
+                    FELowString = [convertedFELow stringValue];
+                    FEHighString = [convertedFEHigh stringValue];
+                }
+                NSString *combinedFEString = [[[FELowString stringByAppendingString:@" - " ] stringByAppendingString:FEHighString] stringByAppendingString:fuelEconomyUnit];
+                NSString *singleFEString = [FELowString stringByAppendingString:fuelEconomyUnit];
             
-            if(![convertedFELow isEqual:convertedFEHigh])
-                cell.CarValue2.text = combinedFEString;
-            else
-                cell.CarValue2.text = singleFEString;
+                if(![convertedFELow isEqual:convertedFEHigh])
+                    cell.specValueLabel2.text = combinedFEString;
+                else
+                    cell.specValueLabel2.text = singleFEString;
+            }
         }
         else
-            cell.CarValue2.text = @"";
+            cell.specValueLabel2.text = @"";
+        
+        if(leftCar != NULL)
+        {
+            if([leftCar.CarFuelEconomy isEqualToString:@"N/A"] || ([leftCar.CarFuelEconomyLow isEqual:[NSNumber numberWithInt:0]] || [leftCar.CarFuelEconomyHigh isEqual:[NSNumber numberWithInt:0]]))
+                cell.specValueLabel.text = @"N/A";
+            else
+            {
+                NSNumber *convertedFELow = [self determineFuelEconomy:leftCar.CarFuelEconomyLow];
+                NSNumber *convertedFEHigh = [self determineFuelEconomy:leftCar.CarFuelEconomyHigh];
+            
+                NSString *FELowString;
+                NSString *FEHighString;
+            
+                if([fuelEconomyUnit isEqualToString:@" L/100 km"])
+                {
+                    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+                    [numberFormatter setPositiveFormat:@"0.##"];
+                
+                    FELowString = [numberFormatter stringFromNumber:convertedFELow];
+                    FEHighString = [numberFormatter stringFromNumber:convertedFEHigh];
+                }
+                else
+                {
+                    convertedFELow = [NSNumber numberWithInt:(int)roundf([convertedFELow doubleValue])];
+                    convertedFEHigh = [NSNumber numberWithInt:(int)roundf([convertedFEHigh doubleValue])];
+                    FELowString = [convertedFELow stringValue];
+                    FEHighString = [convertedFEHigh stringValue];
+                }
+                NSString *combinedFEString = [[[FELowString stringByAppendingString:@" - " ] stringByAppendingString:FEHighString] stringByAppendingString:fuelEconomyUnit];
+                NSString *singleFEString = [FELowString stringByAppendingString:fuelEconomyUnit];
+                
+                if(![convertedFELow isEqual:convertedFEHigh])
+                    cell.specValueLabel.text = combinedFEString;
+                else
+                    cell.specValueLabel.text = singleFEString;
+            }
+        }
+        else
+            cell.specValueLabel.text = @"";
     }
+    if(indexPath.row == 11)
+    {
+        cell.specImage.image = [self resizeImage:[UIImage imageNamed:@"Weight.png"]reSize:cell.specImage.frame.size];
+        cell.comparespecImage.image = [self resizeImage:[UIImage imageNamed:@"Weight.png"]reSize:cell.comparespecImage.frame.size];
+        cell.specLabel.text = @"Weight";
+        cell.compareSpecLabel.text = @"Weight";
+        
+        if(rightCar != NULL)
+        {
+            if([rightCar.CarWeight isEqualToString:@"N/A"] || ([rightCar.CarWeightLow isEqual:[NSNumber numberWithInt:0]] || [rightCar.CarWeightHigh isEqual:[NSNumber numberWithInt:0]]))
+                cell.specValueLabel2.text = @"N/A";
+            else
+            {
+                NSNumber *convertedWeightLow = [self determineWeight:rightCar.CarWeightLow];
+                NSNumber *convertedWeightHigh = [self determineWeight:rightCar.CarWeightHigh];
+            
+                convertedWeightLow = [NSNumber numberWithInt:(int)roundf([convertedWeightLow doubleValue])];
+                convertedWeightHigh = [NSNumber numberWithInt:(int)roundf([convertedWeightHigh doubleValue])];
+            
+                NSString *weightLowString = [convertedWeightLow stringValue];
+                NSString *weightHighString = [convertedWeightHigh stringValue];
+            
+                NSString *combinedWeightString = [[[weightLowString stringByAppendingString:@" - " ] stringByAppendingString:weightHighString] stringByAppendingString:weightUnit];
+                NSString *singleWeightString = [weightLowString stringByAppendingString:weightUnit];
+            
+                if(![convertedWeightLow isEqual:convertedWeightHigh])
+                    cell.specValueLabel2.text = combinedWeightString;
+                else
+                    cell.specValueLabel2.text = singleWeightString;
+            }
+        }
+        else
+            cell.specValueLabel2.text = @"";
+        
+        if(leftCar != NULL)
+        {
+            if([leftCar.CarWeight isEqualToString:@"N/A"] || ([leftCar.CarWeightLow isEqual:[NSNumber numberWithInt:0]] || [leftCar.CarWeightHigh isEqual:[NSNumber numberWithInt:0]]))
+                cell.specValueLabel.text = @"N/A";
+            else
+            {
+                NSNumber *convertedWeightLow = [self determineWeight:leftCar.CarWeightLow];
+                NSNumber *convertedWeightHigh = [self determineWeight:leftCar.CarWeightHigh];
+            
+                convertedWeightLow = [NSNumber numberWithInt:(int)roundf([convertedWeightLow doubleValue])];
+                convertedWeightHigh = [NSNumber numberWithInt:(int)roundf([convertedWeightHigh doubleValue])];
+            
+                NSString *weightLowString = [convertedWeightLow stringValue];
+                NSString *weightHighString = [convertedWeightHigh stringValue];
+            
+                NSString *combinedWeightString = [[[weightLowString stringByAppendingString:@" - " ] stringByAppendingString:weightHighString] stringByAppendingString:weightUnit];
+                NSString *singleWeightString = [weightLowString stringByAppendingString:weightUnit];
+            
+                if(![convertedWeightLow isEqual:convertedWeightHigh])
+                    cell.specValueLabel.text = combinedWeightString;
+                else
+                    cell.specValueLabel.text = singleWeightString;
+            }
+        }
+        else
+            cell.specValueLabel.text = @"";
+    }
+    
     return cell;
 }
 
@@ -643,10 +1235,10 @@
             exchangeName = @"USD/CZK";
             currencySymbol = @"(Kč)";
         }
-        if([[defaults objectForKey:@"Currency"] isEqualToString:@"(Kč) Danish Kroner"])
+        if([[defaults objectForKey:@"Currency"] isEqualToString:@"(kr.) Danish Krone"])
         {
             exchangeName = @"USD/DKK";
-            currencySymbol = @"(Kč)";
+            currencySymbol = @"(kr.)";
         }
         if([[defaults objectForKey:@"Currency"] isEqualToString:@"(RD$) Dominican Peso"])
         {
@@ -782,7 +1374,6 @@
                 savedCurrency = currentCurrency;
             }
         }
-        NSLog(@"savedcurrency: %@", savedCurrency.CurrencyName);
         double exchangeRate = [savedCurrency.CurrencyRate doubleValue];
         convertedPrice = [NSNumber numberWithDouble: exchangeRate * [usdPrice doubleValue]];
     }
@@ -797,14 +1388,9 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if(![[defaults objectForKey:@"Horsepower"] isEqualToString:@"hp"])
     {
-        if([[defaults objectForKey:@"Horsepower"] isEqualToString:@"bhp"])
-        {
-            convertedHP = [NSNumber numberWithDouble:([convertedHP doubleValue]/1.01387)];
-            hpUnit = @" bhp";
-        }
         if([[defaults objectForKey:@"Horsepower"] isEqualToString:@"PS"])
         {
-            convertedHP = [NSNumber numberWithDouble:([convertedHP doubleValue]*1)];
+            convertedHP = [NSNumber numberWithDouble:([convertedHP doubleValue]*1.01387)];
             hpUnit = @" PS";
         }
         if([[defaults objectForKey:@"Horsepower"] isEqualToString:@"kW"])
@@ -819,273 +1405,246 @@
     return convertedHP;
 }
 
--(void)convertCellToCompare:(SpecsCell *)cell
+-(NSNumber *)determineTorque:(NSNumber *)lbFootValue
 {
-    [cell.CarValue2 setAlpha:0.0];
+    NSNumber *convertedTorque = lbFootValue;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if(![[defaults objectForKey:@"Torque"] isEqualToString:@"lb·ft"])
+    {
+        if([[defaults objectForKey:@"Torque"] isEqualToString:@"N·m"])
+        {
+            convertedTorque = [NSNumber numberWithDouble:([convertedTorque doubleValue]*1.3558179)];
+            torqueUnit = @" N·m";
+        }
+    }
+    else
+        torqueUnit = @" lb·ft";
     
-    [SpecsCell animateWithDuration:.5 animations:^{
-        [cell.SpecName setAlpha:0.0];
-        specImageDetailCenter = cell.SpecImage.center;
-        [cell.SpecImage setCenter:CGPointMake(cell.frame.size.width/2, cell.frame.size.height/2)];
-    }];
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        [cell.CarValue2 setTextAlignment:NSTextAlignmentRight];
-        [SpecsCell animateWithDuration:.5 animations:^{
-            [cell.CarValue setAlpha:1.0];
-            [cell.CarValue2 setAlpha:1.0];
-        }];
-    });
-    cell.hasRevertedToDetail = NO;
-}
-
--(void)revertCellToDetail:(SpecsCell *)cell
-{
-    [cell.CarValue setAlpha:0.0];
-    [cell.CarValue2 setAlpha:0.0];
-    
-    [SpecsCell animateWithDuration:.5 animations:^{
-        [cell.SpecImage setCenter:specImageDetailCenter];
-    }];
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        [cell.CarValue2 setTextAlignment:NSTextAlignmentLeft];
-        [SpecsCell animateWithDuration:.5 animations:^{
-            [cell.CarValue2 setAlpha:1.0];
-            [cell.SpecName setAlpha:1.0];
-        }];
-    });
-    cell.hasConvertedToCompare = NO;
+    return convertedTorque;
 }
 
 #pragma mark Exhaust Methods
 
--(IBAction)Sound
+-(void)setUpAVAudioPlayer
+{
+    if(currentCar != NULL)
+    {
+        NSString * soundurl = [@"http://www.pl0x.net/CarSounds/" stringByAppendingString:currentCar.CarExhaust];
+        NSURL *url = [NSURL URLWithString:soundurl];
+        NSData *soundData = [NSData dataWithContentsOfURL:url];
+        NSError *error = nil;
+        avAudioPlayer = [[AVAudioPlayer alloc] initWithData:soundData error:&error];
+        avAudioPlayer.delegate = self;
+        
+        if (error)
+            NSLog(@"error creating player: %@", [error localizedDescription]);
+        
+        if (avAudioPlayer)
+            [avAudioPlayer prepareToPlay];
+        
+        if(shouldBeDetail)
+        {
+            hasLoaded = YES;
+            [self performSelectorOnMainThread:@selector(stopActivityIndicator) withObject:self waitUntilDone:false];
+            [exhaustButton1 setBackgroundImage:[self resizeImage:[UIImage imageNamed:@"Play.png"]reSize:exhaustButton1.frame.size] forState:UIControlStateNormal];
+            
+            CATransition *transition = [CATransition animation];
+            transition.duration = 0.5f;
+            transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+            transition.type = kCATransitionFade;
+            [exhaustButton1.layer addAnimation:transition forKey:nil];
+        }
+    }
+}
+
+-(void)setUpAVAudioPlayer1
+{
+    if(firstCar != NULL)
+    {
+        NSString * soundurl = [@"http://www.pl0x.net/CarSounds/" stringByAppendingString:firstCar.CarExhaust];
+        NSURL *url = [NSURL URLWithString:soundurl];
+        NSData *soundData = [NSData dataWithContentsOfURL:url];
+        NSError *error = nil;
+        avAudioPlayer1 = [[AVAudioPlayer alloc] initWithData:soundData error:&error];
+        avAudioPlayer1.delegate = self;
+        
+        if (error)
+            NSLog(@"error creating player: %@", [error localizedDescription]);
+        
+        if (avAudioPlayer1)
+            [avAudioPlayer1 prepareToPlay];
+        
+        if(shouldBeCompare)
+        {
+            hasLoaded1 = YES;
+            [self performSelectorOnMainThread:@selector(stopActivityIndicator1) withObject:self waitUntilDone:false];
+            [exhaustButton1 setBackgroundImage:[self resizeImage:[UIImage imageNamed:@"Play.png"]reSize:exhaustButton1.frame.size] forState:UIControlStateNormal];
+            
+            CATransition *transition = [CATransition animation];
+            transition.duration = 0.5f;
+            transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+            transition.type = kCATransitionFade;
+            [exhaustButton1.layer addAnimation:transition forKey:nil];
+        }
+    }
+}
+
+-(void)setUpAVAudioPlayer2
+{
+    if(secondCar != NULL)
+    {
+        NSString * soundurl = [@"http://www.pl0x.net/CarSounds/" stringByAppendingString:secondCar.CarExhaust];
+        NSURL *url = [NSURL URLWithString:soundurl];
+        NSData *soundData = [NSData dataWithContentsOfURL:url];
+        NSError *error = nil;
+        avAudioPlayer2 = [[AVAudioPlayer alloc] initWithData:soundData error:&error];
+        avAudioPlayer2.delegate = self;
+        
+        if (error)
+            NSLog(@"error creating player: %@", [error localizedDescription]);
+        
+        if (avAudioPlayer2)
+            [avAudioPlayer2 prepareToPlay];
+        
+        if(shouldBeCompare)
+        {
+            hasLoaded2 = YES;
+            [self performSelectorOnMainThread:@selector(stopActivityIndicator2) withObject:self waitUntilDone:false];
+            [exhaustButton2 setBackgroundImage:[self resizeImage:[UIImage imageNamed:@"Play.png"]reSize:exhaustButton1.frame.size] forState:UIControlStateNormal];
+            
+            CATransition *transition = [CATransition animation];
+            transition.duration = 0.5f;
+            transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+            transition.type = kCATransitionFade;
+            [exhaustButton1.layer addAnimation:transition forKey:nil];
+        }
+    }
+}
+
+-(void)stopActivityIndicator
+{
+    [specsHeaderView.exhaustActivityIndicator1 stopAnimating];
+}
+
+-(void)stopActivityIndicator1
+{
+    [specsHeaderView.exhaustActivityIndicator1 stopAnimating];
+}
+
+-(void)stopActivityIndicator2
+{
+    [specsHeaderView.exhaustActivityIndicator2 stopAnimating];
+}
+
+-(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
+{
+    if(player == avAudioPlayer)
+        isPlaying = NO;
+    if(player == avAudioPlayer1)
+        isplaying1 = NO;
+    if(player == avAudioPlayer2)
+        isplaying2 = NO;
+    
+    [specsCollectionView reloadData];
+}
+
+-(void)Sound:(id)sender
 {
     if(!([currentCar.CarExhaust isEqual:@""]))
     {
-        if (!((avPlayer.rate != 0) && (avPlayer.error == nil)))
+        if (!avAudioPlayer.isPlaying)
         {
             isPlaying = YES;
-            if(avPlayer == NULL)
-            {
-                //[exhaustButton setBackgroundImage:[UIImage imageNamed:@"mute.png"] forState:UIControlStateNormal];
-                [self startLoadingWheelWithCenter:exhaustButton.center];
-                [self playExhaust];
-            }
-            else
-            {
-                [exhaustButton setBackgroundImage:[UIImage imageNamed:@"pause.png"] forState:UIControlStateNormal];
-                [self playAt:currentTime];
-            }
-        }else{
-            //isPlaying = NO;
-            [exhaustButton setBackgroundImage:[UIImage imageNamed:@"arrows.png"] forState:UIControlStateNormal];
-            currentTime = avPlayer.currentTime;
-            [avPlayer pause];
-            [exhaustTimer invalidate];
-            exhaustTimer = nil;
+            UIButton *exhaustButton = sender;
+            [exhaustButton setBackgroundImage:[self resizeImage:[UIImage imageNamed:@"Pause.png"]reSize:exhaustButton.frame.size] forState:UIControlStateNormal];
+            [avAudioPlayer play];
+        }
+        else
+        {
+            isPlaying = NO;
+            UIButton *exhaustButton = sender;
+            [exhaustButton setBackgroundImage:[self resizeImage:[UIImage imageNamed:@"Play.png"]reSize:exhaustButton.frame.size] forState:UIControlStateNormal];
+            [avAudioPlayer pause];
         }
     }
 }
 
--(void)Sound1
+-(void)Sound1:(id)sender
 {
-    if(isplaying2 == YES)
-    {
-        [avPlayer removeObserver:self forKeyPath:@"status"];
-        avPlayer = NULL;
-        exhaustTracker = 0;
-        [exhaustTimer invalidate];
-        exhaustTimer = nil;
-        isplaying2 = NO;
-        [exhaustButton2 setBackgroundImage:[UIImage imageNamed:@"arrows.png"] forState:UIControlStateNormal];
-    }
-    
     if(!([firstCar.CarExhaust isEqual:@""]))
     {
-        if (!((avPlayer.rate != 0) && (avPlayer.error == nil)))
+        if (!avAudioPlayer1.isPlaying)
         {
             isplaying1 = YES;
-            [exhaustButton1 setBackgroundImage:[UIImage imageNamed:@"pause.png"] forState:UIControlStateNormal];
-            
-            if(avPlayer == NULL)
-            {
-                [exhaustButton1 setBackgroundImage:[UIImage imageNamed:@"mute.png"] forState:UIControlStateNormal];
-                [self startLoadingWheelWithCenter:exhaustButton.center];
-                [self playExhaust1];
-            }
-            else
-            {
-                [exhaustButton1 setBackgroundImage:[UIImage imageNamed:@"pause.png"] forState:UIControlStateNormal];
-                [self playAt:currentTime];
-            }
-        }else{
-            [exhaustButton1 setBackgroundImage:[UIImage imageNamed:@"arrows.png"] forState:UIControlStateNormal];
-            currentTime = avPlayer.currentTime;
-            [avPlayer pause];
-            [exhaustTimer invalidate];
-            exhaustTimer = nil;
+            UIButton *exhaustButton = sender;
+            [exhaustButton setBackgroundImage:[self resizeImage:[UIImage imageNamed:@"Pause.png"]reSize:exhaustButton.frame.size] forState:UIControlStateNormal];
+            [avAudioPlayer1 play];
+        }
+        else
+        {
+            isplaying1 = NO;
+            UIButton *exhaustButton = sender;
+            [exhaustButton setBackgroundImage:[self resizeImage:[UIImage imageNamed:@"Play.png"]reSize:exhaustButton.frame.size] forState:UIControlStateNormal];
+            [avAudioPlayer1 pause];
         }
     }
 }
 
--(void)Sound2
+-(void)Sound2:(id)sender
 {
-    if(isplaying1 == YES)
-    {
-        [avPlayer removeObserver:self forKeyPath:@"status"];
-        avPlayer = NULL;
-        exhaustTracker = 0;
-        [exhaustTimer invalidate];
-        exhaustTimer = nil;
-        isplaying1 = NO;
-        [exhaustButton1 setBackgroundImage:[UIImage imageNamed:@"arrows.png"] forState:UIControlStateNormal];
-    }
-    
     if(!([secondCar.CarExhaust isEqual:@""]))
     {
-        if (!((avPlayer.rate != 0) && (avPlayer.error == nil)))
+        if (!avAudioPlayer2.isPlaying)
         {
             isplaying2 = YES;
-            
-            if(avPlayer == NULL)
-            {
-                [exhaustButton2 setBackgroundImage:[UIImage imageNamed:@"mute.png"] forState:UIControlStateNormal];
-                [self startLoadingWheelWithCenter:exhaustButton2.center];
-                [self playExhaust2];
-            }
-            else
-            {
-                [exhaustButton2 setBackgroundImage:[UIImage imageNamed:@"pause.png"] forState:UIControlStateNormal];
-                [self playAt:currentTime];
-            }
-        }else{
-            [exhaustButton2 setBackgroundImage:[UIImage imageNamed:@"arrows.png"] forState:UIControlStateNormal];
-            currentTime = avPlayer.currentTime;
-            [avPlayer pause];
-            [exhaustTimer invalidate];
-            exhaustTimer = nil;
+            UIButton *exhaustButton = sender;
+            [exhaustButton setBackgroundImage:[self resizeImage:[UIImage imageNamed:@"Pause.png"]reSize:exhaustButton.frame.size] forState:UIControlStateNormal];
+            [avAudioPlayer2 play];
+        }
+        else
+        {
+            isplaying2 = NO;
+            UIButton *exhaustButton = sender;
+            [exhaustButton setBackgroundImage:[self resizeImage:[UIImage imageNamed:@"Play.png"]reSize:exhaustButton.frame.size] forState:UIControlStateNormal];
+            [avAudioPlayer2 pause];
         }
     }
 }
 
 -(void)startLoadingWheelWithCenter:(CGPoint)center
 {
-    activityIndicator = [[UIActivityIndicatorView alloc]
-                                        initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     activityIndicator.center = center;
-    if(isPlaying || isplaying1 || isplaying2)
-        activityIndicator.transform = CGAffineTransformMakeScale(0.5, 0.5);
+    activityIndicator.transform = CGAffineTransformMakeScale(0.75, 0.75);
     activityIndicator.hidesWhenStopped = YES;
     activityIndicator.color = [UIColor blackColor];
-    [self.upperView addSubview:activityIndicator];
+    [self.specsCollectionView addSubview:activityIndicator];
     [activityIndicator startAnimating];
 }
 
--(void)playExhaust
+-(void)startLoadingWheel1WithCenter:(CGPoint)center
 {
-    NSString * soundurl = [@"http://www.pl0x.net/CarSounds/" stringByAppendingString:currentCar.CarExhaust];
-    avPlayer = [[AVPlayer alloc]initWithURL:[NSURL URLWithString:soundurl]];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(playerItemDidReachEnd:)
-                                                 name:AVPlayerItemDidPlayToEndTimeNotification
-                                               object:[avPlayer currentItem]];
-    [avPlayer addObserver:self forKeyPath:@"status" options:0 context:nil];
+    activityIndicator1.center = center;
+    activityIndicator1.transform = CGAffineTransformMakeScale(0.75, 0.75);
+    activityIndicator1.hidesWhenStopped = YES;
+    activityIndicator1.color = [UIColor blackColor];
+    [self.specsCollectionView addSubview:activityIndicator1];
+    [activityIndicator1 startAnimating];
 }
 
--(void)playExhaust1
+-(void)startLoadingWheel2WithCenter:(CGPoint)center
 {
-    NSString * soundurl = [@"http://www.pl0x.net/CarSounds/" stringByAppendingString:firstCar.CarExhaust];
-    avPlayer = [[AVPlayer alloc]initWithURL:[NSURL URLWithString:soundurl]];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(playerItemDidReachEnd:)
-                                                 name:AVPlayerItemDidPlayToEndTimeNotification
-                                               object:[avPlayer currentItem]];
-    [avPlayer addObserver:self forKeyPath:@"status" options:0 context:nil];
-}
-
--(void)playExhaust2
-{
-    NSString * soundurl = [@"http://www.pl0x.net/CarSounds/" stringByAppendingString:secondCar.CarExhaust];
-    avPlayer = [[AVPlayer alloc]initWithURL:[NSURL URLWithString:soundurl]];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(playerItemDidReachEnd:)
-                                                 name:AVPlayerItemDidPlayToEndTimeNotification
-                                               object:[avPlayer currentItem]];
-    [avPlayer addObserver:self forKeyPath:@"status" options:0 context:nil];
-}
-
-- (void)updateProgress
-{
-    exhaustTracker += .05;
-    [circleProgressBar setProgress:exhaustTracker/exhaustDuration animated:NO];
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    
-    if (object == avPlayer && [keyPath isEqualToString:@"status"]) {
-        if (avPlayer.status == AVPlayerStatusFailed) {
-            NSLog(@"AVPlayer Failed");
-            
-        } else if (avPlayer.status == AVPlayerStatusReadyToPlay) {
-            NSLog(@"AVPlayerStatusReadyToPlay");
-            [avPlayer play];
-            
-            exhaustTimer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(updateProgress) userInfo:nil repeats:YES];
-            [[NSRunLoop currentRunLoop] addTimer:exhaustTimer forMode:NSRunLoopCommonModes];
-            exhaustDuration = CMTimeGetSeconds(avPlayer.currentItem.asset.duration);
-            [circleProgressBar setProgress:1 animated:YES duration:exhaustDuration];
-            circleProgressBar.alpha = 1;
-            [activityIndicator stopAnimating];
-            if(isplaying1)
-                [exhaustButton1 setBackgroundImage:[UIImage imageNamed:@"pause.png"] forState:UIControlStateNormal];
-            else if(isplaying2)
-                [exhaustButton2 setBackgroundImage:[UIImage imageNamed:@"pause.png"] forState:UIControlStateNormal];
-            else if (isPlaying)
-                [exhaustButton setBackgroundImage:[UIImage imageNamed:@"pause.png"] forState:UIControlStateNormal];
-            
-        } else if (avPlayer.status == AVPlayerItemStatusUnknown) {
-            NSLog(@"AVPlayer Unknown");
-        }
-    }
-}
-
--(void)playAt: (CMTime)time {
-    if(avPlayer.status == AVPlayerStatusReadyToPlay && avPlayer.currentItem.status == AVPlayerItemStatusReadyToPlay) {
-        [avPlayer seekToTime:time toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero completionHandler:^(BOOL finished) {
-            [avPlayer play];
-            exhaustTimer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(updateProgress) userInfo:nil repeats:YES];
-        }];
-    } else {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self playAt:time];
-        });
-    }
-}
-
-- (void)playerItemDidReachEnd:(NSNotification *)notification
-{
-    circleProgressBar.alpha = 0;
-    [avPlayer removeObserver:self forKeyPath:@"status"];
-    [circleProgressBar setProgress:0 animated:NO];
-    [exhaustButton setBackgroundImage:[UIImage imageNamed:@"arrows.png"] forState:UIControlStateNormal];
-    if(shouldHaveSpecName == NO)
-    {
-        [exhaustButton1 setBackgroundImage:[UIImage imageNamed:@"arrows.png"] forState:UIControlStateNormal];
-        [exhaustButton2 setBackgroundImage:[UIImage imageNamed:@"arrows.png"] forState:UIControlStateNormal];
-    }
-    avPlayer = NULL;
-    [exhaustTimer invalidate];
-    exhaustTimer = nil;
-    
-    NSLog(@"exhaustTracker: %f", exhaustTracker);
-    exhaustTracker = 0.0;
+    activityIndicator2.center = center;
+    activityIndicator2.transform = CGAffineTransformMakeScale(0.75, 0.75);
+    activityIndicator2.hidesWhenStopped = YES;
+    activityIndicator2.color = [UIColor blackColor];
+    [self.specsCollectionView addSubview:activityIndicator2];
+    [activityIndicator2 startAnimating];
 }
 
 #pragma mark Save Favorite Car Methods
 
--(IBAction)Save{
+-(IBAction)Save
+{
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     savedArray = [[NSMutableArray alloc]init];
     NSData *retrievedData = [defaults objectForKey:@"savedArray"];
@@ -1094,10 +1653,8 @@
         savedArray = [NSKeyedUnarchiver unarchiveObjectWithData:retrievedData];
     
     if([self isSaved:currentCar] == false){
-        [saveButton setBackgroundImage:[UIImage imageNamed:@"FavoriteFilled.png"] forState:UIControlStateNormal];
         [savedArray addObject:currentCar];
     }else{
-        [saveButton setBackgroundImage:[UIImage imageNamed:@"star.png"] forState:UIControlStateNormal];
         int index = -1;
         for(int i=0; i<savedArray.count; i++){
             Model * savedObject = [savedArray objectAtIndex:i];
@@ -1111,7 +1668,7 @@
     [defaults setObject:arrayData forKey:@"savedArray"];
     [defaults synchronize];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadRootViewControllerTable" object:nil];
+    [specsCollectionView reloadData];
 }
 
 - (bool)isSaved:(Model *)currentModel
@@ -1132,125 +1689,368 @@
     return isThere;
 }
 
-- (void)checkStar
-{
-    if([self isSaved:currentCar] == false)
-        [saveButton setBackgroundImage:[UIImage imageNamed:@"star.png"] forState:UIControlStateNormal];
-    else
-        [saveButton setBackgroundImage:[UIImage imageNamed:@"FavoriteFilled.png"] forState:UIControlStateNormal];
-}
-
-#pragma mark External Methods
-
-- (void)getModel:(id)modelObject;
-{
-    currentCar = modelObject;
-}
-
--(void)getCarOfTheDay:(id)modelObject
-{
-    currentCar = modelObject;
-    shouldLoadImage = YES;
-    //[self setCarImage];
-}
-
 #pragma mark - Navigation
+
+-(void)convertCellToCompare:(SpecsCollectionCell *)cell
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [SpecsCollectionCell animateWithDuration:0.5 animations:^{
+            [cell.comparespecImage setAlpha:1];
+            [cell.compareSpecLabel setAlpha:1];
+            [cell.middleCellDivider setAlpha:1];
+            [cell.leftCellDivider setAlpha:1];
+            [cell.rightCellDivider setAlpha:1];
+            [cell.rightCellDivider setFrame:CGRectMake(cell.frame.size.width/2, cell.rightCellDivider.frame.origin.y, cell.rightCellDivider.frame.size.width, cell.rightCellDivider.frame.size.width)];
+        
+            [cell.specValueLabel2 setAlpha:1];
+            [cell setNeedsDisplay];
+            [cell layoutIfNeeded];
+        }];
+    });
+}
+
+-(void)convertCellToCompareImmediate:(SpecsCollectionCell *)cell
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [cell.comparespecImage setAlpha:1];
+        [cell.compareSpecLabel setAlpha:1];
+        [cell.middleCellDivider setAlpha:1];
+        [cell.leftCellDivider setAlpha:1];
+        [cell.rightCellDivider setAlpha:1];
+        [cell.rightCellDivider setFrame:CGRectMake(cell.frame.size.width/2, cell.rightCellDivider.frame.origin.y, cell.rightCellDivider.frame.size.width, cell.rightCellDivider.frame.size.width)];
+        
+        NSIndexPath *indexPath = [specsCollectionView indexPathForCell:cell];
+        
+        if(indexPath.row == 11)
+        {
+            [cell.rightCellDivider setAlpha:0];
+            [cell.leftCellDivider setAlpha:0];
+        }
+        
+        [cell.specValueLabel2 setAlpha:1];
+        [cell setNeedsDisplay];
+        [cell layoutIfNeeded];
+    });
+}
+
+-(void)revertCellToDetail:(SpecsCollectionCell *)cell
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [SpecsCollectionCell animateWithDuration:0.5 animations:^{
+            
+            cell.specImage.frame = cell.initialSpecImageFrame;
+            cell.specLabel.frame = cell.initialSpecLabelFrame;
+            cell.rightCellDivider.frame = cell.initialRightDividerFrame;
+            
+            [cell.specValueLabel2 setAlpha:0];
+            [cell setNeedsDisplay];
+            [cell layoutIfNeeded];
+        }];
+    });
+}
+
+-(void)revertCellToDetailImmediate:(SpecsCollectionCell *)cell
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+            cell.specImage.frame = cell.initialSpecImageFrame;
+            cell.specLabel.frame = cell.initialSpecLabelFrame;
+            cell.rightCellDivider.frame = cell.initialRightDividerFrame;
+        
+            [cell.specValueLabel2 setAlpha:0];
+            [cell setNeedsDisplay];
+            [cell layoutIfNeeded];
+    });
+}
 
 -(IBAction)Compare
 {
-    NSLog(@"units: %@, %@, %@, %@, %@", hpUnit, speedUnit, weightUnit, fuelEconomyUnit, currencySymbol);
-    [self viewWillDisappear:NO];
-    [self setUpExhaustProgressWheel];
-    shouldHaveSpecName = NO;
-    shouldRevertToDetail = NO;
+    [avAudioPlayer pause];
+    avAudioPlayer.currentTime = 0;
+    [activityIndicator removeFromSuperview];
+    isPlaying = NO;
+    
+    if(shouldAnimateCell)
+        return;
+    shouldAnimateCell = YES;
     [self saveAndGetCars];
-    [self.SpecsTableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
-    [self.SpecsTableView layoutIfNeeded];
     
-    [UILabel animateWithDuration:.5 animations:^{
-        NewMakesViewController *newMakes = (NewMakesViewController *)self.parentViewController;
-        [newMakes.detailImageView setAlpha:0.0];
+    [specsCollectionView performBatchUpdates:^{
+        cellWidth = cellWidth*2;
         
-        [compareLabel setAlpha:0.0];
-        [exhaustLabel setAlpha:0.0];
-        [websiteLabel setAlpha:0.0];
-        [favoriteLabel setAlpha:0.0];
-        
-        [compareButton setAlpha:0.0];
-        [exhaustButton setAlpha:0.0];
-        
-        [websiteButton setAlpha:0.0];
-        [saveButton setAlpha:0.0];
-    }];
+    }completion:nil];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        [exhaustButton1 addTarget:self action:@selector(Sound1) forControlEvents:UIControlEventTouchUpInside];
-        [exhaustButton2 addTarget:self action:@selector(Sound2) forControlEvents:UIControlEventTouchUpInside];
-        [self setCompareImages];
-        [self setCompareLabels];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            shouldBeCompare = YES;
+            shouldBeDetail = NO;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [specsCollectionView reloadSections:[NSIndexSet indexSetWithIndex:0]];
+            [specsCollectionView layoutIfNeeded];
+        });
     });
     
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"UINavigationBarBackIndicatorDefault.png"] style:UIBarButtonItemStyleDone target:self action:@selector(revertToDetailView)];
-    backButton.tintColor = [UIColor blackColor];
-    [self.parentViewController.navigationItem setLeftBarButtonItem: backButton];
+    if(cameFromMakes)
+    {
+        NewMakesViewController *superView = (NewMakesViewController *)self.parentViewController;
+        
+        [UILabel animateWithDuration:.5 animations:^{
+            [superView.detailImageScroller setAlpha:0.0];
+        }];
+    }
+    if(cameFromModel)
+    {
+        ModelViewController *superView = (ModelViewController *)self.parentViewController;
+        
+        [UILabel animateWithDuration:.5 animations:^{
+            [superView.detailImageScroller setAlpha:0.0];
+        }];
+    }
+    if(cameFromTopTens)
+    {
+        NewTopTensViewController *superView = (NewTopTensViewController *)self.parentViewController;
+        
+        [UILabel animateWithDuration:.5 animations:^{
+            [superView.detailImageScroller setAlpha:0.0];
+        }];
+    }
+    if(cameFromFavorites)
+    {
+        FavoritesViewController *superView = (FavoritesViewController *)self.parentViewController;
+        
+        [UILabel animateWithDuration:.5 animations:^{
+            [superView.detailImageScroller setAlpha:0.0];
+        }];
+    }
+    if(cameFromSearchModel)
+    {
+        SearchModelController *superView = (SearchModelController *)self.parentViewController;
+        
+        [UILabel animateWithDuration:.5 animations:^{
+            [superView.detailImageScroller setAlpha:0.0];
+        }];
+    }
+    if(cameFromSearchTab)
+    {
+        SearchTabViewController *superView = (SearchTabViewController *)self.parentViewController;
+        
+        [UILabel animateWithDuration:.5 animations:^{
+            [superView.detailImageScroller setAlpha:0.0];
+        }];
+    }
+    
+    if(![self.parentViewController isMemberOfClass:[UINavigationController class]])
+    {
+        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"UINavigationBarBackIndicatorDefault.png"] style:UIBarButtonItemStyleDone target:self action:@selector(revertToDetailView)];
+        backButton.tintColor = [UIColor blackColor];
+        UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+        negativeSpacer.width = -9;
+        [self.parentViewController.navigationItem setLeftBarButtonItems:@[negativeSpacer, backButton]];
+        [self setTitleLabelWithString:@"Compare" andView:self.parentViewController];
+    }
+    else
+    {
+        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"UINavigationBarBackIndicatorDefault.png"] style:UIBarButtonItemStyleDone target:self action:@selector(revertToDetailView)];
+        backButton.tintColor = [UIColor blackColor];
+        UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+        negativeSpacer.width = -9;
+        [self.navigationItem setLeftBarButtonItems:@[negativeSpacer, backButton]];
+        [self setTitleLabelWithString:@"Compare" andView:self];
+    }
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        shouldAnimateCell = NO;
+    });
 }
+
+-(void)changeCar1
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if([[defaults objectForKey:@"Makes Layout Preference"]isEqualToString:@"Grid"])
+        [self performSegueWithIdentifier:@"changeCar1Trad" sender:self];
+    else
+        [self performSegueWithIdentifier:@"changeCar1" sender:self];
+}
+
+-(void)changeCar2
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if([[defaults objectForKey:@"Makes Layout Preference"]isEqualToString:@"Grid"])
+        [self performSegueWithIdentifier:@"changeCar2Trad" sender:self];
+    else
+        [self performSegueWithIdentifier:@"changeCar2" sender:self];}
 
 -(void)revertToDetailView
 {
-    [self viewWillDisappear:NO];
-    shouldHaveSpecName = YES;
-    shouldRevertToDetail = YES;
-    firstCar = NULL;
-    [self.SpecsTableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
-    [self.SpecsTableView layoutIfNeeded];
+    avAudioPlayer1 = nil;
+    avAudioPlayer2 = nil;
+    hasLoaded1 = NO;
+    hasLoaded2 = NO;
+    [activityIndicator1 removeFromSuperview];
+    [activityIndicator2 removeFromSuperview];
+    isplaying1 = NO;
+    isplaying2 = NO;
     
-    [UIImageView animateWithDuration:.5 animations:^{
-        [firstImageView setAlpha:0.0];
-        [secondImageView setAlpha:0.0];
-        [firstCarNameLabel setAlpha:0.0];
-        [secondCarNameLabel setAlpha:0.0];
-        [changeCar1Button setAlpha:0.0];
-        [changeCar2Button setAlpha:0.0];
-        [exhaustButton1 setAlpha:0.0];
-        [exhaustButton2 setAlpha:0.0];
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:[currentCar.CarFullName stringByAppendingString:@" Specs"]];
+    [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
+    
+    shouldAnimateCell = YES;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         
-        [compareLabel setAlpha:0.0];
-        [exhaustLabel setAlpha:0.0];
-        [websiteLabel setAlpha:0.0];
-        [favoriteLabel setAlpha:0.0];
-    }];
+        [specsCollectionView performBatchUpdates:^{
+            cellWidth = cellWidth/2;
+            
+        }completion:nil];
+        
+    });
+    
+    shouldBeCompare = NO;
+    shouldBeDetail = YES;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [specsCollectionView reloadSections:[NSIndexSet indexSetWithIndex:0]];
+        [specsCollectionView layoutIfNeeded];
+    });
+    
+    if(cameFromMakes)
+    {
+        NewMakesViewController *superView = (NewMakesViewController *)self.parentViewController;
+        
+        [UILabel animateWithDuration:.5 animations:^{
+            [superView.detailImageScroller setAlpha:1.0];
+        }];
+        [self setTitleLabelWithString:currentCar.CarMake andView:self.parentViewController];
+    }
+    else if(cameFromModel)
+    {
+        ModelViewController *superView = (ModelViewController *)self.parentViewController;
+        
+        [UILabel animateWithDuration:.5 animations:^{
+            [superView.detailImageScroller setAlpha:1.0];
+        }];
+        [self setTitleLabelWithString:currentCar.CarMake andView:self.parentViewController];
+    }
+    else if(cameFromTopTens)
+    {
+        NewTopTensViewController *superView = (NewTopTensViewController *)self.parentViewController;
+        
+        [UILabel animateWithDuration:.5 animations:^{
+            [superView.detailImageScroller setAlpha:1.0];
+        }];
+        [self setTitleLabelWithString:currentCar.CarMake andView:self.parentViewController];
+    }
+    else if(cameFromFavorites)
+    {
+        FavoritesViewController *superView = (FavoritesViewController *)self.parentViewController;
+        
+        [UILabel animateWithDuration:.5 animations:^{
+            [superView.detailImageScroller setAlpha:1.0];
+        }];
+        [self setTitleLabelWithString:currentCar.CarMake andView:self.parentViewController];
+    }
+    else if(cameFromSearchModel)
+    {
+        SearchModelController *superView = (SearchModelController *)self.parentViewController;
+        
+        [UILabel animateWithDuration:.5 animations:^{
+            [superView.detailImageScroller setAlpha:1.0];
+        }];
+        [self setTitleLabelWithString:currentCar.CarMake andView:self.parentViewController];
+    }
+    else if(cameFromSearchTab)
+    {
+        SearchTabViewController *superView = (SearchTabViewController *)self.parentViewController;
+        
+        [UILabel animateWithDuration:.5 animations:^{
+            [superView.detailImageScroller setAlpha:1.0];
+        }];
+        [self setTitleLabelWithString:currentCar.CarMake andView:self.parentViewController];
+    }
+    else
+        [self setTitleLabelWithString:currentCar.CarMake andView:self];
+    
+    self.parentViewController.navigationItem.leftBarButtonItems = nil;
+    self.navigationItem.leftBarButtonItems = nil;
+    
+    if(cameFromMakes)
+    {
+        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"UINavigationBarBackIndicatorDefault.png"] style:UIBarButtonItemStyleDone target:self.parentViewController action:@selector(revertToMakesPage)];
+        backButton.tintColor = [UIColor blackColor];
+        UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+        negativeSpacer.width = -9;
+        [self.parentViewController.navigationItem setLeftBarButtonItems:@[negativeSpacer, backButton]];
+    }
+    else if(cameFromTopTens)
+    {
+        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"UINavigationBarBackIndicatorDefault.png"] style:UIBarButtonItemStyleDone target:self action:@selector(unwindToTopTens)];
+        backButton.tintColor = [UIColor blackColor];
+        UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+        negativeSpacer.width = -9;
+        [self.parentViewController.navigationItem setLeftBarButtonItems:@[negativeSpacer, backButton]];
+    }
+    else if(cameFromFavorites)
+    {
+        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"UINavigationBarBackIndicatorDefault.png"] style:UIBarButtonItemStyleDone target:self action:@selector(unwindToFavorites)];
+        backButton.tintColor = [UIColor blackColor];
+        UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+        negativeSpacer.width = -9;
+        [self.parentViewController.navigationItem setLeftBarButtonItems:@[negativeSpacer, backButton]];
+    }
+    else if(cameFromModel)
+    {
+        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"UINavigationBarBackIndicatorDefault.png"] style:UIBarButtonItemStyleDone target:self.parentViewController action:@selector(revertToModelsPage)];
+        backButton.tintColor = [UIColor blackColor];
+        UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+        negativeSpacer.width = -9;
+        [self.parentViewController.navigationItem setLeftBarButtonItems:@[negativeSpacer, backButton]];
+    }
+    else if(cameFromSearchModel)
+    {
+        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"UINavigationBarBackIndicatorDefault.png"] style:UIBarButtonItemStyleDone target:self.parentViewController action:@selector(revertToSearchModelPage)];
+        backButton.tintColor = [UIColor blackColor];
+        UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+        negativeSpacer.width = -9;
+        [self.parentViewController.navigationItem setLeftBarButtonItems:@[negativeSpacer, backButton]];
+    }
+    else if(cameFromSearchTab)
+    {
+        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"UINavigationBarBackIndicatorDefault.png"] style:UIBarButtonItemStyleDone target:self.parentViewController action:@selector(revertToSearchTabPage)];
+        backButton.tintColor = [UIColor blackColor];
+        UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+        negativeSpacer.width = -9;
+        [self.parentViewController.navigationItem setLeftBarButtonItems:@[negativeSpacer, backButton]];
+    }
+    else
+    {
+        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"UINavigationBarBackIndicatorDefault.png"] style:UIBarButtonItemStyleDone target:self action:@selector(unwindToHomeVC)];
+        backButton.tintColor = [UIColor blackColor];
+        UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+        negativeSpacer.width = -9;
+        [self.parentViewController.navigationItem setLeftBarButtonItems:@[negativeSpacer, backButton]];
+    }
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        firstImageScroller.minimumZoomScale = 1.0;
-        firstImageScroller.maximumZoomScale = 1.0;
-        firstImageScroller.zoomScale = 1.0;
-        secondImageScroller.minimumZoomScale = 1.0;
-        secondImageScroller.maximumZoomScale = 1.0;
-        secondImageScroller.zoomScale = 1.0;
-        firstImageView.image = nil;
-        secondImageView.image = nil;
-        
-        [compareLabel setText:@"Compare"];
-        [exhaustLabel setText:@"Exhaust"];
-        [websiteLabel setText:@"Website"];
-        [favoriteLabel setText:@"Favorite"];
-        
-        NewMakesViewController *newMakes = (NewMakesViewController *)self.parentViewController;
-        [self viewWillAppear:NO];
-        [UIImageView animateWithDuration:.5 animations:^{
-            [newMakes.detailImageView setAlpha:1.0];
-            [compareButton setAlpha:1.0];
-            [exhaustButton setAlpha:1.0];
-            [websiteButton setAlpha:1.0];
-            [saveButton setAlpha:1.0];
-            [compareLabel setAlpha:1.0];
-            [exhaustLabel setAlpha:1.0];
-            [websiteLabel setAlpha:1.0];
-            [favoriteLabel setAlpha:1.0];
-        }];
+        shouldAnimateCell = NO;
     });
-    [self.parentViewController.navigationItem.leftBarButtonItem setTarget:self.parentViewController];
-    [self.parentViewController.navigationItem.leftBarButtonItem setAction:@selector(revertToMakesPage)];
+}
+
+-(void)unwindToHomeVC
+{
+    [self performSegueWithIdentifier:@"unwindToHomeVC" sender:self];
+}
+
+-(void)unwindToTopTens
+{
+    [self performSegueWithIdentifier:@"unwindToTopTens" sender:self];
+}
+
+-(void)unwindToFavorites
+{
+    [self performSegueWithIdentifier:@"unwindToFavorites" sender:self];
+}
+
+-(void)unwindToModel
+{
+    [self performSegueWithIdentifier:@"unwindToModelVC" sender:self];
 }
 
 -(void)saveAndGetCars
@@ -1287,336 +2087,30 @@
         NSData *secondCarData = [defaults objectForKey:@"secondcar"];
         secondCar = [NSKeyedUnarchiver unarchiveObjectWithData:secondCarData];
     }
-    
-    NSLog(@"firstCar: %@ secondCar: %@", firstCar.CarFullName, secondCar.CarFullName);
+    if(firstCar != NULL)
+        [self performSelectorInBackground:@selector(setUpAVAudioPlayer1) withObject:nil];
+    if(secondCar != NULL)
+        [self performSelectorInBackground:@selector(setUpAVAudioPlayer2) withObject:nil];
 }
 
--(void)setCompareImages
+-(void)setTitleLabelWithString:(NSString *)titleString andView:(UIViewController *)view
 {
-    if(![firstCar.CarHTML isEqualToString:@""])
-        [self setFirstCarEvoxImage];
-    else
-        [self setFirstCarNormalImage];
-    
-    if(![secondCar.CarHTML isEqualToString:@""])
-        [self setSecondCarEvoxImage];
-    else
-        [self setSecondCarNormalImage];
-}
-
--(void)setCompareLabels
-{
-    [firstCarNameLabel setText:firstCar.CarFullName];
-    [secondCarNameLabel setText:secondCar.CarFullName];
-    [compareLabel setText:@"Change Car 1"];
-    [exhaustLabel setText:@"Exhaust 1"];
-    [websiteLabel setText:@"Exhaust 2"];
-    [favoriteLabel setText:@"Change Car 2"];
-    
-    [self setCompareExhuastImages];
-    
-    [UILabel animateWithDuration:.5 animations:^{
-        [firstCarNameLabel setAlpha:1.0];
-        [secondCarNameLabel setAlpha:1.0];
-        [compareLabel setAlpha:1.0];
-        [exhaustLabel setAlpha:1.0];
-        [websiteLabel setAlpha:1.0];
-        [favoriteLabel setAlpha:1.0];
-        
-        [changeCar1Button setAlpha:1.0];
-        [exhaustButton1 setAlpha:1.0];
-        [exhaustButton2 setAlpha:1.0];
-        [changeCar2Button setAlpha:1.0];
-    }];
-}
-
--(void)setCompareExhuastImages
-{
-    if(firstCar != NULL && !([firstCar.CarExhaust isEqual:@""]))
-        [exhaustButton1 setBackgroundImage:[UIImage imageNamed:@"arrows.png"] forState:UIControlStateNormal];
-    else if(firstCar != NULL)
-        [exhaustButton1 setBackgroundImage:[UIImage imageNamed:@"mute.png"] forState:UIControlStateNormal];
-    if(secondCar != NULL && !([secondCar.CarExhaust isEqual:@""]))
-        [exhaustButton2 setBackgroundImage:[UIImage imageNamed:@"arrows.png"] forState:UIControlStateNormal];
-    else if(secondCar != NULL)
-        [exhaustButton2 setBackgroundImage:[UIImage imageNamed:@"mute.png"] forState:UIControlStateNormal];
-}
-
--(void)setFirstCarEvoxImage
-{
-    if([[SDImageCache sharedImageCache] imageFromDiskCacheForKey:firstCar.CarFullName] != NULL)
+    [view setTitle:titleString];
+    if([titleString isEqualToString:@"Compare"])
     {
-        [firstImageView setAlpha:1.0];
-        [firstImageView setImage:[[SDImageCache sharedImageCache] imageFromDiskCacheForKey:firstCar.CarFullName]];
-        firstImageView.layer.borderWidth = 2.0;
-        firstImageView.layer.borderColor = [UIColor whiteColor].CGColor;
-        return;
+        id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+        [tracker set:kGAIScreenName value:@"Compare"];
+        [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
     }
-    
-    [self startLoadingWheel1WithCenter:firstImageView.center];
-    
-    //Create Evox Trimmers outside of screen's view
-    hiddenImageScroller = [[UIScrollView alloc]initWithFrame:(CGRectMake(-500, 61, 320, 145))];
-    hiddenWebView = [[UIWebView alloc]initWithFrame:(CGRectMake(0, 0, 320, 193))];
-    hiddenImageScroller.delegate = self;
-    hiddenWebView.delegate = self;
-    [hiddenImageScroller addSubview:hiddenWebView];
-    
-    hiddenEvoxTrimmingView = [[UIView alloc]initWithFrame:(CGRectMake(-500, 0, 288, 145))];
-    hiddenImageView = [[UIImageView alloc]initWithFrame:(CGRectMake(-41, -25, 370, 195))];
-    [hiddenEvoxTrimmingView addSubview:hiddenImageView];
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.05 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        [hiddenWebView loadHTMLString:firstCar.CarHTML baseURL:nil];
-    });
 }
 
--(void)setFirstCarNormalImage
+- (UIImage*)resizeImage:(UIImage*)aImage reSize:(CGSize)newSize;
 {
-    __weak UIImageView *weakFirstImageView = firstImageView;
-    
-    NSURL *imageURL;
-    if([firstCar.CarImageURL containsString:@"carno"])
-        imageURL = [NSURL URLWithString:firstCar.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]];
-    else
-        imageURL = [NSURL URLWithString:firstCar.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/CarPictures/"]];
-    
-    double zoomScale = [firstCar.ZoomScale doubleValue];
-    double offSetX = [firstCar.OffsetX doubleValue];
-    double offSetY = [firstCar.OffsetY doubleValue];
-    
-    firstImageScroller.delegate = self;
-    
-    firstImageView.contentMode = UIViewContentModeScaleAspectFit;
-    if(zoomScale != 0)
-    {
-        firstImageScroller.maximumZoomScale = zoomScale;
-        firstImageScroller.minimumZoomScale = zoomScale;
-        firstImageScroller.zoomScale = zoomScale;
-    }
-    [firstImageScroller setContentOffset:CGPointMake(offSetX/2, offSetY/2)];
-    [firstImageScroller setScrollEnabled:NO];
-    
-    [weakFirstImageView setImageWithURL:imageURL
-                              completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageurl){
-                                  [weakFirstImageView setAlpha:0.0];
-                                  [UIImageView animateWithDuration:.5 animations:^{
-                                      [weakFirstImageView setAlpha:1.0];
-                                  }];
-                              }
-            usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-}
-
--(void)setSecondCarEvoxImage
-{
-    if([[SDImageCache sharedImageCache] imageFromDiskCacheForKey:secondCar.CarFullName] != NULL)
-    {
-        [secondImageView setAlpha:1.0];
-        [secondImageView setImage:[[SDImageCache sharedImageCache] imageFromDiskCacheForKey:secondCar.CarFullName]];
-        secondImageView.layer.borderWidth = 2.0;
-        secondImageView.layer.borderColor = [UIColor whiteColor].CGColor;
-        return;
-    }
-    
-    [self startLoadingWheel2WithCenter:secondImageView.center];
-    
-    //Create Evox Trimmers outside of screen's view
-    hiddenImageScroller2 = [[UIScrollView alloc]initWithFrame:(CGRectMake(-500, 61, 320, 145))];
-    hiddenWebView2 = [[UIWebView alloc]initWithFrame:(CGRectMake(0, 0, 320, 193))];
-    hiddenImageScroller2.delegate = self;
-    hiddenWebView2.delegate = self;
-    [hiddenImageScroller2 addSubview:hiddenWebView2];
-    
-    hiddenEvoxTrimmingView2 = [[UIView alloc]initWithFrame:(CGRectMake(-500, 0, 288, 145))];
-    hiddenImageView2 = [[UIImageView alloc]initWithFrame:(CGRectMake(-41, -25, 370, 195))];
-    [hiddenEvoxTrimmingView2 addSubview:hiddenImageView2];
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.05 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        [hiddenWebView2 loadHTMLString:secondCar.CarHTML baseURL:nil];
-    });
-}
-
--(void)setSecondCarNormalImage
-{
-    __weak UIImageView *weakSecondImageView = secondImageView;
-    
-    NSURL *imageURL;
-    if([secondCar.CarImageURL containsString:@"carno"])
-        imageURL = [NSURL URLWithString:secondCar.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]];
-    else
-        imageURL = [NSURL URLWithString:secondCar.CarImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/CarPictures/"]];
-    
-    double zoomScale = [secondCar.ZoomScale doubleValue];
-    double offSetX = [secondCar.OffsetX doubleValue];
-    double offSetY = [secondCar.OffsetY doubleValue];
-    
-    secondImageScroller.delegate = self;
-    
-    secondImageView.contentMode = UIViewContentModeScaleAspectFit;
-    if(zoomScale != 0)
-    {
-        secondImageScroller.maximumZoomScale = zoomScale;
-        secondImageScroller.minimumZoomScale = zoomScale;
-        secondImageScroller.zoomScale = zoomScale;
-    }
-    [secondImageScroller setContentOffset:CGPointMake(offSetX/2, offSetY/2)];
-    [secondImageScroller setScrollEnabled:NO];
-    
-    [weakSecondImageView setImageWithURL:imageURL
-                               completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageurl){
-                                   [weakSecondImageView setAlpha:0.0];
-                                   [UIImageView animateWithDuration:.5 animations:^{
-                                       [weakSecondImageView setAlpha:1.0];
-                                   }];
-                               }
-             usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-}
-
--(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
-{
-    if(scrollView == hiddenImageScroller)
-        return hiddenWebView;
-    else if (scrollView == hiddenImageScroller2)
-        return hiddenWebView2;
-    else if (scrollView == firstImageScroller)
-        return firstImageView;
-    else if (scrollView == secondImageScroller)
-        return secondImageView;
-    else
-        return hiddenWebView;
-}
-
-- (void)webViewDidFinishLoad:(UIWebView *)webView
-{
-    UIScrollView *webViewScroller;
-    
-    if(webView == hiddenWebView)
-    {
-        if(hasCalled1 == YES)
-            return;
-        hasCalled1 = YES;
-        webViewScroller = hiddenImageScroller;
-    }
-    
-    if(webView == hiddenWebView2)
-    {
-        if(hasCalled2 == YES)
-            return;
-        hasCalled2 = YES;
-        webViewScroller = hiddenImageScroller2;
-    }
-    
-    webViewScroller.maximumZoomScale = 1.1;
-    webViewScroller.minimumZoomScale = 1.1;
-    webViewScroller.zoomScale = 1.1;
-    [webViewScroller setContentOffset:CGPointMake(60, 20)];
-    
-    [webView setAlpha:1.0];
-    //allow time for webview to load and then trim and convert the html file to the imageview
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.05 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        [self imageFromWebView:webView];
-    });
-    
-}
-
-- (UIImage *) imageFromWebView:(UIWebView *)webView
-{
-    // do image magic
-    
-    UIImageView *imageView;
-    UIImageView *finalImageView;
-    UIActivityIndicatorView *loadingWheel;
-    
-    if(webView == hiddenWebView)
-    {
-        imageView = hiddenImageView;
-        finalImageView = firstImageView;
-        loadingWheel = activityIndicator1;
-    }
-    else if(webView == hiddenWebView2)
-    {
-        imageView = hiddenImageView2;
-        finalImageView = secondImageView;
-        loadingWheel = activityIndicator2;
-    }
-    
-    UIGraphicsBeginImageContextWithOptions(webView.bounds.size, NO, 0.0);
-    [webView.layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, [UIScreen mainScreen].scale);
+    [aImage drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
+    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    
-    [imageView setImage:image];
-    [imageView setAlpha:1.0];
-    [webView setAlpha:0.0];
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, .1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        
-        //First Evox Cut
-        CGSize size = imageView.bounds.size;
-        CGRect rect = CGRectMake(size.width / 9, size.height / 1.2 ,
-                                 (size.width / .5), (size.height / .6));
-        CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage], rect);
-        UIImage *img = [UIImage imageWithCGImage:imageRef];
-        CGImageRelease(imageRef);
-        
-        [imageView setFrame:CGRectMake(0, 0, 288, 145)];
-        [imageView setImage:img];
-        
-        //Second Evox Cut
-        size = imageView.bounds.size;
-        rect = CGRectMake(size.width / 9, size.height / 1.2 ,
-                          (size.width / .5), (size.height / .6));
-        
-        imageRef = CGImageCreateWithImageInRect([image CGImage], rect);
-        img = [UIImage imageWithCGImage:imageRef];
-        CGImageRelease(imageRef);
-        NSLog(@"img: %@", img);
-        
-        [imageView setFrame:CGRectMake(0, 0, 288, 145)];
-        [imageView setImage:img];
-        
-        imageView.layer.borderWidth = 1.0;
-        imageView.layer.borderColor = [UIColor whiteColor].CGColor;
-        
-        //Create Final Evox ImageView
-        CGSize newSize = finalImageView.bounds.size;
-        UIGraphicsBeginImageContextWithOptions(newSize, YES, [UIScreen mainScreen].scale);
-        [img drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
-        UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        
-        [finalImageView setAlpha:0];
-        [finalImageView setImage:newImage];
-        [loadingWheel stopAnimating];
-        [UIImageView animateWithDuration:.5 animations:^{
-            [finalImageView setAlpha:1.0];
-        }];
-        finalImageView.layer.borderWidth = 1.0;
-        finalImageView.layer.borderColor = [UIColor whiteColor].CGColor;
-    });
-    return image;
-}
-
--(void)startLoadingWheel1WithCenter:(CGPoint)center
-{
-    activityIndicator1 = [[UIActivityIndicatorView alloc]
-                          initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    activityIndicator1.center = center;
-    activityIndicator1.hidesWhenStopped = YES;
-    activityIndicator1.color = [UIColor blackColor];
-    [self.upperView addSubview:activityIndicator1];
-    [activityIndicator1 startAnimating];
-}
-
--(void)startLoadingWheel2WithCenter:(CGPoint)center
-{
-    activityIndicator2 = [[UIActivityIndicatorView alloc]
-                          initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    activityIndicator2.center = center;
-    activityIndicator2.hidesWhenStopped = YES;
-    activityIndicator2.color = [UIColor blackColor];
-    [self.upperView addSubview:activityIndicator2];
-    [activityIndicator2 startAnimating];
+    return newImage;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -1625,21 +2119,99 @@
     {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults removeObjectForKey:@"firstcar"];
+        [[segue destinationViewController]setUpUnwindToCompare];
+    }
+    if ([[segue identifier] isEqualToString:@"changeCar1Trad"])
+    {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults removeObjectForKey:@"firstcar"];
+        [[segue destinationViewController]setUpUnwindToCompare];
     }
     if ([[segue identifier] isEqualToString:@"changeCar2"])
     {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults removeObjectForKey:@"secondcar"];
+        [[segue destinationViewController]setUpUnwindToCompare];
     }
-    if ([[segue identifier] isEqualToString:@"pushimageview"])
+    if ([[segue identifier] isEqualToString:@"changeCar2Trad"])
     {
-        [[segue destinationViewController] getfirstModel:currentCar];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults removeObjectForKey:@"secondcar"];
+        [[segue destinationViewController]setUpUnwindToCompare];
+    }
+    if ([[segue identifier] isEqualToString:@"pushImageView"])
+    {
+        [[segue destinationViewController] getModel:currentCar];
+    }
+    if ([[segue identifier] isEqualToString:@"pushImageView1"])
+    {
+        [[segue destinationViewController] getModel:firstCar];
+    }
+    if ([[segue identifier] isEqualToString:@"pushImageView2"])
+    {
+        [[segue destinationViewController] getModel:secondCar];
     }
 }
 
--(IBAction)Website
+#pragma mark Setup Methods
+
+- (void)getModel:(id)modelObject
 {
-    [[UIApplication sharedApplication] openURL: [NSURL URLWithString:currentCar.CarWebsite]];
+    shouldLoadImage = YES;
+    currentCar = modelObject;
+}
+
+-(void)getCarToLoad:(id)modelObject sender:(id)sender
+{
+    currentCar = modelObject;
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        [self performSelectorInBackground:@selector(setUpAVAudioPlayer) withObject:nil];
+    });
+    
+    if([sender isKindOfClass:[NewTopTensViewController class]])
+    {
+        cameFromTopTens = YES;
+    }
+    if([sender isKindOfClass:[FavoritesViewController class]])
+    {
+        cameFromFavorites = YES;
+    }
+    if([sender isKindOfClass:[NewMakesViewController class]])
+    {
+        cameFromMakes = YES;
+    }
+    if([sender isKindOfClass:[ModelViewController class]])
+    {
+        cameFromModel = YES;
+    }
+    if([sender isKindOfClass:[SearchModelController class]])
+    {
+        cameFromSearchModel = YES;
+    }
+    if([sender isKindOfClass:[SearchTabViewController class]])
+    {
+        cameFromSearchTab = YES;
+    }
+    if([sender isKindOfClass:[TestViewController class]])
+    {
+        cameFromHome = YES;
+        shouldLoadImage = YES;
+    }
+    
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:[currentCar.CarFullName stringByAppendingString:@" Specs"]];
+    [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
+}
+
+-(void)pushSpecsDispute
+{
+    [self performSegueWithIdentifier:@"pushSpecsDispute" sender:self];
+}
+
+- (IBAction)unwindToCompareVC:(UIStoryboardSegue *)segue
+{
+    
 }
 
 @end

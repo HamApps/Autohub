@@ -19,9 +19,13 @@
     return self;
 }
 
--(void)layoutSubviews
+-(void)prepareForReuse
 {
-
+    for(UIView *view in self.cardView.subviews)
+    {
+        if([view isMemberOfClass:[UIActivityIndicatorView class]])
+            [view removeFromSuperview];
+    }
 }
 
 -(void)cardSetup
@@ -43,10 +47,6 @@
     maskLayer.frame = self.bounds;
     maskLayer.path = maskPath.CGPath;
     self.newsImage.layer.mask = maskLayer;
-}
-
-- (void)awakeFromNib {
-    // Initialization code
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

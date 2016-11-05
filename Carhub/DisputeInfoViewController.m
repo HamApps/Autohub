@@ -9,6 +9,7 @@
 #import "DisputeInfoViewController.h"
 #import "SWRevealViewController.h"
 #import "AppDelegate.h"
+#import <Google/Analytics.h>
 
 @interface DisputeInfoViewController ()
 
@@ -28,18 +29,27 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-    [appDelegate setShouldRotate:NO];
     
     self.barButton.target = self.revealViewController;
     self.barButton.action = @selector(revealToggle:);
     
     self.title = @"Info Dispute";
-    // Do any additional setup after loading the view.
+    
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:self.title];
+    [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
+    
     [self.myTextView setReturnKeyType:UIReturnKeyDone];
     self.myTextView.delegate = self;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moveViewUp:)name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moveViewDown:)name:UIKeyboardWillHideNotification object:nil];
+    
+    [self.navigationItem.leftBarButtonItem setTarget:self];
+    [self.navigationItem.leftBarButtonItem setAction:@selector(goback)];
+    
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"cancel.png"] style:UIBarButtonItemStyleDone target:self action:@selector(goback)];
+    backButton.tintColor = [UIColor blackColor];
+    //[self.navigationItem setLeftBarButtonItem: backButton];
 }
 
 - (void)didReceiveMemoryWarning
@@ -130,6 +140,9 @@
 -(void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+    
+    if(result == MFMailComposeResultSent)
+        [self.myTextView setText:@""];
 }
 
 -(IBAction)openInstagramPage
@@ -147,7 +160,8 @@
     [[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"https://www.facebook.com/Autohub-1484353035160080/"]];
 }
 
-- (UIImage *)resizeImage:(UIImage*)image newSize:(CGSize)newSize {
+- (UIImage *)resizeImage:(UIImage*)image newSize:(CGSize)newSize
+{
     CGRect newRect = CGRectIntegral(CGRectMake(0, 0, newSize.width, newSize.height));
     CGImageRef imageRef = image.CGImage;
     
@@ -170,6 +184,26 @@
     UIGraphicsEndImageContext();
     
     return newImage;
+}
+
+- (UIImage*)resizeImage:(UIImage*)aImage reSize:(CGSize)newSize;
+{
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, [UIScreen mainScreen].scale);
+    [aImage drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
+    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
+- (void)goback
+{
+    CATransition* transition = [CATransition animation];
+    transition.duration = 0.5;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    transition.type = kCATransitionReveal;
+    transition.subtype = kCATransitionFromBottom;
+    [self.navigationController.view.layer addAnimation:transition forKey:nil];
+    [self.navigationController popViewControllerAnimated:NO];
 }
 
 @end

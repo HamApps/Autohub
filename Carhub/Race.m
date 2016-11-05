@@ -9,16 +9,20 @@
 #import "Race.h"
 
 @implementation Race
-@synthesize RaceImageURL, RaceName, RaceType, ResultsImageURL1, ResultsImageURL2, ResultsImageURL3, ResultsImageURL4;
+@synthesize RaceImageURL, RaceName, RaceType, ResultsImageURL1, ResultsImageURL2, ResultsImageURL3, ResultsImageURL4, RaceSeason, RaceDate, RaceZoomScale, SeasonRaceName;
 
--(id)initWithRaceName:(NSString *)nName andTypeImageURL:(NSString *)nImageURL andRaceType:(NSString *)nRaceType andResultsImageURL1:(NSString *)nResultsImageURL1 andResultsImageURL2:(NSString *)nResultsImageURL2 andResultsImageURL3:(NSString *)nResultsImageURL3 andResultsImageURL4:(NSString *)nResultsImageURL4
+-(id)initWithRaceName:(NSString *)nName andSeasonRaceName:(NSString *)nSeasonRaceName andRaceImageURL:(NSString *)nImageURL andRaceZoomScale:(NSNumber *)nZoomScale andRaceType:(NSString *)nRaceType andRaceSeason:(NSString *)nRaceSeason andRaceDate:(NSDate *)nRaceDate andResultsImageURL1:(NSString *)nResultsImageURL1 andResultsImageURL2:(NSString *)nResultsImageURL2 andResultsImageURL3:(NSString *)nResultsImageURL3 andResultsImageURL4:(NSString *)nResultsImageURL4
 {
     self = [super init];
     if (self)
     {
         RaceName = nName;
+        SeasonRaceName = nSeasonRaceName;
         RaceImageURL = nImageURL;
+        RaceZoomScale = nZoomScale;
         RaceType = nRaceType;
+        RaceSeason = nRaceSeason;
+        RaceDate = nRaceDate;
         ResultsImageURL1 =nResultsImageURL1;
         ResultsImageURL2 =nResultsImageURL2;
         ResultsImageURL3 =nResultsImageURL3;

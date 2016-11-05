@@ -24,11 +24,20 @@
     [self cardSetup];
 }
 
+-(void)prepareForReuse
+{
+    for(UIView *view in self.cardView.subviews)
+    {
+        if([view isMemberOfClass:[UIActivityIndicatorView class]])
+            [view removeFromSuperview];
+    }
+}
+
 -(void)cardSetup
 {
     [self.cardView setAlpha:1];
     self.cardView.layer.masksToBounds = NO;
-    self.cardView.layer.cornerRadius = 2;
+    self.cardView.layer.cornerRadius = 3;
     self.cardView.layer.shadowOffset = CGSizeMake(-.2f, .2f);
     self.cardView.layer.shadowRadius = 1.5;
     UIBezierPath *path = [UIBezierPath bezierPathWithRect:self.cardView.bounds];

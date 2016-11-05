@@ -11,7 +11,6 @@
 @interface SettingsViewController : UITableViewController
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *barButton;
-
 @property (strong, nonatomic) NSIndexPath *expandedIndexPath;
 
 -(void)closeCellTable;

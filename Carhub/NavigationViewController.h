@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SWRevealViewController.h"
 
-@interface NavigationViewController : UITableViewController
+@interface NavigationViewController : UITableViewController<UIGestureRecognizerDelegate, SWRevealViewControllerDelegate>
+
+@property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
+
+@property (assign) BOOL shouldSelectHome;
 
 @end

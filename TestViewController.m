@@ -10,46 +10,54 @@
 #import "HomepageCell.h"
 #import "HomePageMedia.h"
 #import "Race.h"
-#import "RaceResultsViewController.h"
 #import "Model.h"
 #import "DetailViewController.h"
 #import "PageItemController.h"
+#import "CheckInternet.h"
+#import "RaceCVCell.h"
+#import "RaceType.h"
+#import <Google/Analytics.h>
+#import "ViewController.h"
+#import "PageItemController.h"
+#import "YTPlayerView.h"
 
 @interface TestViewController()
 
 @end
 
 @implementation TestViewController
-@synthesize newsArray, mediaArray, carOfTheDayArray, latestArticlesArray, latestVideosArray, racesArray, addedCarsArray, CarOfTheDayCV, LatestArticlesCV, LatestVideosCV, RacesCV, AddedCarsCV, currentRaceID, currentCarOfTheDay, refreshControl, CarOfTheDayLabel, Spec1Label, Spec2Label, COTDSpec1, COTDSpec2, pageControl1, pageControl2, pageControl3, pageControl4, pageControl5, TableView, CardView1, CardView2, CardView3, CardView4, CardView5, SpecImage1, SpecImage2, currentNewCar, selectedNews, gradient, shouldKeepSpinning;
+@synthesize newsArray, mediaArray, carOfTheDayArray, latestArticlesArray, latestVideosArray, racesArray, addedCarsArray, CarOfTheDayCV, LatestArticlesCV, LatestVideosCV, RacesCV, AddedCarsCV, currentRaceID, currentCarOfTheDay, refreshControl, CarOfTheDayLabel, Spec1Label, Spec2Label, COTDSpec1, COTDSpec2, pageControl1, pageControl2, pageControl3, pageControl4, pageControl5, TableView, CardView1, CardView2, CardView3, CardView4, CardView5, SpecImage1, SpecImage2, currentNewCar, selectedNews, gradient, shouldKeepSpinning, fullSpecsArrow, fullSpecsLabel, latestVideosLabel, latestArticlesLabel, recentRacesLabel, newlyAddedCarsLabel, shouldDoInitialLoad, noDataLabel, refreshImage, COTDMediaObject, shouldPushToModel, savedNotification, shouldPushToArticle, shouldPushToVideo, shouldPushToRace, playerView;
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
+    NSLog(@"viewdidload");
     
-    AppDelegate *appdel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    if(appdel.hasLoaded == NO)
-    {
-        [self.navigationController.navigationBar setUserInteractionEnabled:NO];
-    }
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(preloadToModel:) name:@"preloadToModel" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(preloadToArticle:) name:@"preloadToArticle" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(preloadToVideo:) name:@"preloadToVideo" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(preloadToRace:) name:@"preloadToRace" object:nil];
+    
+    [self preloadWebview];
     
     self.view.backgroundColor = [UIColor clearColor];
     self.TableView.separatorColor = [UIColor clearColor];
-    
+        
     self.barButton.target = self.revealViewController;
     self.barButton.action = @selector(revealToggle:);
-    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     
-    [self.navigationController.navigationBar setTitleTextAttributes:
-     @{NSForegroundColorAttributeName:[UIColor blackColor],
-       NSFontAttributeName:[UIFont fontWithName:@"MavenProMedium" size:20]}];
     self.title = @"Home";
     
-    //Initial Internal Methods
-    [self setupRefreshControl];
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:self.title];
+    [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
+    
     [self makeAppDelMediaArray];
     [self splitMediaArray];
     [self SetUpCardViews];
     [self SetScrollDirections];
     [self setUpNavigationGestures];
+    [self setupRefreshControl];
     
     pageControl1.numberOfPages =  carOfTheDayArray.count;
     pageControl2.numberOfPages =  latestArticlesArray.count;
@@ -57,25 +65,114 @@
     pageControl4.numberOfPages =  racesArray.count;
     pageControl5.numberOfPages =  addedCarsArray.count;
     
-    CALayer * circle = [self.circleLabel layer];
-    [circle setMasksToBounds:YES];
-    [circle setCornerRadius:10.0];
-    [circle setBorderWidth:1.0];
-    [circle setBorderColor:[[UIColor colorWithRed:(214/255.0) green:(38/255.0) blue:(19/255.0) alpha:1] CGColor]];
+    AppDelegate *appdel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    if(appdel.hasLoaded == NO && [appdel isInternetConnectionAvailable] == YES)
+    {
+        [Spec1Label setAlpha:0.0];
+        [Spec2Label setAlpha:0.0];
+        [CarOfTheDayLabel setAlpha:0.0];
+        [fullSpecsArrow setAlpha:0.0];
+        [fullSpecsLabel setAlpha:0.0];
+        [latestArticlesLabel setAlpha:0.0];
+        [CardView1 setAlpha:0];
+        [CardView2 setAlpha:0];
+        [CardView3 setAlpha:0];
+        [CardView4 setAlpha:0];
+        [CardView5 setAlpha:0];
+                
+        shouldDoInitialLoad = YES;
+        [self.navigationController.navigationBar setUserInteractionEnabled:NO];
+        self.TableView.contentOffset = CGPointMake(0, - self.refreshControl.frame.size.height);
+        [self.refreshControl beginRefreshing];
+        [self reloadData];
+    }
+    else if(appdel.hasLoaded == NO && [appdel isInternetConnectionAvailable] == NO)
+    {
+        [noDataLabel removeFromSuperview];
+        [refreshImage removeFromSuperview];
+        
+        [Spec1Label setAlpha:0.0];
+        [Spec2Label setAlpha:0.0];
+        [CarOfTheDayLabel setAlpha:0.0];
+        [fullSpecsArrow setAlpha:0.0];
+        [fullSpecsLabel setAlpha:0.0];
+        [latestArticlesLabel setAlpha:0.0];
+        [CardView1 setAlpha:0];
+        [CardView2 setAlpha:0];
+        [CardView3 setAlpha:0];
+        [CardView4 setAlpha:0];
+        [CardView5 setAlpha:0];
+        
+        [self.navigationController.navigationBar setUserInteractionEnabled:NO];
+        
+        noDataLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.TableView.bounds.size.width, self.TableView.bounds.size.height)];
+        noDataLabel.text = @"No Internet Connection";
+        noDataLabel.textColor = [UIColor blackColor];
+        noDataLabel.font = [UIFont fontWithName:@"MavenProRegular" size:16];
+        noDataLabel.textAlignment = NSTextAlignmentCenter;
+        
+        refreshImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+        [refreshImage setCenter:CGPointMake(self.TableView.center.x, self.TableView.center.y-40)];
+        [refreshImage setImage:[UIImage imageNamed:@"updateArrow.png"]];
+        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget: self action: @selector(tapRefresh)];
+        [refreshImage addGestureRecognizer:tap];
+        [refreshImage setUserInteractionEnabled:YES];
+        
+        [self.TableView addSubview:noDataLabel];
+        [self.TableView addSubview:refreshImage];
+    }
+}
+
+-(void)preloadWebview
+{
+    //preloads UIWebView and YTPlayerView since they take time on the first load
+    UIWebView *webview=[[UIWebView alloc]initWithFrame:CGRectMake(0, 0, 0, 0)];
+    webview.delegate = self;
+    [webview loadHTMLString:@"<div style=\"background-color:#fff; display:inline-block; font-family:Arial,sans-serif; color:#c0c0c0; font-size:1em; width:100%; max-width:410px; min-width:300px;\"><div style=\"overflow:hidden; position:relative; height:0; padding:92% 0 49px 0; width:100%;\"><iframe src=\"http://www.evoxstock.com/apis/media/embed/V0508647/XiB74FbcWN9R30zVY9df2lzWXNJY5Vbo4Q\" width=\"410\" scrolling=\"no\" frameborder=\"0\" style=\"display:inline-block; position:absolute; top:0; left:0; width:100%; height:100%;\"></iframe></div></div>" baseURL:nil];
+    [self.view addSubview:webview];
+    
+    playerView = [[YTPlayerView alloc]initWithFrame:CGRectMake(100, 100, 100, 100)];
+    playerView.delegate = self;
+    NSString *videoID = @"kXz6iwLm9nE";
+    [playerView loadWithVideoId:videoID];
+}
+
+-(void)playerViewDidBecomeReady:(YTPlayerView *)playerView
+{
+    NSLog(@"player finished loading");
+}
+
+-(void)playerView:(YTPlayerView *)playerView didChangeToState:(YTPlayerState)state
+{
+    NSLog(@"changedtostate");
+}
+
+-(void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    NSLog(@"didfinishload");
 }
 
 -(void)viewDidDisappear:(BOOL)animated
 {
-    CardView1.backgroundColor = [UIColor whiteColor];
-    CardView2.backgroundColor = [UIColor whiteColor];
-    CardView3.backgroundColor = [UIColor whiteColor];
-    CardView4.backgroundColor = [UIColor whiteColor];
-    CardView5.backgroundColor = [UIColor whiteColor];
+    [CardView1 setAlpha:1];
+    [CardView2 setAlpha:1];
+    [CardView3 setAlpha:1];
+    [CardView4 setAlpha:1];
+    [CardView5 setAlpha:1];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     self.navigationController.navigationBar.topItem.title = @"Home";
+}
+
+- (UIImage*)resizeImage:(UIImage*)aImage reSize:(CGSize)newSize;
+{
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, [UIScreen mainScreen].scale);
+    [aImage drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
+    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
 }
 
 -(void)rotateLayerInfinite:(CALayer *)layer
@@ -114,13 +211,18 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    HomepageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HomeCell" forIndexPath:indexPath];
     HomePageMedia * mediaObject;
-        
+    HomepageCell *cell;
+    
+    if (collectionView != self.RacesCV)
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HomeCell" forIndexPath:indexPath];
+    
     if (collectionView == self.CarOfTheDayCV)
     {
+        mediaObject = [carOfTheDayArray objectAtIndex:indexPath.item];
+
         CarOfTheDayCV.clipsToBounds = YES;
-        cell.CellImageView.clipsToBounds = YES;
+        cell.imageScroller2.clipsToBounds = YES;
         NSString *imageURL = [carOfTheDayArray objectAtIndex:indexPath.item];
         
         NSURL *url;
@@ -129,16 +231,27 @@
         else
             url = [NSURL URLWithString:imageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/OtherPictures/"]];
         
-        [cell.CellImageView setImageWithURL:url
+        UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        activityIndicator.hidesWhenStopped = YES;
+        activityIndicator.color = [UIColor blackColor];
+        activityIndicator.center = cell.CellImageView.center;
+        [cell addSubview:activityIndicator];
+        [activityIndicator startAnimating];
+        
+        cell.CellImageView.tag = 1;
+        [cell.imageScroller2 setDelegate:self];
+
+        [cell.imageScroller2 setScrollEnabled:NO];
+        
+        [cell.CellImageView sd_setImageWithURL:url
                                   completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageurl){
+                                      [activityIndicator stopAnimating];
                                       [cell.CellImageView setAlpha:0.0];
                                       [UIImageView animateWithDuration:0.5 animations:^{
                                           [cell.CellImageView setAlpha:1.0];
                                       }];
-                                  }
-                usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+                                  }];
     
-        //[cell.CellImageView setFrame:CGRectMake(0, 0, 300, 140)];
         cell.CellImageView.contentMode = UIViewContentModeScaleAspectFill;
         return cell;
     }
@@ -155,15 +268,28 @@
             imageURL = [NSURL URLWithString:mediaObject.ImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/newsimage.php"]];
         else
             imageURL = [NSURL URLWithString:mediaObject.ImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/OtherPictures/"]];
+        
+        UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        activityIndicator.hidesWhenStopped = YES;
+        activityIndicator.color = [UIColor blackColor];
+        activityIndicator.center = cell.CellImageView.center;
+        [cell addSubview:activityIndicator];
+        [activityIndicator startAnimating];
+        
+        cell.CellImageView.tag = 1;
+        [cell.imageScroller2 setDelegate:self];
 
-        [cell.CellImageView setImageWithURL:imageURL
+        [cell.imageScroller2 setScrollEnabled:NO];
+
+        [cell.CellImageView sd_setImageWithURL:imageURL
                                          completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageurl){
+                                             [activityIndicator stopAnimating];
                                              [cell.CellImageView setAlpha:0.0];
                                              [UIImageView animateWithDuration:0.5 animations:^{
+                                                 [cell.CellImageView setClipsToBounds:YES];
                                                  [cell.CellImageView setAlpha:1.0];
                                              }];
-                                         }
-                    usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+                                         }];
 
         cell.DescriptionLabel.text=mediaObject.Description;
         return cell;
@@ -171,6 +297,8 @@
     
     if (collectionView == self.RacesCV)
     {
+        RaceCVCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"RaceCVCell" forIndexPath:indexPath];
+
         mediaObject = [racesArray objectAtIndex:indexPath.item];
         
         NSURL *imageURL;
@@ -179,16 +307,46 @@
         else
             imageURL = [NSURL URLWithString:mediaObject.ImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/OtherPictures/"]];
         
-        [cell.CellImageView setImageWithURL:imageURL
+        UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        activityIndicator.hidesWhenStopped = YES;
+        activityIndicator.color = [UIColor blackColor];
+        activityIndicator.center = cell.raceImageView.center;
+        [cell addSubview:activityIndicator];
+        [activityIndicator startAnimating];
+        
+        [cell.raceImageView sd_setImageWithURL:imageURL
                                          completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageurl){
-                                             [cell.CellImageView setAlpha:0.0];
+                                             [activityIndicator stopAnimating];
+                                             [cell.raceImageView setAlpha:0.0];
                                              [UIImageView animateWithDuration:0.5 animations:^{
-                                                 [cell.CellImageView setAlpha:1.0];
+                                                 [cell.raceImageView setAlpha:1.0];
                                              }];
-                                         }
-                    usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-            
-        cell.DescriptionLabel.text=mediaObject.Description;
+                                         }];
+        
+        Race *raceObject2 = [self findRaceObjectFromHomeData:mediaObject];
+        RaceType *raceTypeObject = [self findRaceTypeFromRaceObject:raceObject2];
+        
+        NSURL *imageURL2;
+        if([raceTypeObject.TypeImageURL containsString:@"carno"])
+            imageURL2 = [NSURL URLWithString:raceTypeObject.TypeImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/image.php"]];
+        else
+            imageURL2 = [NSURL URLWithString:raceTypeObject.TypeImageURL relativeToURL:[NSURL URLWithString:@"http://pl0x.net/OtherPictures/"]];
+        
+        [cell.raceClassImageView sd_setImageWithURL:imageURL2
+                                       completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageurl){
+                                           [cell.raceClassImageView setAlpha:0.0];
+                                           [UIImageView animateWithDuration:0.5 animations:^{
+                                               [cell.raceClassImageView setAlpha:1.0];
+                                           }];
+                                       }];
+        
+        cell.raceImageView.tag = 1;
+        [cell.imageScroller setDelegate:self];
+
+        [cell.imageScroller setScrollEnabled:NO];
+        
+        cell.raceNameLabel.text = mediaObject.Description;
+        cell.raceDateLabel.text = mediaObject.RaceDate;
         cell.backgroundColor = [UIColor whiteColor];
         
         return cell;
@@ -196,12 +354,62 @@
     if (collectionView == self.AddedCarsCV)
         mediaObject = [addedCarsArray objectAtIndex:indexPath.item];
     
+    cell.CellImageView.tag = 1;
+    
+    [cell removeActvityIndicators];
+    
     [cell setUpCarImageWithModel:[self getModelFromMediaObject:mediaObject]];
     
     cell.DescriptionLabel.text=mediaObject.Description;
     cell.backgroundColor = [UIColor whiteColor];
     
     return cell;
+}
+
+-(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
+{
+    return [scrollView viewWithTag:1];
+}
+
+-(void)scrollViewDidZoom:(UIScrollView *)scrollView
+{
+    CGFloat top = 0, left = 0;
+    if (scrollView.contentSize.width < scrollView.bounds.size.width) {
+        left = (scrollView.bounds.size.width-scrollView.contentSize.width) * 0.5f;
+    }
+    if (scrollView.contentSize.height < scrollView.bounds.size.height) {
+        top = (scrollView.bounds.size.height-scrollView.contentSize.height) * 0.5f;
+    }
+    scrollView.contentInset = UIEdgeInsetsMake(top, left, top, left);
+}
+
+-(Race *)findRaceObjectFromHomeData: (HomePageMedia *)homeData
+{
+    AppDelegate *appdel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    Race *currentRace;
+    
+    for(int i=0; i<appdel.raceListArray.count; i++)
+    {
+        Race *race = (Race *)[appdel.raceListArray objectAtIndex:i];
+        if([race.RaceName isEqualToString:homeData.Description])
+            currentRace = race;
+    }
+    return currentRace;
+}
+
+-(RaceType *)findRaceTypeFromRaceObject:(Race *)raceObject
+{
+    AppDelegate *appdel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSString *raceTypeString = raceObject.RaceType;
+    RaceType *currentType;
+    
+    for(int i=0; i<appdel.raceTypeArray.count; i++)
+    {
+        RaceType *type = [appdel.raceTypeArray objectAtIndex:i];
+        if([type.RaceTypeString isEqualToString:raceTypeString])
+            currentType = type;
+    }
+    return currentType;
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
@@ -270,38 +478,26 @@
 
 - (void)setupRefreshControl
 {
-    // Adding UIRefreshControl Programatically
+    self.refreshControl = [[UIRefreshControl alloc] initWithFrame:CGRectMake(0, -30, self.view.frame.size.width, 30)];
     
-    self.refreshControl = [[UIRefreshControl alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 30)];
-    //self.refreshControl = [[UIRefreshControl alloc]init];
-    
-    // Setup the loading view, which will hold the moving graphics
     self.refreshLoadingView = [[UIView alloc] initWithFrame:self.refreshControl.frame];
-    NSLog(@"frame :%f", self.refreshControl.frame.size.height);
     self.refreshLoadingView.backgroundColor = [UIColor clearColor];
     
-    // Create the graphic image views
     self.compass_background = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"LoadingWheelBrake.png"]];
     self.compass_spinner = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"LoadingWheelWheel.png"]];
     
-    // Add the graphics to the loading view
     [self.refreshLoadingView addSubview:self.compass_background];
     [self.refreshLoadingView addSubview:self.compass_spinner];
     
-    // Clip so the graphics don't stick out
     self.refreshLoadingView.clipsToBounds = YES;
     
-    // Hide the original spinner icon
     self.refreshControl.tintColor = [UIColor clearColor];
     
-    // Add the loading and colors views to our refresh control
     [self.refreshControl addSubview:self.refreshLoadingView];
     
-    // Initalize flags
     self.isRefreshIconsOverlap = NO;
     self.isRefreshAnimating = NO;
     
-    // When activated, invoke our refresh function
     [self.refreshControl addTarget:self action:@selector(reloadData) forControlEvents:UIControlEventValueChanged];
     [self.TableView addSubview:self.refreshControl];
 }
@@ -311,60 +507,165 @@
     [self refresh:self];
 }
 
-- (void)refresh:(id)sender{
-    // -- DO SOMETHING AWESOME (... or just wait 3 seconds) --
-    // This is where you'll make requests to an API, reload data, or process information
-    
+- (void)refresh:(id)sender
+{
     if (self.refreshControl.isRefreshing && !self.isRefreshAnimating)
         [self animateRefreshView];
     
     shouldKeepSpinning = YES;
     
-    double delayInSeconds = 0.0;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-    dispatch_async(dispatch_get_main_queue(), ^{
-    //dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
         
         AppDelegate *appdel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        if(appdel.hasLoaded == NO)
+        if(appdel.hasLoaded == NO && [appdel isInternetConnectionAvailable] == YES)
         {
-            [appdel performInitialLoad];
+            [appdel updateAllData];
+            [mediaArray removeAllObjects];
             [mediaArray addObjectsFromArray:appdel.homePageArray];
-            [self splitMediaArray];
-            
-            [self.CarOfTheDayCV reloadData];
-            [self.LatestArticlesCV reloadData];
-            [self.LatestVideosCV reloadData];
-            [self.RacesCV reloadData];
-            [self.AddedCarsCV reloadData];
             [self.navigationController.navigationBar setUserInteractionEnabled:YES];
         }
         else
         {
-            [appdel retrieveHomePageData];
-        
+            //remove objects and update data from arrays that use appdel arrays
+            [appdel updateAllData];
             [mediaArray removeAllObjects];
             [mediaArray addObjectsFromArray:appdel.homePageArray];
-            [self splitMediaArray];
-    
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //update ui elements and methods for the view
             [self.CarOfTheDayCV reloadData];
             [self.LatestArticlesCV reloadData];
             [self.LatestVideosCV reloadData];
             [self.RacesCV reloadData];
             [self.AddedCarsCV reloadData];
-        }
-        
-        pageControl1.numberOfPages =  carOfTheDayArray.count;
-        pageControl2.numberOfPages =  latestArticlesArray.count;
-        pageControl3.numberOfPages =  latestVideosArray.count;
-        pageControl4.numberOfPages =  racesArray.count;
-        pageControl5.numberOfPages =  addedCarsArray.count;
-
-        // When done requesting/reloading/processing invoke endRefreshing, to close the control
-        NSLog(@"done loading");
-        shouldKeepSpinning = NO;
-        [self.refreshControl endRefreshing];
+            
+            [self splitMediaArray];
+            
+            pageControl1.numberOfPages = carOfTheDayArray.count;
+            pageControl2.numberOfPages = latestArticlesArray.count;
+            pageControl3.numberOfPages = latestVideosArray.count;
+            pageControl4.numberOfPages = racesArray.count;
+            pageControl5.numberOfPages = addedCarsArray.count;
+            [self scrollViewDidEndDecelerating:CarOfTheDayCV];
+            
+            shouldDoInitialLoad = NO;
+            shouldKeepSpinning = NO;
+            [self.refreshControl endRefreshing];
+            
+            if(shouldPushToModel)
+            {
+                [self preloadToModel:savedNotification];
+                shouldPushToModel = NO;
+            }
+            if(shouldPushToArticle)
+            {
+                [self preloadToArticle:savedNotification];
+                shouldPushToArticle = NO;
+            }
+            if(shouldPushToVideo)
+            {
+                [self preloadToVideo:savedNotification];
+                shouldPushToVideo = NO;
+            }
+            if(shouldPushToRace)
+            {
+                [self preloadToRace:savedNotification];
+                shouldPushToRace = NO;
+            }
+            
+            AppDelegate *appdel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+            if([appdel isInternetConnectionAvailable] == YES)
+            {
+                //self.TableView.contentOffset = CGPointMake(0, 0);
+                [Spec1Label setAlpha:1];
+                [Spec2Label setAlpha:1];
+                [CarOfTheDayLabel setAlpha:1];
+                [fullSpecsArrow setAlpha:1];
+                [fullSpecsLabel setAlpha:1];
+                [latestArticlesLabel setAlpha:1];
+                [CardView1 setAlpha:1];
+                [CardView2 setAlpha:1];
+                [CardView3 setAlpha:1];
+                [CardView4 setAlpha:1];
+                [CardView5 setAlpha:1];
+                
+                [refreshImage removeFromSuperview];
+                [noDataLabel removeFromSuperview];
+            }
+            else
+            {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Internet Connection" message:@"Please check your internet connectivity." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert show];
+                
+                [noDataLabel removeFromSuperview];
+                [refreshImage removeFromSuperview];
+                
+                [Spec1Label setAlpha:0];
+                [Spec2Label setAlpha:0];
+                [CarOfTheDayLabel setAlpha:0];
+                [fullSpecsArrow setAlpha:0];
+                [fullSpecsLabel setAlpha:0];
+                [latestArticlesLabel setAlpha:0];
+                [CardView1 setAlpha:0];
+                [CardView2 setAlpha:0];
+                [CardView3 setAlpha:0];
+                [CardView4 setAlpha:0];
+                [CardView5 setAlpha:0];
+                
+                noDataLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.TableView.bounds.size.width, self.TableView.bounds.size.height)];
+                noDataLabel.text = @"No Internet Connection";
+                noDataLabel.textColor = [UIColor blackColor];
+                noDataLabel.font = [UIFont fontWithName:@"MavenProRegular" size:16];
+                noDataLabel.textAlignment = NSTextAlignmentCenter;
+                
+                refreshImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+                [refreshImage setCenter:CGPointMake(self.TableView.center.x, self.TableView.center.y-40)];
+                [refreshImage setImage:[UIImage imageNamed:@"updateArrow.png"]];
+                UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget: self action: @selector(tapRefresh)];
+                [refreshImage addGestureRecognizer:tap];
+                [refreshImage setUserInteractionEnabled:YES];
+                
+                [self.TableView addSubview:noDataLabel];
+                [self.TableView addSubview:refreshImage];
+            }
+        });
     });
+}
+
+-(void)tapRefresh
+{
+    shouldDoInitialLoad = YES;
+    self.TableView.contentOffset = CGPointMake(0, - self.refreshControl.frame.size.height);
+    [self.refreshControl beginRefreshing];
+    [self reloadData];
+}
+
+- (BOOL) isInternetConnectionAvailable
+{
+    CheckInternet *internet = [CheckInternet reachabilityWithHostName: @"www.google.com"];
+    NetworkStatus netStatus = [internet currentReachabilityStatus];
+    bool netConnection = false;
+    switch (netStatus)
+    {
+        case NotReachable:
+        {
+            NSLog(@"Access Not Available");
+            netConnection = false;
+            break;
+        }
+        case ReachableViaWWAN:
+        {
+            netConnection = true;
+            break;
+        }
+        case ReachableViaWiFi:
+        {
+            netConnection = true;
+            break;
+        }
+    }
+    return netConnection;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -380,14 +681,10 @@
     
     // Calculate the width and height of our graphics
     CGFloat compassHeight = self.compass_background.bounds.size.height;
-    CGFloat compassHeightHalf = compassHeight / 2.0;
-    
     CGFloat compassWidth = self.compass_background.bounds.size.width;
     CGFloat compassWidthHalf = compassWidth / 2.0;
     
     CGFloat spinnerHeight = self.compass_spinner.bounds.size.height;
-    CGFloat spinnerHeightHalf = spinnerHeight / 2.0;
-    
     CGFloat spinnerWidth = self.compass_spinner.bounds.size.width;
     CGFloat spinnerWidthHalf = spinnerWidth / 2.0;
     
@@ -395,8 +692,8 @@
     CGFloat pullRatio = MIN( MAX(pullDistance, 0.0), 100.0) / 100.0;
     
     // Set the Y coord of the graphics, based on pull distance
-    CGFloat compassY = pullDistance / 2.0 - compassHeightHalf;
-    CGFloat spinnerY = pullDistance / 2.0 - spinnerHeightHalf;
+    CGFloat compassY = pullDistance - compassHeight;
+    CGFloat spinnerY = pullDistance - spinnerHeight;
     
     // Calculate the X coord of the graphics, adjust based on pull ratio
     CGFloat compassX = (midX + compassWidthHalf) - (compassWidth * pullRatio);
@@ -412,25 +709,38 @@
     {
         compassX = midX - compassWidthHalf;
         spinnerX = midX - spinnerWidthHalf;
+        compassY = pullDistance/2 - compassHeight/2;
+        spinnerY = pullDistance/2 - spinnerHeight/2;
+    }
+    
+    if(pullDistance >= spinnerHeight)
+    {
+        compassY = pullDistance/2 - compassHeight/2;
+        spinnerY = pullDistance/2 - spinnerHeight/2;
     }
     
     // Set the graphic's frames
     CGRect compassFrame = self.compass_background.frame;
     compassFrame.origin.x = compassX;
-    compassFrame.origin.y = compassY;
+    if(shouldDoInitialLoad)
+        compassFrame.origin.y = compassY-self.refreshControl.frame.size.height/2;
+    else
+        compassFrame.origin.y = compassY;
     
     CGRect spinnerFrame = self.compass_spinner.frame;
     spinnerFrame.origin.x = spinnerX;
-    spinnerFrame.origin.y = spinnerY;
-    
-    self.compass_background.frame = compassFrame;
-    self.compass_spinner.frame = spinnerFrame;
+    if(shouldDoInitialLoad)
+        spinnerFrame.origin.y = spinnerY-self.refreshControl.frame.size.height/2;
+    else
+        spinnerFrame.origin.y = spinnerY;
     
     // Set the encompassing view's frames
     refreshBounds.size.height = pullDistance;
     
     self.refreshLoadingView.frame = refreshBounds;
-    
+    self.compass_background.frame = compassFrame;
+    self.compass_spinner.frame = spinnerFrame;
+        
     // If we're refreshing and the animation is not playing, then play the animation
     if (self.refreshControl.isRefreshing && !self.isRefreshAnimating)
         [self animateRefreshView];
@@ -460,7 +770,6 @@
 
 - (void)resetAnimation
 {
-    // Reset our flags
     self.isRefreshAnimating = NO;
     self.isRefreshIconsOverlap = NO;
 }
@@ -525,11 +834,12 @@
         HomePageMedia *currentMedia = [mediaArray objectAtIndex:i];
         if ([currentMedia.MediaType isEqualToString:@"Car"])
         {
+            COTDMediaObject = currentMedia;
             AppDelegate *appdel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
             for (int i = 0; i < appdel.modelArray.count; i++)
             {
                 Model *currentModel = [appdel.modelArray objectAtIndex:i];
-                if([currentModel.CarFullName isEqualToString:currentMedia.Description])
+                if([currentModel.CarFullName isEqualToString:currentMedia.FullCarModel])
                     currentCarOfTheDay = currentModel;
             }
             
@@ -539,13 +849,17 @@
             
             CarOfTheDayLabel.text = [@"Car of The Day: " stringByAppendingString:currentMedia.Description];
             
-            Spec1Label.text = currentMedia.SpecLabel1;
-            Spec2Label.text = currentMedia.SpecLabel2;
-            [carOfTheDayArray addObject:currentMedia.ImageURL];
-            [carOfTheDayArray addObject:currentMedia.ImageURL2];
-            [carOfTheDayArray addObject:currentMedia.ImageURL3];
-            [carOfTheDayArray addObject:currentMedia.ImageURL4];
-            NSLog(@"carofthedayarray: %@", carOfTheDayArray);
+            [Spec1Label setText:currentMedia.SpecLabel1];
+            [Spec2Label setText:currentMedia.SpecLabel2];
+
+            if(![currentMedia.ImageURL isEqualToString:@""])
+                [carOfTheDayArray addObject:currentMedia.ImageURL];
+            if(![currentMedia.ImageURL2 isEqualToString:@""])
+                [carOfTheDayArray addObject:currentMedia.ImageURL2];
+            if(![currentMedia.ImageURL3 isEqualToString:@""])
+                [carOfTheDayArray addObject:currentMedia.ImageURL3];
+            if(![currentMedia.ImageURL4 isEqualToString:@""])
+                [carOfTheDayArray addObject:currentMedia.ImageURL4];
         }
         if ([currentMedia.MediaType isEqualToString:@"Article"])
             [latestArticlesArray addObject:currentMedia];
@@ -564,30 +878,34 @@
     NSString *spec2 = currentMedia.SpecType2;
     
     if ([spec1 isEqualToString:@"Price"])
-        SpecImage1.image = [UIImage imageNamed:@"PriceIcon.png"];
+        SpecImage1.image = [self resizeImage:[UIImage imageNamed:@"Price.png"] reSize:SpecImage1.frame.size];
     if ([spec1 isEqualToString:@"Engine"])
-        SpecImage1.image = [UIImage imageNamed:@"EngineIcon.png"];
+        SpecImage1.image = [self resizeImage:[UIImage imageNamed:@"Engine.png"] reSize:SpecImage1.frame.size];
     if ([spec1 isEqualToString:@"Horsepower"])
-        SpecImage1.image = [UIImage imageNamed:@"Horsepower Icon.png"];
+        SpecImage1.image = [self resizeImage:[UIImage imageNamed:@"Horsepower.png"] reSize:SpecImage1.frame.size];
+    if ([spec1 isEqualToString:@"Torque"])
+        SpecImage1.image = [self resizeImage:[UIImage imageNamed:@"Torque.png"] reSize:SpecImage1.frame.size];
     if ([spec1 isEqualToString:@"0-60"])
-        SpecImage1.image = [UIImage imageNamed:@"0-60Home.png"];
+        SpecImage1.image = [self resizeImage:[UIImage imageNamed:@"0-60.png"] reSize:SpecImage1.frame.size];
     if ([spec1 isEqualToString:@"Top Speed"])
-        SpecImage1.image = [UIImage imageNamed:@"TopSpeedIcon.png"];
+        SpecImage1.image = [self resizeImage:[UIImage imageNamed:@"TopSpeed.png"] reSize:SpecImage1.frame.size];
     if ([spec1 isEqualToString:@"Fuel Economy"])
-        SpecImage1.image = [UIImage imageNamed:@"fuelEconomyIcon.png"];
+        SpecImage1.image = [self resizeImage:[UIImage imageNamed:@"FuelEconomy.png"] reSize:SpecImage1.frame.size];
     
     if ([spec2 isEqualToString:@"Price"])
-        SpecImage2.image = [UIImage imageNamed:@"PriceIcon.png"];
+        SpecImage2.image = [self resizeImage:[UIImage imageNamed:@"Price.png"] reSize:SpecImage2.frame.size];
     if ([spec2 isEqualToString:@"Engine"])
-        SpecImage2.image = [UIImage imageNamed:@"EngineIcon.png"];
+        SpecImage2.image = [self resizeImage:[UIImage imageNamed:@"Engine.png"] reSize:SpecImage2.frame.size];
     if ([spec2 isEqualToString:@"Horsepower"])
-        SpecImage2.image = [UIImage imageNamed:@"Horsepower Icon.png"];
+        SpecImage2.image = [self resizeImage:[UIImage imageNamed:@"Horsepower.png"] reSize:SpecImage2.frame.size];
+    if ([spec2 isEqualToString:@"Torque"])
+        SpecImage2.image = [self resizeImage:[UIImage imageNamed:@"Torque.png"] reSize:SpecImage2.frame.size];
     if ([spec2 isEqualToString:@"0-60"])
-        SpecImage2.image = [UIImage imageNamed:@"0-60Home.png"];
+        SpecImage2.image = [self resizeImage:[UIImage imageNamed:@"0-60.png"] reSize:SpecImage2.frame.size];
     if ([spec2 isEqualToString:@"Top Speed"])
-        SpecImage2.image = [UIImage imageNamed:@"TopSpeedIcon.png"];
+        SpecImage2.image = [self resizeImage:[UIImage imageNamed:@"TopSpeed.png"] reSize:SpecImage2.frame.size];
     if ([spec2 isEqualToString:@"Fuel Economy"])
-        SpecImage2.image = [UIImage imageNamed:@"fuelEconomyIcon.png"];
+        SpecImage2.image = [self resizeImage:[UIImage imageNamed:@"FuelEconomy.png"] reSize:SpecImage2.frame.size];
 }
 
 #pragma mark - Navigation
@@ -606,57 +924,16 @@
     [CardView5 addGestureRecognizer: tap5];
 }
 
-- (void)addLinearGradientToView:(UIView *)theView withColor:(UIColor *)theColor transparentToOpaque:(BOOL)transparentToOpaque
-{
-    gradient = [CAGradientLayer layer];
-    
-    //the gradient layer must be positioned at the origin of the view
-    CGRect gradientFrame = theView.frame;
-    gradientFrame.origin.x = 0;
-    gradientFrame.origin.y = 0;
-    gradient.frame = gradientFrame;
-    
-    //build the colors array for the gradient
-    NSArray *colors = [NSArray arrayWithObjects:
-                       (id)[[theColor colorWithAlphaComponent:0.05f] CGColor],
-                       (id)[[theColor colorWithAlphaComponent:0.1f] CGColor],
-                       (id)[[theColor colorWithAlphaComponent:0.15f] CGColor],
-                       (id)[[theColor colorWithAlphaComponent:0.2f] CGColor],
-                       (id)[[theColor colorWithAlphaComponent:0.25f] CGColor],
-                       (id)[[theColor colorWithAlphaComponent:0.3f] CGColor],
-                       (id)[[theColor colorWithAlphaComponent:0.35f] CGColor],
-                       (id)[[theColor colorWithAlphaComponent:0.3f] CGColor],
-                       (id)[[theColor colorWithAlphaComponent:0.25f] CGColor],
-                       (id)[[theColor colorWithAlphaComponent:0.2f] CGColor],
-                       (id)[[theColor colorWithAlphaComponent:0.15f] CGColor],
-                       (id)[[theColor colorWithAlphaComponent:0.1f] CGColor],
-                       (id)[[theColor colorWithAlphaComponent:0.05f] CGColor],
-                       nil];
-    
-    //reverse the color array if needed
-    if(transparentToOpaque)
-    {
-        colors = [[colors reverseObjectEnumerator] allObjects];
-    }
-    
-    //apply the colors and the gradient to the view
-    gradient.colors = colors;
-    
-    [theView.layer insertSublayer:gradient atIndex:0];
-    gradient.masksToBounds = YES;
-}
-
 - (void) COTDSelected:(UITapGestureRecognizer *) tap
 {
-    //[self addLinearGradientToView:CardView1 withColor:[UIColor blackColor] transparentToOpaque:NO];
-    CardView1.backgroundColor = [UIColor grayColor];
+    [CardView1 setAlpha:.5];
     [self performSegueWithIdentifier:@"pushDetailView" sender:self];
 }
 
 - (void) ArticleSelected: (UITapGestureRecognizer *) tap
 {
+    [CardView2 setAlpha:.5];
     selectedNews = NULL;
-    CardView2.backgroundColor = [UIColor grayColor];
     HomePageMedia *currentMedia = [latestArticlesArray objectAtIndex:pageControl2.currentPage];
     
     AppDelegate *appdel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -671,8 +948,8 @@
 
 - (void) VideoSelected: (UITapGestureRecognizer *) tap
 {
+    [CardView3 setAlpha:.5];
     selectedNews = NULL;
-    CardView3.backgroundColor = [UIColor grayColor];
     HomePageMedia *currentMedia = [latestVideosArray objectAtIndex:pageControl3.currentPage];
     
     AppDelegate *appdel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -687,8 +964,8 @@
 
 - (void) RaceSelected: (UITapGestureRecognizer *) tap
 {
+    [CardView4 setAlpha:.5];
     currentRaceID = NULL;
-    CardView4.backgroundColor = [UIColor grayColor];
     HomePageMedia *currentMedia = [racesArray objectAtIndex:pageControl4.currentPage];
     
     AppDelegate *appdel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -699,23 +976,24 @@
             currentRaceID = currentRace;
     }
     
-    NSLog(@"currentracid.racetype %@", currentRaceID.RaceType);
-    
-    if ([currentRaceID.RaceType isEqualToString:@"Formula 1"])
-        [self performSegueWithIdentifier:@"pushFormula1" sender:self];
-    if ([currentRaceID.RaceType isEqualToString:@"Nascar"])
-        [self performSegueWithIdentifier:@"pushNascar" sender:self];
-    if ([currentRaceID.RaceType isEqualToString:@"Indy Car"])
-        [self performSegueWithIdentifier:@"pushIndyCar" sender:self];
-    if ([currentRaceID.RaceType isEqualToString:@"FIA"])
-        [self performSegueWithIdentifier:@"pushFIA" sender:self];
-    if ([currentRaceID.RaceType isEqualToString:@"WRC"])
-        [self performSegueWithIdentifier:@"pushWRC" sender:self];
+    if([currentRaceID.RaceType isEqualToString:@"Formula 1"] || [currentRaceID.RaceType isEqualToString:@"Supercars Championship"])
+        [self performSegueWithIdentifier:@"pushResults1" sender:self];
+    if([currentRaceID.RaceType isEqualToString:@"NASCAR"])
+        [self performSegueWithIdentifier:@"pushResults2" sender:self];
+    if([currentRaceID.RaceType isEqualToString:@"FIA World Endurance Championship"])
+        [self performSegueWithIdentifier:@"pushResults3" sender:self];
+    if([currentRaceID.RaceType isEqualToString:@"IndyCar"])
+        [self performSegueWithIdentifier:@"pushResults4" sender:self];
+    if([currentRaceID.RaceType isEqualToString:@"DTM"])
+        [self performSegueWithIdentifier:@"pushResults5" sender:self];
+    if([currentRaceID.RaceType isEqualToString:@"WRC"] || [currentRaceID.RaceType isEqualToString:@"Formula E"])
+        [self performSegueWithIdentifier:@"pushResults6" sender:self];
 }
 
 - (void) NewCarSelected: (UITapGestureRecognizer *)tap
 {
-    CardView5.backgroundColor = [UIColor grayColor];
+    [CardView5 setAlpha:.5];
+    
     HomePageMedia *currentMedia = [addedCarsArray objectAtIndex:pageControl5.currentPage];
     
     AppDelegate *appdel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -740,22 +1018,146 @@
     return currentNewCar;
 }
 
+- (void)preloadToModel:(NSNotification *)notification
+{
+    AppDelegate *appdel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    if(appdel.hasLoaded == NO)
+    {
+        shouldPushToModel = YES;
+        savedNotification = notification;
+        return;
+    }
+    
+    NSString *carFullName = [[notification userInfo] valueForKey:@"Car"];
+    Model *currentModel;
+    
+    for(int i=0; i<appdel.modelArray.count; i++)
+    {
+        Model *current = [appdel.modelArray objectAtIndex:i];
+        if([current.CarFullName isEqualToString:carFullName])
+        {
+            currentModel = current;
+            break;
+        }
+    }
+    
+    UIViewController *viewController = [appdel.activeStoryboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
+    [(DetailViewController *)viewController getModel:currentModel];
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
+- (void)preloadToArticle:(NSNotification *)notification
+{
+    AppDelegate *appdel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    if(appdel.hasLoaded == NO)
+    {
+        shouldPushToArticle = YES;
+        savedNotification = notification;
+        return;
+    }
+    
+    NSString *articleName = [[notification userInfo] valueForKey:@"Article"];
+    News *newsToPush;
+    
+    for (int i = 0; i < appdel.newsArray.count; i++)
+    {
+        News *currentNews = [appdel.newsArray objectAtIndex:i];
+        if([currentNews.NewsImageURL isEqualToString:articleName])
+            newsToPush = currentNews;
+    }
+    
+    UIViewController *viewController = [appdel.activeStoryboard instantiateViewControllerWithIdentifier:@"ArticleViewController"];
+    [(ViewController *)viewController getNews:newsToPush];
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
+- (void)preloadToVideo:(NSNotification *)notification
+{
+    AppDelegate *appdel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    if(appdel.hasLoaded == NO)
+    {
+        shouldPushToVideo = YES;
+        savedNotification = notification;
+        return;
+    }
+    
+    NSString *videoName = [[notification userInfo] valueForKey:@"Video"];
+    News *newsToPush;
+    
+    for (int i = 0; i < appdel.newsArray.count; i++)
+    {
+        News *currentNews = [appdel.newsArray objectAtIndex:i];
+        if([currentNews.NewsImageURL isEqualToString:videoName])
+            newsToPush = currentNews;
+    }
+    
+    UIViewController *viewController = [appdel.activeStoryboard instantiateViewControllerWithIdentifier:@"VideoViewController"];
+    [(ViewController *)viewController getNews:newsToPush];
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
+- (void)preloadToRace:(NSNotification *)notification
+{
+    NSLog(@"preloadtorace");
+    
+    AppDelegate *appdel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    if(appdel.hasLoaded == NO)
+    {
+        shouldPushToRace = YES;
+        savedNotification = notification;
+        return;
+    }
+    
+    NSString *raceName = [[notification userInfo] valueForKey:@"Race"];
+    Race *raceToPush;
+    
+    for (int i = 0; i < appdel.raceListArray.count; i++)
+    {
+        Race *currentRace = [appdel.raceListArray objectAtIndex:i];
+        if([currentRace.RaceName isEqualToString:raceName])
+            raceToPush = currentRace;
+    }
+    
+    UIViewController *viewController;
+    
+    if([raceToPush.RaceType isEqualToString:@"Formula 1"] || [raceToPush.RaceType isEqualToString:@"Supercars Championship"])
+        viewController = [appdel.activeStoryboard instantiateViewControllerWithIdentifier:@"RaceViewController1"];
+    if([raceToPush.RaceType isEqualToString:@"NASCAR"])
+        viewController = [appdel.activeStoryboard instantiateViewControllerWithIdentifier:@"RaceViewController2"];
+    if([raceToPush.RaceType isEqualToString:@"FIA World Endurance Championship"])
+        viewController = [appdel.activeStoryboard instantiateViewControllerWithIdentifier:@"RaceViewController3"];
+    if([raceToPush.RaceType isEqualToString:@"IndyCar"])
+        viewController = [appdel.activeStoryboard instantiateViewControllerWithIdentifier:@"RaceViewController4"];
+    if([raceToPush.RaceType isEqualToString:@"DTM"])
+        viewController = [appdel.activeStoryboard instantiateViewControllerWithIdentifier:@"RaceViewController5"];
+    if([raceToPush.RaceType isEqualToString:@"WRC"] || [raceToPush.RaceType isEqualToString:@"Formula E"])
+        viewController = [appdel.activeStoryboard instantiateViewControllerWithIdentifier:@"RaceViewController6"];
+    
+    [(PageItemController *)viewController getRaceResults:raceToPush];
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     self.navigationController.navigationBar.topItem.title = @"";
 
     if ([[segue identifier] isEqualToString:@"pushDetailView"])
-        [[segue destinationViewController] getCarOfTheDay:currentCarOfTheDay];
+        [[segue destinationViewController] getCarToLoad:currentCarOfTheDay sender:self];
     if ([[segue identifier] isEqualToString:@"pushNewCar"])
-        [[segue destinationViewController] getCarOfTheDay:currentNewCar];
+        [[segue destinationViewController] getCarToLoad:currentNewCar sender:self];
     if ([[segue identifier] isEqualToString:@"pushArticle"])
         [[segue destinationViewController] getNews:selectedNews];
     if ([[segue identifier] isEqualToString:@"pushVideo"])
         [[segue destinationViewController] getNews:selectedNews];
-    if ([[segue identifier] isEqualToString:@"pushFormula1"] || [[segue identifier] isEqualToString:@"pushNascar"] || [[segue identifier] isEqualToString:@"pushIndyCar"] || [[segue identifier] isEqualToString:@"pushFIA"] || [[segue identifier] isEqualToString:@"pushWRC"])
+    if ([[segue identifier] isEqualToString:@"pushResults1"] || [[segue identifier] isEqualToString:@"pushResults2"] || [[segue identifier] isEqualToString:@"pushResults3"] || [[segue identifier] isEqualToString:@"pushResults4"] || [[segue identifier] isEqualToString:@"pushResults5"] || [[segue identifier] isEqualToString:@"pushResults6"])
     {
         [[segue destinationViewController] getRaceResults:currentRaceID];
     }
+}
+
+- (IBAction)unwindToHomeVC:(UIStoryboardSegue *)segue
+{
+    [self.navigationItem setTitle:@"Home"];
 }
 
 @end

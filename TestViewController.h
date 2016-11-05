@@ -11,8 +11,13 @@
 #import "Model.h"
 #import "News.h"
 #import "CustomPageControl.h"
+#import "HomePageMedia.h"
+#import "SearchViewController.h"
+#import "YTPlayerView.h"
 
-@interface TestViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface TestViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate, UIWebViewDelegate, YTPlayerViewDelegate>
+
+@property (nonatomic, strong) YTPlayerView *playerView;
 
 @property (weak, nonatomic) IBOutlet UITableView *TableView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *barButton;
@@ -24,6 +29,7 @@
 @property (nonatomic, strong) NSMutableArray * latestVideosArray;
 @property (nonatomic, strong) NSMutableArray * racesArray;
 @property (nonatomic, strong) NSMutableArray * addedCarsArray;
+@property (nonatomic, strong) HomePageMedia * COTDMediaObject;
 
 @property (nonatomic, strong) Model * currentCarOfTheDay;
 @property (nonatomic, strong) Model * currentNewCar;
@@ -35,15 +41,23 @@
 @property (weak, nonatomic) IBOutlet UIImageView *SpecImage1;
 @property (weak, nonatomic) IBOutlet UIImageView *SpecImage2;
 
+@property (strong, nonatomic) UIImageView *refreshImage;
+@property (strong, nonatomic) UILabel *noDataLabel;
+
 @property (weak, nonatomic) IBOutlet CustomPageControl *pageControl1;
 @property (weak, nonatomic) IBOutlet CustomPageControl *pageControl2;
 @property (weak, nonatomic) IBOutlet CustomPageControl *pageControl3;
 @property (weak, nonatomic) IBOutlet CustomPageControl *pageControl4;
 @property (weak, nonatomic) IBOutlet CustomPageControl *pageControl5;
 @property (weak, nonatomic) IBOutlet UILabel *CarOfTheDayLabel;
+@property (weak, nonatomic) IBOutlet UILabel *latestArticlesLabel;
+@property (weak, nonatomic) IBOutlet UILabel *latestVideosLabel;
+@property (weak, nonatomic) IBOutlet UILabel *recentRacesLabel;
+@property (weak, nonatomic) IBOutlet UILabel *newlyAddedCarsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *Spec1Label;
 @property (weak, nonatomic) IBOutlet UILabel *Spec2Label;
-@property (weak, nonatomic) IBOutlet UILabel *circleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *fullSpecsLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *fullSpecsArrow;
 
 @property (weak, nonatomic) IBOutlet UIView *CardView1;
 @property (nonatomic, strong) CAGradientLayer *gradient;
@@ -60,11 +74,17 @@
 //Refresh Control Stuff
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (nonatomic, strong) UIView *refreshLoadingView;
-@property (nonatomic, strong) UIView *refreshColorView;
 @property (nonatomic, strong) UIImageView *compass_background;
 @property (nonatomic, strong) UIImageView *compass_spinner;
 @property (assign) BOOL isRefreshIconsOverlap;
 @property (assign) BOOL isRefreshAnimating;
 @property (assign) BOOL shouldKeepSpinning;
+@property (assign) BOOL shouldDoInitialLoad;
+
+@property (assign) BOOL shouldPushToModel;
+@property (assign) BOOL shouldPushToArticle;
+@property (assign) BOOL shouldPushToVideo;
+@property (assign) BOOL shouldPushToRace;
+@property (nonatomic, strong) NSNotification *savedNotification;
 
 @end
